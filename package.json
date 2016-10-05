@@ -1,0 +1,38 @@
+{
+  "name": "egghead-instructor-center",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@kadira/storybook": "^2.5.2",
+    "flow-bin": "^0.33.0",
+    "react-scripts": "0.6.1"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "history": "^4.3.0",
+    "jwt-decode": "^2.1.0",
+    "lodash": "^4.16.2",
+    "parse-link-header": "^0.4.1",
+    "query-string": "^4.2.3",
+    "react": "^15.3.2",
+    "react-addons-create-fragment": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-markdown": "^2.4.2",
+    "react-mousetrap": "^0.1.1",
+    "react-paginate": "^2.2.3",
+    "react-rangeslider": "^1.0.9",
+    "react-tagsinput": "^3.13.5",
+    "react-truncate": "^1.1.4",
+    "react-url-query": "^1.0.0",
+    "tachyons": "^4.5.3",
+    "whatwg-fetch": "^1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9009",
+    "build-storybook": "build-storybook"
+  }
+}
