@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
+import InstructorDashboard from './screens/InstructorDashboard'
 
 const App = () => (
-  <h1>Hello.</h1>
+  <InstructorDashboard />
 );
 
 export default App;
