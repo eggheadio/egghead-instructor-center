@@ -3,15 +3,52 @@
 
 ### dev notes
 
-structure: https://gist.github.com/ryanflorence/daafb1e3cb8ad740b346
 
-This seems reasonable?
 
 ### TODO
 
 > We've made it so that shared resolves the same way with webpack modulesDirectories. This way you don't have to require('../../../../../../../../../../shared/Avatar') you can simply do require('components/Avatar') no matter where you are.
 
 Implement this? Does that mean we need to eject create-react-app?
+
+## Structure
+We have an `App` that is a React component, composed of many other React components. Some of those components are designated as **screens**, which are connected components that manage state and usually represent a route within the application. Screens are composed of additional screens (sub-routes) and components.
+
+All components are eligible for promotion to facilitate code reuse. Within a screen, shared components/utils/etc will reside in that screen’s `shared` folder. If screens share a components/utils/etc, the principle of _least common ancestor_ will apply and that shared resource will me **promoted** to the least common ancestor’s `shared` folder.
+### App
+At the top of the component tree is the App component. This is the entry point to the application screens and the primary container that the application resides in.
+
+App.css
+App.test.js
+index.js
+screens/
+components/ (optional)
+shared/ (optional)
+#### shared/
+The application has a `shared` folder. It contains components, utilities, and other pieces of shared code. Anything that is used across screens/modules/components should reside in a shared folder.
+### Screen
+A Screen is a top level (connected/smart) container for a particular piece of functionality or group of features. The term screen is a way to designate these are “important”, likely designate a route, and is probably connected and stateful.
+
+A screen has a named folder that represents the feature:
+#### LessonReview
+index.js
+LessonReview.css
+LessonReview.test.js
+components/ (optional)
+screens/ (optional)
+shared/ (optional)
+### Component
+Within a screen’s `components` folder there will be the individual components that comprise a screen. These components will be stateless presentational “dumb” components (for the most part, always exceptions!) that receive props from their connected parent (screen).
+
+Components can be folders that contain an `index.js` or simply a JS file representing the component. A component would be a folder if it had non-shared sub-component elements.
+
+Components do not have a `screens` or `shared` sub-folder, but they can contain additional components (all the way down!)
+#### LessonList
+index.js
+LessonList.css
+LessonList.test.js
+components/ (optional)
+
 
 ## Connecting to egghead.io
 

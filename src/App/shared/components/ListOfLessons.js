@@ -5,9 +5,8 @@ import classnames from 'classnames'
 import union from 'lodash/union'
 
 export default class ListOfLessons extends React.Component {
-
   render() {
-    const {lessons, selectedLesson, selectLesson, total, handlePageClick, currentPage} = this.props;
+    const {lessons=[], selectedLesson, selectLesson, total, handlePageClick, currentPage} = this.props;
 
     const pageNum = Math.ceil(total / 5)
 
