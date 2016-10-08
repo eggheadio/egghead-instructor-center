@@ -1,37 +1,32 @@
 import React from 'react'
+
+import {connect} from 'react-redux'
+
 import Miss from 'react-router/Miss'
 import Link from 'react-router/Link'
-
-import {fetchInstructor} from './services/instructor-service'
 
 import InstructorNav from './components/InstructorNav'
 import InstructorRoutes from './components/InstructorRoutes'
 
-class Instructor extends React.Component {
-  state = {}
+import {requestInstructor} from '../../actions'
 
-  loadInstructor(instructor_id) {
-    fetchInstructor(instructor_id).then((instructor) => {
-      this.setState({instructor})
-    })
-  }
+class Instructor extends React.Component {
 
   componentWillReceiveProps(nextProps) {
-    // ultra jank!
-    const {instructor_id} = nextProps.params
-    this.loadInstructor(instructor_id)
-  }
-
-  componentWillMount() {
-    const {instructor_id} = this.props.params
-    this.loadInstructor(instructor_id)
+    const {instructor_id} = this.props.params;
+    if (instructor_id !== nextProps.params.instructor_id) {
+      this.props.requestInstructor(nextProps.params.instructor_id)
+    }
   }
 
   render() {
-    const {pathname} = this.props
-    const {instructor} = this.state // where the instructor gets loaded is weird right now, you'd
-                                    // likely either BE the instructor, or you'd click through a list
-                                    // of instructors (as an admin). Redux? MobX?
+    const {pathname, params, requestInstructor} = this.props
+    const {instructor} = this.props.instructorById
+
+    if(!instructor) {
+      // componentWillReceiveProps doesn't work on first load
+      requestInstructor(params.instructor_id)
+    }
 
     return (
       <div>
@@ -62,4 +57,5 @@ Instructor.propTypes = {
   pathname: React.PropTypes.string.isRequired
 }
 
-export default Instructor
+export default connect(
+  ({instructorById}) => ({instructorById}), {requestInstructor})(Instructor)

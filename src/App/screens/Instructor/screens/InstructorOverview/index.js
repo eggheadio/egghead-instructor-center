@@ -39,6 +39,7 @@ class InstructorOverview extends React.Component {
     const {lessons, total, currentPage} = this.state
     const {instructor} = this.props
 
+
     return instructor ? (
       <div >
         <div>
