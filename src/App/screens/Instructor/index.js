@@ -1,107 +1,65 @@
 import React from 'react'
-import ReactPaginate from 'react-paginate';
-import {fetchInstructor, fetchInstructorLessons} from '../../shared/services/instructor-service'
+import Miss from 'react-router/Miss'
+import Link from 'react-router/Link'
 
-class InstructorDashboard extends React.Component {
-  state = {
-    instructor: {},
-    lessons: [],
-    currentPage: 1
+import {fetchInstructor} from './services/instructor-service'
+
+import InstructorNav from './components/InstructorNav'
+import InstructorRoutes from './components/InstructorRoutes'
+
+class Instructor extends React.Component {
+  state = {}
+
+  loadInstructor(instructor_id) {
+    fetchInstructor(instructor_id).then((instructor) => {
+      this.setState({instructor})
+    })
   }
 
-  fetchLessons(instructor, currentPage=1) {
-    this.setState({currentPage});
-    fetchInstructorLessons(instructor, currentPage).then(({lessons, pages, total}) => this.setState({lessons, pages, total}))
+  componentWillReceiveProps(nextProps) {
+    // ultra jank!
+    const {instructor_id} = nextProps.params
+    this.loadInstructor(instructor_id)
   }
 
   componentWillMount() {
-    fetchInstructor('john-lindquist').then((instructor) => {
-      console.info(instructor);
-      this.setState({instructor})
-      this.fetchLessons(instructor)
-    })
+    const {instructor_id} = this.props.params
+    this.loadInstructor(instructor_id)
   }
+
   render() {
-    const {instructor, lessons, total, currentPage} = this.state
+    const {pathname} = this.props
+    const {instructor} = this.state // where the instructor gets loaded is weird right now, you'd
+                                    // likely either BE the instructor, or you'd click through a list
+                                    // of instructors (as an admin). Redux? MobX?
 
-    const pageNum = Math.ceil(total / 10)
+    return (
+      <div>
+        <header className="bg-black-90 fixed w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
+          <nav className="f6 fw6 ttu tracked">
+            <Link to="/instructors/john-lindquist" className="link dim white dib mr3">John</Link>
+            <Link to="/instructors/joel-hooks" className="link dim white dib mr3">Joel</Link>
+            <Link to="/instructors/trevor-miller" className="link dim white dib mr3">Trevor</Link>
+          </nav>
+        </header>
 
-    return instructor.first_name ? (
-      <div className="pa4">
-        <div>
-          <h1>Hi, {instructor.first_name}!</h1>
-        </div>
-        {instructor.revenue ? (
-          <div>
-            <p>This month subscribers have
-              spent <strong>{instructor.revenue[instructor.revenue.current].minutes_watched}</strong> minutes
-              watching your lessons. Your current revenue share
-              is <strong>${instructor.revenue[instructor.revenue.current].revenue}</strong>.
-            </p>
-          </div>
-        ) : null}
-        <div>
-          <h3>Got questions? Feeling stuck?</h3>
-          <p>
-              You're not alone. The first lesson is always the hardest, and we
-            have lots of resources to help you. If you're feeling stuck
-            here're a few places to turn:
-          </p>
-          <ul>
-            <li>
-              <a href="#0">egghead.io Slack</a> - Need access? Email <a href="mailto:slack@egghead.io">slack@egghead.io</a>
-            </li>
-            <li>
-              <a href="#0">Your mentor</a> - Your mentor is <strong>John Lindquist</strong>. Reach out any tine, they're here to help.
-            </li>
-            <li>
-              <a href="#0">The Instructor Guidebook</a> - We've put together comprehensive how-tos covering a lot of the
-              common issues that new instructors encounter. It's here to help you make great work that will resonate
-            </li>
-            <li>
-              <a href="#0">Joel & John</a> - As egghead.io's coufounders, they can help with almost anything related
-              to making egghead.io lessons.
-            </li>
-          </ul>
-
-        </div>
-        <div>
-          <h4>All lessons:</h4>
-          <ul>
-            {lessons.map((lesson) => (
-              <li key={lesson.slug}>{lesson.title} - <em>{lesson.state}</em></li>
-            ))}
-          </ul>
-          { pageNum > 1 && lessons.length > 0 ? (
-            <div id="react-paginate">
-              <ReactPaginate previousLabel={"previous"}
-                             nextLabel={"next"}
-                             breakLabel={<a href="">...</a>}
-                             breakClassName={"break-me"}
-                             pageNum={pageNum}
-                             marginPagesDisplayed={3}
-                             pageRangeDisplayed={5}
-                             initialSelected={currentPage-1}
-                             clickCallback={(page) => {
-                               const {selected} = page
-                               if(currentPage !== selected + 1) {
-                                 console.log(currentPage, selected)
-                                 this.setState({lessons: []})
-                                 this.fetchLessons(instructor, selected + 1)
-                               }
-                             }}
-                             containerClassName={"pagination"}
-                             subContainerClassName={"pages pagination"}
-                             activeClassName={"active"}/>
-            </div>
-          ) : null}
-
-        </div>
-
-
+        { instructor ?
+        <main className="pa3 pa5-ns bt b--black-10 black-70 bg-white">
+          <InstructorNav pathname={pathname} />
+          <InstructorRoutes instructor={instructor} {...this.props} />
+        </main>
+          : null
+        }
+        <Miss component={() => null}/>
       </div>
-    ) : null
+
+    )
   }
 }
 
-export default InstructorDashboard
+Instructor.propTypes = {
+  params: React.PropTypes.object.isRequired,
+  pathname: React.PropTypes.string.isRequired
+}
+
+export default Instructor
