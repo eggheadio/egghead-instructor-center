@@ -7,12 +7,13 @@ We have an `App` that is a React component, composed of many other React compone
 All components are eligible for promotion to facilitate code reuse. Within a screen, shared components/utils/etc will reside in that screen’s `shared` folder. If screens share a components/utils/etc, the principle of _least common ancestor_ will apply and that shared resource will me **promoted** to the least common ancestor’s `shared` folder.
 ### App
 At the top of the component tree is the App component. This is the entry point to the application screens and the primary container that the application resides in.
-
+```
 App.css
 App.test.js
 index.js
 screens/
 components/ (optional)
+```
 
 
 ### Screen
@@ -21,11 +22,13 @@ A Screen is a top level (connected/smart) container for a particular piece of fu
 A screen has a named folder that represents the feature:
 
 #### LessonReview
+```
 index.js
 LessonReview.css
 LessonReview.test.js
 components/ (optional)
 screens/ (optional)
+```
 
 ### Component
 Within a screen’s `components` folder there will be the individual components that comprise a screen. These components will be stateless presentational “dumb” components (for the most part, always exceptions!) that receive props from their connected parent (screen).
@@ -35,11 +38,12 @@ Components can be folders that contain an `index.js` or simply a JS file represe
 Components do not have a `screens` or `shared` sub-folder, but they can contain additional components (all the way down!)
 
 #### LessonList
+```
 index.js
 LessonList.css
 LessonList.test.js
 components/ (optional)
-
+```
 
 ## Connecting to egghead.io
 
