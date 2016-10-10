@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {connect} from 'react-redux'
 
 import Miss from 'react-router/Miss'
@@ -59,6 +58,6 @@ Instructor.propTypes = {
 }
 
 export default connect(
-  ({instructorScreen}) => ({instructor: instructorScreen.instructor, instructorLessons: instructorScreen.instructorLessons}),
+  ({instructorScreen}) => ({...instructorScreen}),
   {requestInstructor, requestInstructorLessons}
 )(Instructor)

@@ -17,6 +17,7 @@ export function requestInstructor(instructor_id) {
     }
   };
 }
+
 export function receiveInstructorLessons(lessons) {
   return {
     type: InstructorScreenActionType.RECEIVE_LESSONS_FOR_INSTRUCTOR,

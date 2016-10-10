@@ -6,12 +6,9 @@ import Router from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
 import Miss from 'react-router/Miss'
 
-import configureStore from './utils/configureStore'
-
 import Instructor from './screens/Instructor'
 
-const NoMatch = () => <h1>404!</h1>
-
+import configureStore from './utils/configureStore'
 const store = configureStore();
 
 const App = (props) => (
@@ -19,7 +16,7 @@ const App = (props) => (
     <Router>
       <div>
         <Match pattern={`/instructors/:instructor_id`} component={Instructor}/>
-        <Miss component={NoMatch}/>
+        <Miss render={() => (<h1>404!</h1>)}/>
       </div>
     </Router>
   </Provider>
