@@ -8,7 +8,7 @@ import Link from 'react-router/Link'
 import InstructorNav from './components/InstructorNav'
 import InstructorRoutes from './components/InstructorRoutes'
 
-import {requestInstructor} from '../../actions'
+import {requestInstructor, requestInstructorLessons} from './actions'
 
 class Instructor extends React.Component {
 
@@ -20,11 +20,12 @@ class Instructor extends React.Component {
   }
 
   render() {
-    const {pathname, params, requestInstructor} = this.props
-    const {instructor} = this.props.instructorById
+    const {pathname, params, requestInstructor, instructor} = this.props
 
     if(!instructor) {
       // componentWillReceiveProps doesn't work on first load
+      // and technically we will likely load the instructor
+      // in a different way (they will be logged in, for example)
       requestInstructor(params.instructor_id)
     }
 
@@ -58,4 +59,6 @@ Instructor.propTypes = {
 }
 
 export default connect(
-  ({instructorById}) => ({instructorById}), {requestInstructor})(Instructor)
+  ({instructorScreen}) => ({instructor: instructorScreen.instructor, instructorLessons: instructorScreen.instructorLessons}),
+  {requestInstructor, requestInstructorLessons}
+)(Instructor)

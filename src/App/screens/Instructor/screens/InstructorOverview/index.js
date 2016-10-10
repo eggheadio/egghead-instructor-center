@@ -4,26 +4,25 @@ import FeelingStuck from './components/FeelingStuck'
 import RevenueMessage from './components/RevenueMessage'
 import PaginatedLessonList from './components/PaginatedLessonList'
 
-import {fetchInstructorLessons} from '../../services/instructor-service'
-
 class InstructorOverview extends React.Component {
   state = {
-    lessons: [],
     currentPage: 1
   }
 
   fetchLessons(instructor, currentPage = 1) {
+    const {requestInstructorLessons} = this.props
     this.setState({currentPage});
-    fetchInstructorLessons(instructor, currentPage).then(({lessons, pages, total}) => this.setState({
-      lessons,
-      pages,
-      total
-    }))
+    requestInstructorLessons({
+      lessons_url: instructor.lessons_url,
+      page: currentPage,
+      size: 10
+    })
+
   }
 
   componentWillReceiveProps(nextProps) {
     const {instructor} = nextProps
-    if (instructor) {
+    if (instructor !== this.props.instructor) {
       this.fetchLessons(instructor)
     }
   }
@@ -36,9 +35,8 @@ class InstructorOverview extends React.Component {
   }
 
   render() {
-    const {lessons, total, currentPage} = this.state
-    const {instructor} = this.props
-
+    const {currentPage} = this.state
+    const {instructor, instructorLessons} = this.props
 
     return instructor ? (
       <div >
@@ -49,10 +47,10 @@ class InstructorOverview extends React.Component {
 
         <FeelingStuck />
         <PaginatedLessonList
-          lessons={lessons}
+          lessons={instructorLessons.lessons}
           fetchLessons={this.fetchLessons.bind(this)}
           instructor={instructor}
-          total={total}
+          total={instructorLessons.total}
           currentPage={currentPage}
         />
 

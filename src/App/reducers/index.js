@@ -1,16 +1,9 @@
 import {combineReducers} from 'redux';
-import * as ApplicationActionType from '../actions/ApplicationActionType';
 
-const instructorById = (state={}, action) => {
-  console.log(action, state)
-  switch(action.type) {
-    case ApplicationActionType.RECEIVE_INSTRUCTOR:
-      return {...state, instructor: action.payload.instructor}
-    default:
-      return state
-  }
-}
+import instructorScreen from '../screens/Instructor/reducers'
 
+// up top we are combining all of the modules that compose the application
+// with each "screen" getting a tree in the overall state model
 export default combineReducers({
-  instructorById
+  instructorScreen
 });

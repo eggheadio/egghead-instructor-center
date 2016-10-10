@@ -6,7 +6,7 @@ function PaginatedLessonList(props) {
   const pageNum = Math.ceil(total / 10)
 
   return (
-    <div>
+    <div style={{height: '300px'}}>
       <h4>All lessons:</h4>
       <ul>
         {lessons.map((lesson) => (
@@ -26,7 +26,6 @@ function PaginatedLessonList(props) {
                          clickCallback={(page) => {
                            const {selected} = page
                            if (currentPage !== selected + 1) {
-                             console.log(currentPage, selected)
                              fetchLessons(instructor, selected + 1)
                            }
                          }}

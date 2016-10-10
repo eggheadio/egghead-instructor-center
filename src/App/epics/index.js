@@ -1,6 +1,7 @@
 import {combineEpics} from 'redux-observable';
-import fetchInstructorById from './fetchInstructorById'
+
+import instructorScreenEpics from '../screens/Instructor/epics'
 
 export default combineEpics(
-  fetchInstructorById
+  instructorScreenEpics
 );
