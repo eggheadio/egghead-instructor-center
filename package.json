@@ -1,6 +1,6 @@
 {
   "name": "egghead-instructor-center",
-  "homepage": "https://egghead.io/instructor",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
