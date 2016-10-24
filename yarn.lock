@@ -2426,6 +2426,10 @@ flow-bin@^0.33.0:
   version "0.33.0"
   resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.33.0.tgz#ef011eace7a6100f1ae08b852db78279032b8750"
 
+font-awesome:
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.6.3.tgz#86933651540ee00874c664017f50f2172f6531a2"
+
 for-in@^0.1.5:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-0.1.6.tgz#c9f96e89bfad18a545af5ec3ed352a1d9e5b4dc8"
@@ -4884,6 +4888,10 @@ react-simple-di@^1.2.0:
 react-tagsinput@^3.13.5:
   version "3.13.5"
   resolved "https://registry.yarnpkg.com/react-tagsinput/-/react-tagsinput-3.13.5.tgz#755ee15a52b4507263132351e87a02714404b650"
+
+react-test-renderer:
+  version "15.3.2"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.3.2.tgz#d8f083d37d2d41e97bbdc26a1dd9282f0baf7857"
 
 react-truncate@^1.1.4:
   version "1.1.5"
