@@ -1,0 +1,9 @@
+exports[`test Default 1`] = `
+<a
+  className="blue"
+  href="https://egghead.io"
+  target="_blank">
+  <span
+    className="fa fa-info-circle" />
+</a>
+`;

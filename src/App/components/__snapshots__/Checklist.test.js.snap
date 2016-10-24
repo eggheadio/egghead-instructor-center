@@ -1,0 +1,36 @@
+exports[`test Default 1`] = `
+<div>
+  <div
+    className="flex items-center b mb3">
+    <div
+      className="mr2">
+      <span
+        className="fa fa-square-o fa-lg green" />
+    </div>
+    <div>
+      <div>
+        <span
+          className="green">
+          Lorem ipsum
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    className="flex items-center b mb3">
+    <div
+      className="mr2">
+      <span
+        className="fa fa-check-square-o fa-lg gray" />
+    </div>
+    <div>
+      <div>
+        <span
+          className="strike gray">
+          Lorem ipsum
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

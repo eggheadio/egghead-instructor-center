@@ -1,0 +1,21 @@
+exports[`test Default 1`] = `
+<div>
+  <h3
+    className="f3">
+    Lorem ipsum
+  </h3>
+  <div>
+    Lorem ipsum dolor sit amet, urna erat feugiat egestas, metus molestie, adipiscing sed nisl et, dictumst erat sem erat.
+    <span
+      className="ml2">
+      <a
+        className="blue"
+        href="https://egghead.io"
+        target="_blank">
+        <span
+          className="fa fa-info-circle" />
+      </a>
+    </span>
+  </div>
+</div>
+`;
