@@ -2,9 +2,9 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 
 
-import ListOfLessons from '../App/shared/components/ListOfLessons';
-import Tagger from '../App/shared/components/Tagger';
-import WistiaVideo from '../App/shared/components/WistiaVideo';
+import ListOfLessons from '../App/components/ListOfLessons';
+import Tagger from '../App/components/Tagger';
+import WistiaVideo from '../App/components/WistiaVideo';
 
 
 storiesOf('WistiaVideo', module)
