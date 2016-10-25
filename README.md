@@ -64,7 +64,6 @@ _These assume you have `egghead-systems` running locally_
 
 ```
 // src/
-
 index.js
 App/
 state/
@@ -80,7 +79,6 @@ At the top of the component tree is the `App` component. This is the entry point
 
 ```
 // src/App/
-
 index.js
 index.test.js
 screens/
@@ -95,10 +93,9 @@ A screen has a named folder that represents the feature:
 
 ```
 // src/App/screens/ExampleScreen/
-
 index.js
-components/ _(optional)_
-screens/ _(optional)_
+components/ (optional)
+screens/ (optional)
 ```
 
 Within a screen’s `components` folder there will be the individual components that comprise a screen. These components will be stateless presentational “dumb” components (for the most part, always exceptions!) that receive props from their connected parent (screen).
@@ -107,9 +104,8 @@ Components can be folders that contain an `index.js` or simply a JS file represe
 
 ```
 // src/App/screens/ExampleScreen/components/ExampleComponent
-
 index.js
-components/ _(optional)_
+components/ (optional)
 ```
 
 Components do not have a `screens` directory, but they can contain additional components (all the way down!)
@@ -122,11 +118,10 @@ When a component is promoted all the way to the root level `src/App/components` 
 
 ```
 // src/App/components/ExampleComponent/
-
 index.js
 index.guide.js
 index.test.js
-components/ _(optional)_
+components/ (optional)
 ```
 
 - `index.guide.js` can be used to append the component to the living style guide (React Storybook).
@@ -138,7 +133,6 @@ At the root of the state tree are a few files and directories:
 
 ```
 // src/state/
-
 rootReducer.js
 rootEpic.js
 utils/
@@ -153,7 +147,6 @@ Each state slice folder contains the code needed to wire up that piece of the st
 
 ```
 // src/state/exampleSlice/
-
 actions/
 epics/
 reducers/
