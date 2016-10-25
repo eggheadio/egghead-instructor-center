@@ -71,8 +71,8 @@ state/
 ```
 
 - `index.js`: Entry point for the app
-- [`App/`: Component tree](#Component-tree) _(organized by feature)_
-- [`state/`: State tree](#State-tree) _(organized by state slice)_
+- [`App/`: Component tree](#component-tree) _(organized by feature)_
+- [`state/`: State tree](#state-tree) _(organized by state slice)_
 
 ### Component tree
 
