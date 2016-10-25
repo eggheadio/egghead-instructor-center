@@ -1,11 +1,11 @@
-import { configure } from '@kadira/storybook';
-
+import {configure} from '@kadira/storybook'
 import 'font-awesome/css/font-awesome.min.css'
 import 'tachyons'
-import '../src/index.css';
+
+const req = require.context('../src/App/components', true, /.guide.js$/)
 
 function loadStories() {
-  require('../src/stories');
+  req.keys().forEach((filename) => req(filename))
 }
 
-configure(loadStories, module);
+configure(loadStories, module)

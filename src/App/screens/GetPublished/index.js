@@ -1,8 +1,7 @@
 import React from 'react'
-
-import InfoBlock from '../../components/InfoBlock'
-import Checklist from '../../components/Checklist'
-import DescriptionBlock from '../../components/DescriptionBlock'
+import InfoBlock from './components/InfoBlock'
+import Checklist from './components/Checklist'
+import DescriptionBlock from './components/DescriptionBlock'
 
 // TEMP DATA
 // TODO: WIRE UP TO SERVICES/REDUX/CONNECT
@@ -39,7 +38,7 @@ const todos = [
 const questions = [
   {
     question: 'How much money will I make?',
-    answer: 'Royalties can range anywhere from pocket change to surpassing your full-time job\'s income. It all depends on how many lessons and courses you create; all your hard work snowballs into beautiful recurring residual income!',
+    answer: 'Royalties can range anywhere from pocket change to surpassing your full-time job\'s income. It all depends on how many lessons and courses you create all your hard work snowballs into beautiful recurring residual income!',
     moreInfoUrl: 'https://instructor.egghead.io/01-invited/getting-paid.html',
   },
   {
@@ -54,6 +53,7 @@ const questions = [
 
 const GetPublished = () => (
   <div>
+
     <header>
       <h1 className='f1'>Get Published</h1>
     </header>

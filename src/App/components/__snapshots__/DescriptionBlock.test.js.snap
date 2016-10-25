@@ -1,6 +1,0 @@
-exports[`test Default 1`] = `
-<div
-  className="i">
-  Lorem ipsum
-</div>
-`;

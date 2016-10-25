@@ -1,6 +1,5 @@
 import React from 'react'
 import Match from 'react-router/Match'
-
 import InstructorOverview from '../screens/InstructorOverview'
 import LessonTopics from '../screens/LessonTopics'
 import SubmitLesson from '../screens/SubmitLesson'
@@ -11,14 +10,22 @@ class InstructorRoutes extends React.Component {
     const {pathname} = this.props
     return (
       <div>
-        <Match pattern={`${pathname}`} exactly
-               render={(props) => <InstructorOverview {...this.props} />}/>
-        <Match pattern={`${pathname}/topics`}
-               render={(props) => <LessonTopics {...this.props} />}/>
-        <Match pattern={`${pathname}/submit`}
-               render={(props) => <SubmitLesson {...this.props} />}/>
-        <Match pattern={`${pathname}/submissions`}
-               render={(props) => <SubmissionList {...this.props} />}/>
+        <Match 
+          pattern={`${pathname}`} exactly
+          render={(props) => <InstructorOverview {...this.props} />}
+        />
+        <Match 
+          pattern={`${pathname}/topics`}
+          render={(props) => <LessonTopics {...this.props} />}
+        />
+        <Match
+          pattern={`${pathname}/submit`}
+          render={(props) => <SubmitLesson {...this.props} />}
+        />
+        <Match
+          pattern={`${pathname}/submissions`}
+          render={(props) => <SubmissionList {...this.props} />}
+        />
       </div>
     )
   }

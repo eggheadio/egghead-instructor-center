@@ -4803,12 +4803,6 @@ react-paginate@^2.2.3:
   dependencies:
     classnames "^2.2.5"
 
-react-rangeslider@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/react-rangeslider/-/react-rangeslider-1.0.9.tgz#cbef46b9bee8aaf9a191292ae7ef19b272d7ec83"
-  dependencies:
-    classnames "^2.2.3"
-
 react-redux@^4.4.5:
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-4.4.5.tgz#f509a2981be2252d10c629ef7c559347a4aec457"

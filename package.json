@@ -6,7 +6,7 @@
   "devDependencies": {
     "@kadira/storybook": "^2.5.2",
     "flow-bin": "^0.33.0",
-    "react-scripts": "0.6.1",
+    "react-scripts": "^0.7.0",
     "react-test-renderer": "^15.3.2"
   },
   "dependencies": {
@@ -23,10 +23,8 @@
     "react-markdown": "^2.4.2",
     "react-mousetrap": "^0.1.1",
     "react-paginate": "^2.2.3",
-    "react-rangeslider": "^1.0.9",
     "react-redux": "^4.4.5",
     "react-router": "^4.0.0-alpha.4",
-    "react-scripts": "^0.7.0",
     "react-tagsinput": "^3.13.5",
     "react-truncate": "^1.1.4",
     "react-url-query": "^1.0.0",
@@ -38,11 +36,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "guide": "start-storybook -p 9009",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009",
-    "build-storybook": "build-storybook"
+    "build": "react-scripts build",
+    "build-storybook": "build-storybook",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -8,7 +8,6 @@ class InstructorNav extends React.Component {
       <ul>
         <li>
           <Link to={`${pathname}`}>Overview</Link>
-
         </li>
         <li>
           <Link to={`${pathname}/topics`}>Topics</Link>
