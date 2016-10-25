@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@kadira/storybook'
-import Logo from '../App/components/Logo'
+import Logo from './index'
 
 storiesOf('Logo', module)
   .add('Default', () => (

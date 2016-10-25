@@ -1,16 +1,13 @@
-import React from 'react';
-
-import { Provider } from 'react-redux';
-
+import React from 'react'
+import { Provider } from 'react-redux'
 import Router from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
 import Miss from 'react-router/Miss'
-
+import configureStore from '../state/configureStore'
 import Instructor from './screens/Instructor'
 import GetPublished from './screens/GetPublished'
 
-import configureStore from './utils/configureStore'
-const store = configureStore();
+const store = configureStore()
 
 const App = (props) => (
   <Provider store={store}>
@@ -22,6 +19,6 @@ const App = (props) => (
       </div>
     </Router>
   </Provider>
-);
+)
 
 export default App

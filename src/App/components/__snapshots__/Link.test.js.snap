@@ -1,8 +1,0 @@
-exports[`test Default 1`] = `
-<a
-  className="blue"
-  href="https://egghead.io"
-  target="_blank">
-  Lorem ipsum
-</a>
-`;

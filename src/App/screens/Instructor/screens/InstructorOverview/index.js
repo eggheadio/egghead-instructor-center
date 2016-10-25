@@ -1,5 +1,4 @@
 import React from 'react'
-
 import FeelingStuck from './components/FeelingStuck'
 import RevenueMessage from './components/RevenueMessage'
 import PaginatedLessonList from './components/PaginatedLessonList'
@@ -11,7 +10,7 @@ class InstructorOverview extends React.Component {
 
   fetchLessons(instructor, currentPage = 1) {
     const {requestInstructorLessons} = this.props
-    this.setState({currentPage});
+    this.setState({currentPage})
     requestInstructorLessons({
       lessons_url: instructor.lessons_url,
       page: currentPage,

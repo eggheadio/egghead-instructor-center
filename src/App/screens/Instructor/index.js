@@ -1,18 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
 import Miss from 'react-router/Miss'
 import Link from 'react-router/Link'
-
+import {requestInstructor, requestInstructorLessons} from '../../../state/slices/instructor/actions'
 import InstructorNav from './components/InstructorNav'
 import InstructorRoutes from './components/InstructorRoutes'
-
-import {requestInstructor, requestInstructorLessons} from './actions'
 
 class Instructor extends React.Component {
 
   componentWillReceiveProps(nextProps) {
-    const {instructor_id} = this.props.params;
+    const {instructor_id} = this.props.params
     if (instructor_id !== nextProps.params.instructor_id) {
       this.props.requestInstructor(nextProps.params.instructor_id)
     }
@@ -58,6 +55,9 @@ Instructor.propTypes = {
 }
 
 export default connect(
-  ({instructorScreen}) => ({...instructorScreen}),
-  {requestInstructor, requestInstructorLessons}
+  ({instructor}) => ({...instructor}),
+  {
+    requestInstructor,
+    requestInstructorLessons
+  }
 )(Instructor)
