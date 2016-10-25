@@ -9,7 +9,7 @@
 - Git
 - Node
 - Yarn
-- Run `yarn` to install dependencies.
+- Run `yarn` to install dependencies
 - Set up [egghead-systems](https://github.com/eggheadio/egghead-systems)
 
 ## Connecting to egghead.io endpoints
@@ -50,7 +50,7 @@ _These assume you have `egghead-systems` running locally_
 - Transpilation: Babel _(default `create-react-app`)_
 - Linting: ESLint _(default `create-react-app`)_
 - Tests: Jest _(default `create-react-app`)_
-- Living Style Guide: React StoryBook _(extending `create-react-app` with `.storybook`)_
+- Living Style Guide: React StoryBook _(extending `create-react-app` with `.storybook/`)_
 - State Tree: Redux
 - Async Redux: Redux Observable
 - Routing: React Router
@@ -71,10 +71,10 @@ state/
 ```
 
 - `index.js`: Entry point for the app
-- `App/`: Component tree _(organized by feature)_
-- `state/`: State tree _(organized by state slice)_
+- [`App/`: Component tree](#Component-tree) _(organized by feature)_
+- [`state/`: State tree](#State-tree) _(organized by state slice)_
 
-### Component Tree
+### Component tree
 
 At the top of the component tree is the `App` component. This is the entry point to the application `screens` and the primary container that the application resides in:
 
@@ -94,11 +94,11 @@ A Screen is a top level (connected/smart) container for a particular piece of fu
 A screen has a named folder that represents the feature:
 
 ```
-// src/App/screens/LessonReview
+// src/App/screens/ExampleScreen/
 
 index.js
-components/ (optional)
-screens/ (optional)
+components/ _(optional)_
+screens/ _(optional)_
 ```
 
 Within a screen’s `components` folder there will be the individual components that comprise a screen. These components will be stateless presentational “dumb” components (for the most part, always exceptions!) that receive props from their connected parent (screen).
@@ -106,10 +106,10 @@ Within a screen’s `components` folder there will be the individual components 
 Components can be folders that contain an `index.js` or simply a JS file representing the component. A component would be a folder if it had non-shared sub-component elements:
 
 ```
-// src/App/screens/LessonReview/components/LessonList
+// src/App/screens/ExampleScreen/components/ExampleComponent
 
 index.js
-components/ (optional)
+components/ _(optional)_
 ```
 
 Components do not have a `screens` directory, but they can contain additional components (all the way down!)
@@ -126,7 +126,7 @@ When a component is promoted all the way to the root level `src/App/components` 
 index.js
 index.guide.js
 index.test.js
-components/ (optional)
+components/ _(optional)_
 ```
 
 - `index.guide.js` can be used to append the component to the living style guide (React Storybook).
