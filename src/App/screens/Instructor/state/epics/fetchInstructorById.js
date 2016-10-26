@@ -1,5 +1,5 @@
 import {ajax} from 'rxjs/observable/dom/ajax'
-import headers from '../../../utils/headers'
+import headers from '../../../../state/utils/headers'
 import * as instructorActionTypes from '../actions/instructorActionTypes'
 import {receiveInstructor} from '../actions'
 

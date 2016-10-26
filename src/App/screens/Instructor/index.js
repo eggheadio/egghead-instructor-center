@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import Miss from 'react-router/Miss'
 import Link from 'react-router/Link'
-import {requestInstructor, requestInstructorLessons} from '../../../state/slices/instructor/actions'
+import {requestInstructor, requestInstructorLessons} from './state/actions'
 import InstructorNav from './components/InstructorNav'
 import InstructorRoutes from './components/InstructorRoutes'
 
@@ -55,9 +55,9 @@ Instructor.propTypes = {
 }
 
 export default connect(
-  ({instructor}) => ({...instructor}),
+  ({instructorScreen}) => ({...instructorScreen}),
   {
     requestInstructor,
-    requestInstructorLessons
+    requestInstructorLessons,
   }
 )(Instructor)
