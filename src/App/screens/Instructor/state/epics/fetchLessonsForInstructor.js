@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
-import headers from '../../../utils/headers'
+import headers from '../../../../state/utils/headers'
 import * as instructorActionTypes from '../actions/instructorActionTypes'
 import {receiveInstructorLessons} from '../actions'
 
