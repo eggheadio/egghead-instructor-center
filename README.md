@@ -15,13 +15,13 @@
 
 Endpoints are run locally via the `egghead-systems` project. To run them:
 
-- Copy `.env_template` to `.env`
-- Copy the JWT from the query param at `http://egghead.dev:5000/users/jwt?return_to=http://localhost:3000`
-- Add this JWT to `.env`
+- Copy `.env_template` to `.env`.
+- Copy the JWT from the query param at `http://egghead.dev:5000/users/jwt?return_to=http://localhost:3000`.
+- Add this JWT to `.env`.
 
 ### Environments
 
-You can swap out the value of `REACT_APP_EGGHEAD_BASE_URL` for different environments. You will need a JWT for each environment. For example, you could copy the JWT from the query param at `https://egghead.io/users/jwt?return_to=https://instructor.egghead.io` for production.
+You can swap out the value of `REACT_APP_EGGHEAD_BASE_URL` in `.env` for different environments. You will need a JWT for each environment. For example, you could copy the JWT from the query param at `https://egghead.io/users/jwt?return_to=https://instructor.egghead.io` for production.
 
 ## Scripts
 
@@ -48,7 +48,7 @@ _These assume you have `egghead-systems` running locally_
 - **State Tree:** Redux
 - **Async Redux:** Redux Observable
 - **Routing:** React Router
-- **Style:** Tachyons CSS classes
+- **Style:** Tachyons
 
 ---
 
@@ -58,7 +58,7 @@ _These assume you have `egghead-systems` running locally_
 
 Each directory inside `src` is a **component**.
 
-A component is a directory organized _by feature_:
+A component is a directory organized _by feature_. It looks like this:
 
 ```
 index.js
@@ -67,14 +67,14 @@ utils/ (optional)
 ```
 
 - `index.js`: entry point; usually a stateless function component.
-- `components/`: optional, for sub-directories made up of sub-components.
-- `utils/`: optional, for shared `myModule.js` files.
+- `components/`: optional, sub-components.
+- `utils/`: optional, `myModule.js` files.
 
 ## Screens
 
 Some components are also **screens**.
 
-A screen is a component that is paired with a route and _connected_ to the state tree:
+A screen is a component that is also paired with a route and _connected_ to the state tree. It looks like this:
 
 ```
 index.js
@@ -85,16 +85,16 @@ screens/ (optional)
 ```
 
 - `index.js`, `components/`, `utils/`: same as a vanilla component, except `index.js` is usually a stateful class component with a `connect` export to wire `state` to props.
-- `state/`: contains `actions/`, `reducers/`, and `epics/` to wire up state.
-- `screens/`: optional, for sub-screens paired with sub-routes.
+- `state/`: `actions/`, `reducers/`, and `epics/` to wire up state.
+- `screens/`: optional, sub-screens paired with sub-routes.
 
 ## Promotion
 
-All resources are eligible for promotion to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ will apply and that shared resource will me **promoted** to the least common ancestor’s directory.
+All resources are eligible for *promotion* to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ will apply and that shared resource will me **promoted** to the least common ancestor’s directory.
 
 ## Root Screen
 
-The root screen (`src/App`) is the container for the entire app. It has everything a screen has with a few additions:
+The *root screen* (`src/App`) is the container for the entire app. It has everything a screen has with a few additions:
 
 - `index.js` wires up the component and state trees.
 - `state/` wires up all sub-screen `reducers/` and `epics/`.
@@ -106,7 +106,7 @@ The root screen (`src/App`) is the container for the entire app. It has everythi
 
 # Styles
 
-Components use only default Tachyons classes.
+Component styling is done with default Tachyons classes.
 
 ---
 
