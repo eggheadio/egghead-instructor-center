@@ -1,0 +1,5 @@
+{
+  "/api/v1/": "/",
+  "/instructors": "/instructors",
+  "/instructors/:slug": "/instructors/0"
+}

@@ -11,23 +11,17 @@
 - Yarn
 - [egghead-systems](https://github.com/eggheadio/egghead-systems)
 
-## Endpoints
-
-Endpoints are run locally via the `egghead-systems` project. To run them:
+## Environments
 
 - Copy `.env_template` to `.env`.
-- Copy the JWT from the query param at `http://egghead.dev:5000/users/jwt?return_to=http://localhost:3000`.
-- Add this JWT to `.env`.
-
-### Environments
-
-You can swap out the value of `REACT_APP_EGGHEAD_BASE_URL` in `.env` for different environments. You will need a JWT for each environment. For example, you could copy the JWT from the query param at `https://egghead.io/users/jwt?return_to=https://instructor.egghead.io` for production.
+- For each environment in `.env`, paste the JWT you get from `{environment}/users/jwt?return_to=http://localhost:3000`.
 
 ## Scripts
 
 _These assume you have `egghead-systems` running locally_
 
 - `yarn` to install latest packages.
+- `yarn api-fake` to start the fake environment API server.
 - `yarn start` to compile and lint the app; open `localhost:3000` to view.
 - `yarn guide` to compile the living style guide; open `localhost:9009` to view.
 - `yarn test` to run tests.
@@ -49,6 +43,7 @@ _These assume you have `egghead-systems` running locally_
 - **Async Redux:** Redux Observable
 - **Routing:** React Router
 - **Style:** Tachyons
+- **Fake API:** `json-server` + `faker`
 
 ---
 
