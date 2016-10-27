@@ -6,17 +6,14 @@ import LessonTopics from '../screens/LessonTopics'
 import SubmitLesson from '../screens/SubmitLesson'
 import SubmissionList from '../screens/SubmissionList'
 
-// TODO: Wire up to Redux
-const isPublished = false
-
 class InstructorRoutes extends React.Component {
   render() {
-    const {pathname} = this.props
+    const {pathname, instructor} = this.props
     return (
       <div>
         <Match 
           pattern={`${pathname}`} exactly
-          render={(props) => isPublished
+          render={(props) => instructor.is_published
             ? <InstructorOverview {...this.props} />
             : <GetPublished {...this.props} />
           }

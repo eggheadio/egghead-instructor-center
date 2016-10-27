@@ -5,6 +5,8 @@
   "private": true,
   "devDependencies": {
     "@kadira/storybook": "^2.5.2",
+    "faker": "^3.1.0",
+    "json-server": "^0.8.22",
     "react-scripts": "^0.7.0",
     "react-test-renderer": "^15.3.2"
   },
@@ -34,6 +36,7 @@
     "whatwg-fetch": "^1.0.0"
   },
   "scripts": {
+    "api-fake": "json-server --watch .fakeApi/index.js --routes .fakeApi/routes.json --port 4000",
     "start": "react-scripts start",
     "guide": "start-storybook -p 9009",
     "test": "react-scripts test --env=jsdom",
