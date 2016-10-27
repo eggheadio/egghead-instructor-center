@@ -33,6 +33,7 @@ _These assume you have `egghead-systems` running locally_
 - **Package management:** Yarn
 - **Scripts:** Yarn
 - **JS Flavor:** ES2016+ _(default `create-react-app`)_
+- **JS Utils:** Lodash
 - **Components:** React _(default `create-react-app`)_
 - **Module Bundling:** Webpack _(default `create-react-app`)_
 - **Transpilation:** Babel _(default `create-react-app`)_
