@@ -18,8 +18,6 @@
 
 ## Scripts
 
-_These assume you have `egghead-systems` running locally_
-
 - `yarn` to install latest packages.
 - `yarn api-fake` to start the fake environment API server.
 - `yarn start` to compile and lint the app; open `localhost:3000` to view.
@@ -32,25 +30,56 @@ _These assume you have `egghead-systems` running locally_
 
 - **Package management:** Yarn
 - **Scripts:** Yarn
-- **JS Flavor:** ES2016+ _(default `create-react-app`)_
+- **JS Flavor:** ES2016+ \*
+- **Components:** React \*
+- **Module Bundling:** Webpack \*
+- **Transpilation:** Babel \*
+- **Linting:** ESLint \*
+- **Tests:** Jest \*
+- **Living Style Guide:** React StoryBook \*
 - **JS Utils:** Lodash
-- **Components:** React _(default `create-react-app`)_
-- **Module Bundling:** Webpack _(default `create-react-app`)_
-- **Transpilation:** Babel _(default `create-react-app`)_
-- **Linting:** ESLint _(default `create-react-app`)_
-- **Tests:** Jest _(default `create-react-app`)_
-- **Living Style Guide:** React StoryBook _(extending `create-react-app` with `.storybook/`)_
-- **State Tree:** Redux
-- **Async Redux:** Redux Observable
+- **State Tree:** Redux + Redux Observable
 - **Routing:** React Router
 - **Style:** Tachyons
-- **Fake API:** `json-server` + `faker`
+- **Fake API:** JSON Server + Faker
+
+_\* Relies on `create-react-app` setup_
 
 ---
 
 # Structure
 
-## Components
+## Root (`/`)
+
+Along with typical repo root files, you'll find some custom files and directories:
+
+- `src/`: holds all the components
+- `.fakeApi/`: holds fake environment API configuration.
+- `public`: used by `create-react-app` to copy files directly to the build folder as an escape hatch; generally read-only.
+- `.storybook/`: used by React Storybook to build the living style guide; generally read-only.
+- `.yarn.lock`: used by Yarn to ensure consistent package installs; read-only.
+- `.env`: holds private environment configuration (stored only on your machine); generally read-only once set up.
+- `.env_template`: an example for you to copy to `.env`; generally read-only.
+
+### Fake API (`.fakeApi/`)
+
+When running the app in the "fake" environment, the `.fakeApi` directory holds configuration for the API.
+
+- `index.js`: fake API entry point; generates randomized API responses whenever the API server is run. This helps our code stay flexible with different data.
+- `overrides.js`: add overrides for non-randomized API responses.
+- `routes.js`: maps fake API routes to egghead API routes.
+
+## Source Directory (`src/`)
+
+### Styles
+
+Styling is done with default Tachyons classes.
+
+### Unit Tests
+
+Modules and components that could benefit from unit tests have an `index.test.js` file next to them.
+
+### Components
 
 Each directory inside `src` is a **component**.
 
@@ -66,7 +95,7 @@ utils/ (optional)
 - `components/`: optional, sub-components.
 - `utils/`: optional, `myModule.js` files.
 
-## Screens
+### Screens
 
 Some components are also **screens**.
 
@@ -84,28 +113,16 @@ screens/ (optional)
 - `state/`: `actions/`, `reducers/`, and `epics/` to wire up state.
 - `screens/`: optional, sub-screens paired with sub-routes.
 
-## Promotion
+### Promotion
 
 All resources are eligible for *promotion* to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ will apply and that shared resource will me **promoted** to the least common ancestor’s directory.
 
-## Root Screen
+### Root Screen (`src/App`)
 
-The *root screen* (`src/App`) is the container for the entire app. It has everything a screen has with a few additions:
+The *root screen* is the container for the entire app. It has everything a screen has with a few additions:
 
 - `index.js` wires up the component and state trees.
 - `state/` wires up all sub-screen `reducers/` and `epics/`.
-- `components/` contains "general" components that are used across the entire app. These components are like any other components, but they have two additional files:
+- `components/` contains *general* components that have been promoted all the way to the top. Once promoted to the top, these general components get two additional files:
   - `index.guide.js`: appends instances of the component to the living style guide.
   - `index.test.js`: adds snapshot tests for instances of the component.
-
----
-
-# Styles
-
-Component styling is done with default Tachyons classes.
-
----
-
-# Unit Tests
-
-Modules and components that could benefit from unit tests have an `index.test.js` file next to them.
