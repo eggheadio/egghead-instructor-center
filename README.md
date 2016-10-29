@@ -19,9 +19,9 @@
 ## Scripts
 
 - `yarn` to install latest packages.
-- `yarn api-fake` to start the fake environment API server.
-- `yarn start` to compile and lint the app; open `localhost:3000` to view.
-- `yarn guide` to compile the living style guide; open `localhost:9009` to view.
+- `yarn start` to develop.
+  - Runs APIs, app, style guide, linting, and compiling.
+  - Opens browser tabs for app and style guide.
 - `yarn test` to run tests.
 
 ---
@@ -53,7 +53,7 @@ _\* Relies on `create-react-app` setup_
 
 Along with typical repo root files, you'll find some custom files and directories:
 
-- `src/`: holds all the components
+- `src/`: holds all the components.
 - `.fakeApi/`: holds fake environment API configuration.
 - `public`: used by `create-react-app` to copy files directly to the build folder as an escape hatch; generally read-only.
 - `.storybook/`: used by React Storybook to build the living style guide; generally read-only.
