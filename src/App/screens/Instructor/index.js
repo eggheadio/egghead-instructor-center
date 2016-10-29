@@ -29,9 +29,12 @@ class Instructor extends React.Component {
       <div>
         <header className="bg-black-90 fixed top-0 left-0 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
           <nav className="f6 fw6 ttu tracked">
-            <Link to="/instructors/john-lindquist" className="link dim white dib mr3">John</Link>
-            <Link to="/instructors/joel-hooks" className="link dim white dib mr3">Joel</Link>
-            <Link to="/instructors/trevor-miller" className="link dim white dib mr3">Trevor</Link>
+            <Link
+              to={`/instructors/${instructor.id}`}
+              className="link dim white dib mr3"
+            >
+              {instructor.first_name}
+            </Link>
           </nav>
         </header>
 

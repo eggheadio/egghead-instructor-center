@@ -3,18 +3,62 @@ const times = require('lodash/times')
 const head = require('lodash/head')
 const split = require('lodash/split')
 const kebabCase = require('lodash/kebabCase')
+const has = require('lodash/has')
+const overrides = require('./overrides')
 
-const instructorCount = 100
+module.exports = () => {
 
-module.exports = () => ({
-  instructors: times(instructorCount, index => {
-    const fullName = faker.name.findName()
-    return {
-      id: index,
-      full_name: fullName,
-      first_name: head(split(fullName, ' ')),
-      slug: kebabCase(fullName),
-      is_published: false,
-    }
+  const instructorCount = faker.random.number({
+    min: 20,
+    max: 200,
   })
-})
+
+  const lessonCount = faker.random.number({
+    min: 3000,
+    max: 5000,
+  })
+
+  const lessonStates = [
+    'submitted',
+    'updated',
+    'approved',
+    'published',
+  ]
+
+  return {
+
+    instructors: times(instructorCount, index => {
+      const id = index
+      const fullName = faker.name.findName()
+      return {
+        id,
+        slug: kebabCase(fullName),
+        full_name: fullName,
+        first_name: head(split(fullName, ' ')),
+        lessons_url: `localhost:4000/api/v1/instructors/${id}/lessons`,
+
+        // UNIMPLEMENTED
+        is_published: has(overrides, 'isInstructorPublished')
+          ? overrides.isInstructorPublished
+          : faker.random.boolean(),
+      }
+    }),
+
+    lessons: times(lessonCount, index => {
+      const id = index
+      const instructorId = faker.random.number({
+        min: 0,
+        max: instructorCount
+      })
+      return {
+        id,
+        state: faker.random.arrayElement(lessonStates),
+        instructor_url: `localhost:4000/api/v1/instructors/${instructorId}`,
+
+        // Only needed for json-server hypermedia connection
+        instructor_id: instructorId,
+      }
+    }),
+
+  }
+}

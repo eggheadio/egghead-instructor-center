@@ -1,5 +1,6 @@
 {
   "/api/v1/": "/",
   "/instructors": "/instructors",
-  "/instructors/:slug": "/instructors/0"
+  "/instructors/:id": "/instructors/:id",
+  "/instructors/:id/lessons": "/lessons?instructor_id=:id"
 }

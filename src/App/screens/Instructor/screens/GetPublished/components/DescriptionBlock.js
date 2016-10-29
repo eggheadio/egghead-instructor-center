@@ -7,7 +7,7 @@ const DescriptionBlock = ({children}) => (
 )
 
 DescriptionBlock.propTypes = {
-  children: React.PropTypes.string.isRequired,
+  children: React.PropTypes.node.isRequired,
 }
 
 export default DescriptionBlock
