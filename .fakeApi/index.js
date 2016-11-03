@@ -36,11 +36,14 @@ module.exports = () => {
         full_name: fullName,
         first_name: head(split(fullName, ' ')),
         lessons_url: `localhost:4000/api/v1/instructors/${id}/lessons`,
-
-        // UNIMPLEMENTED
-        is_published: has(overrides, 'isInstructorPublished')
-          ? overrides.isInstructorPublished
-          : faker.random.boolean(),
+        slack_id: faker.random.arrayElement([null, faker.internet.userName()]),
+        gear_tracking_id: faker.random.arrayElement([null, faker.random.uuid()]),
+        published_lessons: has(overrides, 'publishedLessons')
+          ? overrides.publishedLessons
+          : faker.random.number({
+              min: 0,
+              max: 200,
+            }),
       }
     }),
 
