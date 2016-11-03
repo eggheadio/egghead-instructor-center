@@ -13,7 +13,7 @@ class InstructorRoutes extends React.Component {
       <div>
         <Match 
           pattern={`${pathname}`} exactly
-          render={(props) => instructor.is_published
+          render={(props) => (instructor.published_lessons > 0)
             ? <InstructorOverview {...this.props} />
             : <GetPublished {...this.props} />
           }
