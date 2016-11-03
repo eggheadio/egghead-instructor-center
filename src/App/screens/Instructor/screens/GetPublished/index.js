@@ -14,13 +14,6 @@ class GetPublished extends React.Component {
     })
   }
 
-  componentWillReceiveProps(nextProps) {
-    const {instructor} = nextProps
-    if (instructor !== this.props.instructor) {
-      this.fetchLessons(instructor)
-    }
-  }
-
   componentWillMount() {
     const {instructor} = this.props
     if(instructor) {
@@ -30,7 +23,6 @@ class GetPublished extends React.Component {
 
   render() {
     const {instructor, instructorLessons} = this.props
-
     return (
       <Split
         title='Get Published'

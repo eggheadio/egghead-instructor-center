@@ -1,28 +1,10 @@
 import React from 'react'
-import includes from 'lodash/includes'
-import indexOf from 'lodash/indexOf'
-import slice from 'lodash/slice'
-import some from 'lodash/some'
 import map from 'lodash/map'
 import uniq from 'lodash/uniq'
 import compact from 'lodash/uniq'
+import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
 import DescriptionBlock from './components/DescriptionBlock'
-
-const lessonStates = [
-  'proposed',
-  'cancelled',
-  'accepted',
-  'claimed',
-  'submitted',
-  'rejected',
-  'updated',
-  'approved',
-  'published',
-  'flagged',
-  'revised',
-  'retired',
-]
 
 const GetPublishedSteps = ({
   instructor,
@@ -30,12 +12,6 @@ const GetPublishedSteps = ({
 }) => {
 
   const instructorLessonStates = compact(uniq(map(instructorLessons.lessons, 'state')))
-  console.log(instructorLessonStates)
-
-  const isStepComplete = minimumLessonState => {
-    const qualifyingLessonStates = slice(lessonStates, indexOf(lessonStates, minimumLessonState))
-    return some(qualifyingLessonStates, qualifyingLessonState => includes(instructorLessonStates, qualifyingLessonState))
-  }
 
   const steps = [
     {
@@ -48,7 +24,7 @@ const GetPublishedSteps = ({
       moreInfoUrl: 'https://instructor.egghead.io/01-invited/invited.html',
     },
     {
-      isComplete: isStepComplete('submitted'),
+      isComplete: isStepComplete(instructorLessonStates, 'submitted'),
       description: 'Submit rough draft lesson',
       moreInfoUrl: 'https://instructor.egghead.io/01-invited/first-lesson.html',
     },
@@ -58,15 +34,15 @@ const GetPublishedSteps = ({
       moreInfoUrl: 'https://instructor.egghead.io/02-creating-lessons/recording-gear.html',
     },
     {
-      isComplete: isStepComplete('updated'),
+      isComplete: isStepComplete(instructorLessonStates, 'updated'),
       description: 'Re-record and update lesson',
     },
     {
-      isComplete: isStepComplete('approved'),
+      isComplete: isStepComplete(instructorLessonStates, 'approved'),
       description: 'Iterate with mentor until lesson is approved',
     },
     {
-      isComplete: isStepComplete('published'),
+      isComplete: isStepComplete(instructorLessonStates, 'published'),
       description: 'Publish lesson',
     },
   ]
