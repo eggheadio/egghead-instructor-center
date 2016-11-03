@@ -1,7 +1,7 @@
 /**
  * OPTIONS:
+ * publishedLessons: number
  */
 
 module.exports = {
-  isInstructorPublished: false,
 }
