@@ -1,11 +1,15 @@
 import React from 'react'
 import Title from './Title'
 
-const Split = ({main, aside}) => (
+const Split = ({
+  title,
+  main,
+  aside,
+}) => (
   <div>
 
     <Title>
-      Get Published
+      {title}
     </Title>
 
     <div className='flex-ns'>
