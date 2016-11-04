@@ -12,21 +12,25 @@ class InstructorRouteScreens extends React.Component {
     return (
       <div>
         <Match 
-          pattern={`${pathname}`} exactly
+          exactly
+          pattern={pathname}
           render={(props) => (instructor.published_lessons > 0)
             ? <InstructorOverview {...this.props} />
             : <GetPublished {...this.props} />
           }
         />
         <Match 
+          exactly
           pattern={`${pathname}/topics`}
           render={(props) => <LessonTopics {...this.props} />}
         />
         <Match
+          exactly
           pattern={`${pathname}/submit`}
           render={(props) => <SubmitLesson {...this.props} />}
         />
         <Match
+          exactly
           pattern={`${pathname}/submissions`}
           render={(props) => <SubmissionList {...this.props} />}
         />

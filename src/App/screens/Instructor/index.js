@@ -1,8 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Miss from 'react-router/Miss'
+import Main from '../../components/Main'
 import {requestInstructor, requestInstructorLessons} from './state/actions'
-import Main from './components/Main'
 import InstructorNav from './components/InstructorNav'
 import InstructorRouteScreens from './components/InstructorRouteScreens'
 
