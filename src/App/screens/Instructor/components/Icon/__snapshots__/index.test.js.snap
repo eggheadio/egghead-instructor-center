@@ -1,0 +1,19 @@
+exports[`test sizes 1`] = `
+<span
+  className="
+    fa
+    fa-info-circle 
+    fa-2x
+    
+  " />
+`;
+
+exports[`test types 1`] = `
+<span
+  className="
+    fa
+    fa-info-circle 
+    
+    
+  " />
+`;

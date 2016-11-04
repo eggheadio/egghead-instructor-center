@@ -1,4 +1,5 @@
 import React from 'react'
+import Icon from '../../../../../components/Icon'
 import MoreInfo from '../../MoreInfo'
 
 const Checklist = ({items}) => (
@@ -10,8 +11,16 @@ const Checklist = ({items}) => (
       >
         <div className='mr2'>
           {item.isComplete
-            ? <span className='fa fa-check-square-o fa-lg gray' />
-            : <span className='fa fa-square-o fa-lg green' />
+            ? <Icon
+                type='step-complete'
+                size='2'
+                className='gray'
+              />
+            : <Icon
+                type='step-incomplete'
+                size='2'
+                className='green'
+              />
           }
         </div>
         <div>
