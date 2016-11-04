@@ -71,14 +71,6 @@ When running the app in the "fake" environment, the `.fakeApi` directory holds c
 
 ## Source Directory (`src/`)
 
-### Styles
-
-Styling is done with default Tachyons classes. The `*-ns` (not small) classes are used to apply anything specific to non-mobile screen sizes, so that all components are built mobile-first.
-
-### Unit Tests
-
-Modules and components that could benefit from unit tests have an `index.test.js` file next to them.
-
 ### Components
 
 Each directory inside `src` is a **component**.
@@ -123,6 +115,15 @@ The *root screen* is the container for the entire app. It has everything a scree
 
 - `index.js` wires up the component and state trees.
 - `state/` wires up all sub-screen `reducers/` and `epics/`.
-- `components/` contains *general* components that have been promoted all the way to the top. Once promoted to the top, these general components get two additional files:
-  - `index.guide.js`: appends instances of the component to the living style guide.
-  - `index.test.js`: adds snapshot tests for instances of the component.
+
+### Style Guide
+
+Components that could benefit from being a part of the living style guide have an `index.guide.js` file next to them. This means they are automatically added to the living style guide.
+
+### Styles
+
+Styling is done with default Tachyons classes. The `*-ns` (not small) classes are used to apply anything specific to non-mobile screen sizes, so that all components are built mobile-first.
+
+### Tests
+
+Modules and components that could benefit from tests have an `index.test.js` file next to them. These are generally simple unit or snapshot tests where they provide value.

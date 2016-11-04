@@ -1,8 +1,8 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Logo from './index'
+import Logo from '.'
 
-test('Default', () => {
+test('default', () => {
   const tree = renderer.create(
     <Logo />
   )
