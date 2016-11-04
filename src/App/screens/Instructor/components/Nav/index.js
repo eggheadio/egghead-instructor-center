@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'react-router/Link'
+import Icon from '../Icon'
 import Logo from '../Logo'
 import NavLink from './components/NavLink'
 
@@ -64,14 +65,18 @@ class Nav extends React.Component {
             onClick={this.toggle.bind(this)}
             className='absolute top-0 right-1 dn-ns'
           >
-            <span className={`
-              white
-              fa fa-2x
-              ${this.state.isOpen
-                ? 'fa-close'
-                : 'fa-bars'
-              }`
-            } />
+            {this.state.isOpen
+              ? <Icon
+                  type='close'
+                  size='3'
+                  className='white'
+                />
+              : <Icon
+                  type='menu'
+                  size='3'
+                  className='white'
+                />
+            }
           </div>
 
         </div>

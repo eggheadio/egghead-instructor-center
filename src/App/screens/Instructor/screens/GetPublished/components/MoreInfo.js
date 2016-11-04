@@ -1,9 +1,10 @@
 import React from 'react'
+import Icon from '../../../components/Icon'
 import Anchor from './Anchor'
 
 const MoreInfo = ({url}) => (
   <Anchor url={url}>
-    <span className='fa fa-info-circle' />
+    <Icon type='more-info' />
   </Anchor>
 )
 
