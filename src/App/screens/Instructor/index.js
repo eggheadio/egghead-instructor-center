@@ -1,10 +1,10 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import Miss from 'react-router/Miss'
-import Link from 'react-router/Link'
 import {requestInstructor, requestInstructorLessons} from './state/actions'
+import Main from './components/Main'
 import InstructorNav from './components/InstructorNav'
-import InstructorRoutes from './components/InstructorRoutes'
+import InstructorRouteScreens from './components/InstructorRouteScreens'
 
 class Instructor extends React.Component {
 
@@ -19,35 +19,25 @@ class Instructor extends React.Component {
     const {pathname, params, requestInstructor, instructor} = this.props
 
     if(!instructor) {
-      // componentWillReceiveProps doesn't work on first load
-      // and technically we will likely load the instructor
-      // in a different way (they will be logged in, for example)
       requestInstructor(params.instructor_id)
     }
 
     return (
       <div>
-        <header className="bg-black-90 fixed top-0 left-0 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
-          <nav className="f6 fw6 ttu tracked">
-            <Link
-              to={`/instructors/${instructor.id}`}
-              className="link dim white dib mr3"
-            >
-              {instructor.first_name}
-            </Link>
-          </nav>
-        </header>
-
-        { instructor ?
-        <main className="b--black-10 black-70 bg-white mt4 mt5-ns">
-          <InstructorNav pathname={pathname} />
-          <InstructorRoutes instructor={instructor} {...this.props} />
-        </main>
+        {instructor
+          ? <div>
+              <InstructorNav pathname={pathname} />
+              <Main>
+                <InstructorRouteScreens
+                  instructor={instructor}
+                  {...this.props}
+                />
+              </Main>
+            </div>
           : null
         }
-        <Miss component={() => null}/>
+        <Miss render={() => null} />
       </div>
-
     )
   }
 }

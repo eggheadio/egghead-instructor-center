@@ -6,7 +6,7 @@ import LessonTopics from '../screens/LessonTopics'
 import SubmitLesson from '../screens/SubmitLesson'
 import SubmissionList from '../screens/SubmissionList'
 
-class InstructorRoutes extends React.Component {
+class InstructorRouteScreens extends React.Component {
   render() {
     const {pathname, instructor} = this.props
     return (
@@ -35,4 +35,4 @@ class InstructorRoutes extends React.Component {
   }
 }
 
-export default InstructorRoutes
+export default InstructorRouteScreens

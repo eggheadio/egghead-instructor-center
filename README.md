@@ -73,7 +73,7 @@ When running the app in the "fake" environment, the `.fakeApi` directory holds c
 
 ### Styles
 
-Styling is done with default Tachyons classes.
+Styling is done with default Tachyons classes. The `*-ns` (not small) classes are used to apply anything specific to non-mobile screen sizes, so that all components are built mobile-first.
 
 ### Unit Tests
 

@@ -14,7 +14,6 @@ const GetPublishedSteps = ({
 
   const instructorLessonStates = compact(uniq(map(instructorLessons.lessons, 'state')))
 
-  console.log(instructor)
   const steps = [
     {
       isComplete: true,

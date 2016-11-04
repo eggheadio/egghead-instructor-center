@@ -11,7 +11,7 @@ const store = configureStore()
 const App = (props) => (
   <Provider store={store}>
     <Router>
-      <div className='pa4 mw8 center'>
+      <div>
         <Match pattern={`/instructors/:instructor_id`} component={Instructor} />
         <Miss render={() => (<h1>404!</h1>)} />
       </div>
