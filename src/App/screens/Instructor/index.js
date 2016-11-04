@@ -4,7 +4,7 @@ import Miss from 'react-router/Miss'
 import {requestInstructor, requestInstructorLessons} from './state/actions'
 import Main from './components/Main'
 import InstructorNav from './components/InstructorNav'
-import InstructorRouteViews from './components/InstructorRouteViews'
+import InstructorRouteScreens from './components/InstructorRouteScreens'
 
 class Instructor extends React.Component {
 
@@ -28,7 +28,7 @@ class Instructor extends React.Component {
           ? <div>
               <InstructorNav pathname={pathname} />
               <Main>
-                <InstructorRouteViews
+                <InstructorRouteScreens
                   instructor={instructor}
                   {...this.props}
                 />
