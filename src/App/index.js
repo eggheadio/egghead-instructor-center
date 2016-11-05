@@ -2,18 +2,50 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import Router from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
+import Redirect from 'react-router/Redirect'
 import Miss from 'react-router/Miss'
+import isPlainObject from 'lodash/isPlainObject'
 import configureStore from './state/'
 import Instructor from './screens/Instructor'
+import Login from './screens/Login'
+import RouteNotFound from './components/RouteNotFound'
 
 const store = configureStore()
+
+// TODO: Move to login API response
+const user = {
+  id: 27,
+  role: 'instructor',
+}
+
+const roleLandingRoutes = {
+  'instructor': '/instructors'
+}
 
 const App = (props) => (
   <Provider store={store}>
     <Router>
       <div>
-        <Match pattern={`/instructors/:instructor_id`} component={Instructor} />
-        <Miss render={() => (<h1>404!</h1>)} />
+        <Match
+          exactly
+          pattern='/'
+          render={() => (
+            isPlainObject(user)
+              ? <Redirect to={`${roleLandingRoutes[user.role]}/${user.id}`} />
+              : <Redirect to='/login' />
+          )}
+        />
+        <Match
+          exactly
+          pattern={`/instructors/:instructor_id`}
+          component={Instructor}
+        />
+        <Match
+          exactly
+          pattern='/login'
+          component={Login}
+        />
+        <Miss component={RouteNotFound} />
       </div>
     </Router>
   </Provider>
