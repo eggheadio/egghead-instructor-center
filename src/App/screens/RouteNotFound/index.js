@@ -1,6 +1,6 @@
 import React from 'react'
-import Main from '../Main'
-import Split from '../Split'
+import Main from '../../components/Main'
+import Split from '../../components/Split'
 import crackedEggo from './crackedEggo.png'
 
 const RouteNotFound = () => (

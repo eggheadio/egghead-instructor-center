@@ -8,7 +8,7 @@ import isPlainObject from 'lodash/isPlainObject'
 import configureStore from './state/'
 import Instructor from './screens/Instructor'
 import Login from './screens/Login'
-import RouteNotFound from './components/RouteNotFound'
+import RouteNotFound from './screens/RouteNotFound'
 
 const store = configureStore()
 

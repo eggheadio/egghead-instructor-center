@@ -1,0 +1,8 @@
+exports[`test Main 1`] = `
+<main
+  className="pa4 mw8 center">
+  <div>
+    Component
+  </div>
+</main>
+`;
