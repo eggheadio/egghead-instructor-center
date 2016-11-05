@@ -116,10 +116,6 @@ The *root screen* is the container for the entire app. It has everything a scree
 - `index.js` wires up the component and state trees.
 - `state/` wires up all sub-screen `reducers/` and `epics/`.
 
-### Style Guide
-
-Components that could benefit from being a part of the living style guide have an `index.guide.js` file next to them. This means they are automatically added to the living style guide.
-
 ### Styles
 
 Styling is done with default Tachyons classes. The `*-ns` (not small) classes are used to apply anything specific to non-mobile screen sizes, so that all components are built mobile-first.
@@ -127,3 +123,10 @@ Styling is done with default Tachyons classes. The `*-ns` (not small) classes ar
 ### Tests
 
 Modules and components that could benefit from tests have an `index.test.js` file next to them. These are generally simple unit or snapshot tests where they provide value.
+The `SnapshotFixtures` file provides **static** fixtures that can be used for the props of the components of snapshot test files.
+
+### Style Guide
+
+Components that could benefit from being a part of the living style guide have an `index.guide.js` file next to them. This means they are automatically added to the living style guide.
+The `faker` package provides **random** fixtures that can be used for the props of the components of guide files.
+The `GuideVariations` component can be used to render variations of a component.

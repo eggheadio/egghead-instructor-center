@@ -1,0 +1,8 @@
+exports[`test Title 1`] = `
+<header>
+  <h1
+    className="f1">
+    String
+  </h1>
+</header>
+`;

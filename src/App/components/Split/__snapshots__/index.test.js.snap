@@ -1,0 +1,34 @@
+exports[`test Split 1`] = `
+<div>
+  <header>
+    <h1
+      className="f1">
+      String
+    </h1>
+  </header>
+  <div
+    className="flex-ns">
+    <main
+      className="mr4-ns"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }>
+      <div>
+        Component
+      </div>
+    </main>
+    <aside
+      style={
+        Object {
+          "flex": 1,
+        }
+      }>
+      <div>
+        Component
+      </div>
+    </aside>
+  </div>
+</div>
+`;
