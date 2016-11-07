@@ -4,7 +4,10 @@ import * as instructorActionTypes from '../actions/instructorActionTypes';
 const instructor = (state = false, action) => {
   switch (action.type) {
     case instructorActionTypes.RECEIVE_INSTRUCTOR:
-      return Object.assign({}, state, action.payload.instructor)
+      return {
+        ...state,
+        ...action.payload.instructor,
+      }
     default:
       return state
   }
