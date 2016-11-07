@@ -3,12 +3,12 @@ import { Provider } from 'react-redux'
 import Router from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
 import Redirect from 'react-router/Redirect'
-import Miss from 'react-router/Miss'
 import isPlainObject from 'lodash/isPlainObject'
 import configureStore from './state/'
 import Instructor from './screens/Instructor'
 import Login from './screens/Login'
 import RouteNotFound from './screens/RouteNotFound'
+import Miss404 from './components/Miss404'
 
 const store = configureStore()
 
@@ -36,16 +36,18 @@ const App = (props) => (
           )}
         />
         <Match
-          exactly
           pattern={`/instructors/:instructor_id`}
           component={Instructor}
         />
         <Match
-          exactly
           pattern='/login'
           component={Login}
         />
-        <Miss component={RouteNotFound} />
+        <Match
+          pattern='/404'
+          component={RouteNotFound}
+        />
+        <Miss404 />
       </div>
     </Router>
   </Provider>
