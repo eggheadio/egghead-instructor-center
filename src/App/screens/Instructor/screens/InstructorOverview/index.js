@@ -38,7 +38,7 @@ class InstructorOverview extends React.Component {
     const {instructor, instructorLessons} = this.props
 
     return instructor ? (
-      <div >
+      <div>
         <div>
           <h1>Hi, {instructor.first_name}!</h1>
         </div>
