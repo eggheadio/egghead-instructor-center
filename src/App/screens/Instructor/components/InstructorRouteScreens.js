@@ -7,35 +7,30 @@ import LessonTopics from '../screens/LessonTopics'
 import SubmitLesson from '../screens/SubmitLesson'
 import SubmissionList from '../screens/SubmissionList'
 
-class InstructorRouteScreens extends React.Component {
-  render() {
-    const {pathname, instructor} = this.props
-    return (
-      <div>
-        <Match 
-          exactly
-          pattern={pathname}
-          render={(props) => (instructor.published_lessons > 0)
-            ? <InstructorOverview {...this.props} />
-            : <GetPublished {...this.props} />
-          }
-        />
-        <Match 
-          pattern={`${pathname}/topics`}
-          render={(props) => <LessonTopics {...this.props} />}
-        />
-        <Match
-          pattern={`${pathname}/submit`}
-          render={(props) => <SubmitLesson {...this.props} />}
-        />
-        <Match
-          pattern={`${pathname}/submissions`}
-          render={(props) => <SubmissionList {...this.props} />}
-        />
-        <Miss404 />
-      </div>
-    )
-  }
-}
+const InstructorRouteScreens = (props) => (
+  <div>
+    <Match 
+      exactly
+      pattern={props.pathname}
+      render={(matchProps) => (props.instructor.published_lessons > 0)
+        ? <InstructorOverview {...props} />
+        : <GetPublished {...props} />
+      }
+    />
+    <Match 
+      pattern={`${props.pathname}/topics`}
+      render={(matchProps) => <LessonTopics {...props} />}
+    />
+    <Match
+      pattern={`${props.pathname}/submit`}
+      render={(matchProps) => <SubmitLesson {...props} />}
+    />
+    <Match
+      pattern={`${props.pathname}/submissions`}
+      render={(matchProps) => <SubmissionList {...props} />}
+    />
+    <Miss404 />
+  </div>
+)
 
 export default InstructorRouteScreens
