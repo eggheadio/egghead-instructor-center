@@ -1,5 +1,7 @@
 # egghead.io Instructor Center
 
+[ ![Codeship Status for eggheadio/egghead-instructor-center](https://app.codeship.com/projects/3a4afe00-8808-0134-e6cc-2e5dfce30ebc/status?branch=master)](https://app.codeship.com/projects/183842)
+
 ---
 
 # Getting started
