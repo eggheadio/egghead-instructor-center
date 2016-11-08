@@ -8,13 +8,17 @@
     "test": "react-scripts test --env=jsdom",
     "build": "npm-run-all build:**",
     "build:guide": "build-storybook",
-    "build:app": "react-scripts build"
+    "build:app": "react-scripts build",
+    "verify": "CI=true yarn test && yarn build:guide && yarn build:app"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "homepage": ".",
   "version": "0.1.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "private": true,
   "devDependencies": {
     "@kadira/storybook": "^2.5.2",
