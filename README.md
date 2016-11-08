@@ -130,3 +130,11 @@ The `SnapshotFixtures` file provides **static** fixtures that can be used for th
 Components that could benefit from being a part of the living style guide have an `index.guide.js` file next to them. This means they are automatically added to the living style guide.
 The `faker` package provides **random** fixtures that can be used for the props of the components of guide files.
 The `GuideVariations` component can be used to render variations of a component.
+
+---
+
+# Pull Requests & Continuous Integration
+
+The `master` branch is _protected_. It requires new code be submitted as pull requests and that Continuous Integration through [Codeship](https://app.codeship.com/projects/183842) passes before the pull request can be merged.
+
+Continuous Integration runs the `yarn verify` script, which sets the `CI` variable (so that processes only run once, instead of in watch mode) and then checks that tests and builds execute without errors.
