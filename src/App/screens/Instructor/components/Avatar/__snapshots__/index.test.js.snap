@@ -1,0 +1,6 @@
+exports[`test default 1`] = `
+<img
+  alt="Avatar for String"
+  className="br-100"
+  src="https://s3.amazonaws.com/uifaces/faces/twitter/kimcool/128.jpg" />
+`;
