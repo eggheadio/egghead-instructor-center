@@ -35,6 +35,7 @@ module.exports = () => {
         slug: kebabCase(fullName),
         full_name: fullName,
         first_name: head(split(fullName, ' ')),
+        avatar_url: faker.image.avatar(),
         lessons_url: `localhost:4000/api/v1/instructors/${id}/lessons`,
         slack_id: faker.random.arrayElement([null, faker.internet.userName()]),
         gear_tracking_id: faker.random.arrayElement([null, faker.random.uuid()]),
