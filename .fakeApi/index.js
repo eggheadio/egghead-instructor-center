@@ -36,7 +36,7 @@ module.exports = () => {
         full_name: fullName,
         first_name: head(split(fullName, ' ')),
         avatar_url: faker.image.avatar(),
-        lessons_url: `localhost:4000/api/v1/instructors/${id}/lessons`,
+        lessons_url: `http://localhost:4000/api/v1/instructors/${id}/lessons`,
         slack_id: faker.random.arrayElement([null, faker.internet.userName()]),
         gear_tracking_id: faker.random.arrayElement([null, faker.random.uuid()]),
         published_lessons: has(overrides, 'publishedLessons')
@@ -50,12 +50,15 @@ module.exports = () => {
 
     lessons: times(lessonCount, index => {
       const id = index
+      const title = faker.lorem.words()
       const instructorId = faker.random.number({
         min: 0,
         max: instructorCount
       })
       return {
         id,
+        slug: kebabCase(title),
+        title,
         state: faker.random.arrayElement(lessonStates),
         instructor_url: `localhost:4000/api/v1/instructors/${instructorId}`,
 
