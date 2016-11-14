@@ -14,7 +14,16 @@ function handleLessonsResponse(response) {
 
 // I couldn't figure out how to get the Rx ajax operator to give me the headers so I just used fetch...
 function fetchLessons(lessonPage) {
-  const url = `${lessonPage.lessons_url}?page=${lessonPage.page}&size=${lessonPage.size}`
+  const paramNamesByEnv = process.env.REACT_APP_FAKE_API
+    ? {
+        page: '_page',
+        size: '_limit',
+      }
+    : {
+        page: 'page',
+        size: 'size',
+      }
+  const url = `${lessonPage.lessons_url}?${paramNamesByEnv.page}=${lessonPage.page}&${paramNamesByEnv.size}=${lessonPage.size}`
   return Observable.fromPromise(
     fetch(url, {headers})
       .then(handleLessonsResponse))
