@@ -14,9 +14,8 @@ class InstructorOverview extends React.Component {
     requestInstructorLessons({
       lessons_url: instructor.lessons_url,
       page: currentPage,
-      size: 10
+      size: 10,
     })
-
   }
 
   componentWillReceiveProps(nextProps) {

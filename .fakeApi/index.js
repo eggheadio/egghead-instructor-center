@@ -19,10 +19,18 @@ module.exports = () => {
   })
 
   const lessonStates = [
+    'proposed',
+    'cancelled',
+    'accepted',
+    'claimed',
     'submitted',
+    'rejected',
     'updated',
     'approved',
     'published',
+    'flagged',
+    'revised',
+    'retired',
   ]
 
   return {
