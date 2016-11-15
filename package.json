@@ -25,6 +25,7 @@
     "faker": "^3.1.0",
     "json-server": "^0.8.22",
     "npm-run-all": "^3.1.1",
+    "query-string": "^4.2.3",
     "react-scripts": "^0.7.0",
     "react-test-renderer": "^15.3.2"
   },
@@ -36,7 +37,6 @@
     "jwt-decode": "^2.1.0",
     "lodash": "^4.16.2",
     "parse-link-header": "^0.4.1",
-    "query-string": "^4.2.3",
     "react": "^15.3.2",
     "react-addons-create-fragment": "^15.3.2",
     "react-dom": "^15.3.2",
