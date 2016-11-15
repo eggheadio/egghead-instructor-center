@@ -5,20 +5,13 @@ import GetPublishedFaq from './components/GetPublishedFaq'
 
 class GetPublished extends React.Component {
 
-  fetchLessons(instructor) {
-    const {requestInstructorLessons} = this.props
+  componentWillMount() {
+    const {instructor, requestInstructorLessons} = this.props
     requestInstructorLessons({
       lessons_url: instructor.lessons_url,
       page: 1,
-      size: 10
+      size: 10,
     })
-  }
-
-  componentWillMount() {
-    const {instructor} = this.props
-    if(instructor) {
-      this.fetchLessons(instructor)
-    }
   }
 
   render() {

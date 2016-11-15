@@ -1,6 +1,6 @@
 import React from 'react'
 import Icon from '../../../components/Icon'
-import Anchor from './Anchor'
+import Anchor from '../../../components/Anchor'
 
 const MoreInfo = ({url}) => (
   <Anchor url={url}>

@@ -15,6 +15,10 @@ export const types = {
   'step-complete': 'check-square-o',
   'close': 'close',
   'more-info': 'info-circle',
+  'subscriber-minutes': 'clock-o',
+  'revenue': 'money',
+  'course': 'folder-open-o',
+  'lesson': 'file-o',
 }
 
 const Icon = ({

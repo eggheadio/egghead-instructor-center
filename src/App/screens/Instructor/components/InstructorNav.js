@@ -10,16 +10,8 @@ const InstructorNav = ({pathname}) => (
         route: '',
       },
       {
-        text: 'Topics',
-        route: '/topics',
-      },
-      {
-        text: 'Submit Lesson',
-        route: '/submit',
-      },
-      {
-        text: 'Lesson Submissions',
-        route: '/submissions',
+        text: 'Published Lessons',
+        route: '/published',
       },
     ]}
   />
