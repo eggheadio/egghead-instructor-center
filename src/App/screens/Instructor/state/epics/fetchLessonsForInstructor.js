@@ -1,11 +1,9 @@
 import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
-import reduce from 'lodash/reduce'
-import replace from 'lodash/replace'
-import isArray from 'lodash/isArray'
-import headers from '../../../../state/utils/headers'
 import * as instructorActionTypes from '../actions/instructorActionTypes'
 import {receiveInstructorLessons} from '../actions'
+import headers from './utils/headers'
+import createQueryString from './utils/createQueryString'
 
 function handleLessonsResponse(response) {
   return response.json().then((lessons) => {
@@ -14,14 +12,6 @@ function handleLessonsResponse(response) {
     return {pages, total, lessons}
   })
 }
-
-// TODO: Transfer to module
-// TODO: switch first & for ?
-const createQueryString = params => (
-  replace(reduce(params, (memo, value, key) => (
-    `${memo}&${key}=${isArray(value) ? value.join(',') : value}`
-  ), ''), '&', '?')
-)
 
 // I couldn't figure out how to get the Rx ajax operator to give me the headers so I just used fetch...
 function fetchLessons(lessonPage) {

@@ -1,7 +1,7 @@
 import {ajax} from 'rxjs/observable/dom/ajax'
-import headers from '../../../../state/utils/headers'
 import * as instructorActionTypes from '../actions/instructorActionTypes'
 import {receiveInstructor} from '../actions'
+import headers from './utils/headers'
 
 export default function fetchInstructorById(action$) {
   return action$.ofType(instructorActionTypes.REQUESTED_INSTRUCTOR)
