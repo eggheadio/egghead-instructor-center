@@ -1,5 +1,8 @@
 import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
+import reduce from 'lodash/reduce'
+import replace from 'lodash/replace'
+import isArray from 'lodash/isArray'
 import headers from '../../../../state/utils/headers'
 import * as instructorActionTypes from '../actions/instructorActionTypes'
 import {receiveInstructorLessons} from '../actions'
@@ -12,8 +15,17 @@ function handleLessonsResponse(response) {
   })
 }
 
+// TODO: Transfer to module
+// TODO: switch first & for ?
+const createQueryString = params => (
+  replace(reduce(params, (memo, value, key) => (
+    `${memo}&${key}=${isArray(value) ? value.join(',') : value}`
+  ), ''), '&', '?')
+)
+
 // I couldn't figure out how to get the Rx ajax operator to give me the headers so I just used fetch...
 function fetchLessons(lessonPage) {
+
   const paramNamesByEnv = process.env.REACT_APP_FAKE_API
     ? {
         page: '_page',
@@ -23,7 +35,18 @@ function fetchLessons(lessonPage) {
         page: 'page',
         size: 'size',
       }
-  const url = `${lessonPage.lessons_url}?${paramNamesByEnv.page}=${lessonPage.page}&${paramNamesByEnv.size}=${lessonPage.size}`
+
+  const params = {
+    [paramNamesByEnv.page]: lessonPage.page,
+    [paramNamesByEnv.size]: lessonPage.size,
+    ...(lessonPage.states
+      ? {states: lessonPage.states}
+      : {}
+    ),
+  }
+
+  const url = `${lessonPage.lessons_url}${createQueryString(params)}`
+
   return Observable.fromPromise(
     fetch(url, {headers})
       .then(handleLessonsResponse))
