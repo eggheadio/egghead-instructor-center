@@ -31,6 +31,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "font-awesome": "^4.6.3",
+    "format-number": "^2.0.1",
     "history": "^4.3.0",
     "jwt-decode": "^2.1.0",
     "lodash": "^4.16.2",

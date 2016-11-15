@@ -2591,6 +2591,10 @@ form-data@~2.1.1:
     combined-stream "^1.0.5"
     mime-types "^2.1.12"
 
+format-number:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/format-number/-/format-number-2.0.1.tgz#e9231a8743ca64b47d09555dce40296343be66eb"
+
 forwarded@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.0.tgz#19ef9874c4ae1c297bcf078fde63a09b66a84363"

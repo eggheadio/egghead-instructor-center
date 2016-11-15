@@ -58,6 +58,10 @@ module.exports = () => {
               max: 200,
             }),
         revenue: {
+          total: {
+            minutes_watched: 30252,
+            revenue: 5832.16,
+          },
           current: 'oct',
           jan: {
             minutes_watched: 4234,

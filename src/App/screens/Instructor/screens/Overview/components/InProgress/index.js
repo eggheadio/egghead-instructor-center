@@ -16,6 +16,9 @@ export default ({instructor, instructorLessons}) => (
 
     <h3 className='f3'>
       In Progress
+      <span className='ml2 black-30'>
+        ({size(instructorLessons.lessons)})
+      </span>
     </h3>
 
     {size(instructorLessons.lessons) > 0
