@@ -33,6 +33,17 @@ module.exports = () => {
     'retired',
   ]
 
+  const revenueFactory = (maxMinutesWatched = 100000, maxRevenue = 10000) => ({
+    minutes_watched: faker.random.number({
+      min: 1,
+      max: maxMinutesWatched,
+    }),
+    revenue: faker.random.number({
+      min: 1,
+      max: maxRevenue,
+    }),
+  })
+
   return {
 
     instructors: times(instructorCount, index => {
@@ -55,54 +66,14 @@ module.exports = () => {
           ? overrides.publishedLessons
           : faker.random.number({
               min: 0,
-              max: 200,
+              max: 70,
             }),
         revenue: {
-          total: {
-            minutes_watched: 30252,
-            revenue: 5832.16,
-          },
-          current: 'oct',
-          jan: {
-            minutes_watched: 4234,
-            revenue: 155.27
-          },
-          feb: {
-            minutes_watched: 3354,
-            revenue: 155.92
-          },
-          mar: {
-            minutes_watched: 3223,
-            revenue: 155.72
-          },
-          apr: {
-            minutes_watched: 3423,
-            revenue: 155.38
-          },
-          may: {
-            minutes_watched: 4322,
-            revenue: 155.62
-          },
-          jun: {
-            minutes_watched: 6433,
-            revenue: 155.72
-          },
-          jul: {
-            minutes_watched: 4267,
-            revenue: 155.27
-          },
-          aug: {
-            minutes_watched: 2433,
-            revenue: 155.79
-          },
-          sep: {
-            minutes_watched: 2660,
-            revenue: 155.43
-          },
-          oct: {
-            minutes_watched: 2660,
-            revenue: 155.43
-          }
+          total: revenueFactory(1000000, 100000),
+          current: 'mar',
+          jan: revenueFactory(),
+          feb: revenueFactory(),
+          mar: revenueFactory(),
         }
       }
     }),
