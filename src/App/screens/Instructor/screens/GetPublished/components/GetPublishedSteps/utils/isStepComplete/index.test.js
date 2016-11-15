@@ -1,4 +1,4 @@
-import isStepComplete from './isStepComplete'
+import isStepComplete from '.'
 
 test('all steps are incomplete when instructor has no lessons', () => {
   const instructorLessonStates = []

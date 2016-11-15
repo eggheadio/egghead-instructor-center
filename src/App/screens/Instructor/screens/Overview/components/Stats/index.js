@@ -23,7 +23,7 @@ export default ({instructor}) => {
 
             <div>
               <h4 className='f4'>
-                {currentMonthName}
+                {currentMonthName()}
               </h4>
               <SubscriberMinutesIconLabel amount={currentRevenue.minutes_watched} />
               <RevenueIconLabel amount={currentRevenue.revenue} />
