@@ -1,10 +1,9 @@
 import {Observable} from 'rxjs'
-import devQueryString from 'query-string'
 import parse from 'parse-link-header'
 import * as instructorActionTypes from '../actions/instructorActionTypes'
 import {receiveInstructorLessons} from '../actions'
 import headers from './utils/headers'
-import createQueryString from './utils/createQueryString'
+import createLessonsUrl from './utils/createLessonsUrl'
 
 function handleLessonsResponse(response) {
   return response.json().then((lessons) => {
@@ -16,29 +15,7 @@ function handleLessonsResponse(response) {
 
 function fetchLessons(lessonPage) {
 
-  const paramNamesByEnv = process.env.REACT_APP_FAKE_API
-    ? {
-        page: '_page',
-        size: '_limit',
-      }
-    : {
-        page: 'page',
-        size: 'size',
-      }
-
-  const params = {
-    [paramNamesByEnv.page]: lessonPage.page,
-    [paramNamesByEnv.size]: lessonPage.size,
-    ...(lessonPage.states
-      ? {state: lessonPage.states}
-      : {}
-    ),
-  }
-
-  const queryString = process.env.REACT_APP_FAKE_API
-    ? `?${devQueryString.stringify(params)}`
-    : createQueryString(params)
-  const url = `${lessonPage.lessons_url}${queryString}`
+  const url = createLessonsUrl(lessonPage)
 
   // I couldn't figure out how to get the Rx ajax operator to give me the headers so I just used fetch...
   return Observable.fromPromise(
