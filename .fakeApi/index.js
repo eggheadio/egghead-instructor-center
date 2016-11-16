@@ -14,8 +14,8 @@ module.exports = () => {
   })
 
   const lessonCount = faker.random.number({
-    min: 3000,
-    max: 5000,
+    min: 500,
+    max: 3000,
   })
 
   const lessonStates = [
@@ -33,6 +33,17 @@ module.exports = () => {
     'retired',
   ]
 
+  const revenueFactory = (maxMinutesWatched = 100000, maxRevenue = 10000) => ({
+    minutes_watched: faker.random.number({
+      min: 1,
+      max: maxMinutesWatched,
+    }),
+    revenue: faker.random.number({
+      min: 1,
+      max: maxRevenue,
+    }),
+  })
+
   return {
 
     instructors: times(instructorCount, index => {
@@ -47,18 +58,29 @@ module.exports = () => {
         lessons_url: `http://localhost:4000/api/v1/instructors/${id}/lessons`,
         slack_id: faker.random.arrayElement([null, faker.internet.userName()]),
         gear_tracking_id: faker.random.arrayElement([null, faker.random.uuid()]),
+        published_courses: faker.random.number({
+          min: 0,
+          max: 20,
+        }),
         published_lessons: has(overrides, 'publishedLessons')
           ? overrides.publishedLessons
           : faker.random.number({
               min: 0,
-              max: 200,
+              max: 70,
             }),
+        revenue: {
+          total: revenueFactory(1000000, 100000),
+          current: 'mar',
+          jan: revenueFactory(),
+          feb: revenueFactory(),
+          mar: revenueFactory(),
+        }
       }
     }),
 
     lessons: times(lessonCount, index => {
       const id = index
-      const title = faker.lorem.words()
+      const title = faker.company.catchPhrase()
       const instructorId = faker.random.number({
         min: 0,
         max: instructorCount

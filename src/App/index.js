@@ -1,5 +1,5 @@
 import React from 'react'
-import { Provider } from 'react-redux'
+import {Provider} from 'react-redux'
 import Router from 'react-router/BrowserRouter'
 import Match from 'react-router/Match'
 import Redirect from 'react-router/Redirect'

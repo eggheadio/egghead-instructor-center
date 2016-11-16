@@ -1,8 +1,9 @@
 import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
-import headers from '../../../../state/utils/headers'
 import * as instructorActionTypes from '../actions/instructorActionTypes'
 import {receiveInstructorLessons} from '../actions'
+import headers from './utils/headers'
+import createLessonsUrl from './utils/createLessonsUrl'
 
 function handleLessonsResponse(response) {
   return response.json().then((lessons) => {
@@ -12,18 +13,11 @@ function handleLessonsResponse(response) {
   })
 }
 
-// I couldn't figure out how to get the Rx ajax operator to give me the headers so I just used fetch...
 function fetchLessons(lessonPage) {
-  const paramNamesByEnv = process.env.REACT_APP_FAKE_API
-    ? {
-        page: '_page',
-        size: '_limit',
-      }
-    : {
-        page: 'page',
-        size: 'size',
-      }
-  const url = `${lessonPage.lessons_url}?${paramNamesByEnv.page}=${lessonPage.page}&${paramNamesByEnv.size}=${lessonPage.size}`
+
+  const url = createLessonsUrl(lessonPage)
+
+  // I couldn't figure out how to get the Rx ajax operator to give me the headers so I just used fetch...
   return Observable.fromPromise(
     fetch(url, {headers})
       .then(handleLessonsResponse))

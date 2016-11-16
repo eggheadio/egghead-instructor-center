@@ -1,11 +1,9 @@
 import React from 'react'
 import Match from 'react-router/Match'
 import Miss404 from '../../../components/Miss404'
-import InstructorOverview from '../screens/InstructorOverview'
+import Overview from '../screens/Overview'
 import GetPublished from '../screens/GetPublished'
-import LessonTopics from '../screens/LessonTopics'
-import SubmitLesson from '../screens/SubmitLesson'
-import SubmissionList from '../screens/SubmissionList'
+import PublishedLessons from '../screens/PublishedLessons'
 
 const InstructorRouteScreens = (props) => (
   <div>
@@ -13,21 +11,13 @@ const InstructorRouteScreens = (props) => (
       exactly
       pattern={props.pathname}
       render={(matchProps) => (props.instructor.published_lessons > 0)
-        ? <InstructorOverview {...props} />
+        ? <Overview {...props} />
         : <GetPublished {...props} />
       }
     />
     <Match 
-      pattern={`${props.pathname}/topics`}
-      render={(matchProps) => <LessonTopics {...props} />}
-    />
-    <Match
-      pattern={`${props.pathname}/submit`}
-      render={(matchProps) => <SubmitLesson {...props} />}
-    />
-    <Match
-      pattern={`${props.pathname}/submissions`}
-      render={(matchProps) => <SubmissionList {...props} />}
+      pattern={`${props.pathname}/published`}
+      render={(matchProps) => <PublishedLessons {...props} />}
     />
     <Miss404 />
   </div>
