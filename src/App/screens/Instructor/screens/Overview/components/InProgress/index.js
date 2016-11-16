@@ -1,15 +1,8 @@
 import React from 'react'
 import size from 'lodash/size'
 import map from 'lodash/map'
-import filter from 'lodash/filter'
-import reduce from 'lodash/reduce'
 import upperFirst from 'lodash/upperFirst'
-import lessonStates from '../../../../utils/lessonStates'
-
-const sortLessonsByState = (lessons) => reduce(lessonStates, (memo, state) => ([
-  ...memo,
-  ...filter(lessons, lesson => lesson.state === state),
-]), [])
+import sortLessonsByState from './utils/sortLessonsByState'
 
 export default ({instructor, instructorLessons}) => (
   <div>
