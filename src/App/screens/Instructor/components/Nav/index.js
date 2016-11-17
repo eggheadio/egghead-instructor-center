@@ -5,8 +5,16 @@ import Icon from '../Icon'
 import Logo from '../Logo'
 import NavLink from './components/NavLink'
 
-class Nav extends Component {
+export default class extends Component {
   
+  static propTypes = {
+    pathname: PropTypes.string.isRequired,
+    routes: PropTypes.arrayOf(PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      route: PropTypes.string.isRequired,
+    })).isRequired,
+  }
+
   state = {
     isOpen: false,
   }
@@ -86,13 +94,3 @@ class Nav extends Component {
     )
   }
 }
-
-Nav.propTypes = {
-  pathname: PropTypes.string.isRequired,
-  routes: PropTypes.arrayOf(PropTypes.shape({
-    text: PropTypes.string.isRequired,
-    route: PropTypes.string.isRequired,
-  })).isRequired,
-}
-
-export default Nav

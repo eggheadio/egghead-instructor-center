@@ -9,7 +9,18 @@ import GetPublished from './screens/GetPublished'
 import PublishedLessons from './screens/PublishedLessons'
 import Nav from './components/Nav'
 
-class Instructor extends Component {
+export default connect(
+  ({instructorScreen}) => ({...instructorScreen}),
+  {
+    requestInstructor,
+    requestInstructorLessons,
+  }
+)(class extends Component {
+
+  static propTypes = {
+    params: PropTypes.object.isRequired,
+    pathname: PropTypes.string.isRequired
+  }
 
   componentWillReceiveProps(nextProps) {
     const {instructor_id} = this.props.params
@@ -83,17 +94,4 @@ class Instructor extends Component {
         </div>
       : null
   }
-}
-
-Instructor.propTypes = {
-  params: PropTypes.object.isRequired,
-  pathname: PropTypes.string.isRequired
-}
-
-export default connect(
-  ({instructorScreen}) => ({...instructorScreen}),
-  {
-    requestInstructor,
-    requestInstructorLessons,
-  }
-)(Instructor)
+})
