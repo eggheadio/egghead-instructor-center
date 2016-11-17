@@ -2,7 +2,7 @@ import React from 'react'
 import {slice, indexOf} from 'lodash'
 import Split from '../../../../components/Split'
 import lessonStates from '../../utils/lessonStates'
-import InstructorLessonsCallback from '../../components/InstructorLessonsCallback'
+import InstructorLessons from '../../components/InstructorLessons'
 import InProgress from './components/InProgress'
 import Stats from './components/Stats'
 import Help from './components/Help'
@@ -13,7 +13,7 @@ export default ({
   instructor,
   instructorLessons,
 }) => (
-  <InstructorLessonsCallback
+  <InstructorLessons
     instructor={instructor}
     states={inProgressLessonStates}
   >
@@ -34,5 +34,5 @@ export default ({
         }
       />
     )}
-  </InstructorLessonsCallback>
+  </InstructorLessons>
 )

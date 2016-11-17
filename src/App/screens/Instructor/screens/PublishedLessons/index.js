@@ -1,13 +1,13 @@
 import React from 'react'
 import Split from '../../../../components/Split'
-import InstructorLessonsCallback from '../../components/InstructorLessonsCallback'
+import InstructorLessons from '../../components/InstructorLessons'
 import PaginatedLessonList from './components/PaginatedLessonList'
 
 export default ({
   instructor,
   instructorLessons,
 }) => (
-  <InstructorLessonsCallback instructor={instructor}>
+  <InstructorLessons instructor={instructor}>
     {(currentPage, fetchLessons) => (
       <Split
         title='Published Lessons'
@@ -25,5 +25,5 @@ export default ({
         }
       />
     )}
-  </InstructorLessonsCallback>
+  </InstructorLessons>
 )
