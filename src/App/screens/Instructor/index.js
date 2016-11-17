@@ -1,10 +1,13 @@
 import React, {Component, PropTypes} from 'react'
+import {Match} from 'react-router'
 import {connect} from 'react-redux'
-import {Miss} from 'react-router'
 import Main from '../../components/Main'
+import Miss404 from '../../components/Miss404'
 import {requestInstructor, requestInstructorLessons} from './state/actions'
-import InstructorNav from './components/InstructorNav'
-import InstructorRouteScreens from './components/InstructorRouteScreens'
+import Overview from './screens/Overview'
+import GetPublished from './screens/GetPublished'
+import PublishedLessons from './screens/PublishedLessons'
+import Nav from './components//Nav'
 
 class Instructor extends Component {
 
@@ -16,29 +19,69 @@ class Instructor extends Component {
   }
 
   render() {
-    const {pathname, params, requestInstructor, instructor} = this.props
+
+    const {
+      params,
+      pathname,
+      requestInstructor,
+      requestInstructorLessons,
+      instructor,
+      instructorLessons,
+    } = this.props
 
     if(!instructor) {
       requestInstructor(params.instructor_id)
     }
 
-    return (
-      <div>
-        {instructor
-          ? <div>
-              <InstructorNav pathname={pathname} />
-              <Main>
-                <InstructorRouteScreens
+    return instructor
+      ? <div>
+
+          <Nav
+            pathname={pathname}
+            routes={[
+              {
+                text: 'Overview',
+                route: '',
+              },
+              {
+                text: 'Published Lessons',
+                route: '/published',
+              },
+            ]}
+          />
+
+          <Main>
+            <Match 
+              exactly
+              pattern={pathname}
+              render={() => (instructor.published_lessons > 0)
+                ? <Overview
+                    requestInstructorLessons={requestInstructorLessons}
+                    instructor={instructor}
+                    instructorLessons={instructorLessons}
+                  />
+                : <GetPublished 
+                    requestInstructorLessons={requestInstructorLessons}
+                    instructor={instructor}
+                    instructorLessons={instructorLessons}
+                  />
+              }
+            />
+            <Match 
+              pattern={`${pathname}/published`}
+              render={() => (
+                <PublishedLessons 
+                  requestInstructorLessons={requestInstructorLessons}
                   instructor={instructor}
-                  {...this.props}
+                  instructorLessons={instructorLessons}
                 />
-              </Main>
-            </div>
-          : null
-        }
-        <Miss render={() => null} />
-      </div>
-    )
+              )}
+            />
+            <Miss404 />
+          </Main>
+
+        </div>
+      : null
   }
 }
 

@@ -6,7 +6,7 @@ import GetPublishedFaq from './components/GetPublishedFaq'
 class GetPublished extends Component {
 
   componentWillMount() {
-    const {instructor, requestInstructorLessons} = this.props
+    const {requestInstructorLessons, instructor} = this.props
     requestInstructorLessons({
       lessons_url: instructor.lessons_url,
       page: 1,

@@ -9,7 +9,7 @@ import Help from './components/Help'
 class Overview extends Component {
 
   componentWillMount() {
-    const {instructor, requestInstructorLessons} = this.props
+    const {requestInstructorLessons, instructor} = this.props
     requestInstructorLessons({
       lessons_url: instructor.lessons_url,
       page: 1,
