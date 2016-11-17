@@ -4,7 +4,7 @@ import {map} from 'lodash'
 
 const PaginatedLessonList = (props) => {
 
-  const {fetchLessons, lessons, instructor, total, currentPage} = props
+  const {fetchLessons, lessons, total, currentPage} = props
   const pageNum = Math.ceil(total / 10)
   const hasMoreThanOnePage = (pageNum > 1) && (lessons.length > 0)
 
@@ -37,7 +37,7 @@ const PaginatedLessonList = (props) => {
               clickCallback={(page) => {
                 const {selected} = page
                 if (currentPage !== selected + 1) {
-                  fetchLessons(instructor, selected + 1)
+                  fetchLessons(selected + 1)
                 }
               }}
               containerClassName={'pagination'}

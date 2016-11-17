@@ -1,38 +1,20 @@
-import React, {Component, PropTypes} from 'react'
+import React from 'react'
 import Split from '../../../../components/Split'
+import InstructorLessons from '../../components/InstructorLessons'
 import PaginatedLessonList from './components/PaginatedLessonList'
 
-class PublishedLessons extends Component {
-
-  state = {
-    currentPage: 1
-  }
-
-  fetchLessons(instructor, currentPage = 1) {
-    const {requestInstructorLessons} = this.props
-    this.setState({currentPage})
-    requestInstructorLessons({
-      lessons_url: instructor.lessons_url,
-      page: currentPage,
-      size: 10,
-    })
-  }
-
-  componentWillMount() {
-    const {instructor} = this.props
-    this.fetchLessons(instructor)
-  }
-
-  render() {
-    const {currentPage} = this.state
-    const {instructor, instructorLessons} = this.props
-    return (
+export default ({
+  instructor,
+  instructorLessons,
+}) => (
+  <InstructorLessons instructor={instructor}>
+    {(currentPage, fetchLessons) => (
       <Split
         title='Published Lessons'
         main={
           <PaginatedLessonList
             lessons={instructorLessons.lessons}
-            fetchLessons={this.fetchLessons.bind(this)}
+            fetchLessons={fetchLessons}
             instructor={instructor}
             total={instructorLessons.total}
             currentPage={currentPage}
@@ -42,12 +24,6 @@ class PublishedLessons extends Component {
           <div />
         }
       />
-    )
-  }
-}
-
-PublishedLessons.propTypes = {
-  instructor: PropTypes.object.isRequired,
-}
-
-export default PublishedLessons
+    )}
+  </InstructorLessons>
+)
