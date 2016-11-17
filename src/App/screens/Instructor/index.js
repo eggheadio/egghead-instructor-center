@@ -3,7 +3,7 @@ import {Match} from 'react-router'
 import {connect} from 'react-redux'
 import Main from '../../components/Main'
 import Miss404 from '../../components/Miss404'
-import {requestInstructor, requestInstructorLessons} from './state/actions'
+import {requestInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
 import PublishedLessons from './screens/PublishedLessons'
@@ -11,10 +11,7 @@ import Nav from './components/Nav'
 
 export default connect(
   ({instructorScreen}) => ({...instructorScreen}),
-  {
-    requestInstructor,
-    requestInstructorLessons,
-  }
+  {requestInstructor}
 )(class extends Component {
 
   static propTypes = {
@@ -35,7 +32,6 @@ export default connect(
       params,
       pathname,
       requestInstructor,
-      requestInstructorLessons,
       instructor,
       instructorLessons,
     } = this.props
@@ -67,12 +63,10 @@ export default connect(
               pattern={pathname}
               render={() => (instructor.published_lessons > 0)
                 ? <Overview
-                    requestInstructorLessons={requestInstructorLessons}
                     instructor={instructor}
                     instructorLessons={instructorLessons}
                   />
                 : <GetPublished 
-                    requestInstructorLessons={requestInstructorLessons}
                     instructor={instructor}
                     instructorLessons={instructorLessons}
                   />
@@ -82,7 +76,6 @@ export default connect(
               pattern={`${pathname}/published`}
               render={() => (
                 <PublishedLessons 
-                  requestInstructorLessons={requestInstructorLessons}
                   instructor={instructor}
                   instructorLessons={instructorLessons}
                 />

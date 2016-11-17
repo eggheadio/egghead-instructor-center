@@ -10,12 +10,10 @@ import Help from './components/Help'
 const inProgressLessonStates = slice(lessonStates, 0, indexOf(lessonStates, 'published'))
 
 export default ({
-  requestInstructorLessons,
   instructor,
   instructorLessons,
 }) => (
   <InstructorLessonsCallback
-    requestInstructorLessons={requestInstructorLessons}
     instructor={instructor}
     states={inProgressLessonStates}
   >

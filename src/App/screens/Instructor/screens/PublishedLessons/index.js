@@ -4,14 +4,10 @@ import InstructorLessonsCallback from '../../components/InstructorLessonsCallbac
 import PaginatedLessonList from './components/PaginatedLessonList'
 
 export default ({
-  requestInstructorLessons,
   instructor,
   instructorLessons,
 }) => (
-  <InstructorLessonsCallback
-    requestInstructorLessons={requestInstructorLessons}
-    instructor={instructor}
-  >
+  <InstructorLessonsCallback instructor={instructor}>
     {(currentPage, fetchLessons) => (
       <Split
         title='Published Lessons'

@@ -1,6 +1,11 @@
 import {Component, PropTypes} from 'react'
+import {connect} from 'react-redux'
+import {requestInstructorLessons} from '../state/actions'
 
-export default class extends Component {
+export default connect(
+  null,
+  {requestInstructorLessons}
+)(class extends Component {
   
   static propTypes = {
     children: PropTypes.func.isRequired,
@@ -35,4 +40,4 @@ export default class extends Component {
     const {children} = this.props
     return children(currentPage, this.fetchLessons)
   }
-}
+})

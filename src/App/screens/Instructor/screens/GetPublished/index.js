@@ -5,14 +5,10 @@ import GetPublishedSteps from './components/GetPublishedSteps'
 import GetPublishedFaq from './components/GetPublishedFaq'
 
 export default ({
-  requestInstructorLessons,
   instructor,
   instructorLessons,
 }) => (
-  <InstructorLessonsCallback
-    requestInstructorLessons={requestInstructorLessons}
-    instructor={instructor}
-  >
+  <InstructorLessonsCallback instructor={instructor}>
     {(currentPage) => (
       <Split
         title='Get Published'
