@@ -12,7 +12,7 @@ import Nav from './components/Nav'
 export default connect(
   ({instructorScreen}) => ({...instructorScreen}),
   {requestInstructor}
-)(class extends Component {
+)(class Instructor extends Component {
 
   static propTypes = {
     params: PropTypes.object.isRequired,

@@ -5,7 +5,7 @@ import Icon from '../Icon'
 import Logo from '../Logo'
 import NavLink from './components/NavLink'
 
-export default class extends Component {
+export default class Nav extends Component {
   
   static propTypes = {
     pathname: PropTypes.string.isRequired,

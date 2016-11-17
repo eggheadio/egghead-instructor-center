@@ -5,7 +5,7 @@ import {requestInstructorLessons} from '../state/actions'
 export default connect(
   null,
   {requestInstructorLessons}
-)(class extends Component {
+)(class InstructorLessons extends Component {
   
   static propTypes = {
     children: PropTypes.func.isRequired,
