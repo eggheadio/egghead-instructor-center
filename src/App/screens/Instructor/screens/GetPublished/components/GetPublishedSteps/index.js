@@ -1,8 +1,5 @@
-import React from 'react'
-import map from 'lodash/map'
-import uniq from 'lodash/uniq'
-import compact from 'lodash/uniq'
-import isString from 'lodash/isString'
+import React, {PropTypes} from 'react'
+import {map, uniq, compact, isString} from 'lodash'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
 import DescriptionBlock from './components/DescriptionBlock'
@@ -62,8 +59,8 @@ const GetPublishedSteps = ({
 }
 
 GetPublishedSteps.propTypes = {
-  instructor: React.PropTypes.object.isRequired,
-  instructorLessons: React.PropTypes.object.isRequired,
+  instructor: PropTypes.object.isRequired,
+  instructorLessons: PropTypes.object.isRequired,
 }
 
 export default GetPublishedSteps

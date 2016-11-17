@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const GuideVariation = ({tooltip, children}) => (
   <div title={tooltip}>
@@ -7,8 +7,8 @@ const GuideVariation = ({tooltip, children}) => (
 )
 
 GuideVariation.propTypes = {
-  tooltip: React.PropTypes.string.isRequired,
-  children: React.PropTypes.node.isRequired,
+  tooltip: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default GuideVariation

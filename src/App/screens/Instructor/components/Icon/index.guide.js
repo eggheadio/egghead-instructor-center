@@ -1,6 +1,5 @@
 import React from 'react'
-import map from 'lodash/map'
-import keys from 'lodash/keys'
+import {map, keys} from 'lodash'
 import {storiesOf} from '@kadira/storybook'
 import GuideVariation from '../GuideVariation'
 import Icon, {sizes, types} from './index'

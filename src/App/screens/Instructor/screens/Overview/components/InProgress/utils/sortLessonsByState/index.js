@@ -1,5 +1,4 @@
-import filter from 'lodash/filter'
-import reduce from 'lodash/reduce'
+import {filter, reduce} from 'lodash'
 import lessonStates from '../../../../../../utils/lessonStates'
 
 export default (lessons) => reduce(lessonStates, (memo, state) => ([

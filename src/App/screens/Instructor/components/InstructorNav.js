@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Nav from './Nav'
 
 const InstructorNav = ({pathname}) => (
@@ -18,7 +18,7 @@ const InstructorNav = ({pathname}) => (
 )
 
 InstructorNav.propTypes = {
-  pathname: React.PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired,
 }
 
 export default InstructorNav

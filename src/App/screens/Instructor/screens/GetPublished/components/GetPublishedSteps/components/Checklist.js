@@ -1,14 +1,16 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
+import {map} from 'lodash'
 import Icon from '../../../../../components/Icon'
 import MoreInfo from '../../MoreInfo'
 
 const Checklist = ({items}) => (
   <div>
-    {items.map((item, index) => (
+    {map(items, (item, index) => (
       <div
         key={index}
         className='flex items-center b mb3'
       >
+
         <div className='mr2'>
           {item.isComplete
             ? <Icon
@@ -23,6 +25,7 @@ const Checklist = ({items}) => (
               />
           }
         </div>
+
         <div>
           <div>
             <span className={item.isComplete
@@ -39,16 +42,17 @@ const Checklist = ({items}) => (
             }
           </div>
         </div>
+
       </div>
     ))}
   </div>
 )
 
 Checklist.propTypes = {
-  items: React.PropTypes.arrayOf(React.PropTypes.shape({
-    isComplete: React.PropTypes.bool.isRequired,
-    description: React.PropTypes.string.isRequired,
-    moreInfoUrl: React.PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    isComplete: PropTypes.bool.isRequired,
+    description: PropTypes.string.isRequired,
+    moreInfoUrl: PropTypes.string,
   })).isRequired,
 }
 

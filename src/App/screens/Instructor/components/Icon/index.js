@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 export const sizes = {
   1: '',
@@ -35,9 +35,9 @@ const Icon = ({
 )
 
 Icon.propTypes = {
-  type: React.PropTypes.oneOf(Object.keys(types)).isRequired,
-  size: React.PropTypes.oneOf(Object.keys(sizes)),
-  className:  React.PropTypes.string,
+  type: PropTypes.oneOf(Object.keys(types)).isRequired,
+  size: PropTypes.oneOf(Object.keys(sizes)),
+  className:  PropTypes.string,
 }
 
 export default Icon

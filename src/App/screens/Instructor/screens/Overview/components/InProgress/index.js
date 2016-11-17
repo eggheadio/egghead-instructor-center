@@ -1,7 +1,5 @@
 import React from 'react'
-import size from 'lodash/size'
-import map from 'lodash/map'
-import upperFirst from 'lodash/upperFirst'
+import {size, map, upperFirst} from 'lodash'
 import sortLessonsByState from './utils/sortLessonsByState'
 
 export default ({instructor, instructorLessons}) => (

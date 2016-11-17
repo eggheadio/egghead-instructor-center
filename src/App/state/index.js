@@ -4,15 +4,11 @@ import rootReducer from './rootReducer'
 import rootEpic from './rootEpic'
 
 const epicMiddleware = createEpicMiddleware(rootEpic)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-export default function configureStore() {
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-  return createStore(
+export default () => (
+  createStore(
     rootReducer,
-    composeEnhancers(
-      applyMiddleware(
-        epicMiddleware
-      )
-    )
+    composeEnhancers(applyMiddleware(epicMiddleware))
   )
-}
+)

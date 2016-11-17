@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const Title = ({children}) => (
   <header>
@@ -9,7 +9,7 @@ const Title = ({children}) => (
 )
 
 Title.propTypes = {
-  children: React.PropTypes.string.isRequired,
+  children: PropTypes.string.isRequired,
 }
 
 export default Title

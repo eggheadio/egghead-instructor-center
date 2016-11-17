@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Title from '../Title'
 
 const Split = ({
@@ -31,8 +31,9 @@ const Split = ({
 )
 
 Split.propTypes = {
-  main: React.PropTypes.node.isRequired,
-  aside: React.PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  main: PropTypes.node.isRequired,
+  aside: PropTypes.node.isRequired,
 }
 
 export default Split

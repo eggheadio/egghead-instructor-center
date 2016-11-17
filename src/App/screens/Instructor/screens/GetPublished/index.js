@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {Component, PropTypes} from 'react'
 import Split from '../../../../components/Split'
 import GetPublishedSteps from './components/GetPublishedSteps'
 import GetPublishedFaq from './components/GetPublishedFaq'
 
-class GetPublished extends React.Component {
+class GetPublished extends Component {
 
   componentWillMount() {
     const {instructor, requestInstructorLessons} = this.props
@@ -34,7 +34,7 @@ class GetPublished extends React.Component {
 }
 
 GetPublished.propTypes = {
-  instructor: React.PropTypes.object.isRequired,
+  instructor: PropTypes.object.isRequired,
 }
 
 export default GetPublished

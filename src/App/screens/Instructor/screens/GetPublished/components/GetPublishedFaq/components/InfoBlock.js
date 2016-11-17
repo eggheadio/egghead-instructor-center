@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import MoreInfo from '../../MoreInfo'
 
 const InfoBlock = ({
@@ -23,9 +23,9 @@ const InfoBlock = ({
 )
 
 InfoBlock.propTypes = {
-  title: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string.isRequired,
-  moreInfoUrl: React.PropTypes.string,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  moreInfoUrl: PropTypes.string,
 }
 
 export default InfoBlock

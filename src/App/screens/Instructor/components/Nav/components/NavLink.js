@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const NavLink = ({
   route,
@@ -25,12 +25,11 @@ const NavLink = ({
   </a>
 )
 
-
 NavLink.propTypes = {
-  route: React.PropTypes.object.isRequired,
-  isActive: React.PropTypes.bool.isRequired,
-  onClick: React.PropTypes.func.isRequired,
-  href: React.PropTypes.string.isRequired,
+  route: PropTypes.object.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  href: PropTypes.string.isRequired,
 }
 
 export default NavLink
