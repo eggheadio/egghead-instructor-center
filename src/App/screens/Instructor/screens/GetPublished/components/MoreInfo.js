@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Icon from '../../../components/Icon'
 import Anchor from '../../../components/Anchor'
 
@@ -9,7 +9,7 @@ const MoreInfo = ({url}) => (
 )
 
 MoreInfo.propTypes = {
-  url: React.PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 }
 
 export default MoreInfo

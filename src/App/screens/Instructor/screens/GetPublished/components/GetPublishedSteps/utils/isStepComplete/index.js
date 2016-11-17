@@ -1,7 +1,4 @@
-import includes from 'lodash/includes'
-import indexOf from 'lodash/indexOf'
-import slice from 'lodash/slice'
-import some from 'lodash/some'
+import {includes, indexOf, slice, some} from 'lodash'
 import lessonStates from '../../../../../../utils/lessonStates'
 
 export default (instructorLessonStates, minimumLessonState) => {

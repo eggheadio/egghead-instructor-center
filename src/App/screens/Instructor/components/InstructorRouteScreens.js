@@ -1,11 +1,11 @@
 import React from 'react'
-import Match from 'react-router/Match'
+import {Match} from 'react-router'
 import Miss404 from '../../../components/Miss404'
 import Overview from '../screens/Overview'
 import GetPublished from '../screens/GetPublished'
 import PublishedLessons from '../screens/PublishedLessons'
 
-const InstructorRouteScreens = (props) => (
+export default (props) => (
   <div>
     <Match 
       exactly
@@ -22,5 +22,3 @@ const InstructorRouteScreens = (props) => (
     <Miss404 />
   </div>
 )
-
-export default InstructorRouteScreens

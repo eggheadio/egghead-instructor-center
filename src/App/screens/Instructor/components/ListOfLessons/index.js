@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
+import {map} from 'lodash'
 import LessonListItem from './components/LessonListItem'
 
 const ListOfLessons = (
@@ -11,6 +12,7 @@ const ListOfLessons = (
   currentPage,
 ) => (
   <main className="mw6">
+
     <div id="react-paginate">
       <ReactPaginate 
         previousLabel={"previous"}
@@ -25,12 +27,14 @@ const ListOfLessons = (
         }}
       />
     </div>
-    {lessons.map((lesson) => (
+
+    {map(lessons, (lesson) => (
       <LessonListItem selectedLesson={selectedLesson}
         lesson={lesson}
         selectLesson={selectLesson}
       />
     ))}
+
   </main>
 )
 

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {Component, PropTypes} from 'react'
 import Split from '../../../../components/Split'
 import PaginatedLessonList from './components/PaginatedLessonList'
 
-class PublishedLessons extends React.Component {
+class PublishedLessons extends Component {
 
   state = {
     currentPage: 1
@@ -47,7 +47,7 @@ class PublishedLessons extends React.Component {
 }
 
 PublishedLessons.propTypes = {
-  instructor: React.PropTypes.object.isRequired,
+  instructor: PropTypes.object.isRequired,
 }
 
 export default PublishedLessons

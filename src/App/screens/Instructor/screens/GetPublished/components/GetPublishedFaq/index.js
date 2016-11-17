@@ -1,4 +1,5 @@
 import React from 'react'
+import {map} from 'lodash'
 import InfoBlock from './components/InfoBlock'
 
 const questions = [
@@ -20,7 +21,7 @@ const questions = [
 const GetPublishedFaq = () => (
   <div>
     <h2 className='f2'>FAQ</h2>
-    {questions.map((question, index) => (
+    {map(questions, (question, index) => (
       <div key={index}>
         <InfoBlock
           title={question.question}

@@ -1,10 +1,11 @@
-import React from 'react'
-import Link from 'react-router/Link'
+import React, {Component, PropTypes} from 'react'
+import {Link} from 'react-router'
+import {map} from 'lodash'
 import Icon from '../Icon'
 import Logo from '../Logo'
 import NavLink from './components/NavLink'
 
-class Nav extends React.Component {
+class Nav extends Component {
   
   state = {
     isOpen: false,
@@ -43,7 +44,7 @@ class Nav extends React.Component {
             }
             flex-ns flex-column flex-row-ns
           `}>
-            {routes.map((route, index) => (
+            {map(routes, (route, index) => (
               <Link
                 key={index}
                 activeOnlyWhenExact
@@ -87,10 +88,10 @@ class Nav extends React.Component {
 }
 
 Nav.propTypes = {
-  pathname: React.PropTypes.string.isRequired,
-  routes: React.PropTypes.arrayOf(React.PropTypes.shape({
-    text: React.PropTypes.string.isRequired,
-    route: React.PropTypes.string.isRequired,
+  pathname: PropTypes.string.isRequired,
+  routes: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    route: PropTypes.string.isRequired,
   })).isRequired,
 }
 

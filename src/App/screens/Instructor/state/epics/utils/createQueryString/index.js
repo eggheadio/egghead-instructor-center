@@ -1,6 +1,4 @@
-import reduce from 'lodash/reduce'
-import replace from 'lodash/replace'
-import isArray from 'lodash/isArray'
+import {reduce, replace, isArray} from 'lodash'
 
 export default (params) => (
   replace(reduce(params, (memo, value, key) => (

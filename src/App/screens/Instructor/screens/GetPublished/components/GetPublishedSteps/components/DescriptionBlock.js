@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const DescriptionBlock = ({children}) => (
   <div className='i'>
@@ -7,7 +7,7 @@ const DescriptionBlock = ({children}) => (
 )
 
 DescriptionBlock.propTypes = {
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default DescriptionBlock

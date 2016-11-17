@@ -1,14 +1,13 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import {create} from 'react-test-renderer'
 import {StringFixture, ImageUrlFixture} from '../../../../components/SnapshotFixtures'
 import Avatar from '.'
 
-test('default', () => {
-  const tree = renderer.create(
+test('default', () => (
+  expect(create(
     <Avatar
       name={StringFixture}
       url={ImageUrlFixture}
     />
-  )
-  expect(tree).toMatchSnapshot()
-})
+  )).toMatchSnapshot()
+))

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const WistiaVideo = ({wistia_id}) => {
 
@@ -19,23 +19,32 @@ const WistiaVideo = ({wistia_id}) => {
     >
       <div
         className="wistia_responsive_wrapper"
-        style={{height: '100%', left: 0, position: 'absolute', top: 0, width: '100%'}}
+        style={{
+          height: '100%',
+          left: 0,
+          position: 'absolute',
+          top: 0,
+          width: '100%'
+        }}
       >
         <iframe
           ref={iframeRefCallback}
           allowTransparency="true"
-          frameBorder="0" scrolling="no" className="wistia_embed" name="wistia_embed" allowFullScreen
+          frameBorder="0"
+          scrolling="no"
+          className="wistia_embed"
+          name="wistia_embed"
+          allowFullScreen
           width="100%"
           height="100%"
-        >
-        </iframe>
+        />
       </div>
     </div>
   )
 }
 
 WistiaVideo.propTypes = {
-  wistia_id: React.PropTypes.string.isRequired
+  wistia_id: PropTypes.string.isRequired
 }
 
 export default WistiaVideo

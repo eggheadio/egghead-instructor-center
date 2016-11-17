@@ -1,13 +1,12 @@
-import React from 'react'
-import slice from 'lodash/slice'
-import indexOf from 'lodash/indexOf'
+import React, {Component, PropTypes} from 'react'
+import {slice, indexOf} from 'lodash'
 import Split from '../../../../components/Split'
 import lessonStates from '../../utils/lessonStates'
 import InProgress from './components/InProgress'
 import Stats from './components/Stats'
 import Help from './components/Help'
 
-class Overview extends React.Component {
+class Overview extends Component {
 
   componentWillMount() {
     const {instructor, requestInstructorLessons} = this.props
@@ -44,7 +43,7 @@ class Overview extends React.Component {
 }
 
 Overview.propTypes = {
-  instructor: React.PropTypes.object.isRequired
+  instructor: PropTypes.object.isRequired
 }
 
 export default Overview

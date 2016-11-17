@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const Main = ({children}) => (
   <main className='pa4 mw8 center'>
@@ -7,7 +7,7 @@ const Main = ({children}) => (
 )
 
 Main.propTypes = {
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default Main

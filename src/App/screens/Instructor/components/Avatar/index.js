@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const Avatar = ({name, url}) => (
   <img
@@ -9,8 +9,8 @@ const Avatar = ({name, url}) => (
 )
 
 Avatar.propTypes = {
-  name: React.PropTypes.string.isRequired,
-  url: React.PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 }
 
 export default Avatar

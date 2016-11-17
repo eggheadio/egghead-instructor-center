@@ -1,9 +1,7 @@
 import React from 'react'
 import {Provider} from 'react-redux'
-import Router from 'react-router/BrowserRouter'
-import Match from 'react-router/Match'
-import Redirect from 'react-router/Redirect'
-import isPlainObject from 'lodash/isPlainObject'
+import {BrowserRouter, Match, Redirect} from 'react-router'
+import {isPlainObject} from 'lodash'
 import configureStore from './state/'
 import Instructor from './screens/Instructor'
 import Login from './screens/Login'
@@ -22,9 +20,9 @@ const roleLandingRoutes = {
   'instructor': '/instructors'
 }
 
-const App = (props) => (
+export default (props) => (
   <Provider store={store}>
-    <Router>
+    <BrowserRouter>
       <div>
         <Match
           exactly
@@ -49,8 +47,6 @@ const App = (props) => (
         />
         <Miss404 />
       </div>
-    </Router>
+    </BrowserRouter>
   </Provider>
 )
-
-export default App

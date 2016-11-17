@@ -3,7 +3,7 @@ import Main from '../../components/Main'
 import Split from '../../components/Split'
 import crackedEggo from './crackedEggo.png'
 
-const RouteNotFound = () => (
+export default () => (
   <Main>
     <Split
       title='404'
@@ -24,5 +24,3 @@ const RouteNotFound = () => (
     />
   </Main>
 )
-
-export default RouteNotFound

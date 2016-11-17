@@ -1,12 +1,12 @@
-import React from 'react'
+import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import Miss from 'react-router/Miss'
+import {Miss} from 'react-router'
 import Main from '../../components/Main'
 import {requestInstructor, requestInstructorLessons} from './state/actions'
 import InstructorNav from './components/InstructorNav'
 import InstructorRouteScreens from './components/InstructorRouteScreens'
 
-class Instructor extends React.Component {
+class Instructor extends Component {
 
   componentWillReceiveProps(nextProps) {
     const {instructor_id} = this.props.params
@@ -43,8 +43,8 @@ class Instructor extends React.Component {
 }
 
 Instructor.propTypes = {
-  params: React.PropTypes.object.isRequired,
-  pathname: React.PropTypes.string.isRequired
+  params: PropTypes.object.isRequired,
+  pathname: PropTypes.string.isRequired
 }
 
 export default connect(

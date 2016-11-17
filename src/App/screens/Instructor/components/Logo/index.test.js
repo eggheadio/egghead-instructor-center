@@ -1,10 +1,9 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import {create} from 'react-test-renderer'
 import Logo from '.'
 
-test('default', () => {
-  const tree = renderer.create(
+test('default', () => (
+  expect(create(
     <Logo />
-  )
-  expect(tree).toMatchSnapshot()
-})
+  )).toMatchSnapshot()
+))

@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import union from 'lodash/union'
+import {union} from 'lodash'
 
 const LessonListItem = ({
   lesson,
