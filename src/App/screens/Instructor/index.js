@@ -7,7 +7,7 @@ import {requestInstructor, requestInstructorLessons} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
 import PublishedLessons from './screens/PublishedLessons'
-import Nav from './components//Nav'
+import Nav from './components/Nav'
 
 class Instructor extends Component {
 
