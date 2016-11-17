@@ -10,18 +10,19 @@ export default class extends Component {
     currentPage: 1
   }
 
-  fetchLessons() {
+  fetchLessons = (currentPage = 1) => {
     const {
       requestInstructorLessons,
       instructor,
-      currentPage = 1,
       size = 10,
+      states = undefined,
     } = this.props
     this.setState({currentPage})
     requestInstructorLessons({
       lessons_url: instructor.lessons_url,
       page: currentPage,
       size,
+      states,
     })
   }
 
@@ -32,6 +33,6 @@ export default class extends Component {
   render() {
     const {currentPage} = this.state
     const {children} = this.props
-    return children(currentPage)
+    return children(currentPage, this.fetchLessons)
   }
 }

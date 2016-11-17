@@ -1,49 +1,40 @@
-import React, {Component, PropTypes} from 'react'
+import React from 'react'
 import {slice, indexOf} from 'lodash'
 import Split from '../../../../components/Split'
 import lessonStates from '../../utils/lessonStates'
+import InstructorLessonsCallback from '../../components/InstructorLessonsCallback'
 import InProgress from './components/InProgress'
 import Stats from './components/Stats'
 import Help from './components/Help'
 
-class Overview extends Component {
+const inProgressLessonStates = slice(lessonStates, 0, indexOf(lessonStates, 'published'))
 
-  componentWillMount() {
-    const {requestInstructorLessons, instructor} = this.props
-    requestInstructorLessons({
-      lessons_url: instructor.lessons_url,
-      page: 1,
-      size: 50,
-      states: slice(lessonStates, 0, indexOf(lessonStates, 'published')),
-    })
-  }
-
-  render() {
-    const {instructor, instructorLessons} = this.props
-    return (
-      instructor
-        ? <Split
-            title={instructor.first_name}
-            main={
-              <InProgress
-                instructor={instructor}
-                instructorLessons={instructorLessons}
-              />
-            }
-            aside={
-              <div>
-                <Stats instructor={instructor} />
-                <Help />
-              </div>
-            }
+export default ({
+  requestInstructorLessons,
+  instructor,
+  instructorLessons,
+}) => (
+  <InstructorLessonsCallback
+    requestInstructorLessons={requestInstructorLessons}
+    instructor={instructor}
+    states={inProgressLessonStates}
+  >
+    {(currentPage) => (
+      <Split
+        title={instructor.first_name}
+        main={
+          <InProgress
+            instructor={instructor}
+            instructorLessons={instructorLessons}
           />
-        : null
-    )
-  }
-}
-
-Overview.propTypes = {
-  instructor: PropTypes.object.isRequired
-}
-
-export default Overview
+        }
+        aside={
+          <div>
+            <Stats instructor={instructor} />
+            <Help />
+          </div>
+        }
+      />
+    )}
+  </InstructorLessonsCallback>
+)
