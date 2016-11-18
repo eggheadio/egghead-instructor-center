@@ -48,6 +48,10 @@ export default connect(
   render() {
     const {currentPage} = this.state
     const {children, pageSize} = this.props
-    return children(currentPage, this.fetchLessons, pageSize)
+    return children({
+      currentPage,
+      pageSize,
+      fetchLessons: this.fetchLessons,
+    })
   }
 })

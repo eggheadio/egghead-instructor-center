@@ -12,7 +12,7 @@ export default ({
   allLessons,
 }) => (
   <LessonsByPage states={lessonTopicsLessonStates}>
-    {(currentPage, fetchLessons, pageSize) => (
+    {({currentPage, fetchLessons, pageSize}) => (
       <Split
         title='Lesson Topics'
         main={

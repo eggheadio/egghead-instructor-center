@@ -15,7 +15,7 @@ export default ({
     instructor={instructor}
     states={publishedLessonStates}
   >
-    {(currentPage, fetchLessons, pageSize) => (
+    {({currentPage, fetchLessons, pageSize}) => (
       <Split
         title='Published Lessons'
         main={

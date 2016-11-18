@@ -19,7 +19,7 @@ export default ({
     states={inProgressLessonStates}
     pageSize={inProgressPageSize}
   >
-    {(currentPage) => (
+    {({currentPage}) => (
       <Split
         title={instructor.first_name}
         main={

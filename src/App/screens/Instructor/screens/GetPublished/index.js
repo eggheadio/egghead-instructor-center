@@ -9,7 +9,7 @@ export default ({
   instructorLessons,
 }) => (
   <LessonsByPage instructor={instructor}>
-    {(currentPage) => (
+    {({currentPage}) => (
       <Split
         title='Get Published'
         main={
