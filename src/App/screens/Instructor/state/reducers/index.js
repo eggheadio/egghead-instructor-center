@@ -31,7 +31,23 @@ const instructorLessons = (
   }
 }
 
+const allLessons = (
+  state = {
+    lessons: [],
+    total: '0',
+  },
+  action
+) => {
+  switch (action.type) {
+    case instructorActionTypes.RECEIVE_ALL_LESSONS:
+      return action.payload.lessons
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   instructor,
   instructorLessons,
+  allLessons,
 })

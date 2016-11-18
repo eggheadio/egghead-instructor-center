@@ -8,6 +8,7 @@ import Stats from './components/Stats'
 import Help from './components/Help'
 
 const inProgressLessonStates = slice(lessonStates, 0, indexOf(lessonStates, 'published'))
+const inProgressMaxLessonSize = 50
 
 export default ({
   instructor,
@@ -16,6 +17,7 @@ export default ({
   <InstructorLessons
     instructor={instructor}
     states={inProgressLessonStates}
+    size={inProgressMaxLessonSize}
   >
     {(currentPage) => (
       <Split
