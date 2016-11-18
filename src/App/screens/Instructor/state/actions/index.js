@@ -8,7 +8,7 @@ export const requestInstructor = (instructor_id) => ({
 })
 
 export const receiveInstructor = (instructor) => ({
-  type: instructorActionTypes.RECEIVE_INSTRUCTOR,
+  type: instructorActionTypes.RECEIVED_INSTRUCTOR,
   payload: {
     instructor
   },
@@ -22,7 +22,7 @@ export const requestInstructorLessons = (lessonPage) => ({
 })
 
 export const receiveInstructorLessons = (lessons) => ({
-  type: instructorActionTypes.RECEIVE_LESSONS_FOR_INSTRUCTOR,
+  type: instructorActionTypes.RECEIVED_LESSONS_FOR_INSTRUCTOR,
   payload: {
     lessons
   },
@@ -36,7 +36,7 @@ export const requestAllLessons = (lessonPage) => ({
 })
 
 export const receiveAllLessons = (lessons) => ({
-  type: instructorActionTypes.RECEIVE_ALL_LESSONS,
+  type: instructorActionTypes.RECEIVED_ALL_LESSONS,
   payload: {
     lessons
   },

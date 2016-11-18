@@ -6,7 +6,7 @@ const instructor = (
   action
 ) => {
   switch (action.type) {
-    case instructorActionTypes.RECEIVE_INSTRUCTOR:
+    case instructorActionTypes.RECEIVED_INSTRUCTOR:
       return {
         ...state,
         ...action.payload.instructor,
@@ -24,7 +24,7 @@ const instructorLessons = (
   action
 ) => {
   switch (action.type) {
-    case instructorActionTypes.RECEIVE_LESSONS_FOR_INSTRUCTOR:
+    case instructorActionTypes.RECEIVED_LESSONS_FOR_INSTRUCTOR:
       return action.payload.lessons
     default:
       return state
@@ -39,7 +39,7 @@ const allLessons = (
   action
 ) => {
   switch (action.type) {
-    case instructorActionTypes.RECEIVE_ALL_LESSONS:
+    case instructorActionTypes.RECEIVED_ALL_LESSONS:
       return action.payload.lessons
     default:
       return state
