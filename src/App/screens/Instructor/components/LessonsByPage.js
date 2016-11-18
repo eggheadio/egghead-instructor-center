@@ -12,7 +12,7 @@ export default connect(
   }
 
   static defaultProps = {
-    size: 20,
+    pageSize: 20,
   }
 
   state = {
@@ -24,13 +24,13 @@ export default connect(
       requestInstructorLessons,
       requestAllLessons,
       instructor,
-      size,
+      pageSize,
       states,
     } = this.props
     this.setState({currentPage})
     const options = {
       page: currentPage,
-      size,
+      pageSize,
       states,
     }
     instructor
@@ -47,7 +47,7 @@ export default connect(
 
   render() {
     const {currentPage} = this.state
-    const {children, size} = this.props
-    return children(currentPage, this.fetchLessons, size)
+    const {children, pageSize} = this.props
+    return children(currentPage, this.fetchLessons, pageSize)
   }
 })

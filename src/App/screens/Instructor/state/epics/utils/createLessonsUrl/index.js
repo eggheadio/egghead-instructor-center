@@ -4,7 +4,7 @@ import createQueryString from '../createQueryString'
 export default ({
   lessons_url, 
   page,
-  size = 20,
+  pageSize = 20,
   states,
 }) => {
 
@@ -20,7 +20,7 @@ export default ({
 
   const params = {
     [paramNamesByEnv.page]: page,
-    [paramNamesByEnv.size]: size,
+    [paramNamesByEnv.size]: pageSize,
     ...(states
       ? {state: states}
       : {}

@@ -12,7 +12,7 @@ const turnOffFakeApi = () => {
 
 const optionsFixture = {
   page: 1,
-  size: 10,
+  pageSize: 10,
   states: ['approved', 'published'],
 }
 
