@@ -18,13 +18,11 @@ export default connect(
   fetchLessons = (currentPage = 1) => {
     const {
       requestAllLessons,
-      instructor,
-      size = 10,
+      size = 20,
       states = undefined,
     } = this.props
     this.setState({currentPage})
     requestAllLessons({
-      lessons_url: instructor.lessons_url,
       page: currentPage,
       size,
       states,

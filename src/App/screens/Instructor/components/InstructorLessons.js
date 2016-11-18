@@ -19,7 +19,7 @@ export default connect(
     const {
       requestInstructorLessons,
       instructor,
-      size = 10,
+      size = 20,
       states = undefined,
     } = this.props
     this.setState({currentPage})
