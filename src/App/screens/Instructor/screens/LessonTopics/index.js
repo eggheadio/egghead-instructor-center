@@ -2,7 +2,7 @@ import React from 'react'
 import {slice, indexOf} from 'lodash'
 import Split from '../../../../components/Split'
 import lessonStates from '../../utils/lessonStates'
-import AllLessons from '../../components/AllLessons'
+import LessonsByPage from '../../components/LessonsByPage'
 import Unclaimed from './components/Unclaimed'
 
 const lessonTopicsLessonStates = slice(lessonStates, 0, indexOf(lessonStates, 'submitted'))
@@ -11,7 +11,7 @@ export default ({
   instructor,
   allLessons,
 }) => (
-  <AllLessons states={lessonTopicsLessonStates}>
+  <LessonsByPage states={lessonTopicsLessonStates}>
     {(currentPage, fetchLessons, pageSize) => (
       <Split
         title='Lesson Topics'
@@ -29,5 +29,5 @@ export default ({
         }
       />
     )}
-  </AllLessons>
+  </LessonsByPage>
 )

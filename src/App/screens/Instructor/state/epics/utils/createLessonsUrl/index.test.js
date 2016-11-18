@@ -28,9 +28,8 @@ test('instructor lessons with fake API', () => {
 
 test('all lessons with fake API', () => {
   turnOnFakeApi()
-  expect(createLessonsUrl({
-    ...optionsFixture,
-  })).toBe(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/lessons?_limit=10&_page=1&state=approved&state=published`)
+  expect(createLessonsUrl(optionsFixture))
+    .toBe(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/lessons?_limit=10&_page=1&state=approved&state=published`)
 })
 
 test('instructor lessons with real APIs', () => {
@@ -43,9 +42,8 @@ test('instructor lessons with real APIs', () => {
 
 test('all instructor lessons with real APIs', () => {
   turnOffFakeApi()
-  expect(createLessonsUrl({
-    ...optionsFixture,
-  })).toBe(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/lessons?page=1&size=10&state=approved,published`)
+  expect(createLessonsUrl(optionsFixture))
+    .toBe(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/lessons?page=1&size=10&state=approved,published`)
 })
 
 isRunningFakeApi

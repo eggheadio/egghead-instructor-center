@@ -1,6 +1,6 @@
 import React from 'react'
 import Split from '../../../../components/Split'
-import InstructorLessons from '../../components/InstructorLessons'
+import LessonsByPage from '../../components/LessonsByPage'
 import GetPublishedSteps from './components/GetPublishedSteps'
 import GetPublishedFaq from './components/GetPublishedFaq'
 
@@ -8,7 +8,7 @@ export default ({
   instructor,
   instructorLessons,
 }) => (
-  <InstructorLessons instructor={instructor}>
+  <LessonsByPage instructor={instructor}>
     {(currentPage) => (
       <Split
         title='Get Published'
@@ -23,5 +23,5 @@ export default ({
         }
       />
     )}
-  </InstructorLessons>
+  </LessonsByPage>
 )

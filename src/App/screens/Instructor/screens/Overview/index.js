@@ -2,7 +2,7 @@ import React from 'react'
 import {slice, indexOf} from 'lodash'
 import Split from '../../../../components/Split'
 import lessonStates from '../../utils/lessonStates'
-import InstructorLessons from '../../components/InstructorLessons'
+import LessonsByPage from '../../components/LessonsByPage'
 import InProgress from './components/InProgress'
 import Stats from './components/Stats'
 import Help from './components/Help'
@@ -14,7 +14,7 @@ export default ({
   instructor,
   instructorLessons,
 }) => (
-  <InstructorLessons
+  <LessonsByPage
     instructor={instructor}
     states={inProgressLessonStates}
     size={inProgressMaxLessonSize}
@@ -36,5 +36,5 @@ export default ({
         }
       />
     )}
-  </InstructorLessons>
+  </LessonsByPage>
 )
