@@ -3,6 +3,7 @@ import {slice, indexOf} from 'lodash'
 import Split from '../../../../components/Split'
 import lessonStates from '../../utils/lessonStates'
 import AllLessons from '../../components/AllLessons'
+import Unclaimed from './components/Unclaimed'
 
 const lessonTopicsLessonStates = slice(lessonStates, 0, indexOf(lessonStates, 'submitted'))
 
@@ -11,14 +12,20 @@ export default ({
   allLessons,
 }) => (
   <AllLessons states={lessonTopicsLessonStates}>
-    {(currentPage) => (
+    {(currentPage, fetchLessons, pageSize) => (
       <Split
         title='Lesson Topics'
         main={
-          <div />
+          <Unclaimed
+            instructor={instructor}
+            allLessons={allLessons}
+            currentPage={currentPage}
+            fetchLessons={fetchLessons}
+            pageSize={pageSize}
+          />
         }
         aside={
-          <div />
+          <div>Submit</div>
         }
       />
     )}

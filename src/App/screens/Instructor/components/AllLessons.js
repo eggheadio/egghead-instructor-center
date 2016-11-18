@@ -11,6 +11,11 @@ export default connect(
     children: PropTypes.func.isRequired,
   }
 
+  static defaultProps = {
+    size: 20,
+    states: undefined,
+  }
+
   state = {
     currentPage: 1
   }
@@ -18,8 +23,8 @@ export default connect(
   fetchLessons = (currentPage = 1) => {
     const {
       requestAllLessons,
-      size = 20,
-      states = undefined,
+      size,
+      states,
     } = this.props
     this.setState({currentPage})
     requestAllLessons({
@@ -35,7 +40,7 @@ export default connect(
 
   render() {
     const {currentPage} = this.state
-    const {children} = this.props
-    return children(currentPage, this.fetchLessons)
+    const {children, size} = this.props
+    return children(currentPage, this.fetchLessons, size)
   }
 })

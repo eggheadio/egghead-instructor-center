@@ -1,7 +1,12 @@
 import devQueryString from 'query-string'
 import createQueryString from '../createQueryString'
 
-export default ({lessons_url, page, size, states}) => {
+export default ({
+  lessons_url, 
+  page,
+  size = 20,
+  states,
+}) => {
 
   const paramNamesByEnv = process.env.REACT_APP_FAKE_API
     ? {
