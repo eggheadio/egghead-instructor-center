@@ -1,11 +1,8 @@
 import React from 'react'
-import {slice, indexOf} from 'lodash'
 import Split from '../../../../components/Split'
-import lessonStates from '../../utils/lessonStates'
+import {lessonTopicsLessonStates} from '../../utils/lessonStatesGroups'
 import LessonsByPage from '../../components/LessonsByPage'
 import Unclaimed from './components/Unclaimed'
-
-const lessonTopicsLessonStates = slice(lessonStates, 0, indexOf(lessonStates, 'submitted'))
 
 export default ({
   instructor,

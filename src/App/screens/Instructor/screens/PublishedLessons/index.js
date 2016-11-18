@@ -1,11 +1,8 @@
 import React from 'react'
-import {slice, indexOf} from 'lodash'
 import Split from '../../../../components/Split'
-import lessonStates from '../../utils/lessonStates'
+import {publishedLessonStates} from '../../utils/lessonStatesGroups'
 import LessonsByPage from '../../components/LessonsByPage'
 import PaginatedLessonList from '../../components/PaginatedLessonList'
-
-const publishedLessonStates = slice(lessonStates, indexOf(lessonStates, 'published'))
 
 export default ({
   instructor,
