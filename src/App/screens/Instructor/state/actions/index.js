@@ -15,14 +15,14 @@ export const receiveInstructor = (instructor) => ({
 })
 
 export const requestInstructorLessons = (lessonPage) => ({
-  type: instructorActionTypes.REQUESTED_LESSONS_FOR_INSTRUCTOR,
+  type: instructorActionTypes.REQUESTED_INSTRUCTOR_LESSONS,
   payload: {
     lessonPage
   },
 })
 
 export const receiveInstructorLessons = (lessons) => ({
-  type: instructorActionTypes.RECEIVED_LESSONS_FOR_INSTRUCTOR,
+  type: instructorActionTypes.RECEIVED_INSTRUCTOR_LESSONS,
   payload: {
     lessons
   },

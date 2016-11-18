@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
-import {REQUESTED_LESSONS_FOR_INSTRUCTOR} from '../actions/instructorActionTypes'
+import {REQUESTED_INSTRUCTOR_LESSONS} from '../actions/instructorActionTypes'
 import {receiveInstructorLessons} from '../actions'
 import headers from './utils/headers'
 import createLessonsUrl from './utils/createLessonsUrl'
@@ -22,7 +22,7 @@ const fetchLessons = (lessonPage) => (
 )
 
 export default (action$) => (
-  action$.ofType(REQUESTED_LESSONS_FOR_INSTRUCTOR)
+  action$.ofType(REQUESTED_INSTRUCTOR_LESSONS)
     .map(action => action.payload.lessonPage)
     .switchMap(fetchLessons)
     .map(receiveInstructorLessons.bind(null))

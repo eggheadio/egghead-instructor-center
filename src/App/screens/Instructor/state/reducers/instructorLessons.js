@@ -1,4 +1,4 @@
-import {RECEIVED_LESSONS_FOR_INSTRUCTOR} from '../actions/instructorActionTypes';
+import {RECEIVED_INSTRUCTOR_LESSONS} from '../actions/instructorActionTypes';
 
 export default (
   state = {
@@ -8,7 +8,7 @@ export default (
   action
 ) => {
   switch (action.type) {
-    case RECEIVED_LESSONS_FOR_INSTRUCTOR:
+    case RECEIVED_INSTRUCTOR_LESSONS:
       return action.payload.lessons
     default:
       return state
