@@ -13,7 +13,6 @@ export default connect(
 
   static defaultProps = {
     size: 20,
-    states: undefined,
   }
 
   state = {

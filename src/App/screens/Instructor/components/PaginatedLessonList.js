@@ -14,42 +14,44 @@ const PaginatedLessonList = ({
   const hasMoreThanOnePage = (pageNum > 1) && (lessons.length > 0)
 
   return (
-    <div>
+    total > 0
+      ? <div>
 
-      <ul>
-        {map(lessons, (lesson) => (
-          <li key={lesson.id}>
-            {lesson.title} - <em>{lesson.state}</em>
-          </li>
-        ))}
-      </ul>
+          <ul>
+            {map(lessons, (lesson) => (
+              <li key={lesson.id}>
+                {lesson.title} - <em>{lesson.state}</em>
+              </li>
+            ))}
+          </ul>
 
-      {hasMoreThanOnePage
-        ? <div id='react-paginate'>
-            <ReactPaginate
-              previousLabel={'previous'}
-              nextLabel={'next'}
-              breakLabel={<a href=''>...</a>}
-              breakClassName={'break-me'}
-              pageNum={pageNum}
-              marginPagesDisplayed={3}
-              pageRangeDisplayed={5}
-              initialSelected={currentPage - 1}
-              clickCallback={(page) => {
-                const {selected} = page
-                if (currentPage !== selected + 1) {
-                  fetchLessons(selected + 1)
-                }
-              }}
-              containerClassName={'pagination'}
-              subContainerClassName={'pages pagination'}
-              activeClassName={'active'}
-            />
-          </div>
-        : null
-      }
+          {hasMoreThanOnePage
+            ? <div id='react-paginate'>
+                <ReactPaginate
+                  previousLabel={'previous'}
+                  nextLabel={'next'}
+                  breakLabel={<a href=''>...</a>}
+                  breakClassName={'break-me'}
+                  pageNum={pageNum}
+                  marginPagesDisplayed={3}
+                  pageRangeDisplayed={5}
+                  initialSelected={currentPage - 1}
+                  clickCallback={(page) => {
+                    const {selected} = page
+                    if (currentPage !== selected + 1) {
+                      fetchLessons(selected + 1)
+                    }
+                  }}
+                  containerClassName={'pagination'}
+                  subContainerClassName={'pages pagination'}
+                  activeClassName={'active'}
+                />
+              </div>
+            : null
+          }
 
-    </div>
+        </div>
+      : <div>No lessons to show</div>
   )
 }
 
