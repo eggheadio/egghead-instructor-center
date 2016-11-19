@@ -6,6 +6,7 @@ import Miss404 from '../../components/Miss404'
 import {requestInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
+import LessonTopics from './screens/LessonTopics'
 import PublishedLessons from './screens/PublishedLessons'
 import Nav from './components/Nav'
 
@@ -34,6 +35,7 @@ export default connect(
       requestInstructor,
       instructor,
       instructorLessons,
+      allLessons,
     } = this.props
 
     if(!instructor) {
@@ -49,6 +51,10 @@ export default connect(
               {
                 text: 'Overview',
                 route: '',
+              },
+              {
+                text: 'Lesson Topics',
+                route: '/topics',
               },
               {
                 text: 'Published Lessons',
@@ -71,6 +77,15 @@ export default connect(
                     instructorLessons={instructorLessons}
                   />
               }
+            />
+            <Match 
+              pattern={`${pathname}/topics`}
+              render={() => (
+                <LessonTopics
+                  instructor={instructor}
+                  allLessons={allLessons}
+                />
+              )}
             />
             <Match 
               pattern={`${pathname}/published`}

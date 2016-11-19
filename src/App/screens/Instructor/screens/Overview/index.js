@@ -1,23 +1,23 @@
 import React from 'react'
-import {slice, indexOf} from 'lodash'
 import Split from '../../../../components/Split'
-import lessonStates from '../../utils/lessonStates'
-import InstructorLessons from '../../components/InstructorLessons'
+import {inProgressLessonStates} from '../../utils/lessonStatesGroups'
+import LessonsByPage from '../../components/LessonsByPage'
 import InProgress from './components/InProgress'
 import Stats from './components/Stats'
 import Help from './components/Help'
 
-const inProgressLessonStates = slice(lessonStates, 0, indexOf(lessonStates, 'published'))
+const pageSize = 50
 
 export default ({
   instructor,
   instructorLessons,
 }) => (
-  <InstructorLessons
+  <LessonsByPage
     instructor={instructor}
     states={inProgressLessonStates}
+    pageSize={pageSize}
   >
-    {(currentPage) => (
+    {({currentPage}) => (
       <Split
         title={instructor.first_name}
         main={
@@ -34,5 +34,5 @@ export default ({
         }
       />
     )}
-  </InstructorLessons>
+  </LessonsByPage>
 )

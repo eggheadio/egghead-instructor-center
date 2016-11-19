@@ -1,12 +1,5 @@
 import * as instructorActionTypes from './instructorActionTypes'
 
-export const receiveInstructor = (instructor) => ({
-  type: instructorActionTypes.RECEIVE_INSTRUCTOR,
-  payload: {
-    instructor
-  },
-})
-
 export const requestInstructor = (instructor_id) => ({
   type: instructorActionTypes.REQUESTED_INSTRUCTOR,
   payload: {
@@ -14,16 +7,38 @@ export const requestInstructor = (instructor_id) => ({
   },
 })
 
+export const receiveInstructor = (instructor) => ({
+  type: instructorActionTypes.RECEIVED_INSTRUCTOR,
+  payload: {
+    instructor
+  },
+})
+
+export const requestInstructorLessons = (lessonPage) => ({
+  type: instructorActionTypes.REQUESTED_INSTRUCTOR_LESSONS,
+  payload: {
+    lessonPage
+  },
+})
+
 export const receiveInstructorLessons = (lessons) => ({
-  type: instructorActionTypes.RECEIVE_LESSONS_FOR_INSTRUCTOR,
+  type: instructorActionTypes.RECEIVED_INSTRUCTOR_LESSONS,
   payload: {
     lessons
   },
 })
 
-export const requestInstructorLessons = (lessonPage) => ({
-  type: instructorActionTypes.REQUESTED_LESSONS_FOR_INSTRUCTOR,
+export const requestAllLessons = (lessonPage) => ({
+  type: instructorActionTypes.REQUESTED_ALL_LESSONS,
   payload: {
     lessonPage
   },
 })
+
+export const receiveAllLessons = (lessons) => ({
+  type: instructorActionTypes.RECEIVED_ALL_LESSONS,
+  payload: {
+    lessons
+  },
+})
+

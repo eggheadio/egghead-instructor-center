@@ -1,7 +1,12 @@
 import devQueryString from 'query-string'
 import createQueryString from '../createQueryString'
 
-export default (lessonPage) => {
+export default ({
+  lessons_url, 
+  page,
+  pageSize = 20,
+  states,
+}) => {
 
   const paramNamesByEnv = process.env.REACT_APP_FAKE_API
     ? {
@@ -14,10 +19,10 @@ export default (lessonPage) => {
       }
 
   const params = {
-    [paramNamesByEnv.page]: lessonPage.page,
-    [paramNamesByEnv.size]: lessonPage.size,
-    ...(lessonPage.states
-      ? {state: lessonPage.states}
+    [paramNamesByEnv.page]: page,
+    [paramNamesByEnv.size]: pageSize,
+    ...(states
+      ? {state: states}
       : {}
     ),
   }
@@ -26,5 +31,9 @@ export default (lessonPage) => {
     ? `?${devQueryString.stringify(params)}`
     : createQueryString(params)
 
-  return `${lessonPage.lessons_url}${queryString}`
+  const lessonsUrl = lessons_url
+    ? lessons_url
+    : `${process.env.REACT_APP_EGGHEAD_BASE_URL}/lessons`
+
+  return `${lessonsUrl}${queryString}`
 }

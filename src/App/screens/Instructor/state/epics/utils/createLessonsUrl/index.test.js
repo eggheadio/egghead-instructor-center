@@ -10,24 +10,40 @@ const turnOffFakeApi = () => {
   delete process.env.REACT_APP_FAKE_API
 }
 
-test('creates the url for the fake API', () => {
+const optionsFixture = {
+  page: 1,
+  pageSize: 10,
+  states: ['approved', 'published'],
+}
+
+const instructorUrlFixture = 'http://localhost:4000/api/v1/instructors/0/lessons'
+
+test('instructor lessons with fake API', () => {
   turnOnFakeApi()
   expect(createLessonsUrl({
-    lessons_url: 'http://api',
-    page: 1,
-    size: 10,
-    states: ['approved', 'published'],
-  })).toBe('http://api?_limit=10&_page=1&state=approved&state=published')
+    ...optionsFixture,
+    lessons_url: instructorUrlFixture,
+  })).toBe(`${instructorUrlFixture}?_limit=10&_page=1&state=approved&state=published`)
 })
 
-test('creates the url for the real API', () => {
+test('all lessons with fake API', () => {
+  turnOnFakeApi()
+  expect(createLessonsUrl(optionsFixture))
+    .toBe(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/lessons?_limit=10&_page=1&state=approved&state=published`)
+})
+
+test('instructor lessons with real APIs', () => {
   turnOffFakeApi()
   expect(createLessonsUrl({
-    lessons_url: 'http://api',
-    page: 1,
-    size: 10,
-    states: ['approved', 'published'],
-  })).toBe('http://api?page=1&size=10&state=approved,published')
+    ...optionsFixture,
+    lessons_url: instructorUrlFixture,
+  })).toBe(`${instructorUrlFixture}?page=1&size=10&state=approved,published`)
+})
+
+test('all instructor lessons with real APIs', () => {
+  turnOffFakeApi()
+  expect(createLessonsUrl(optionsFixture))
+    .toBe(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/lessons?page=1&size=10&state=approved,published`)
 })
 
 isRunningFakeApi
