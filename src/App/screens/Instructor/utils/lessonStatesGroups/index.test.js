@@ -1,21 +1,9 @@
 import {
   lessonTopicsLessonStates,
+  unclaimedLessonTopicsLessonStates,
   inProgressLessonStates,
   publishedLessonStates,
 } from '.'
-
-test('in progress', () => (
-  expect(inProgressLessonStates).toEqual([
-    'proposed',
-    'cancelled',
-    'accepted',
-    'claimed',
-    'submitted',
-    'rejected',
-    'updated',
-    'approved',
-  ])
-))
 
 test('lesson topics', () => (
   expect(lessonTopicsLessonStates).toEqual([
@@ -23,6 +11,22 @@ test('lesson topics', () => (
     'cancelled',
     'accepted',
     'claimed',
+  ])
+))
+
+test('unclaimed lesson topics', () => (
+  expect(unclaimedLessonTopicsLessonStates).toEqual([
+    'accepted',
+  ])
+))
+
+test('in progress', () => (
+  expect(inProgressLessonStates).toEqual([
+    'claimed',
+    'submitted',
+    'rejected',
+    'updated',
+    'approved',
   ])
 ))
 
