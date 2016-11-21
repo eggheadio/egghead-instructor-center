@@ -9,22 +9,13 @@ exports[`test default 1`] = `
   <div
     className="flex-ns">
     <main
-      className="mr4-ns"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }>
+      className="mr4-ns w-50-ns">
       <div>
         Component
       </div>
     </main>
     <aside
-      style={
-        Object {
-          "flex": 1,
-        }
-      }>
+      className="w-50-ns">
       <div>
         Component
       </div>

@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
+import LessonSummary from './components/LessonSummary'
 
 const PaginatedLessonList = ({
   fetchLessons,
@@ -17,34 +18,32 @@ const PaginatedLessonList = ({
     total > 0
       ? <div>
 
-          <ul>
+          <div className='bg-black-10 br2 mv3'>
             {map(lessons, (lesson) => (
-              <li key={lesson.id}>
-                {lesson.title} - <em>{lesson.state}</em>
-              </li>
+              <div
+                key={lesson.id}
+                className='bb b--black-10 pa3'
+              >
+                <LessonSummary lesson={lesson} />
+              </div>
             ))}
-          </ul>
+          </div>
 
           {hasMoreThanOnePage
             ? <div id='react-paginate'>
                 <ReactPaginate
-                  previousLabel={'previous'}
-                  nextLabel={'next'}
-                  breakLabel={<a href=''>...</a>}
-                  breakClassName={'break-me'}
                   pageNum={pageNum}
-                  marginPagesDisplayed={3}
                   pageRangeDisplayed={5}
+                  marginPagesDisplayed={3}
                   initialSelected={currentPage - 1}
+                  previousLabel={'Previous'}
+                  nextLabel={'Next'}
                   clickCallback={(page) => {
                     const {selected} = page
                     if (currentPage !== selected + 1) {
                       fetchLessons(selected + 1)
                     }
                   }}
-                  containerClassName={'pagination'}
-                  subContainerClassName={'pages pagination'}
-                  activeClassName={'active'}
                 />
               </div>
             : null

@@ -14,14 +14,11 @@ const Split = ({
 
     <div className='flex-ns'>
 
-      <main
-        className='mr4-ns'
-        style={{flex: 1}}
-      >
+      <main className='mr4-ns w-50-ns'>
         {main}
       </main>
 
-      <aside style={{flex: 1}}>
+      <aside className='w-50-ns'>
         {aside}
       </aside>
 
