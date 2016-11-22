@@ -1,5 +1,6 @@
 import React from 'react'
 import formatNumber from 'format-number'
+import Heading from '../../../../../../components/Heading'
 import currentMonthName from './utils/currentMonthName'
 import IconLabel from './components/IconLabel'
 import SubscriberMinutesIconLabel from './components/SubscriberMinutesIconLabel'
@@ -14,43 +15,47 @@ export default ({instructor}) => {
   return(
     <div>
 
-      <h3 className='f3'>
+      <Heading level='2'>
         Stats
-      </h3>
+      </Heading>
 
-      {revenue
-        ? <div>
+      <div className='mb4'>
 
-            <div>
-              <h4 className='f4'>
-                {currentMonthName()}
-              </h4>
-              <SubscriberMinutesIconLabel amount={currentRevenue.minutes_watched} />
-              <RevenueIconLabel amount={currentRevenue.revenue} />
+        {revenue
+          ? <div>
+
+              <div className='mb3'>
+                <Heading level='3'>
+                  {currentMonthName()}
+                </Heading>
+                <SubscriberMinutesIconLabel amount={currentRevenue.minutes_watched} />
+                <RevenueIconLabel amount={currentRevenue.revenue} />
+              </div>
+
+              <div>
+                <Heading level='3'>
+                  Total
+                </Heading>
+                <IconLabel
+                  iconType='course'
+                  labelText={`${formatNumber()(published_courses)} published courses`}
+                />
+                <IconLabel
+                  iconType='lesson'
+                  labelText={`${formatNumber()(published_lessons)} published lessons`}
+                />
+                <SubscriberMinutesIconLabel amount={totalRevenue.minutes_watched} />
+                <RevenueIconLabel amount={totalRevenue.revenue} />
+              </div>
+
             </div>
 
-            <div>
-              <h4 className='f4'>
-                Total
-              </h4>
-              <IconLabel
-                iconType='course'
-                labelText={`${formatNumber()(published_courses)} published courses`}
-              />
-              <IconLabel
-                iconType='lesson'
-                labelText={`${formatNumber()(published_lessons)} published lessons`}
-              />
-              <SubscriberMinutesIconLabel amount={totalRevenue.minutes_watched} />
-              <RevenueIconLabel amount={totalRevenue.revenue} />
+          : <div>
+              You don't have any views or money yet. Time to publish some lessons!
             </div>
-          </div>
-
-        : <div>
-            You don't have any views or money yet. Time to publish some lessons!
-          </div>
-
-      }
+        }
+        
+    </div>
     </div>
   )
 }

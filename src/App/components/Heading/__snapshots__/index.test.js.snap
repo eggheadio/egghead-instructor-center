@@ -1,0 +1,27 @@
+exports[`test levels 1`] = `
+<div
+  className="f1 mb4">
+  String
+</div>
+`;
+
+exports[`test levels 2`] = `
+<div
+  className="f2 mb3">
+  String
+</div>
+`;
+
+exports[`test levels 3`] = `
+<div
+  className="b f3 mb2">
+  String
+</div>
+`;
+
+exports[`test levels 4`] = `
+<div
+  className="b f4 mb2">
+  String
+</div>
+`;

@@ -1,4 +1,5 @@
 import React from 'react'
+import Heading from '../../../../../../components/Heading'
 import PaginatedLessonList from '../../../../components/PaginatedLessonList'
 
 export default ({
@@ -10,9 +11,9 @@ export default ({
 }) => (
   <div>
 
-    <h3 className='f3'>
+    <Heading level='2'>
       Requested
-    </h3>
+    </Heading>
 
     <div className='mb3'>
       Here's what we'd love to see recorded right now. Claimed topics will be yours for 2 weeks, and then they'll be reopened for others to claim.

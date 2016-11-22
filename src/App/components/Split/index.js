@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import Title from '../Title'
+import Heading from '../Heading'
 
 const Split = ({
   title,
@@ -8,9 +8,9 @@ const Split = ({
 }) => (
   <div>
 
-    <Title>
+    <Heading level='1'>
       {title}
-    </Title>
+    </Heading>
 
     <div className='flex-ns'>
 

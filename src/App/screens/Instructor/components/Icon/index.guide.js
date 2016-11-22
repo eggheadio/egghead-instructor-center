@@ -1,7 +1,7 @@
 import React from 'react'
 import {map, keys} from 'lodash'
 import {storiesOf} from '@kadira/storybook'
-import GuideVariation from '../GuideVariation'
+import GuideVariation from '../../../../components/GuideVariation'
 import Icon, {sizes, types} from './index'
 
 storiesOf('Icon', module)

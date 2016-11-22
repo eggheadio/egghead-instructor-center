@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react'
+import Heading from '../../../../../../../components/Heading'
 import MoreInfo from '../../MoreInfo'
 
 const InfoBlock = ({
@@ -7,9 +8,11 @@ const InfoBlock = ({
   moreInfoUrl,
 }) => (
   <div>
-    <h3 className='f3'>
+
+    <Heading level='3'>
       {title}
-    </h3>
+    </Heading>
+
     <div>
       {description}
       {moreInfoUrl
@@ -19,6 +22,7 @@ const InfoBlock = ({
         : null
       }
     </div>
+
   </div>
 )
 

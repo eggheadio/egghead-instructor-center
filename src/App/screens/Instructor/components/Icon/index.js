@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react'
+import {keys} from 'lodash'
 
 export const sizes = {
   1: '',
@@ -23,7 +24,7 @@ export const types = {
 
 const Icon = ({
   type,
-  size = 1,
+  size = '1',
   className = '',
 }) => (
   <span className={`
@@ -35,8 +36,8 @@ const Icon = ({
 )
 
 Icon.propTypes = {
-  type: PropTypes.oneOf(Object.keys(types)).isRequired,
-  size: PropTypes.oneOf(Object.keys(sizes)),
+  type: PropTypes.oneOf(keys(types)).isRequired,
+  size: PropTypes.oneOf(keys(sizes)),
   className:  PropTypes.string,
 }
 
