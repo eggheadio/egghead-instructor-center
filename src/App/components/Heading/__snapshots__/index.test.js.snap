@@ -1,0 +1,44 @@
+exports[`test levels 1`] = `
+<div>
+  <h1
+    className="mt0 normal f1 mb4">
+    String
+  </h1>
+</div>
+`;
+
+exports[`test levels 2`] = `
+<div>
+  <h2
+    className="mt0 normal f2 mb3">
+    String
+  </h2>
+</div>
+`;
+
+exports[`test levels 3`] = `
+<div>
+  <h3
+    className="mt0 bold f3 mb2">
+    String
+  </h3>
+</div>
+`;
+
+exports[`test levels 4`] = `
+<div>
+  <h4
+    className="mt0 bold f4 mb2">
+    String
+  </h4>
+</div>
+`;
+
+exports[`test levels 5`] = `
+<div>
+  <h5
+    className="mt0 bold f5 mb2">
+    String
+  </h5>
+</div>
+`;

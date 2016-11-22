@@ -3,7 +3,57 @@ exports[`test sizes 1`] = `
   className="
     fa
     fa-info-circle 
+    
+    
+  " />
+`;
+
+exports[`test sizes 2`] = `
+<span
+  className="
+    fa
+    fa-info-circle 
+    fa-lg
+    
+  " />
+`;
+
+exports[`test sizes 3`] = `
+<span
+  className="
+    fa
+    fa-info-circle 
     fa-2x
+    
+  " />
+`;
+
+exports[`test sizes 4`] = `
+<span
+  className="
+    fa
+    fa-info-circle 
+    fa-3x
+    
+  " />
+`;
+
+exports[`test sizes 5`] = `
+<span
+  className="
+    fa
+    fa-info-circle 
+    fa-4x
+    
+  " />
+`;
+
+exports[`test sizes 6`] = `
+<span
+  className="
+    fa
+    fa-info-circle 
+    fa-5x
     
   " />
 `;
@@ -12,7 +62,87 @@ exports[`test types 1`] = `
 <span
   className="
     fa
+    fa-bars 
+    
+    
+  " />
+`;
+
+exports[`test types 2`] = `
+<span
+  className="
+    fa
+    fa-square-o 
+    
+    
+  " />
+`;
+
+exports[`test types 3`] = `
+<span
+  className="
+    fa
+    fa-check-square-o 
+    
+    
+  " />
+`;
+
+exports[`test types 4`] = `
+<span
+  className="
+    fa
+    fa-close 
+    
+    
+  " />
+`;
+
+exports[`test types 5`] = `
+<span
+  className="
+    fa
     fa-info-circle 
+    
+    
+  " />
+`;
+
+exports[`test types 6`] = `
+<span
+  className="
+    fa
+    fa-clock-o 
+    
+    
+  " />
+`;
+
+exports[`test types 7`] = `
+<span
+  className="
+    fa
+    fa-money 
+    
+    
+  " />
+`;
+
+exports[`test types 8`] = `
+<span
+  className="
+    fa
+    fa-folder-open-o 
+    
+    
+  " />
+`;
+
+exports[`test types 9`] = `
+<span
+  className="
+    fa
+    fa-file-o 
     
     
   " />

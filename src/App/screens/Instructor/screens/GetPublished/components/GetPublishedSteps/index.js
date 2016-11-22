@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import {map, uniq, compact, isString} from 'lodash'
+import Heading from '../../../../../../components/Heading'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
 import DescriptionBlock from './components/DescriptionBlock'
@@ -47,13 +48,19 @@ const GetPublishedSteps = ({
 
   return (
     <div>
-      <h2 className='f2'>To Do</h2>
+
+      <Heading level='2'>
+        To Do
+      </Heading>
+
       <DescriptionBlock>
         Hey {instructor.first_name}! Work with your mentor to complete these items so you can get published!
       </DescriptionBlock>
+
       <div className='mt3'>
         <Checklist items={steps} />
       </div>
+
     </div>
   )
 }

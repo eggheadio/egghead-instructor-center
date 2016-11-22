@@ -4,7 +4,7 @@ import createQueryString from '../createQueryString'
 export default ({
   lessons_url, 
   page,
-  pageSize = 20,
+  pageSize,
   states,
 }) => {
 

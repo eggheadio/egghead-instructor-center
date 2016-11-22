@@ -1,5 +1,17 @@
-const {random, name, image, internet, company} = require('faker')
-const {times, head, split, kebabCase, has} = require('lodash')
+const {
+  random,
+  name,
+  image,
+  internet,
+  lorem,
+} = require('faker')
+const {
+  times,
+  head,
+  split,
+  kebabCase,
+  has,
+} = require('lodash')
 const overrides = require('./overrides')
 
 module.exports = () => {
@@ -76,7 +88,7 @@ module.exports = () => {
 
     lessons: times(lessonCount, index => {
       const id = index
-      const title = company.catchPhrase()
+      const title = lorem.sentence()
       const instructorId = random.number({
         min: 0,
         max: instructorCount
@@ -85,6 +97,7 @@ module.exports = () => {
         id,
         slug: kebabCase(title),
         title,
+        summary: random.arrayElement([null, lorem.paragraph()]),
         state: random.arrayElement(lessonStates),
         instructor_url: `localhost:4000/api/v1/instructors/${instructorId}`,
 

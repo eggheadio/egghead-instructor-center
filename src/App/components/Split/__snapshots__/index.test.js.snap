@@ -1,30 +1,21 @@
 exports[`test default 1`] = `
 <div>
-  <header>
+  <div>
     <h1
-      className="f1">
+      className="mt0 normal f1 mb4">
       String
     </h1>
-  </header>
+  </div>
   <div
     className="flex-ns">
     <main
-      className="mr4-ns"
-      style={
-        Object {
-          "flex": 1,
-        }
-      }>
+      className="mr4-ns w-50-ns">
       <div>
         Component
       </div>
     </main>
     <aside
-      style={
-        Object {
-          "flex": 1,
-        }
-      }>
+      className="w-50-ns mt5 mt0-ns">
       <div>
         Component
       </div>

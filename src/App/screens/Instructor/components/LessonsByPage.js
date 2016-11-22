@@ -12,7 +12,7 @@ export default connect(
   }
 
   static defaultProps = {
-    pageSize: 20,
+    pageSize: 10,
   }
 
   state = {

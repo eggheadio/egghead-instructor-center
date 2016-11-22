@@ -1,5 +1,6 @@
 import React from 'react'
 import {map} from 'lodash'
+import Heading from '../../../../../../components/Heading'
 import InfoBlock from './components/InfoBlock'
 
 const questions = [
@@ -20,9 +21,16 @@ const questions = [
 
 const GetPublishedFaq = () => (
   <div>
-    <h2 className='f2'>FAQ</h2>
+
+    <Heading level='2'>
+      FAQ
+    </Heading>
+
     {map(questions, (question, index) => (
-      <div key={index}>
+      <div
+        key={index}
+        className='mb3'
+      >
         <InfoBlock
           title={question.question}
           description={question.answer}
@@ -30,6 +38,7 @@ const GetPublishedFaq = () => (
         />
       </div>
     ))}
+
   </div>
 )
 

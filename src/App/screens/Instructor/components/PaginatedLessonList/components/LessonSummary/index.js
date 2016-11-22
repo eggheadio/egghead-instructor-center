@@ -1,0 +1,43 @@
+import React from 'react'
+import {truncate} from 'lodash'
+import Heading from '../../../../../../components/Heading'
+import Button from '../../../../components/Button'
+
+export default ({lesson}) => {
+
+  const nextStepForCurrentStates = {
+    accepted: {
+      label: 'Claim',
+      action: () => console.log('Next step action tapped'),
+    },
+  }
+
+  const nextStepForCurrentState = nextStepForCurrentStates[lesson.state]
+
+  return (
+    <div className='flex-ns items-center'>
+
+      <div className={`mr3 ${nextStepForCurrentState ? 'w-75' : ''}`}>
+        <Heading level='5'>
+          {lesson.title}
+        </Heading>
+        <div>
+          {lesson.summary
+            ? truncate(lesson.summary, {length: 144})
+            : '...'
+          }
+        </div>
+      </div>
+
+      {nextStepForCurrentState
+        ? <div className='w-25-ns mt3 mt0-ns'>
+            <Button onClick={nextStepForCurrentState.action}>
+              {nextStepForCurrentState.label}
+            </Button>
+          </div>
+        : null
+      }
+
+    </div>
+  )
+}

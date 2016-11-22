@@ -4,7 +4,7 @@ import PaginatedLessonList from '../../../../components/PaginatedLessonList'
 
 export default ({
   instructor,
-  instructorLessons,
+  allLessons,
   currentPage,
   fetchLessons,
   pageSize,
@@ -12,17 +12,20 @@ export default ({
   <div>
 
     <Heading level='2'>
-      In Progress
+      Requested
     </Heading>
 
+    <div className='mb3'>
+      Here's what we'd love to see recorded right now. Claimed topics will be yours for 2 weeks, and then they'll be reopened for others to claim.
+    </div>
+
     <PaginatedLessonList
-      lessons={instructorLessons.lessons}
+      lessons={allLessons.lessons}
       fetchLessons={fetchLessons}
-      total={instructorLessons.total}
+      total={allLessons.total}
       currentPage={currentPage}
       pageSize={pageSize}
     />
 
   </div>
 )
-

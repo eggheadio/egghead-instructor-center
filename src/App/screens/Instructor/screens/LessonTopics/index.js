@@ -2,7 +2,8 @@ import React from 'react'
 import Split from '../../../../components/Split'
 import {unclaimedLessonTopicsLessonStates} from '../../utils/lessonStatesGroups'
 import LessonsByPage from '../../components/LessonsByPage'
-import Unclaimed from './components/Unclaimed'
+import Requested from './components/Requested'
+import Submit from './components/Submit'
 
 export default ({
   instructor,
@@ -13,7 +14,7 @@ export default ({
       <Split
         title='Lesson Topics'
         main={
-          <Unclaimed
+          <Requested
             instructor={instructor}
             allLessons={allLessons}
             currentPage={currentPage}
@@ -22,7 +23,7 @@ export default ({
           />
         }
         aside={
-          <div>Submit</div>
+          <Submit instructor={instructor} />
         }
       />
     )}

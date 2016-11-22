@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import Title from '../Title'
+import Heading from '../Heading'
 
 const Split = ({
   title,
@@ -8,20 +8,17 @@ const Split = ({
 }) => (
   <div>
 
-    <Title>
+    <Heading level='1'>
       {title}
-    </Title>
+    </Heading>
 
     <div className='flex-ns'>
 
-      <main
-        className='mr4-ns'
-        style={{flex: 1}}
-      >
+      <main className='mr4-ns w-50-ns'>
         {main}
       </main>
 
-      <aside style={{flex: 1}}>
+      <aside className='w-50-ns mt5 mt0-ns'>
         {aside}
       </aside>
 
