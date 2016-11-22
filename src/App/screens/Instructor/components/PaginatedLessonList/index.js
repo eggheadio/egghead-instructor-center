@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
+import sortLessonsByState from './utils/sortLessonsByState'
 import LessonSummary from './components/LessonSummary'
 
 const PaginatedLessonList = ({
@@ -18,8 +19,8 @@ const PaginatedLessonList = ({
     total > 0
       ? <div>
 
-          <div className='bg-black-10 br2 mv3'>
-            {map(lessons, (lesson) => (
+          <div className='bg-black-10 br2'>
+            {map(sortLessonsByState(lessons), (lesson) => (
               <div
                 key={lesson.id}
                 className='bb b--black-10 pa3'

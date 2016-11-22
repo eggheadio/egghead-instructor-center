@@ -1,8 +1,14 @@
 import React from 'react'
-import {size, map, upperFirst} from 'lodash'
-import sortLessonsByState from './utils/sortLessonsByState'
+import {size} from 'lodash'
+import PaginatedLessonList from '../../../../components/PaginatedLessonList'
 
-export default ({instructor, instructorLessons}) => (
+export default ({
+  instructor,
+  instructorLessons,
+  currentPage,
+  fetchLessons,
+  pageSize,
+}) => (
   <div>
 
     <h3 className='f3'>
@@ -12,24 +18,14 @@ export default ({instructor, instructorLessons}) => (
       </span>
     </h3>
 
-    {size(instructorLessons.lessons) > 0
-      ? <div className='bg-black-10 br2'> 
-          {map(sortLessonsByState(instructorLessons.lessons), lesson => (
-            <div
-              key={lesson.id}
-              className='flex items-center bb b--black-10'
-            >
-              <div className='pa2 pa3-ns w4'>
-                {upperFirst(lesson.state)}
-              </div>
-              <div className='pa2 pa3-ns w-100 bl b--black-10'>
-                {lesson.title}
-              </div>
-            </div>
-          ))}
-        </div>
-      : <div>You don't have any lessons in progress. Time to submit one!</div>
-    }
+    <PaginatedLessonList
+      lessons={instructorLessons.lessons}
+      fetchLessons={fetchLessons}
+      total={instructorLessons.total}
+      currentPage={currentPage}
+      pageSize={pageSize}
+    />
+
   </div>
 )
 
