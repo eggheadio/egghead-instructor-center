@@ -6,8 +6,6 @@ import InProgress from './components/InProgress'
 import Stats from './components/Stats'
 import Help from './components/Help'
 
-const pageSize = 50
-
 export default ({
   instructor,
   instructorLessons,
@@ -15,7 +13,6 @@ export default ({
   <LessonsByPage
     instructor={instructor}
     states={inProgressLessonStates}
-    pageSize={pageSize}
   >
     {({currentPage, fetchLessons, pageSize}) => (
       <Split

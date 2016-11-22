@@ -3,6 +3,7 @@ import Split from '../../../../components/Split'
 import {unclaimedLessonTopicsLessonStates} from '../../utils/lessonStatesGroups'
 import LessonsByPage from '../../components/LessonsByPage'
 import Requested from './components/Requested'
+import Submit from './components/Submit'
 
 export default ({
   instructor,
@@ -22,7 +23,7 @@ export default ({
           />
         }
         aside={
-          <div>Submit</div>
+          <Submit instructor={instructor} />
         }
       />
     )}

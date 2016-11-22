@@ -22,8 +22,8 @@ module.exports = () => {
   })
 
   const lessonCount = random.number({
-    min: 3000,
-    max: 5000,
+    min: 500,
+    max: 3000,
   })
 
   const lessonStates = [

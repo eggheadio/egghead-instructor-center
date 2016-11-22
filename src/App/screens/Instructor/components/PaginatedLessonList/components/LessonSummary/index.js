@@ -1,13 +1,13 @@
 import React from 'react'
 import {truncate} from 'lodash'
-import Button from '../Button'
+import Button from '../../../../components/Button'
 
 export default ({lesson}) => {
 
   const nextStepForCurrentStates = {
     accepted: {
       label: 'Claim',
-      action: () => console.log('action'),
+      action: () => console.log('Next step action tapped'),
     },
   }
 
