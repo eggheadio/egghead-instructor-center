@@ -14,7 +14,7 @@ export default ({lesson}) => {
   const nextStepForCurrentState = nextStepForCurrentStates[lesson.state]
 
   return (
-    <div className='flex items-center'>
+    <div className='flex-ns items-center'>
 
       <div className={`mr3 ${nextStepForCurrentState ? 'w-75' : ''}`}>
         <div className='f5 b mb2'>
@@ -29,7 +29,7 @@ export default ({lesson}) => {
       </div>
 
       {nextStepForCurrentState
-        ? <div className='w-25'>
+        ? <div className='w-25-ns mt3 mt0-ns'>
             <Button onClick={nextStepForCurrentState.action}>
               {nextStepForCurrentState.label}
             </Button>

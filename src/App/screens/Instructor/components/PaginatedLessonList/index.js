@@ -15,6 +15,11 @@ const PaginatedLessonList = ({
   const pageNum = Math.ceil(total / pageSize)
   const hasMoreThanOnePage = (pageNum > 1) && (lessons.length > 0)
 
+  const linkClassNames = {
+    mobileHide: 'dn db-ns',
+    link: 'db dim bg-orange white mr2 pa2 ph3-ns br2',
+  }
+
   return (
     total > 0
       ? <div>
@@ -31,22 +36,29 @@ const PaginatedLessonList = ({
           </div>
 
           {hasMoreThanOnePage
-            ? <div id='react-paginate'>
-                <ReactPaginate
-                  pageNum={pageNum}
-                  pageRangeDisplayed={5}
-                  marginPagesDisplayed={3}
-                  initialSelected={currentPage - 1}
-                  previousLabel={'Previous'}
-                  nextLabel={'Next'}
-                  clickCallback={(page) => {
-                    const {selected} = page
-                    if (currentPage !== selected + 1) {
-                      fetchLessons(selected + 1)
-                    }
-                  }}
-                />
-              </div>
+            ? <ReactPaginate
+                pageNum={pageNum}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={1}
+                initialSelected={currentPage - 1}
+                previousLabel={'Previous'}
+                nextLabel={'Next'}
+                clickCallback={(page) => {
+                  const {selected} = page
+                  if (currentPage !== selected + 1) {
+                    fetchLessons(selected + 1)
+                  }
+                }}
+                containerClassName='mb0 pa0 list mt4 flex items-center'
+                previousClassName={linkClassNames.mobileHide}
+                nextClassName={linkClassNames.mobileHide}
+                disabledClassName='o-20'
+                previousLinkClassName={linkClassNames.link}
+                nextLinkClassName={linkClassNames.link}
+                pageLinkClassName={linkClassNames.link}
+                activeClassName='o-50'
+                breakClassName='mr2'
+              />
             : null
           }
 

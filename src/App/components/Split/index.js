@@ -18,7 +18,7 @@ const Split = ({
         {main}
       </main>
 
-      <aside className='w-50-ns'>
+      <aside className='w-50-ns mt5 mt0-ns'>
         {aside}
       </aside>
 
