@@ -1,12 +1,12 @@
 import React from 'react'
 import {create} from 'react-test-renderer'
-import {forEach, keys} from 'lodash'
+import {forEach} from 'lodash'
 import {StringFixture} from '../SnapshotFixtures'
 import GuideVariation from '../GuideVariation'
-import Heading, {levelClassNames} from '.'
+import Heading, {levels} from '.'
 
 test('levels', () => {
-  forEach(keys(levelClassNames), (level) => (
+  forEach(levels, (level) => (
     expect(create(
       <Heading level={level}>
         {StringFixture}

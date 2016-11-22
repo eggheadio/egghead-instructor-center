@@ -1,8 +1,10 @@
 exports[`test default 1`] = `
 <div>
-  <div
-    className="f1 mb4">
-    String
+  <div>
+    <h1
+      className="mt0 normal f1 mb4">
+      String
+    </h1>
   </div>
   <div
     className="flex-ns">
