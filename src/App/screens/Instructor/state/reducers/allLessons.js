@@ -1,4 +1,8 @@
-import {RECEIVED_ALL_LESSONS} from '../actions/instructorActionTypes';
+import {merge, findIndex} from 'lodash'
+import {
+  RECEIVED_ALL_LESSONS,
+  STARTED_UPDATE_LESSON_STATE,
+} from '../actions/instructorActionTypes';
 
 export default (
   state = {
@@ -10,6 +14,18 @@ export default (
   switch (action.type) {
     case RECEIVED_ALL_LESSONS:
       return action.payload.lessons
+    case STARTED_UPDATE_LESSON_STATE:
+      const updatedLessonIndex = findIndex(
+        state.lessons,
+        ['id', action.payload.lessonId]
+      )
+      return merge(state, {
+        lessons: {
+          [updatedLessonIndex]: {
+            state: action.payload.newState,
+          }
+        },
+      })
     default:
       return state
   }

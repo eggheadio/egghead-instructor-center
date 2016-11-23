@@ -42,17 +42,15 @@ export const receiveAllLessons = (lessons) => ({
   },
 })
 
-export const startUpdateLessonState = (lessonUrl, newState) => ({
+export const startUpdateLessonState = ({lessonId, lessonUrl, newState}) => ({
   type: instructorActionTypes.STARTED_UPDATE_LESSON_STATE,
   payload: {
+    lessonId,
     lessonUrl,
     newState,
   },
 })
 
-export const endUpdateLessonState = ({lesson}) => ({
+export const endUpdateLessonState = () => ({
   type: instructorActionTypes.ENDED_UPDATE_LESSON_STATE,
-  payload: {
-    lesson,
-  },
 })

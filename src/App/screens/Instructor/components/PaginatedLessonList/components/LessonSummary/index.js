@@ -13,7 +13,11 @@ const LessonSummary = ({
   const nextStepForCurrentStates = {
     accepted: {
       label: 'Claim',
-      action: startUpdateLessonState.bind(this, lesson.lesson_url, 'claimed'),
+      action: startUpdateLessonState.bind(this, {
+        lessonId: lesson.id,
+        lessonUrl: lesson.lesson_url,
+        newState: 'claimed',
+      }),
     },
   }
 

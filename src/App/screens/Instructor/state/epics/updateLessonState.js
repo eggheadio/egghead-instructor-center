@@ -16,7 +16,7 @@ export default (action$) => (
         },
       }),
       ({payload}, {lesson}) => (
-        endUpdateLessonState({payload, lesson})
+        endUpdateLessonState()
       )
     )
 )
