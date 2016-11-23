@@ -99,6 +99,7 @@ module.exports = () => {
         title,
         summary: random.arrayElement([null, lorem.paragraph()]),
         state: random.arrayElement(lessonStates),
+        lesson_url: `localhost:4000/api/v1/lessons/${id}`,
         instructor_url: `localhost:4000/api/v1/instructors/${instructorId}`,
 
         // Only needed for json-server hypermedia connection

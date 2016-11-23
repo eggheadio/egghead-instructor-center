@@ -1,14 +1,19 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {truncate} from 'lodash'
+import {startUpdateLessonState} from '../../../../state/actions'
 import Heading from '../../../../../../components/Heading'
 import Button from '../../../../components/Button'
 
-export default ({lesson}) => {
+const LessonSummary = ({
+  lesson,
+  startUpdateLessonState,
+}) => {
 
   const nextStepForCurrentStates = {
     accepted: {
       label: 'Claim',
-      action: () => console.log('Next step action tapped'),
+      action: startUpdateLessonState.bind(this, lesson.lesson_url, 'claimed'),
     },
   }
 
@@ -41,3 +46,8 @@ export default ({lesson}) => {
     </div>
   )
 }
+
+export default connect(
+  null,
+  {startUpdateLessonState}
+)(LessonSummary)
