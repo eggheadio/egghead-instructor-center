@@ -34,7 +34,7 @@ export default (props) => (
           )}
         />
         <Match
-          pattern={`/instructors/:instructor_id`}
+          pattern={`/instructors/:instructorId`}
           component={Instructor}
         />
         <Match

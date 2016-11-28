@@ -21,9 +21,9 @@ export default connect(
   }
 
   componentWillReceiveProps(nextProps) {
-    const {instructor_id} = this.props.params
-    if (instructor_id !== nextProps.params.instructor_id) {
-      this.props.requestInstructor(nextProps.params.instructor_id)
+    const {instructorId} = this.props.params
+    if (instructorId !== nextProps.params.instructorId) {
+      this.props.requestInstructor(nextProps.params.instructorId)
     }
   }
 
@@ -38,7 +38,7 @@ export default connect(
     } = this.props
 
     if(!instructor) {
-      requestInstructor(params.instructor_id)
+      requestInstructor(params.instructorId)
     }
 
     return instructor

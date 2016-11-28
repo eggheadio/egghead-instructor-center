@@ -1,9 +1,9 @@
 import * as instructorActionTypes from './instructorActionTypes'
 
-export const requestInstructor = (instructor_id) => ({
+export const requestInstructor = (instructorId) => ({
   type: instructorActionTypes.REQUESTED_INSTRUCTOR,
   payload: {
-    instructor_id
+    instructorId
   },
 })
 
