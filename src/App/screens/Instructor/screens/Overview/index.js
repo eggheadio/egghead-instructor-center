@@ -8,7 +8,7 @@ import Help from './components/Help'
 
 export default ({
   instructor,
-  instructorLessons,
+  lessonPage,
 }) => (
   <LessonsByPage
     instructor={instructor}
@@ -20,7 +20,7 @@ export default ({
         main={
           <InProgress
             instructor={instructor}
-            instructorLessons={instructorLessons}
+            lessonPage={lessonPage}
             currentPage={currentPage}
             fetchLessons={fetchLessons}
             pageSize={pageSize}

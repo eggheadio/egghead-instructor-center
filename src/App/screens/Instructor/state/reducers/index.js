@@ -1,10 +1,8 @@
 import {combineReducers} from 'redux';
 import instructor from './instructor'
-import instructorLessons from './instructorLessons'
-import allLessons from './allLessons'
+import lessonPage from './lessonPage'
 
 export default combineReducers({
   instructor,
-  instructorLessons,
-  allLessons,
+  lessonPage,
 })

@@ -14,31 +14,31 @@ export const receiveInstructor = (instructor) => ({
   },
 })
 
-export const requestInstructorLessons = (lessonPage) => ({
+export const requestInstructorLessons = (lessonOptions) => ({
   type: instructorActionTypes.REQUESTED_INSTRUCTOR_LESSONS,
   payload: {
-    lessonPage
+    lessonOptions
   },
 })
 
-export const receiveInstructorLessons = (lessons) => ({
+export const receiveInstructorLessons = (lessonPage) => ({
   type: instructorActionTypes.RECEIVED_INSTRUCTOR_LESSONS,
   payload: {
-    lessons
-  },
-})
-
-export const requestAllLessons = (lessonPage) => ({
-  type: instructorActionTypes.REQUESTED_ALL_LESSONS,
-  payload: {
     lessonPage
   },
 })
 
-export const receiveAllLessons = (lessons) => ({
+export const requestAllLessons = (lessonOptions) => ({
+  type: instructorActionTypes.REQUESTED_ALL_LESSONS,
+  payload: {
+    lessonOptions,
+  },
+})
+
+export const receiveAllLessons = (lessonPage) => ({
   type: instructorActionTypes.RECEIVED_ALL_LESSONS,
   payload: {
-    lessons
+    lessonPage
   },
 })
 

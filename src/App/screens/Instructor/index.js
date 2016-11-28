@@ -34,8 +34,7 @@ export default connect(
       pathname,
       requestInstructor,
       instructor,
-      instructorLessons,
-      allLessons,
+      lessonPage,
     } = this.props
 
     if(!instructor) {
@@ -70,11 +69,11 @@ export default connect(
               render={() => (instructor.published_lessons > 0)
                 ? <Overview
                     instructor={instructor}
-                    instructorLessons={instructorLessons}
+                    lessonPage={lessonPage}
                   />
                 : <GetPublished 
                     instructor={instructor}
-                    instructorLessons={instructorLessons}
+                    lessonPage={lessonPage}
                   />
               }
             />
@@ -83,7 +82,7 @@ export default connect(
               render={() => (
                 <LessonTopics
                   instructor={instructor}
-                  allLessons={allLessons}
+                  lessonPage={lessonPage}
                 />
               )}
             />
@@ -92,7 +91,7 @@ export default connect(
               render={() => (
                 <PublishedLessons 
                   instructor={instructor}
-                  instructorLessons={instructorLessons}
+                  lessonPage={lessonPage}
                 />
               )}
             />

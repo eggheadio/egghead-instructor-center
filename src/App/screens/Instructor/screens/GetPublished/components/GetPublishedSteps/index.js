@@ -7,10 +7,10 @@ import DescriptionBlock from './components/DescriptionBlock'
 
 const GetPublishedSteps = ({
   instructor,
-  instructorLessons,
+  lessonPage,
 }) => {
 
-  const instructorLessonStates = compact(uniq(map(instructorLessons.lessons, 'state')))
+  const instructorLessonStates = compact(uniq(map(lessonPage.lessons, 'state')))
 
   const steps = [
     {
@@ -67,7 +67,7 @@ const GetPublishedSteps = ({
 
 GetPublishedSteps.propTypes = {
   instructor: PropTypes.object.isRequired,
-  instructorLessons: PropTypes.object.isRequired,
+  lessonPage: PropTypes.object.isRequired,
 }
 
 export default GetPublishedSteps

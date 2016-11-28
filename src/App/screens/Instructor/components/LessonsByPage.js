@@ -28,17 +28,17 @@ export default connect(
       states,
     } = this.props
     this.setState({currentPage})
-    const options = {
+    const sharedOptions = {
       page: currentPage,
       pageSize,
       states,
     }
     instructor
       ? requestInstructorLessons({
-          ...options,
+          ...sharedOptions,
           lessons_url: instructor.lessons_url,
         })
-      : requestAllLessons(options)
+      : requestAllLessons(sharedOptions)
   }
 
   componentWillMount() {

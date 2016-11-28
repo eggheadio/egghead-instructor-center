@@ -7,7 +7,7 @@ import Submit from './components/Submit'
 
 export default ({
   instructor,
-  allLessons,
+  lessonPage,
 }) => (
   <LessonsByPage states={unclaimedLessonTopicsLessonStates}>
     {({currentPage, fetchLessons, pageSize}) => (
@@ -16,7 +16,7 @@ export default ({
         main={
           <Requested
             instructor={instructor}
-            allLessons={allLessons}
+            lessonPage={lessonPage}
             currentPage={currentPage}
             fetchLessons={fetchLessons}
             pageSize={pageSize}

@@ -1,12 +1,12 @@
 import {combineEpics} from 'redux-observable'
-import fetchInstructorById from './fetchInstructorById'
-import fetchLessonsForInstructor from './fetchLessonsForInstructor'
+import fetchInstructor from './fetchInstructor'
+import fetchInstructorLessons from './fetchInstructorLessons'
 import fetchAllLessons from './fetchAllLessons'
 import updateLessonState from './updateLessonState'
 
 export default combineEpics(
-  fetchInstructorById,
-  fetchLessonsForInstructor,
+  fetchInstructor,
+  fetchInstructorLessons,
   fetchAllLessons,
   updateLessonState
 )
