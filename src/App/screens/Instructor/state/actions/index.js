@@ -42,11 +42,15 @@ export const endFetchAllLessons = (lessonPage) => ({
   },
 })
 
-export const startUpdateLessonState = ({lessonId, lessonUrl, newState}) => ({
+export const startUpdateLessonState = ({
+  instructorId,
+  lesson,
+  newState,
+}) => ({
   type: instructorActionTypes.STARTED_UPDATE_LESSON_STATE,
   payload: {
-    lessonId,
-    lessonUrl,
+    instructorId,
+    lesson,
     newState,
   },
 })

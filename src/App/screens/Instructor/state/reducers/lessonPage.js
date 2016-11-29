@@ -33,10 +33,10 @@ export default (
       }
 
     case STARTED_UPDATE_LESSON_STATE:
-      const {lessonId, newState} = action.payload
+      const {lesson, newState} = action.payload
       const updatedLessonIndex = findIndex(
         state.lessons,
-        ['id', lessonId]
+        ['id', lesson.id]
       )
       return includes(state.states, newState)
         ? {
@@ -52,7 +52,7 @@ export default (
         : {
             ...state,
             total: `${state.total - 1}`,
-            lessons: reject(state.lessons, ['id', lessonId])
+            lessons: reject(state.lessons, ['id', lesson.id])
           }
 
     default:

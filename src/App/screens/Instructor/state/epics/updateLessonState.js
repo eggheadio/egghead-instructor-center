@@ -6,16 +6,22 @@ import headers from './utils/headers'
 export default (action$) => (
   action$.ofType(STARTED_UPDATE_LESSON_STATE)
     .switchMap(
-      ({payload}) => Observable.ajax({
-        type: 'PUT',
-        headers,
-        crossDomain: true,
-        url: payload.lessonUrl,
-        body: {
-          state: payload.newState,
-        },
-      }),
-      ({payload}, {lesson}) => (
+      ({payload}) => Observable.fromPromise(
+        fetch(payload.lesson.lesson_url, {
+          method: 'PUT',
+          body: JSON.stringify({
+            ...payload.lesson,
+            instructor_id: payload.instructorId,
+            state: payload.newState,
+          }),
+          mode: 'cors',
+          headers
+        })
+          .then(response => response.json())
+          .then(updatedLesson => updatedLesson)
+          .catch(error => console.log(error))
+      ),
+      ({payload}, {updatedLesson}) => (
         endUpdateLessonState()
       )
     )

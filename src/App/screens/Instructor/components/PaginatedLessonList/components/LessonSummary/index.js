@@ -6,6 +6,7 @@ import Heading from '../../../../../../components/Heading'
 import Button from '../../../../components/Button'
 
 const LessonSummary = ({
+  instructor,
   lesson,
   startUpdateLessonState,
 }) => {
@@ -14,8 +15,8 @@ const LessonSummary = ({
     accepted: {
       label: 'Claim',
       action: startUpdateLessonState.bind(this, {
-        lessonId: lesson.id,
-        lessonUrl: lesson.lesson_url,
+        instructorId: instructor.id,
+        lesson,
         newState: 'claimed',
       }),
     },
@@ -55,6 +56,8 @@ const LessonSummary = ({
 }
 
 export default connect(
-  null,
+  ({instructorScreen}) => ({
+    instructor: instructorScreen.instructor,
+  }),
   {startUpdateLessonState}
 )(LessonSummary)
