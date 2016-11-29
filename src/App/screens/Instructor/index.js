@@ -3,7 +3,7 @@ import {Match} from 'react-router'
 import {connect} from 'react-redux'
 import Main from '../../components/Main'
 import Miss404 from '../../components/Miss404'
-import {requestInstructor} from './state/actions'
+import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
 import LessonTopics from './screens/LessonTopics'
@@ -12,7 +12,7 @@ import Nav from './components/Nav'
 
 export default connect(
   ({instructorScreen}) => ({...instructorScreen}),
-  {requestInstructor}
+  {startFetchInstructor}
 )(class Instructor extends Component {
 
   static propTypes = {
@@ -23,7 +23,7 @@ export default connect(
   componentWillReceiveProps(nextProps) {
     const {instructorId} = this.props.params
     if (instructorId !== nextProps.params.instructorId) {
-      this.props.requestInstructor(nextProps.params.instructorId)
+      this.props.startFetchInstructor(nextProps.params.instructorId)
     }
   }
 
@@ -32,13 +32,13 @@ export default connect(
     const {
       params,
       pathname,
-      requestInstructor,
+      startFetchInstructor,
       instructor,
       lessonPage,
     } = this.props
 
     if(!instructor) {
-      requestInstructor(params.instructorId)
+      startFetchInstructor(params.instructorId)
     }
 
     return instructor

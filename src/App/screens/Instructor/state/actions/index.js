@@ -1,42 +1,42 @@
 import * as instructorActionTypes from './instructorActionTypes'
 
-export const requestInstructor = (instructorId) => ({
-  type: instructorActionTypes.REQUESTED_INSTRUCTOR,
+export const startFetchInstructor = (instructorId) => ({
+  type: instructorActionTypes.STARTED_FETCH_INSTRUCTOR,
   payload: {
     instructorId
   },
 })
 
-export const receiveInstructor = (instructor) => ({
-  type: instructorActionTypes.RECEIVED_INSTRUCTOR,
+export const endFetchInstructor = (instructor) => ({
+  type: instructorActionTypes.ENDED_FETCH_INSTRUCTOR,
   payload: {
     instructor
   },
 })
 
-export const requestInstructorLessons = (lessonOptions) => ({
-  type: instructorActionTypes.REQUESTED_INSTRUCTOR_LESSONS,
+export const startFetchInstructorLessons = (lessonOptions) => ({
+  type: instructorActionTypes.STARTED_FETCH_INSTRUCTOR_LESSONS,
   payload: {
     lessonOptions
   },
 })
 
-export const receiveInstructorLessons = (lessonPage) => ({
-  type: instructorActionTypes.RECEIVED_INSTRUCTOR_LESSONS,
+export const endFetchInstructorLessons = (lessonPage) => ({
+  type: instructorActionTypes.ENDED_FETCH_INSTRUCTOR_LESSONS,
   payload: {
     lessonPage
   },
 })
 
-export const requestAllLessons = (lessonOptions) => ({
-  type: instructorActionTypes.REQUESTED_ALL_LESSONS,
+export const startFetchAllLessons = (lessonOptions) => ({
+  type: instructorActionTypes.STARTED_FETCH_ALL_LESSONS,
   payload: {
     lessonOptions,
   },
 })
 
-export const receiveAllLessons = (lessonPage) => ({
-  type: instructorActionTypes.RECEIVED_ALL_LESSONS,
+export const endFetchAllLessons = (lessonPage) => ({
+  type: instructorActionTypes.ENDED_FETCH_ALL_LESSONS,
   payload: {
     lessonPage
   },

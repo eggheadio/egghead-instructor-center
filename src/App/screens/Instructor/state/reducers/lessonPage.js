@@ -1,7 +1,7 @@
 import {merge, findIndex} from 'lodash'
 import {
-  RECEIVED_INSTRUCTOR_LESSONS,
-  RECEIVED_ALL_LESSONS,
+  ENDED_FETCH_INSTRUCTOR_LESSONS,
+  ENDED_FETCH_ALL_LESSONS,
   STARTED_UPDATE_LESSON_STATE,
 } from '../actions/instructorActionTypes';
 
@@ -14,8 +14,8 @@ export default (
 ) => {
   switch (action.type) {
 
-    case RECEIVED_INSTRUCTOR_LESSONS:
-    case RECEIVED_ALL_LESSONS:
+    case ENDED_FETCH_INSTRUCTOR_LESSONS:
+    case ENDED_FETCH_ALL_LESSONS:
       return action.payload.lessonPage
 
     case STARTED_UPDATE_LESSON_STATE:

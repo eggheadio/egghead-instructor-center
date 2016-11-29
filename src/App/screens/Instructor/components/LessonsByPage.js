@@ -1,10 +1,10 @@
 import {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {requestInstructorLessons, requestAllLessons} from '../state/actions'
+import {startFetchInstructorLessons, startFetchAllLessons} from '../state/actions'
 
 export default connect(
   null,
-  {requestInstructorLessons, requestAllLessons}
+  {startFetchInstructorLessons, startFetchAllLessons}
 )(class LessonsByPage extends Component {
   
   static propTypes = {
@@ -21,8 +21,8 @@ export default connect(
 
   fetchLessons = (currentPage = 1) => {
     const {
-      requestInstructorLessons,
-      requestAllLessons,
+      startFetchInstructorLessons,
+      startFetchAllLessons,
       instructor,
       pageSize,
       states,
@@ -34,11 +34,11 @@ export default connect(
       states,
     }
     instructor
-      ? requestInstructorLessons({
+      ? startFetchInstructorLessons({
           ...sharedOptions,
           lessons_url: instructor.lessons_url,
         })
-      : requestAllLessons(sharedOptions)
+      : startFetchAllLessons(sharedOptions)
   }
 
   componentWillMount() {
