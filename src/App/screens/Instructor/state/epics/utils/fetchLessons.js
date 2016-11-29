@@ -11,10 +11,9 @@ const handleLessonsResponse = (response) => (
   })
 )
 
-// I couldn't figure out how to get the Rx ajax operator to give me the headers so I just used fetch...
-export default (lessonPage) => (
+export default (lessonOptions) => (
   Observable.fromPromise(
-    fetch(createLessonsUrl(lessonPage), {headers})
+    fetch(createLessonsUrl(lessonOptions), {headers})
       .then(handleLessonsResponse)
   )
 )
