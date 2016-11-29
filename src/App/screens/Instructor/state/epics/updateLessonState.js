@@ -15,11 +15,11 @@ export default (action$) => (
             state: payload.newState,
           }),
           mode: 'cors',
-          headers
+          headers,
         })
           .then(response => response.json())
           .then(updatedLesson => updatedLesson)
-          .catch(error => console.log(error))
+          .catch(error => console.error(error))
       ),
       ({payload}, {updatedLesson}) => (
         endUpdateLessonState()
