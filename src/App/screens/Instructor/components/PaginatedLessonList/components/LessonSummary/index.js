@@ -40,7 +40,10 @@ const LessonSummary = ({
 
       {nextStepForCurrentState
         ? <div className='w-25-ns mt3 mt0-ns'>
-            <Button onClick={nextStepForCurrentState.action}>
+            <Button
+              onClick={nextStepForCurrentState.action}
+              className='w-100-ns'
+            >
               {nextStepForCurrentState.label}
             </Button>
           </div>
