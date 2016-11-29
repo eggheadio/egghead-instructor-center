@@ -1,5 +1,7 @@
-import {merge, findIndex, reject} from 'lodash'
+import {findIndex, reject, includes} from 'lodash'
 import {
+  STARTED_FETCH_INSTRUCTOR_LESSONS,
+  STARTED_FETCH_ALL_LESSONS,
   ENDED_FETCH_INSTRUCTOR_LESSONS,
   ENDED_FETCH_ALL_LESSONS,
   STARTED_UPDATE_LESSON_STATE,
@@ -14,27 +16,43 @@ export default (
 ) => {
   switch (action.type) {
 
+    case STARTED_FETCH_INSTRUCTOR_LESSONS:
+    case STARTED_FETCH_ALL_LESSONS:
+      const {states} = action.payload.lessonOptions
+      return {
+        ...state,
+        states,
+      }
+
     case ENDED_FETCH_INSTRUCTOR_LESSONS:
     case ENDED_FETCH_ALL_LESSONS:
-      return action.payload.lessonPage
+      const {lessonPage} = action.payload
+      return {
+        ...state,
+        ...lessonPage,
+      }
 
     case STARTED_UPDATE_LESSON_STATE:
+      const {lessonId, newState} = action.payload
       const updatedLessonIndex = findIndex(
         state.lessons,
-        ['id', action.payload.lessonId]
+        ['id', lessonId]
       )
-      const hasNewStateInLessonPage = false
-      return hasNewStateInLessonPage
-        ? merge(state, {
+      return includes(state.states, newState)
+        ? {
+            ...state,
             lessons: {
+              ...state.lessons,
               [updatedLessonIndex]: {
-                state: action.payload.newState,
+                ...state.lessons[updatedLessonIndex],
+                state: newState,
               }
             },
-          })
+          }
         : {
+            ...state,
             total: `${state.total - 1}`,
-            lessons: reject(state.lessons, ['id', action.payload.lessonId])
+            lessons: reject(state.lessons, ['id', lessonId])
           }
 
     default:
