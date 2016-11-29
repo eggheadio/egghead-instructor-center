@@ -14,7 +14,6 @@ export default (action$) => (
             instructor_id: payload.instructorId,
             state: payload.newState,
           }),
-          mode: 'cors',
           headers,
         })
           .then(response => response.json())

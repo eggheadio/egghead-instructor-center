@@ -4,7 +4,10 @@ import fetchLessons from './utils/fetchLessons'
 
 export default (action$) => (
   action$.ofType(STARTED_FETCH_ALL_LESSONS)
-    .map(action => action.payload.lessonOptions)
-    .switchMap(fetchLessons)
-    .map(endFetchAllLessons.bind(null))
+    .switchMap(
+      ({payload}) => fetchLessons(payload.lessonOptions),
+      ({payload}, lessonPage) => (
+        endFetchAllLessons(lessonPage)
+      )
+    )
 )
