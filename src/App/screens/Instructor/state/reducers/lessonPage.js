@@ -9,8 +9,8 @@ import {
 
 export default (
   state = {
-    lessons: [],
     total: '0',
+    lessons: [],
   },
   action
 ) => {
@@ -38,21 +38,20 @@ export default (
         state.lessons,
         ['id', lesson.id]
       )
+      const lessonsCopy = state.lessons
+      lessonsCopy[updatedLessonIndex] = {
+        ...lessonsCopy[updatedLessonIndex],
+        state: newState,
+      }
       return includes(state.states, newState)
         ? {
             ...state,
-            lessons: {
-              ...state.lessons,
-              [updatedLessonIndex]: {
-                ...state.lessons[updatedLessonIndex],
-                state: newState,
-              }
-            },
+            lessons: lessonsCopy,
           }
         : {
             ...state,
             total: `${state.total - 1}`,
-            lessons: reject(state.lessons, ['id', lesson.id])
+            lessons: reject(state.lessons, ['id', lesson.id]),
           }
 
     default:
@@ -60,4 +59,3 @@ export default (
 
   }
 }
-
