@@ -1,10 +1,13 @@
-import {REQUESTED_ALL_LESSONS} from '../actions/instructorActionTypes'
-import {receiveAllLessons} from '../actions'
+import {STARTED_FETCH_ALL_LESSONS} from '../actions/instructorActionTypes'
+import {endFetchAllLessons} from '../actions'
 import fetchLessons from './utils/fetchLessons'
 
 export default (action$) => (
-  action$.ofType(REQUESTED_ALL_LESSONS)
-    .map(action => action.payload.lessonPage)
-    .switchMap(fetchLessons)
-    .map(receiveAllLessons.bind(null))
+  action$.ofType(STARTED_FETCH_ALL_LESSONS)
+    .switchMap(
+      ({payload}) => fetchLessons(payload.lessonOptions),
+      ({payload}, lessonPage) => (
+        endFetchAllLessons(lessonPage)
+      )
+    )
 )

@@ -52,6 +52,8 @@ module.exports = () => {
     }),
   })
 
+  const baseUrl = 'http://localhost:4000/api/v1'
+
   return {
 
     instructors: times(instructorCount, index => {
@@ -63,7 +65,7 @@ module.exports = () => {
         full_name: fullName,
         first_name: head(split(fullName, ' ')),
         avatar_url: image.avatar(),
-        lessons_url: `http://localhost:4000/api/v1/instructors/${id}/lessons`,
+        lessons_url: `${baseUrl}/instructors/${id}/lessons`,
         slack_id: random.arrayElement([null, internet.userName()]),
         gear_tracking_id: random.arrayElement([null, random.uuid()]),
         published_courses: random.number({
@@ -99,7 +101,8 @@ module.exports = () => {
         title,
         summary: random.arrayElement([null, lorem.paragraph()]),
         state: random.arrayElement(lessonStates),
-        instructor_url: `localhost:4000/api/v1/instructors/${instructorId}`,
+        lesson_url: `${baseUrl}/lessons/${id}`,
+        instructor_url: `${baseUrl}/instructors/${instructorId}`,
 
         // Only needed for json-server hypermedia connection
         instructor_id: instructorId,

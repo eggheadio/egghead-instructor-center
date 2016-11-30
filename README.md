@@ -41,6 +41,7 @@
 - **Living Style Guide:** React StoryBook \*
 - **JS Utils:** Lodash
 - **State Tree:** Redux + Redux Observable
+- **Requests:** Fetch
 - **Routing:** React Router
 - **Style:** Tachyons
 - **Fake API:** JSON Server + Faker

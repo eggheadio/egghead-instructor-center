@@ -3,7 +3,7 @@ import {Match} from 'react-router'
 import {connect} from 'react-redux'
 import Main from '../../components/Main'
 import Miss404 from '../../components/Miss404'
-import {requestInstructor} from './state/actions'
+import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
 import LessonTopics from './screens/LessonTopics'
@@ -12,7 +12,7 @@ import Nav from './components/Nav'
 
 export default connect(
   ({instructorScreen}) => ({...instructorScreen}),
-  {requestInstructor}
+  {startFetchInstructor}
 )(class Instructor extends Component {
 
   static propTypes = {
@@ -21,9 +21,9 @@ export default connect(
   }
 
   componentWillReceiveProps(nextProps) {
-    const {instructor_id} = this.props.params
-    if (instructor_id !== nextProps.params.instructor_id) {
-      this.props.requestInstructor(nextProps.params.instructor_id)
+    const {instructorId} = this.props.params
+    if (instructorId !== nextProps.params.instructorId) {
+      this.props.startFetchInstructor(nextProps.params.instructorId)
     }
   }
 
@@ -32,14 +32,13 @@ export default connect(
     const {
       params,
       pathname,
-      requestInstructor,
+      startFetchInstructor,
       instructor,
-      instructorLessons,
-      allLessons,
+      lessonPage,
     } = this.props
 
     if(!instructor) {
-      requestInstructor(params.instructor_id)
+      startFetchInstructor(params.instructorId)
     }
 
     return instructor
@@ -70,11 +69,11 @@ export default connect(
               render={() => (instructor.published_lessons > 0)
                 ? <Overview
                     instructor={instructor}
-                    instructorLessons={instructorLessons}
+                    lessonPage={lessonPage}
                   />
                 : <GetPublished 
                     instructor={instructor}
-                    instructorLessons={instructorLessons}
+                    lessonPage={lessonPage}
                   />
               }
             />
@@ -83,7 +82,7 @@ export default connect(
               render={() => (
                 <LessonTopics
                   instructor={instructor}
-                  allLessons={allLessons}
+                  lessonPage={lessonPage}
                 />
               )}
             />
@@ -92,7 +91,7 @@ export default connect(
               render={() => (
                 <PublishedLessons 
                   instructor={instructor}
-                  instructorLessons={instructorLessons}
+                  lessonPage={lessonPage}
                 />
               )}
             />

@@ -1,44 +1,60 @@
 import * as instructorActionTypes from './instructorActionTypes'
 
-export const requestInstructor = (instructor_id) => ({
-  type: instructorActionTypes.REQUESTED_INSTRUCTOR,
+export const startFetchInstructor = (instructorId) => ({
+  type: instructorActionTypes.STARTED_FETCH_INSTRUCTOR,
   payload: {
-    instructor_id
+    instructorId
   },
 })
 
-export const receiveInstructor = (instructor) => ({
-  type: instructorActionTypes.RECEIVED_INSTRUCTOR,
+export const endFetchInstructor = (instructor) => ({
+  type: instructorActionTypes.ENDED_FETCH_INSTRUCTOR,
   payload: {
     instructor
   },
 })
 
-export const requestInstructorLessons = (lessonPage) => ({
-  type: instructorActionTypes.REQUESTED_INSTRUCTOR_LESSONS,
+export const startFetchInstructorLessons = (lessonOptions) => ({
+  type: instructorActionTypes.STARTED_FETCH_INSTRUCTOR_LESSONS,
+  payload: {
+    lessonOptions
+  },
+})
+
+export const endFetchInstructorLessons = (lessonPage) => ({
+  type: instructorActionTypes.ENDED_FETCH_INSTRUCTOR_LESSONS,
   payload: {
     lessonPage
   },
 })
 
-export const receiveInstructorLessons = (lessons) => ({
-  type: instructorActionTypes.RECEIVED_INSTRUCTOR_LESSONS,
+export const startFetchAllLessons = (lessonOptions) => ({
+  type: instructorActionTypes.STARTED_FETCH_ALL_LESSONS,
   payload: {
-    lessons
+    lessonOptions,
   },
 })
 
-export const requestAllLessons = (lessonPage) => ({
-  type: instructorActionTypes.REQUESTED_ALL_LESSONS,
+export const endFetchAllLessons = (lessonPage) => ({
+  type: instructorActionTypes.ENDED_FETCH_ALL_LESSONS,
   payload: {
     lessonPage
   },
 })
 
-export const receiveAllLessons = (lessons) => ({
-  type: instructorActionTypes.RECEIVED_ALL_LESSONS,
+export const startUpdateLessonState = ({
+  instructorId,
+  lesson,
+  newState,
+}) => ({
+  type: instructorActionTypes.STARTED_UPDATE_LESSON_STATE,
   payload: {
-    lessons
+    instructorId,
+    lesson,
+    newState,
   },
 })
 
+export const endUpdateLessonState = () => ({
+  type: instructorActionTypes.ENDED_UPDATE_LESSON_STATE,
+})

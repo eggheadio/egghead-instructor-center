@@ -4,7 +4,7 @@ import PaginatedLessonList from '../../../../components/PaginatedLessonList'
 
 export default ({
   instructor,
-  instructorLessons,
+  lessonPage,
   currentPage,
   fetchLessons,
   pageSize,
@@ -16,9 +16,9 @@ export default ({
     </Heading>
 
     <PaginatedLessonList
-      lessons={instructorLessons.lessons}
+      lessons={lessonPage.lessons}
       fetchLessons={fetchLessons}
-      total={instructorLessons.total}
+      total={lessonPage.total}
       currentPage={currentPage}
       pageSize={pageSize}
     />

@@ -1,11 +1,11 @@
-import {RECEIVED_INSTRUCTOR} from '../actions/instructorActionTypes';
+import {ENDED_FETCH_INSTRUCTOR} from '../actions/instructorActionTypes';
 
 export default (
   state = false,
   action
 ) => {
   switch (action.type) {
-    case RECEIVED_INSTRUCTOR:
+    case ENDED_FETCH_INSTRUCTOR:
       return {
         ...state,
         ...action.payload.instructor,

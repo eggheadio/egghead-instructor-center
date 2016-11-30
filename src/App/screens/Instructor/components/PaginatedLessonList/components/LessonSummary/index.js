@@ -1,14 +1,24 @@
 import React from 'react'
+import {connect} from 'react-redux'
 import {truncate} from 'lodash'
+import {startUpdateLessonState} from '../../../../state/actions'
 import Heading from '../../../../../../components/Heading'
 import Button from '../../../../components/Button'
 
-export default ({lesson}) => {
+const LessonSummary = ({
+  instructor,
+  lesson,
+  startUpdateLessonState,
+}) => {
 
   const nextStepForCurrentStates = {
     accepted: {
       label: 'Claim',
-      action: () => console.log('Next step action tapped'),
+      action: startUpdateLessonState.bind(this, {
+        instructorId: instructor.id,
+        lesson,
+        newState: 'claimed',
+      }),
     },
   }
 
@@ -31,7 +41,10 @@ export default ({lesson}) => {
 
       {nextStepForCurrentState
         ? <div className='w-25-ns mt3 mt0-ns'>
-            <Button onClick={nextStepForCurrentState.action}>
+            <Button
+              onClick={nextStepForCurrentState.action}
+              className='w-100-ns'
+            >
               {nextStepForCurrentState.label}
             </Button>
           </div>
@@ -41,3 +54,10 @@ export default ({lesson}) => {
     </div>
   )
 }
+
+export default connect(
+  ({instructorScreen}) => ({
+    instructor: instructorScreen.instructor,
+  }),
+  {startUpdateLessonState}
+)(LessonSummary)

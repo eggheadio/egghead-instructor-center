@@ -6,7 +6,7 @@ import GetPublishedFaq from './components/GetPublishedFaq'
 
 export default ({
   instructor,
-  instructorLessons,
+  lessonPage,
 }) => (
   <LessonsByPage instructor={instructor}>
     {({currentPage}) => (
@@ -15,7 +15,7 @@ export default ({
         main={
           <GetPublishedSteps
             instructor={instructor}
-            instructorLessons={instructorLessons}
+            lessonPage={lessonPage}
           />
         }
         aside={
