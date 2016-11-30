@@ -3,6 +3,7 @@ import {startUpdateLessonState} from '../actions'
 
 test('lessons are updated with a new lesson state when it fits in the current states', () => {
   const stateFixture = {
+    instructor: {},
     lessonPage: {
       states: ['claimed', 'submitted'],
       total: '2',
@@ -20,7 +21,8 @@ test('lessons are updated with a new lesson state when it fits in the current st
       id: 'a',
     },
     newState: 'submitted',
-  }))).toBe({
+  }))).toEqual({
+    instructor: {},
     lessonPage: {
       states: ['claimed', 'submitted'],
       total: '2',
