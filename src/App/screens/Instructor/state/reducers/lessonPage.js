@@ -1,4 +1,4 @@
-import {findIndex, reject, includes} from 'lodash'
+import {findIndex, reject, includes, slice} from 'lodash'
 import {
   STARTED_FETCH_INSTRUCTOR_LESSONS,
   STARTED_FETCH_ALL_LESSONS,
@@ -38,15 +38,17 @@ export default (
         state.lessons,
         ['id', lesson.id]
       )
-      const lessonsCopy = state.lessons
-      lessonsCopy[updatedLessonIndex] = {
-        ...lessonsCopy[updatedLessonIndex],
-        state: newState,
-      }
       return includes(state.states, newState)
         ? {
             ...state,
-            lessons: lessonsCopy,
+            lessons: [
+              ...slice(state.lessons, 0, updatedLessonIndex),
+              {
+                ...state.lessons[updatedLessonIndex],
+                state: newState,
+              },
+              ...slice(state.lessons, updatedLessonIndex + 1)
+            ],
           }
         : {
             ...state,

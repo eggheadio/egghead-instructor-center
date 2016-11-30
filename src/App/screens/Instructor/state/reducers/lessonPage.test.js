@@ -1,7 +1,7 @@
 import lessonPage from '.'
 import {startUpdateLessonState} from '../actions'
 
-test('lessons are updated with a new lesson state when it fits in the current states', () => {
+test('lesson states are updated when the new state is included in the current view', () => {
   const stateFixture = {
     instructor: {},
     lessonPage: {
@@ -30,6 +30,45 @@ test('lessons are updated with a new lesson state when it fits in the current st
         {
           id: 'a',
           state: 'submitted',
+        },
+      ],
+    },
+  })
+})
+
+test('lessons are removed when the new state is not included in the current view', () => {
+  const stateFixture = {
+    instructor: {},
+    lessonPage: {
+      states: ['accepted'],
+      total: '2',
+      lessons: [
+        {
+          id: 'a',
+          state: 'accepted',
+        },
+        {
+          id: 'b',
+          state: 'accepted',
+        },
+      ],
+    }
+  }
+  expect(lessonPage(stateFixture, startUpdateLessonState({
+    instructorId: '1',
+    lesson: {
+      id: 'a',
+    },
+    newState: 'claimed',
+  }))).toEqual({
+    instructor: {},
+    lessonPage: {
+      states: ['accepted'],
+      total: '1',
+      lessons: [
+        {
+          id: 'b',
+          state: 'accepted',
         },
       ],
     },
