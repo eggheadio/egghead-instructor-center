@@ -8,14 +8,44 @@ import Well from './components/Well'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
+const clearedState = {
+  title: '',
+  summary: '',
+  errorMessage: null,
+}
+
 export default connect(
   null,
   {startSubmitLesson}
 )(class Submit extends Component {
 
-  state = {
-    title: '',
-    summary: '',
+  state = clearedState
+
+  clear = () => {
+    this.setState(clearedState)
+  }
+
+  submit = () => {
+    const {instructor, startSubmitLesson} = this.props
+    size(this.state.title) > 0
+      ? startSubmitLesson({
+          title: this.state.title,
+          summary: this.state.summary,
+          state: 'claimed',
+          instructor_id: instructor.id,
+        })
+      : this.showValidationError('Title is required')
+    this.clear()
+  }
+
+  showValidationError = (errorMessage) => {
+    this.setState({errorMessage})
+  }
+
+  handleSubmitAttempt = () => {
+    size(this.state.title) > 0
+      ? this.submit()
+      : this.showValidationError('Title is required')
   }
 
   handleTitleChange = (event) => {
@@ -28,22 +58,6 @@ export default connect(
     this.setState({
       summary: event.target.value
     })
-  }
-
-  showValidationError = (errorMessage) => {
-    this.setState({errorMessage})
-  }
-
-  handleSubmit = () => {
-    const {instructor, startSubmitLesson} = this.props
-    size(this.state.title) > 0
-      ? startSubmitLesson({
-          title: this.state.title,
-          summary: this.state.summary,
-          state: 'claimed',
-          instructor_id: instructor.id,
-        })
-      : this.showValidationError('Title is required')
   }
 
   render() {
@@ -87,7 +101,7 @@ export default connect(
           />
         </div>
 
-        <Button onClick={this.handleSubmit}>
+        <Button onClick={this.handleSubmitAttempt}>
           Submit
         </Button>
 
