@@ -1,19 +1,51 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {size} from 'lodash'
 import Heading from '../../../../../../components/Heading'
+import {startSubmitLesson} from '../../../../state/actions'
 import Button from '../../../../components/Button'
+import Well from './components/Well'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
-export default class Submit extends Component {
+const clearedState = {
+  title: '',
+  summary: '',
+  errorMessage: null,
+}
 
-  state = {
-    title: '',
-    summary: '',
+export default connect(
+  null,
+  {startSubmitLesson}
+)(class Submit extends Component {
+
+  state = clearedState
+
+  clear = () => {
+    this.setState(clearedState)
   }
 
-  handleSubmit = () => {
-    const {instructor} = this.props
-    console.log(`Submit tapped by ${instructor.id}`)
+  submit = () => {
+    const {instructor, startSubmitLesson} = this.props
+    size(this.state.title) > 0
+      ? startSubmitLesson({
+          title: this.state.title,
+          summary: this.state.summary,
+          state: 'claimed',
+          instructor_id: instructor.id,
+        })
+      : this.showValidationError('Title is required')
+    this.clear()
+  }
+
+  showValidationError = (errorMessage) => {
+    this.setState({errorMessage})
+  }
+
+  handleSubmitAttempt = () => {
+    size(this.state.title) > 0
+      ? this.submit()
+      : this.showValidationError('Title is required')
   }
 
   handleTitleChange = (event) => {
@@ -38,16 +70,16 @@ export default class Submit extends Component {
         </Heading>
 
         <div className='mb3'>
-          Got an idea for something to record? Great! Submit anything and everything. You can submit as many as you'd like; you can record it, or others can. We'll get back to you within a couple of days.
+          Got an idea for something to record? Great! Submit anything and everything. You can submit as many as you'd like. You'll automatically "Claim" your submissions.
         </div>
 
         <div className='mb2'>
           <input
             type='text'
-            placeholder='Title'
+            placeholder='Title *'
             value={title}
             onChange={this.handleTitleChange}
-            className={inputClassNames}
+            className={`${inputClassNames}${this.state.errorMessage ? ' b--red' : ''}`}
           />
         </div>
 
@@ -62,11 +94,18 @@ export default class Submit extends Component {
           />
         </div>
 
-        <Button onClick={this.handleSubmit}>
+        <div className='mb3'>
+          <Well
+            type='error'
+            description={this.state.errorMessage}
+          />
+        </div>
+
+        <Button onClick={this.handleSubmitAttempt}>
           Submit
         </Button>
 
       </div>
     )
   }
-}
+})
