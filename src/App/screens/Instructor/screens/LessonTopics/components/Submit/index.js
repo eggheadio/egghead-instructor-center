@@ -1,8 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {size} from 'lodash'
 import Heading from '../../../../../../components/Heading'
 import {startSubmitLesson} from '../../../../state/actions'
 import Button from '../../../../components/Button'
+import Well from './components/Well'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
@@ -28,14 +30,20 @@ export default connect(
     })
   }
 
+  showValidationError = (errorMessage) => {
+    this.setState({errorMessage})
+  }
+
   handleSubmit = () => {
     const {instructor, startSubmitLesson} = this.props
-    startSubmitLesson({
-      title: this.state.title,
-      summary: this.state.summary,
-      state: 'claimed',
-      instructor_id: instructor.id,
-    })
+    size(this.state.title) > 0
+      ? startSubmitLesson({
+          title: this.state.title,
+          summary: this.state.summary,
+          state: 'claimed',
+          instructor_id: instructor.id,
+        })
+      : this.showValidationError('Title is required')
   }
 
   render() {
@@ -54,10 +62,10 @@ export default connect(
         <div className='mb2'>
           <input
             type='text'
-            placeholder='Title'
+            placeholder='Title *'
             value={title}
             onChange={this.handleTitleChange}
-            className={inputClassNames}
+            className={`${inputClassNames}${this.state.errorMessage ? ' b--red' : ''}`}
           />
         </div>
 
@@ -69,6 +77,13 @@ export default connect(
             value={summary}
             onChange={this.handleSummaryChange}
             className={inputClassNames}
+          />
+        </div>
+
+        <div className='mb3'>
+          <Well
+            type='error'
+            description={this.state.errorMessage}
           />
         </div>
 
