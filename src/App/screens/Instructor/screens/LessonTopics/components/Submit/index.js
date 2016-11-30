@@ -1,19 +1,19 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 import Heading from '../../../../../../components/Heading'
+import {startSubmitLesson} from '../../../../state/actions'
 import Button from '../../../../components/Button'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
-export default class Submit extends Component {
+export default connect(
+  null,
+  {startSubmitLesson}
+)(class Submit extends Component {
 
   state = {
     title: '',
     summary: '',
-  }
-
-  handleSubmit = () => {
-    const {instructor} = this.props
-    console.log(`Submit tapped by ${instructor.id}`)
   }
 
   handleTitleChange = (event) => {
@@ -28,6 +28,16 @@ export default class Submit extends Component {
     })
   }
 
+  handleSubmit = () => {
+    const {instructor, startSubmitLesson} = this.props
+    startSubmitLesson({
+      title: this.state.title,
+      summary: this.state.summary,
+      state: 'claimed',
+      instructor_id: instructor.id,
+    })
+  }
+
   render() {
     const {title, summary} = this.state
     return (
@@ -38,7 +48,7 @@ export default class Submit extends Component {
         </Heading>
 
         <div className='mb3'>
-          Got an idea for something to record? Great! Submit anything and everything. You can submit as many as you'd like; you can record it, or others can. We'll get back to you within a couple of days.
+          Got an idea for something to record? Great! Submit anything and everything. You can submit as many as you'd like. You'll automatically "Claim" your submissions.
         </div>
 
         <div className='mb2'>
@@ -69,4 +79,4 @@ export default class Submit extends Component {
       </div>
     )
   }
-}
+})

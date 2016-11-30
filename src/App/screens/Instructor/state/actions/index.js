@@ -58,3 +58,12 @@ export const startUpdateLessonState = ({
 export const endUpdateLessonState = () => ({
   type: instructorActionTypes.ENDED_UPDATE_LESSON_STATE,
 })
+
+export const startSubmitLesson = (lesson) => ({
+  type: instructorActionTypes.STARTED_SUBMIT_LESSON,
+  payload: {lesson},
+})
+
+export const endSubmitLesson = () => ({
+  type: instructorActionTypes.ENDED_SUBMIT_LESSON,
+})
