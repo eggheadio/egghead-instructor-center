@@ -6,12 +6,10 @@ const typeSpecificClassNames = {
 }
 
 export default ({
+  children,
   type = 'info',
-  description,
 }) => (
-  description
-    ? <div className={`pa3 br2 ${typeSpecificClassNames[type]}`}>
-        {description}
-      </div>
-    : null
+  <div className={`pa3 br2 ${typeSpecificClassNames[type]}`}>
+    {children}
+  </div>
 )

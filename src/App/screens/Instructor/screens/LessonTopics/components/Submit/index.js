@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import {size} from 'lodash'
 import Heading from '../../../../../../components/Heading'
@@ -11,7 +12,8 @@ const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 const clearedState = {
   title: '',
   summary: '',
-  errorMessage: null,
+  hasError: false,
+  hasSuccess: false,
 }
 
 export default connect(
@@ -36,16 +38,13 @@ export default connect(
         })
       : this.showValidationError('Title is required')
     this.clear()
-  }
-
-  showValidationError = (errorMessage) => {
-    this.setState({errorMessage})
+    this.setState({hasSuccess: true})
   }
 
   handleSubmitAttempt = () => {
     size(this.state.title) > 0
       ? this.submit()
-      : this.showValidationError('Title is required')
+      : this.setState({hasError: true})
   }
 
   handleTitleChange = (event) => {
@@ -79,7 +78,7 @@ export default connect(
             placeholder='Title *'
             value={title}
             onChange={this.handleTitleChange}
-            className={`${inputClassNames}${this.state.errorMessage ? ' b--red' : ''}`}
+            className={`${inputClassNames}${this.state.hasError ? ' b--red' : ''}`}
           />
         </div>
 
@@ -94,12 +93,23 @@ export default connect(
           />
         </div>
 
-        <div className='mb3'>
-          <Well
-            type='error'
-            description={this.state.errorMessage}
-          />
-        </div>
+        {this.state.hasError
+          ? <div className='mb3'>
+              <Well type='error'>
+                Missing required input
+              </Well>
+            </div>
+          : null
+        }
+
+        {this.state.hasSuccess
+          ? <div className='mb3'>
+              <Well>
+                Lesson topic saved! <Link to='/' className='blue'>View</Link>
+              </Well>
+            </div>
+          : null
+        }
 
         <Button onClick={this.handleSubmitAttempt}>
           Submit
