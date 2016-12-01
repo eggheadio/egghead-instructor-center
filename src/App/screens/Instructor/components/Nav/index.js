@@ -19,7 +19,13 @@ export default class Nav extends Component {
     isOpen: false,
   }
 
-  toggle() {
+  close = () => {
+    this.setState({
+      isOpen: false,
+    })
+  }
+
+  toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
     })
@@ -57,6 +63,7 @@ export default class Nav extends Component {
                 key={index}
                 activeOnlyWhenExact
                 to={`${pathname}${route.route}`}
+                onClick={this.close}
               >
                 {({isActive, onClick, href}) => (
                   <NavLink 
