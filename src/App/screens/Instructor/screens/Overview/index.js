@@ -9,7 +9,7 @@ export default ({
   lessonPage,
 }) => (
   <Split
-    title={instructor.first_name}
+    title={`${instructor.first_name} Overview`}
     main={
       <Lessons
         instructor={instructor}

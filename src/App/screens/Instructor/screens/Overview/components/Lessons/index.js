@@ -7,7 +7,7 @@ export default ({instructor, lessonPage}) => (
   <div>
 
     <Heading level='2'>
-      Published
+      Lessons
     </Heading>
 
     <InProgress
