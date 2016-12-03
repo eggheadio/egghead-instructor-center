@@ -54,7 +54,7 @@ export default class extends Component {
           className='bg-light-gray'
         >
 
-          <TabList className='list pa0 ma0 bg-black-70 flex-ns'>
+          <TabList className='list pa0 ma0 bg-black-10 flex-ns'>
             {map(groups, (group, index) => (
               <Tab
                 key={index}
@@ -62,10 +62,11 @@ export default class extends Component {
                   f6
                   pv3 ph4 ph3-ns
                   ttu
+                  pointer
                   bl bl-0-ns bb-ns bw2 bw1-ns
                   ${this.state.selected === index
-                    ? 'b--orange white'
-                    : 'b--transparent white-60'
+                    ? 'b--orange black'
+                    : 'b--transparent black-40'
                   }
                 `}
               >
