@@ -1,5 +1,4 @@
 import React from 'react'
-import Heading from '../../../../../../../../components/Heading'
 import {inProgressLessonStates} from '../../../../../../utils/lessonStatesGroups'
 import LessonsByPage from '../../../../../../components/LessonsByPage'
 import PaginatedLessonList from '../../../../../../components/PaginatedLessonList'
@@ -9,11 +8,6 @@ export default ({
   lessonPage,
 }) => (
   <div>
-
-    <Heading level='3'>
-      In Progress
-    </Heading>
-
     <LessonsByPage
       instructor={instructor}
       states={inProgressLessonStates}
@@ -28,7 +22,6 @@ export default ({
         />
       )}
     </LessonsByPage>
-
   </div>
 )
 
