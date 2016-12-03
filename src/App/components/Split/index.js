@@ -3,6 +3,7 @@ import Heading from '../Heading'
 
 const Split = ({
   title,
+  intro = null,
   main,
   aside,
 }) => (
@@ -11,6 +12,8 @@ const Split = ({
     <Heading level='1'>
       {title}
     </Heading>
+
+    {intro}
 
     <div className='flex-ns'>
 
@@ -28,7 +31,7 @@ const Split = ({
 )
 
 Split.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
   main: PropTypes.node.isRequired,
   aside: PropTypes.node.isRequired,
 }
