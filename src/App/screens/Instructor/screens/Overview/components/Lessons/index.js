@@ -1,8 +1,8 @@
 import React from 'react'
 import Heading from '../../../../../../components/Heading'
+import {inProgressLessonStates, publishedLessonStates} from '../../../../utils/lessonStatesGroups'
+import LessonList from '../../../../components/LessonList'
 import Tabs from './components/Tabs'
-import InProgress from './components/InProgress'
-import Published from './components/Published'
 
 export default ({instructor, lessonPage}) => (
   <div>
@@ -15,18 +15,18 @@ export default ({instructor, lessonPage}) => (
       {
         title: 'In Progress',
         component: (
-          <InProgress
-            instructor={instructor}
-            lessonPage={lessonPage}
+          <LessonList
+            states={inProgressLessonStates}
+            isOwnedByInstructor
           />
         ),
       },
       {
         title: 'Published',
         component: (
-          <Published
-            instructor={instructor}
-            lessonPage={lessonPage}
+          <LessonList
+            states={publishedLessonStates}
+            isOwnedByInstructor
           />
         ),
       },
