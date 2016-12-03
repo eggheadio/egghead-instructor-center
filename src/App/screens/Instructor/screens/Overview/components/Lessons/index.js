@@ -1,46 +1,60 @@
 import React from 'react'
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
+import {map} from 'lodash'
 import Heading from '../../../../../../components/Heading'
 import InProgress from './components/InProgress'
 import Published from './components/Published'
 
-export default ({instructor, lessonPage}) => (
-  <div>
+export default ({instructor, lessonPage}) => {
 
-    <Heading level='2'>
-      Lessons
-    </Heading>
-
-    <Tabs>
-
-      <TabList>
-        <Tab>
-          <Heading level='3'>
-            In Progress
-          </Heading>
-        </Tab>
-        <Tab>
-          <Heading level='3'>
-            Published
-          </Heading>
-        </Tab>
-      </TabList>
-
-      <TabPanel>
+  const groups = [
+    {
+      title: 'In Progress',
+      component: (
         <InProgress
           instructor={instructor}
           lessonPage={lessonPage}
         />
-      </TabPanel>
-
-      <TabPanel>
+      ),
+    },
+    {
+      title: 'Published',
+      component: (
         <Published
           instructor={instructor}
           lessonPage={lessonPage}
         />
-      </TabPanel>
+      ),
+    },
+  ]
 
-    </Tabs>
+  return (
+    <div>
 
-  </div>
-)
+      <Heading level='2'>
+        Lessons
+      </Heading>
+
+      <Tabs>
+
+        <TabList>
+          {map(groups, (group, index) => (
+            <Tab key={index}>
+              <Heading level='3'>
+                {group.title}
+              </Heading>
+            </Tab>
+          ))}
+        </TabList>
+
+        {map(groups, (group, index) => (
+          <TabPanel key={index}>
+            {group.component}
+          </TabPanel>
+        ))}  
+
+      </Tabs>
+
+    </div>
+  )
+}
