@@ -1,27 +1,17 @@
-import React, {Component} from 'react'
-import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
-Tabs.setUseDefaultStyles(false)
-import {map} from 'lodash'
+import React from 'react'
 import Heading from '../../../../../../components/Heading'
+import Tabs from './components/Tabs'
 import InProgress from './components/InProgress'
 import Published from './components/Published'
 
-export default class extends Component {
+export default ({instructor, lessonPage}) => (
+  <div>
+    
+    <Heading level='2'>
+      Lessons
+    </Heading>
 
-  state = {
-    selected: 0,
-  }
-
-  handleSelect = (index) => (
-    this.setState({
-      selected: index,
-    })
-  )
-
-  render() {
-    const {instructor, lessonPage} = this.props
-
-    const groups = [
+    <Tabs groups={[
       {
         title: 'In Progress',
         component: (
@@ -40,50 +30,6 @@ export default class extends Component {
           />
         ),
       },
-    ]
-
-    return (
-      <div>
-
-        <Heading level='2'>
-          Lessons
-        </Heading>
-
-        <Tabs
-          onSelect={this.handleSelect}
-          className='bg-light-gray'
-        >
-
-          <TabList className='list pa0 ma0 bg-black-10 flex-ns'>
-            {map(groups, (group, index) => (
-              <Tab
-                key={index}
-                className={`
-                  f6
-                  pv3 ph4 ph3-ns
-                  ttu
-                  pointer
-                  bl bl-0-ns bb-ns bw2 bw1-ns
-                  ${this.state.selected === index
-                    ? 'b--orange black'
-                    : 'b--transparent black-40'
-                  }
-                `}
-              >
-                {group.title}
-              </Tab>
-            ))}
-          </TabList>
-
-          {map(groups, (group, index) => (
-            <TabPanel key={index}>
-              {group.component}
-            </TabPanel>
-          ))}  
-
-        </Tabs>
-
-      </div>
-    )
-  }
-}
+    ]} />
+  </div>
+)
