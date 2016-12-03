@@ -19,12 +19,9 @@ export default class extends Component {
     const {groups} = this.props
 
     return (
-      <Tabs
-        onSelect={this.handleSelect}
-        className='bg-light-gray'
-      >
+      <Tabs onSelect={this.handleSelect}>
 
-        <TabList className='list pa0 ma0 bg-black-10 flex-ns'>
+        <TabList className='list pa0 ma0 bg-moon-gray flex-ns br2 br--top-ns'>
           {map(groups, (group, index) => (
             <Tab
               key={index}
