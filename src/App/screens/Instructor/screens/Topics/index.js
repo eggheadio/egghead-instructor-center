@@ -1,6 +1,6 @@
 import React from 'react'
 import Split from '../../../../components/Split'
-import {unclaimedLessonTopicsLessonStates} from '../../utils/lessonStatesGroups'
+import {unclaimedTopicsLessonStates} from '../../utils/lessonStatesGroups'
 import LessonsByPage from '../../components/LessonsByPage'
 import Requested from './components/Requested'
 import Submit from './components/Submit'
@@ -9,10 +9,10 @@ export default ({
   instructor,
   lessonPage,
 }) => (
-  <LessonsByPage states={unclaimedLessonTopicsLessonStates}>
+  <LessonsByPage states={unclaimedTopicsLessonStates}>
     {({currentPage, fetchLessons, pageSize}) => (
       <Split
-        title='Lesson Topics'
+        title='Topics'
         main={
           <Requested
             instructor={instructor}
