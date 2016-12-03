@@ -7,7 +7,6 @@ import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
 import LessonTopics from './screens/LessonTopics'
-import PublishedLessons from './screens/PublishedLessons'
 import Nav from './components/Nav'
 
 export default connect(
@@ -55,14 +54,11 @@ export default connect(
                 text: 'Lesson Topics',
                 route: '/topics',
               },
-              {
-                text: 'Published Lessons',
-                route: '/published',
-              },
             ]}
           />
 
           <Main>
+
             <Match 
               exactly
               pattern={pathname}
@@ -77,6 +73,7 @@ export default connect(
                   />
               }
             />
+
             <Match 
               pattern={`${pathname}/topics`}
               render={() => (
@@ -86,16 +83,9 @@ export default connect(
                 />
               )}
             />
-            <Match 
-              pattern={`${pathname}/published`}
-              render={() => (
-                <PublishedLessons 
-                  instructor={instructor}
-                  lessonPage={lessonPage}
-                />
-              )}
-            />
+
             <Miss404 />
+
           </Main>
 
         </div>
