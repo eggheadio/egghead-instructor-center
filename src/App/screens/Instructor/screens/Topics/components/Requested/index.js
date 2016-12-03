@@ -1,14 +1,9 @@
 import React from 'react'
 import Heading from '../../../../../../components/Heading'
-import PaginatedLessonList from '../../../../components/PaginatedLessonList'
+import {unclaimedTopicsLessonStates} from '../../../../utils/lessonStatesGroups'
+import LessonList from '../../../../components/LessonList'
 
-export default ({
-  instructor,
-  lessonPage,
-  currentPage,
-  fetchLessons,
-  pageSize,
-}) => (
+export default () => (
   <div>
 
     <Heading level='2'>
@@ -19,13 +14,6 @@ export default ({
       Here's what we'd love to see recorded right now. Claimed topics will be yours for 2 weeks, and then they'll be reopened for others to claim.
     </div>
 
-    <PaginatedLessonList
-      lessons={lessonPage.lessons}
-      fetchLessons={fetchLessons}
-      total={lessonPage.total}
-      currentPage={currentPage}
-      pageSize={pageSize}
-    />
-
+    <LessonList states={unclaimedTopicsLessonStates} />
   </div>
 )
