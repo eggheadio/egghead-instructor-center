@@ -21,7 +21,7 @@ export default class extends Component {
     return (
       <Tabs onSelect={this.handleSelect}>
 
-        <TabList className='list pa0 ma0 bg-moon-gray flex-ns br2 br--top-ns'>
+        <TabList className='list pa0 ma0 bg-moon-gray flex-ns br2 br--top'>
           {map(groups, (group, index) => (
             <Tab
               key={index}

@@ -12,7 +12,7 @@ export default ({
   <Split
     title={
       <div className='flex items-center'>
-        <div className='mr3 h3'>
+        <div className='mr3 w3 flex items-center'>
           <Avatar
             name={instructor.first_name}
             url={instructor.avatar_url}

@@ -4,7 +4,7 @@ const Avatar = ({name, url}) => (
   <img
     alt={`Avatar for ${name}`}
     src={url}
-    className='br-100 h-100'
+    className='br-100'
   />
 )
 
