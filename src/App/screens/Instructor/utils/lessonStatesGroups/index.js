@@ -1,13 +1,13 @@
 import lessonStates from '../lessonStates'
 import {slice, indexOf} from 'lodash'
 
-export const lessonTopicsLessonStates = slice(
+export const topicsLessonStates = slice(
   lessonStates, 
   0,
   indexOf(lessonStates, 'submitted')
 )
 
-export const unclaimedLessonTopicsLessonStates = ['accepted']
+export const unclaimedTopicsLessonStates = ['accepted']
 
 export const inProgressLessonStates = slice(
   lessonStates,

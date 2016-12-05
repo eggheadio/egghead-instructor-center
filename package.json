@@ -45,6 +45,7 @@
     "react-paginate": "^2.2.3",
     "react-redux": "^4.4.5",
     "react-router": "^4.0.0-alpha.4",
+    "react-tabs": "^0.8.2",
     "react-tagsinput": "^3.13.5",
     "react-truncate": "^1.1.4",
     "react-url-query": "^1.0.0",

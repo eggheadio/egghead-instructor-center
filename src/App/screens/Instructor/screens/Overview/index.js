@@ -1,8 +1,7 @@
 import React from 'react'
 import Split from '../../../../components/Split'
-import {inProgressLessonStates} from '../../utils/lessonStatesGroups'
-import LessonsByPage from '../../components/LessonsByPage'
-import InProgress from './components/InProgress'
+import Avatar from '../../components/Avatar'
+import Lessons from './components/Lessons'
 import Stats from './components/Stats'
 import Help from './components/Help'
 
@@ -10,29 +9,29 @@ export default ({
   instructor,
   lessonPage,
 }) => (
-  <LessonsByPage
-    instructor={instructor}
-    states={inProgressLessonStates}
-  >
-    {({currentPage, fetchLessons, pageSize}) => (
-      <Split
-        title={instructor.first_name}
-        main={
-          <InProgress
-            instructor={instructor}
-            lessonPage={lessonPage}
-            currentPage={currentPage}
-            fetchLessons={fetchLessons}
-            pageSize={pageSize}
+  <Split
+    title={
+      <div className='flex items-center'>
+        <div className='mr3 w3 flex items-center'>
+          <Avatar
+            name={instructor.first_name}
+            url={instructor.avatar_url}
           />
-        }
-        aside={
-          <div>
-            <Stats instructor={instructor} />
-            <Help />
-          </div>
-        }
+        </div>
+        <div>Overview</div>
+      </div>
+    }
+    main={
+      <Lessons
+        instructor={instructor}
+        lessonPage={lessonPage}
       />
-    )}
-  </LessonsByPage>
+    }
+    aside={
+      <div>
+        <Stats instructor={instructor} />
+        <Help />
+      </div>
+    }
+  />
 )

@@ -28,7 +28,7 @@ const Split = ({
 )
 
 Split.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
   main: PropTypes.node.isRequired,
   aside: PropTypes.node.isRequired,
 }
