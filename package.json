@@ -7,7 +7,7 @@
     "dev:app": "yarn start",
     "test": "react-scripts test --env=jsdom",
     "build": "react-scripts build",
-    "verify": "CI=true yarn test && yarn build:app",
+    "verify": "CI=true yarn test && yarn build",
     "deploy": "git push heroku master",
     "start": "react-scripts start"
   },
