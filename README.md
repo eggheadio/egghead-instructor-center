@@ -142,11 +142,9 @@ The `GuideVariations` component can be used to render variations of a component.
 
 ![Animated gif of pull request process](https://cloud.githubusercontent.com/assets/5497885/20947829/3bd6ce70-bbce-11e6-86a5-9df6e067c8cc.gif)
 
-- Create a feature branch off of `master`
-- Submit a pull request to `master`
-- [Continuous integration](https://app.codeship.com/projects/183842) runs automatically
-- Admin(s) submit review(s)
-- Merge pull request (once continuous integration passes and pull request approved review(s))
-- [Continuous deployment](https://app.codeship.com/projects/183842) runs
-- [Staging](https://instructor-center.herokuapp.com) is updated
+- Create a feature branch off of `master`.
+- Submit a pull request to `master`.
+- [Continuous integration](https://app.codeship.com/projects/183842) runs automatically.
+- Merge pull request.
+- [Continuous deployment](https://app.codeship.com/projects/183842) pushes latest code to [staging](https://instructor-center.herokuapp.com) automatically.
 - _TODO: copy staging to prod after testing_
