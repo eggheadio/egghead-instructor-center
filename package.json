@@ -1,15 +1,15 @@
 {
   "name": "egghead-instructor-center",
   "scripts": {
-    "start": "npm-run-all -p start:**",
-    "start:api": "json-server -w .fakeApi/index.js -r .fakeApi/routes.json -p 4000",
-    "start:guide": "open http://localhost:2000 && start-storybook -p 2000",
-    "start:app": "react-scripts start",
+    "dev": "npm-run-all -p dev:**",
+    "dev:api": "json-server -w .fakeApi/index.js -r .fakeApi/routes.json -p 4000",
+    "dev:guide": "open http://localhost:2000 && start-storybook -p 2000",
+    "dev:app": "yarn start",
     "test": "react-scripts test --env=jsdom",
-    "build": "npm-run-all build:**",
-    "build:guide": "build-storybook",
-    "build:app": "react-scripts build",
-    "verify": "CI=true yarn test && yarn build:guide && yarn build:app"
+    "build": "react-scripts build",
+    "verify": "CI=true yarn test && yarn build",
+    "deploy": "git push heroku master",
+    "start": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
