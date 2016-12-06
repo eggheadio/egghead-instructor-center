@@ -138,26 +138,12 @@ The `GuideVariations` component can be used to render variations of a component.
 
 ---
 
-# Updates
+# Pull Requests
 
-## Pull Requests
-
-The `master` branch is _protected_. It requires new code be submitted as pull requests and that Continuous Integration through [Codeship](https://app.codeship.com/projects/183842) passes before the pull request can be merged.
-
-## Continuous Integration
-
-Continuous Integration runs the `yarn verify` script, which sets the `CI` variable (so that processes only run once, instead of in watch mode) and then checks that tests and builds execute without errors.
-
-## Deployment
-
-Deployment is done through Heroku using the [create-react-app-buildpack](https://github.com/mars/create-react-app-buildpack).
-
-### Staging
-
-The app is deployed to a staging area on Heroku: [instructor-center.herokuapp.com](https://instructor-center.herokuapp.com).
-
-Environment variables are configured like `.env` in the [app dashboard](https://dashboard.heroku.com/apps/instructor-center).
-
-### Prod
-
-Not set up yet.
+- Create a feature branch off of `master`
+- Submit a pull request to `master`
+- [Continuous integration](https://app.codeship.com/projects/183842) runs
+- Merge pull request
+- [Continuous deployment]() runs
+- [Staging](https://instructor-center.herokuapp.com) is updated
+- _TODO: copy staging to prod after testing_
