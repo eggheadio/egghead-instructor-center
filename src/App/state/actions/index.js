@@ -1,9 +1,9 @@
 import * as appActionTypes from './appActionTypes'
 
-export const startFetchUser = (username, password) => ({
+export const startFetchUser = ({email, password}) => ({
   type: appActionTypes.STARTED_FETCH_USER,
   payload: {
-    username,
+    email,
     password,
   },
 })

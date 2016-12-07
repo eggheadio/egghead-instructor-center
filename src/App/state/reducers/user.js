@@ -1,12 +1,7 @@
 import {ENDED_FETCH_USER} from '../actions/appActionTypes';
 
-const user = {
-  id: 1,
-  role: 'instructor',
-}
-
 export default (
-  state = user || false,
+  state = false,
   action
 ) => {
   switch (action.type) {

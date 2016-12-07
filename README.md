@@ -16,7 +16,8 @@
 ## Environments
 
 - Copy `.env_template` to `.env`.
-- For each environment in `.env`, paste the JWT you get from `{environment}/users/jwt?return_to=http://localhost:3000`.
+- For each environment in `.env`, paste the JWT you get from: `curl -X POST -d "email={email}" -d "password={password}" {environment}/users/native_auth`
+- Note that JWTs expire and when you get a `403 forbidden` you will need to update your JWTs.
 
 ## Scripts
 

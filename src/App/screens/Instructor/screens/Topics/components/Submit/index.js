@@ -28,11 +28,12 @@ export default connect(
   }
 
   submit = () => {
+    const {title, summary} = this.state
     const {instructor, startSubmitLesson} = this.props
-    size(this.state.title) > 0
+    size(title) > 0
       ? startSubmitLesson({
-          title: this.state.title,
-          summary: this.state.summary,
+          title: title,
+          summary: summary,
           state: 'claimed',
           instructor_id: instructor.id,
         })
@@ -42,7 +43,8 @@ export default connect(
   }
 
   handleSubmitAttempt = () => {
-    size(this.state.title) > 0
+    const {title} = this.state
+    size(title) > 0
       ? this.submit()
       : this.setState({hasError: true})
   }
@@ -60,7 +62,7 @@ export default connect(
   }
 
   render() {
-    const {title, summary} = this.state
+    const {title, summary, hasError, hasSuccess} = this.state
     return (
       <div>
 
@@ -78,7 +80,7 @@ export default connect(
             placeholder='Title *'
             value={title}
             onChange={this.handleTitleChange}
-            className={`${inputClassNames}${this.state.hasError ? ' b--red' : ''}`}
+            className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
           />
         </div>
 
@@ -93,7 +95,7 @@ export default connect(
           />
         </div>
 
-        {this.state.hasError
+        {hasError
           ? <div className='mb3'>
               <Well type='error'>
                 Missing required input
@@ -102,7 +104,7 @@ export default connect(
           : null
         }
 
-        {this.state.hasSuccess
+        {hasSuccess
           ? <div className='mb3'>
               <Well>
                 Lesson topic saved! <Link to='/' className='blue'>View</Link>
