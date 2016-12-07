@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
-import headers from './headers'
+import headers from '../../../../../utils/headers'
 import createLessonsUrl from './createLessonsUrl'
 
 const handleLessonsResponse = (response) => (
