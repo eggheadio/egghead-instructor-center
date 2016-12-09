@@ -1,7 +1,7 @@
 import {Observable} from 'rxjs'
 import {STARTED_SUBMIT_LESSON} from '../actions/instructorActionTypes'
 import {endSubmitLesson} from '../actions'
-import headers from './utils/headers'
+import headers from '../../../../utils/headers'
 
 export default (action$) => (
   action$.ofType(STARTED_SUBMIT_LESSON)
@@ -16,7 +16,7 @@ export default (action$) => (
           .then(lesson => lesson)
           .catch(error => console.error(error))
       ),
-      ({payload}, {lesson}) => (
+      ({payload}, lesson) => (
         endSubmitLesson()
       )
     )

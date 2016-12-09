@@ -1,7 +1,7 @@
 import {Observable} from 'rxjs'
 import {STARTED_FETCH_INSTRUCTOR} from '../actions/instructorActionTypes'
 import {endFetchInstructor} from '../actions'
-import headers from './utils/headers'
+import headers from '../../../../utils/headers'
 
 export default (action$) => (
   action$.ofType(STARTED_FETCH_INSTRUCTOR)

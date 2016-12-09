@@ -33,7 +33,7 @@
     "font-awesome": "^4.6.3",
     "format-number": "^2.0.1",
     "history": "^4.3.0",
-    "jwt-decode": "^2.1.0",
+    "jwt-simple": "^0.5.1",
     "lodash": "^4.16.2",
     "parse-link-header": "^0.4.1",
     "react": "^15.3.2",
