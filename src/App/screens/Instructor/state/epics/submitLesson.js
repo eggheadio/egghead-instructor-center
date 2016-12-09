@@ -16,7 +16,7 @@ export default (action$) => (
           .then(lesson => lesson)
           .catch(error => console.error(error))
       ),
-      ({payload}, {lesson}) => (
+      ({payload}, lesson) => (
         endSubmitLesson()
       )
     )

@@ -20,7 +20,7 @@ export default (action$) => (
           .then(updatedLesson => updatedLesson)
           .catch(error => console.error(error))
       ),
-      ({payload}, {updatedLesson}) => (
+      ({payload}, updatedLesson) => (
         endUpdateLessonState()
       )
     )

@@ -1,15 +1,18 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {startFetchUser} from '../../state/actions'
+import {startFetchUser} from '../../../../state/actions'
+import Main from '../../../../components/Main'
 
 export default connect(
-  null,
+  ({appScreen}) => ({
+    user: appScreen.user,
+  }),
   {startFetchUser}
 )(class Login extends Component {
 
   state = {
-    email: 'some email',
-    password: 'somepassword',
+    email: 'email',
+    password: 'password',
   }
 
   submit = () => {
@@ -19,11 +22,10 @@ export default connect(
   }
 
   render() {
-    this.submit()
     return (
-      <div>
-        Login
-      </div>
+      <Main>
+        <div onClick={this.submit}>Login Submit</div>
+      </Main>
     )
   }
 })

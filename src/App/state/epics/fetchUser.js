@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs'
-// import jwt from 'jsonwebtoken'
+import jwt from 'jwt-simple'
 import {STARTED_FETCH_USER} from '../actions/appActionTypes'
 import {endFetchUser} from '../actions'
 import headers from '../../utils/headers'
@@ -16,12 +16,12 @@ export default (action$) => (
           }),
           headers,
         })
-          .then(response => response.json())
-          .then(token => token)
+          .then(response => response.text())
+          .then(token => jwt.decode(token, null, true).meta)
           .catch(error => console.error(error))
       ),
-      ({payload}, {token}) => (
-        endFetchUser(/* jwt.decode(token) */)
+      ({payload}, user) => (
+        endFetchUser(user)
       )
     )
 )

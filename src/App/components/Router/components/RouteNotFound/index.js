@@ -1,7 +1,7 @@
 import React from 'react'
-import Main from '../../components/Main'
-import Split from '../../components/Split'
-import Heading from '../../components/Heading'
+import Main from '../../../../components/Main'
+import Split from '../../../../components/Split'
+import Heading from '../../../../components/Heading'
 import crackedEggo from './crackedEggo.png'
 
 export default () => (
