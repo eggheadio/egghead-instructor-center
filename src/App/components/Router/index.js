@@ -11,6 +11,7 @@ const Router = ({user}) => (
   (size(user) > 0)
     ? <BrowserRouter>
         <div>
+
           <Match
             exactly
             pattern='/'
@@ -20,19 +21,19 @@ const Router = ({user}) => (
                 : <div>Only instructors can access the instructor guide</div>
             )}
           />
+
           <Match
-            pattern={`/instructors/:instructorId`}
+            pattern={`/instructors/${user.id}`}
             component={Instructor}
           />
-          <Match
-            pattern='/login'
-            component={Login}
-          />
+
           <Match
             pattern='/404'
             component={RouteNotFound}
           />
+
           <Miss404 />
+
         </div>
       </BrowserRouter>
   : <Login />
