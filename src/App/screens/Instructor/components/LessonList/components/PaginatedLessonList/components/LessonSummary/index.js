@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {truncate} from 'lodash'
 import {startUpdateLessonState} from '../../../../../../state/actions'
 import Heading from '../../../../../../../../components/Heading'
-import Button from '../../../../../../components/Button'
+import Button from '../../../../../../../../components/Button'
 
 const LessonSummary = ({
   instructor,

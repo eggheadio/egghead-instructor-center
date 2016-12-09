@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {size} from 'lodash'
 import {BrowserRouter, Match, Redirect} from 'react-router'
 import Instructor from '../../screens/Instructor'
 import Login from './components/Login'
@@ -7,7 +8,7 @@ import RouteNotFound from './components/RouteNotFound'
 import Miss404 from '../Miss404'
 
 const Router = ({user}) => (
-  user
+  (size(user) > 0)
     ? <BrowserRouter>
         <div>
           <Match
@@ -16,7 +17,7 @@ const Router = ({user}) => (
             render={() => (
               user.is_instructor
                 ? <Redirect to={`instructors/${user.id}`} />
-                : <div>Only instructors can access this</div>
+                : <div>Only instructors can access the instructor guide</div>
             )}
           />
           <Match

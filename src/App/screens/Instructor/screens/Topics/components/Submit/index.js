@@ -4,8 +4,8 @@ import {connect} from 'react-redux'
 import {size} from 'lodash'
 import Heading from '../../../../../../components/Heading'
 import {startSubmitLesson} from '../../../../state/actions'
-import Button from '../../../../components/Button'
-import Well from './components/Well'
+import Button from '../../../../../../components/Button'
+import Well from '../../../../../../components/Well'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
@@ -30,14 +30,12 @@ export default connect(
   submit = () => {
     const {title, summary} = this.state
     const {instructor, startSubmitLesson} = this.props
-    size(title) > 0
-      ? startSubmitLesson({
-          title: title,
-          summary: summary,
-          state: 'claimed',
-          instructor_id: instructor.id,
-        })
-      : this.showValidationError('Title is required')
+    startSubmitLesson({
+      title: title,
+      summary: summary,
+      state: 'claimed',
+      instructor_id: instructor.id,
+    })
     this.clear()
     this.setState({hasSuccess: true})
   }
