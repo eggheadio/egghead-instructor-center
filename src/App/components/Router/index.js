@@ -16,14 +16,12 @@ const Router = ({user}) => (
             exactly
             pattern='/'
             render={() => (
-              user.is_instructor
-                ? <Redirect to={`instructors/${user.id}`} />
-                : <div>Only instructors can access the instructor guide</div>
+              <Redirect to={`instructors/${user.id}`} />
             )}
           />
 
           <Match
-            pattern={`/instructors/${user.id}`}
+            pattern='/instructors/:instructorId'
             component={Instructor}
           />
 
