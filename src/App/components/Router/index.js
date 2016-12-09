@@ -11,28 +11,27 @@ const Router = ({user}) => (
   (size(user) > 0)
     ? <BrowserRouter>
         <div>
+
           <Match
             exactly
             pattern='/'
             render={() => (
-              user.is_instructor
-                ? <Redirect to={`instructors/${user.id}`} />
-                : <div>Only instructors can access the instructor guide</div>
+              <Redirect to={`instructors/${user.id}`} />
             )}
           />
+
           <Match
-            pattern={`/instructors/:instructorId`}
+            pattern='/instructors/:instructorId'
             component={Instructor}
           />
-          <Match
-            pattern='/login'
-            component={Login}
-          />
+
           <Match
             pattern='/404'
             component={RouteNotFound}
           />
+
           <Miss404 />
+
         </div>
       </BrowserRouter>
   : <Login />
