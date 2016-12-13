@@ -33,7 +33,7 @@ export default ({
 
   const lessonsUrl = lessons_url
     ? lessons_url
-    : `${process.env.REACT_APP_EGGHEAD_BASE_URL}/lessons`
+    : `${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`
 
   return `${lessonsUrl}${queryString}`
 }

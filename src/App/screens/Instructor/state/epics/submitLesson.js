@@ -7,7 +7,7 @@ export default (action$) => (
   action$.ofType(STARTED_SUBMIT_LESSON)
     .switchMap(
       ({payload}) => Observable.fromPromise(
-        fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/lessons`, {
+        fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`, {
           method: 'POST',
           body: JSON.stringify(payload.lesson),
           headers,
