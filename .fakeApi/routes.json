@@ -1,4 +1,5 @@
 {
+  "/users/native_auth": "/user",
   "/api/v1/": "/",
   "/instructors": "/instructors",
   "/instructors/:id": "/instructors/:id",

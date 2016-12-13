@@ -12,6 +12,7 @@ const {
   kebabCase,
   has,
 } = require('lodash')
+const jwt = require('jwt-simple')
 const overrides = require('./overrides')
 
 module.exports = () => {
@@ -55,6 +56,15 @@ module.exports = () => {
   const baseUrl = 'http://localhost:4000/api/v1'
 
   return {
+
+    user: {
+      jwt: jwt.encode({
+        meta: {
+          id: 0,
+          is_instructor: true,
+        },
+      }, 'secret'),
+    },
 
     instructors: times(instructorCount, index => {
       const id = index
