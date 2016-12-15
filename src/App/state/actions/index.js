@@ -14,3 +14,15 @@ export const endFetchUser = (user) => ({
     user,
   },
 })
+
+export const addNotification = (notification) => ({
+  type: appActionTypes.ADD_NOTIFICATION,
+  payload: {
+    notification,
+  },
+})
+
+export const removeNotification = () => ({
+  type: appActionTypes.REMOVE_NOTIFICATION,
+  payload: {},
+})

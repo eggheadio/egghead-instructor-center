@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import {size} from 'lodash'
+import {addNotification} from '../../../../../../state/actions'
 import Heading from '../../../../../../components/Heading'
 import {startSubmitLesson} from '../../../../state/actions'
 import Button from '../../../../../../components/Button'
@@ -18,7 +19,7 @@ const clearedState = {
 
 export default connect(
   null,
-  {startSubmitLesson}
+  {startSubmitLesson, addNotification}
 )(class Submit extends Component {
 
   state = clearedState
@@ -41,10 +42,18 @@ export default connect(
   }
 
   handleSubmitAttempt = () => {
+    const {addNotification} = this.props
     const {title} = this.state
-    size(title) > 0
-      ? this.submit()
-      : this.setState({hasError: true})
+    if(size(title) > 0) {
+      this.submit()
+    }
+    else {
+      this.setState({hasError: true})
+      addNotification({
+        type: 'error',
+        message: 'Missing required form input',
+      })
+    }
   }
 
   handleTitleChange = (event) => {
@@ -92,15 +101,6 @@ export default connect(
             className={inputClassNames}
           />
         </div>
-
-        {hasError
-          ? <div className='mb3'>
-              <Well type='error'>
-                Missing required input
-              </Well>
-            </div>
-          : null
-        }
 
         {hasSuccess
           ? <div className='mb3'>

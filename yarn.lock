@@ -4613,6 +4613,10 @@ react-history@^0.14.0:
   dependencies:
     history "^4.3.0"
 
+react-notification@^6.5.2:
+  version "6.5.2"
+  resolved "https://registry.yarnpkg.com/react-notification/-/react-notification-6.5.2.tgz#53d0cc593621842e0dbae3950cc3b2595fb5850f"
+
 react-paginate@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/react-paginate/-/react-paginate-2.2.3.tgz#5e3362cace59c65dca2559a8caeaa6a3ea64e76f"
