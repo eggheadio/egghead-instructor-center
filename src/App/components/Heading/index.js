@@ -1,3 +1,5 @@
+// TODO: Consume from egghead-ui once published
+
 import React, {PropTypes} from 'react'
 
 export const levels = ['1', '2', '3', '4', '5']

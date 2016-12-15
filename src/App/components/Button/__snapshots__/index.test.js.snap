@@ -1,7 +1,0 @@
-exports[`test default 1`] = `
-<button
-  className="button-reset bn dib b0 ttu dim br2 ph3 pv2 white bg-orange tc undefined"
-  onClick={undefined}>
-  String
-</button>
-`;
