@@ -1,17 +1,11 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# dependencies
+# general
 node_modules
-
-# testing
-coverage
-
-# production
-storybook-static/
-build
-
-# misc
 .DS_Store
 npm-debug.log
 /.idea
+
+# compiled
+build
+
+# secrets
 .env

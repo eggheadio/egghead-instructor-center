@@ -1,5 +1,5 @@
 exports[`test default 1`] = `
 <img
   alt="egghead.io logo"
-  src="test-file-stub" />
+  src="logo.svg" />
 `;

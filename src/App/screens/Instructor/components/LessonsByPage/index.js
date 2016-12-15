@@ -1,6 +1,6 @@
 import {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
-import {startFetchInstructorLessons, startFetchAllLessons} from '../state/actions'
+import {startFetchInstructorLessons, startFetchAllLessons} from '../../state/actions'
 
 export default connect(
   null,
