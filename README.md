@@ -2,9 +2,11 @@
 
 [ ![Codeship Status for eggheadio/egghead-instructor-center](https://app.codeship.com/projects/3a4afe00-8808-0134-e6cc-2e5dfce30ebc/status?branch=master)](https://app.codeship.com/projects/183842)
 
+An app for egghead instructors to do all the instructor things.
+
 ---
 
-# Getting started
+# Set up
 
 ## Dependencies
 
@@ -19,12 +21,13 @@
 - For each environment in `.env`, paste the JWT you get from: `curl -X POST -d "email={email}" -d "password={password}" {environment}/users/native_auth`
 - Note that JWTs expire and when you get a `403 forbidden` you will need to update your JWTs.
 
-## Scripts
+---
+
+# Workflow
 
 - `yarn` to install latest packages.
-- `yarn dev` to develop.
-  - Runs APIs, app, style guide, linting, and compiling.
-  - Opens browser tabs for app and style guide.
+- `yarn dev` to develop (runs APIs, development server, linting, and compiling).
+- [localhost:3000](http://localhost:3000) to view app.
 - `yarn test` to run tests.
 
 ---
@@ -44,10 +47,10 @@
 - **State Tree:** Redux + Redux Observable
 - **Requests:** Fetch
 - **Routing:** React Router
-- **Style:** Tachyons
+- **Styles:** Tachyons
 - **Fake API:** JSON Server + Faker
 - **Continuous Integration:** Codeship
-- **Deployment:** Heroku \*
+- **Deployment:** Codeship -> Heroku \*
 
 _\* Relies on `create-react-app` setup_
 
@@ -62,7 +65,6 @@ Along with typical repo root files, you'll find some custom files and directorie
 - `src/`: holds all the components.
 - `.fakeApi/`: holds fake environment API configuration.
 - `public`: used by `create-react-app` to copy files directly to the build folder as an escape hatch; generally read-only.
-- `.storybook/`: used by React Storybook to build the living style guide; generally read-only.
 - `.yarn.lock`: used by Yarn to ensure consistent package installs; read-only.
 - `.env`: holds private environment configuration (stored only on your machine); generally read-only once set up.
 - `.env_template`: an example for you to copy to `.env`; generally read-only.
@@ -91,7 +93,7 @@ utils/ (optional)
 
 - `index.js`: entry point; usually a stateless function component.
 - `components/`: optional, sub-components.
-- `utils/`: optional, `myModule.js` files.
+- `utils/`: optional, modules used by components.
 
 ### Screens
 
@@ -128,14 +130,7 @@ Styling is done with default Tachyons classes. The `*-ns` (not small) classes ar
 
 ### Tests
 
-Modules and components that could benefit from tests have an `index.test.js` file next to them. These are generally simple unit or snapshot tests where they provide value.
-The `SnapshotFixtures` file provides **static** fixtures that can be used for the props of the components of snapshot test files.
-
-### Style Guide
-
-Components that could benefit from being a part of the living style guide have an `index.guide.js` file next to them. This means they are automatically added to the living style guide.
-The `faker` package provides **random** fixtures that can be used for the props of the components of guide files.
-The `GuideVariations` component can be used to render variations of a component.
+Files that could benefit from tests have an `index.test.js` file next to them. These are generally simple unit or snapshot tests where they provide value.
 
 ---
 

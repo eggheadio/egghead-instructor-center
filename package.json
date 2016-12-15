@@ -1,57 +1,47 @@
 {
   "name": "egghead-instructor-center",
+  "version": "0.1.0",
   "scripts": {
     "dev": "npm-run-all -p dev:**",
     "dev:api": "json-server -w .fakeApi/index.js -r .fakeApi/routes.json -p 4000",
-    "dev:guide": "open http://localhost:2000 && start-storybook -p 2000",
     "dev:app": "yarn start",
     "test": "react-scripts test --env=jsdom",
     "build": "react-scripts build",
     "verify": "CI=true yarn test && yarn build",
     "start": "react-scripts start"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "homepage": ".",
-  "version": "0.1.0",
   "engines": {
     "node": ">=6.0.0"
   },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "private": true,
   "devDependencies": {
-    "@kadira/storybook": "^2.5.2",
     "faker": "^3.1.0",
     "json-server": "^0.8.22",
     "npm-run-all": "^3.1.1",
     "query-string": "^4.2.3",
-    "react-scripts": "^0.7.0",
-    "react-test-renderer": "^15.3.2"
+    "react-scripts": "^0.8.4",
+    "react-test-renderer": "^15.4.1"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
     "font-awesome": "^4.6.3",
     "format-number": "^2.0.1",
-    "history": "^4.3.0",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.16.2",
     "parse-link-header": "^0.4.1",
-    "react": "^15.3.2",
-    "react-addons-create-fragment": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-markdown": "^2.4.2",
-    "react-mousetrap": "^0.1.1",
+    "react": "^15.4.1",
+    "react-addons-create-fragment": "^15.4.1",
+    "react-dom": "^15.4.1",
     "react-paginate": "^2.2.3",
-    "react-redux": "^4.4.5",
+    "react-redux": "^5.0.1",
     "react-router": "^4.0.0-alpha.4",
     "react-tabs": "^0.8.2",
-    "react-tagsinput": "^3.13.5",
     "react-truncate": "^1.1.4",
-    "react-url-query": "^1.0.0",
     "redux": "^3.6.0",
-    "redux-observable": "^0.12.1",
-    "rxjs": "^5.0.0-beta.10",
-    "tachyons": "^4.5.3",
-    "whatwg-fetch": "^1.0.0"
+    "redux-observable": "^0.12.2",
+    "rxjs": "^5.0.1",
+    "tachyons": "^4.5.3"
   }
 }
