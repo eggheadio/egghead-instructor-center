@@ -8,30 +8,37 @@ import RouteNotFound from './components/RouteNotFound'
 import NotificationCenter from './components/NotificationCenter'
 
 const Router = ({user}) => (
-  (size(user) > 0)
-    ? <BrowserRouter>
-        <div>
+  <BrowserRouter>
+    <div>
 
-          <Match
-            exactly
-            pattern='/'
-            render={() => (
-              <Redirect to={`instructors/${user.id}`} />
-            )}
-          />
+      {size(user) > 0
+        ? <div>
 
-          <Match
-            pattern='/instructors/:instructorId'
-            component={Instructor}
-          />
+            <Match
+              exactly
+              pattern='/'
+              render={() => (
+                <Redirect to={`instructors/${user.id}`} />
+              )}
+            />
 
-          <Miss component={RouteNotFound} />
+            <Match
+              pattern='/instructors/:instructorId'
+              component={Instructor}
+            />
 
-          <NotificationCenter />
+            <Miss component={RouteNotFound} />
 
-        </div>
-      </BrowserRouter>
-  : <Login />
+
+          </div>
+
+        : <Login />
+      }
+
+      <NotificationCenter />
+
+    </div>
+  </BrowserRouter>
 )
 
 export default connect(
