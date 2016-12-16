@@ -5,13 +5,16 @@ export default (
   action
 ) => {
   switch (action.type) {
+
     case ENDED_FETCH_INSTRUCTOR:
       return {
         ...state,
         ...action.payload.instructor,
       }
+
     default:
       return state
+
   }
 }
 

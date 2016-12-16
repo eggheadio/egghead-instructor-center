@@ -1,11 +1,10 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import {size} from 'lodash'
+import {addNotification} from '../../../../../../state/actions'
 import Heading from '../../../../../../components/Heading'
 import {startSubmitLesson} from '../../../../state/actions'
 import Button from '../../../../../../components/Button'
-import Well from '../../../../../../components/Well'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
@@ -13,38 +12,48 @@ const clearedState = {
   title: '',
   summary: '',
   hasError: false,
-  hasSuccess: false,
 }
 
 export default connect(
   null,
-  {startSubmitLesson}
+  {startSubmitLesson, addNotification}
 )(class Submit extends Component {
 
   state = clearedState
 
-  clear = () => {
-    this.setState(clearedState)
-  }
-
   submit = () => {
     const {title, summary} = this.state
-    const {instructor, startSubmitLesson} = this.props
+    const {instructor, startSubmitLesson, addNotification} = this.props
     startSubmitLesson({
       title: title,
       summary: summary,
       state: 'claimed',
       instructor_id: instructor.id,
     })
-    this.clear()
-    this.setState({hasSuccess: true})
+    this.setState(clearedState)
+    addNotification({
+      type: 'info',
+      message: 'Lesson topic submitted and claimed!',
+      action: {
+        path: '/',
+        description: 'View',
+      },
+    })
   }
 
   handleSubmitAttempt = () => {
     const {title} = this.state
-    size(title) > 0
-      ? this.submit()
-      : this.setState({hasError: true})
+    const {addNotification} = this.props
+    if(size(title) > 0) {
+      this.submit()
+    }
+    else {
+      addNotification({
+        type: 'error',
+        message: 'Missing required form input',
+      })
+      this.setState({hasError: true})
+    }
   }
 
   handleTitleChange = (event) => {
@@ -60,7 +69,7 @@ export default connect(
   }
 
   render() {
-    const {title, summary, hasError, hasSuccess} = this.state
+    const {title, summary, hasError} = this.state
     return (
       <div>
 
@@ -92,24 +101,6 @@ export default connect(
             className={inputClassNames}
           />
         </div>
-
-        {hasError
-          ? <div className='mb3'>
-              <Well type='error'>
-                Missing required input
-              </Well>
-            </div>
-          : null
-        }
-
-        {hasSuccess
-          ? <div className='mb3'>
-              <Well>
-                Lesson topic saved! <Link to='/' className='blue'>View</Link>
-              </Well>
-            </div>
-          : null
-        }
 
         <Button onClick={this.handleSubmitAttempt}>
           Submit

@@ -1,40 +1,43 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {size} from 'lodash'
-import {BrowserRouter, Match, Redirect} from 'react-router'
+import {BrowserRouter, Match, Redirect, Miss} from 'react-router'
 import Instructor from '../../screens/Instructor'
 import Login from './components/Login'
 import RouteNotFound from './components/RouteNotFound'
-import Miss404 from '../Miss404'
+import NotificationCenter from './components/NotificationCenter'
 
 const Router = ({user}) => (
-  (size(user) > 0)
-    ? <BrowserRouter>
-        <div>
+  <BrowserRouter>
+    <div>
 
-          <Match
-            exactly
-            pattern='/'
-            render={() => (
-              <Redirect to={`instructors/${user.id}`} />
-            )}
-          />
+      {size(user) > 0
+        ? <div>
 
-          <Match
-            pattern='/instructors/:instructorId'
-            component={Instructor}
-          />
+            <Match
+              exactly
+              pattern='/'
+              render={() => (
+                <Redirect to={`instructors/${user.id}`} />
+              )}
+            />
 
-          <Match
-            pattern='/404'
-            component={RouteNotFound}
-          />
+            <Match
+              pattern='/instructors/:instructorId'
+              component={Instructor}
+            />
 
-          <Miss404 />
+            <Miss component={RouteNotFound} />
 
-        </div>
-      </BrowserRouter>
-  : <Login />
+          </div>
+
+        : <Login />
+      }
+
+      <NotificationCenter />
+
+    </div>
+  </BrowserRouter>
 )
 
 export default connect(

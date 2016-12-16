@@ -2,8 +2,8 @@ import React, {Component, PropTypes} from 'react'
 import {Match} from 'react-router'
 import {connect} from 'react-redux'
 import {toString} from 'lodash'
+import {addNotification} from '../../state/actions'
 import Main from '../../components/Main'
-import Miss404 from '../../components/Miss404'
 import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
@@ -15,7 +15,7 @@ export default connect(
     user: appScreen.user,
     ...instructorScreen,
   }),
-  {startFetchInstructor}
+  {startFetchInstructor, addNotification}
 )(class Instructor extends Component {
 
   static propTypes = {
@@ -35,6 +35,7 @@ export default connect(
     const {
       params,
       pathname,
+      addNotification,
       startFetchInstructor,
       user,
       instructor,
@@ -47,11 +48,27 @@ export default connect(
     }
 
     if(params.instructorId !== toString(user.id)) {
-      return <Main>You can only view your own stuff.</Main>
+      addNotification({
+        type: 'error',
+        message: 'You can only view your own instructor pages',
+        action: {
+          path: `/instructors/${user.id}`,
+          description: 'View my instructor pages',
+        },
+      })
+      return null
     }
 
     if(!user.is_instructor) {
-      return <Main>Only instructors can view this.</Main>
+      addNotification({
+        type: 'error',
+        message: 'Only instructors can view this',
+        action: {
+          path: '/guide',
+          description: 'View guide',
+        },
+      })
+      return null
     }
 
     return (
@@ -97,8 +114,6 @@ export default connect(
               />
             )}
           />
-
-          <Miss404 />
 
         </Main>
 

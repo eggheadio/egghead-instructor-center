@@ -1,11 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {every, size} from 'lodash'
-import {startFetchUser} from '../../../../state/actions'
+import {startFetchUser, addNotification} from '../../../../state/actions'
 import Main from '../../../../components/Main'
 import Heading from '../../../../components/Heading'
 import Button from '../../../../components/Button'
-import Well from '../../../../components/Well'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
@@ -19,7 +18,7 @@ export default connect(
   ({appScreen}) => ({
     user: appScreen.user,
   }),
-  {startFetchUser}
+  {startFetchUser, addNotification}
 )(class Login extends Component {
 
   state = clearedState
@@ -37,9 +36,17 @@ export default connect(
 
   handleSubmitAttempt = () => {
     const {email, password} = this.state
-    every([email, password], (input) => size(input) > 0)
-      ? this.submit()
-      : this.setState({hasError: true})
+    const {addNotification} = this.props
+    if(every([email, password], (input) => size(input) > 0)) {
+      this.submit()
+    }
+    else {
+      addNotification({
+        type: 'error',
+        message: 'Missing required form input',
+      })
+      this.setState({hasError: true})
+    }
   }
 
   handleEmailChange = (event) => {
@@ -86,15 +93,6 @@ export default connect(
             className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
           />
         </div>
-
-        {hasError
-          ? <div className='mb3'>
-              <Well type='error'>
-                Missing required input
-              </Well>
-            </div>
-          : null
-        }
 
         <Button onClick={this.handleSubmitAttempt}>
           Submit
