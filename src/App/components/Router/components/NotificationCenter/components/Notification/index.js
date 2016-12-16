@@ -7,8 +7,8 @@ const containerClassName = {
 }
 
 const linkClassName = {
-  info: 'blue',
-  error: 'red',
+  info: 'dark-blue',
+  error: 'dark-red',
 }
 
 export default ({

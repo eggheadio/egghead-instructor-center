@@ -9,7 +9,6 @@ export default (
     case ADD_NOTIFICATION:
       const {notification} = action.payload
       return {
-        ...state,
         isActive: true,
         ...notification,
       }
