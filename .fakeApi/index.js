@@ -89,7 +89,6 @@ module.exports = () => {
               max: 70,
             }),
         revenue: {
-          total: revenueFactory(1000000, 100000),
           current: 'mar',
           jan: revenueFactory(),
           feb: revenueFactory(),
