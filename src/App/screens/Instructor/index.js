@@ -3,7 +3,6 @@ import {Match} from 'react-router'
 import {connect} from 'react-redux'
 import {toString} from 'lodash'
 import Main from '../../components/Main'
-import Miss404 from '../../components/Miss404'
 import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
@@ -97,8 +96,6 @@ export default connect(
               />
             )}
           />
-
-          <Miss404 />
 
         </Main>
 

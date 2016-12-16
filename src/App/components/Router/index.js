@@ -1,11 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {size} from 'lodash'
-import {BrowserRouter, Match, Redirect} from 'react-router'
+import {BrowserRouter, Match, Redirect, Miss} from 'react-router'
 import Instructor from '../../screens/Instructor'
 import Login from './components/Login'
 import RouteNotFound from './components/RouteNotFound'
-import Miss404 from '../Miss404'
+import NotificationCenter from './components/NotificationCenter'
 
 const Router = ({user}) => (
   (size(user) > 0)
@@ -25,12 +25,9 @@ const Router = ({user}) => (
             component={Instructor}
           />
 
-          <Match
-            pattern='/404'
-            component={RouteNotFound}
-          />
+          <Miss component={RouteNotFound} />
 
-          <Miss404 />
+          <NotificationCenter />
 
         </div>
       </BrowserRouter>

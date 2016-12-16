@@ -7,6 +7,7 @@ const NotificationCenter = ({notification}) => (
     isActive={notification.isActive}
     type={notification.type}
     message={notification.message}
+    action={notification.action}
   />
 )
 

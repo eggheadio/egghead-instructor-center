@@ -3,6 +3,6 @@ import {removeNotification} from '../actions'
 
 export default (action$) => (
   action$.ofType(ADD_NOTIFICATION)
-    .delay(2000)
+    .delay(3000)
     .mapTo(removeNotification())
 )

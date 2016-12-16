@@ -1,19 +1,26 @@
 import React from 'react'
+import {Link} from 'react-router'
 
-const types = {
+const containerClassName = {
   info: 'bg-light-blue',
   error: 'bg-light-red',
+}
+
+const linkClassName = {
+  info: 'blue',
+  error: 'red',
 }
 
 export default ({
   isActive,
   type,
   message = '',
+  action,
 }) => (
   <div
     className={`
       fixed bottom-0 left-0 ma3 br2 pv3 ph4 shadow-1
-      ${types[type]}
+      ${containerClassName[type]}
     `}
     style={{
       willChange: 'transform, padding',
@@ -24,5 +31,14 @@ export default ({
     }}
   >
     {message}
+    {action
+      ? <Link
+          to={action.path}
+          className={`pl2 ${linkClassName[type]}`}
+        >
+          {action.description}
+        </Link>
+      : null
+    }
   </div>
 )

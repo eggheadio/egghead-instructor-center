@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import {size} from 'lodash'
 import {addNotification} from '../../../../../../state/actions'
@@ -34,9 +33,11 @@ export default connect(
     this.setState(clearedState)
     addNotification({
       type: 'info',
-      message: (
-        <div>Lesson topic saved! <Link to='/' className='blue'>View</Link></div>
-      ),
+      message: 'Lesson topic saved!',
+      action: {
+        path: '/',
+        description: 'View',
+      },
     })
   }
 
