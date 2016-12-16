@@ -33,7 +33,7 @@ export default connect(
     this.setState(clearedState)
     addNotification({
       type: 'info',
-      message: 'Lesson topic saved!',
+      message: 'Lesson topic submitted and claimed!',
       action: {
         path: '/',
         description: 'View',

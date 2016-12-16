@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {truncate} from 'lodash'
+import {addNotification} from '../../../../../../../../state/actions'
 import {startUpdateLessonState} from '../../../../../../state/actions'
 import Heading from '../../../../../../../../components/Heading'
 import Button from '../../../../../../../../components/Button'
@@ -8,17 +9,28 @@ import Button from '../../../../../../../../components/Button'
 const LessonSummary = ({
   instructor,
   lesson,
+  addNotification,
   startUpdateLessonState,
 }) => {
 
   const nextStepForCurrentStates = {
     accepted: {
       label: 'Claim',
-      action: startUpdateLessonState.bind(this, {
-        instructorId: instructor.id,
-        lesson,
-        newState: 'claimed',
-      }),
+      action() {
+        startUpdateLessonState({
+          instructorId: instructor.id,
+          lesson,
+          newState: 'claimed',
+        })
+        addNotification({
+          type: 'info',
+          message: 'Lesson topic claimed!',
+          action: {
+            path: '/',
+            description: 'View',
+          },
+        })
+      }
     },
   }
 
@@ -59,5 +71,5 @@ export default connect(
   ({instructorScreen}) => ({
     instructor: instructorScreen.instructor,
   }),
-  {startUpdateLessonState}
+  {addNotification, startUpdateLessonState}
 )(LessonSummary)

@@ -1,4 +1,5 @@
 import {Observable} from 'rxjs'
+import {addNotification} from '../../../../../state/actions'
 import parse from 'parse-link-header'
 import headers from '../../../../../utils/headers'
 import createLessonsUrl from './createLessonsUrl'
@@ -12,10 +13,28 @@ const handleLessonsResponse = (response) => (
     })
 )
 
-export default (lessonOptions) => (
+export default (lessonOptions, store) => (
   Observable.fromPromise(
     fetch(createLessonsUrl(lessonOptions), {headers})
+      .then(response => {
+        if (!response.ok) {
+          store.dispatch(
+            addNotification({
+              type: 'error',
+              message: `Fetching lessons failed. Error message: ${response.statusText}`,
+            })
+          )
+        }
+        return response
+      })
       .then(handleLessonsResponse)
-      .catch(error => console.error(error))
+      .catch(error => {
+        store.dispatch(
+          addNotification({
+            type: 'error',
+            message: `The lessons data was rejected. Error message: ${error}`,
+          })
+        )
+      })
   )
 )

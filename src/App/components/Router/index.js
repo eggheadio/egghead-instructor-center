@@ -29,7 +29,6 @@ const Router = ({user}) => (
 
             <Miss component={RouteNotFound} />
 
-
           </div>
 
         : <Login />
