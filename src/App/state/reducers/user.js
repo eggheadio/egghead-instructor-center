@@ -1,7 +1,14 @@
+import jwt from 'jwt-simple'
 import {ENDED_FETCH_USER} from '../actions/appActionTypes';
 
+const cachedUser = () => {
+  const cachedToken = localStorage.getItem('token')
+  console.log('cachedToken', cachedToken)
+  return jwt.decode(cachedToken, null, true).meta
+}
+
 export default (
-  state = false,
+  state = cachedUser() || false,
   action
 ) => {
   switch (action.type) {

@@ -42,7 +42,7 @@ const Router = ({user}) => (
 
 export default connect(
   ({appScreen}) => ({
-    user: appScreen.user,
+    user:  appScreen.user,
   }),
   null
 )(Router)

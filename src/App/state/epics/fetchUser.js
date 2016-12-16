@@ -19,7 +19,10 @@ export default (action$, store) => (
                 return response
               })
               .then(response => response.json())
-              .then(json => jwt.decode(json.jwt, null, true).meta)
+              .then(json => {
+                localStorage.setItem('token', json.jwt)
+                return jwt.decode(json.jwt, null, true).meta
+              })
               .catch(error => {
                 store.dispatch(
                   addNotification({
@@ -46,7 +49,10 @@ export default (action$, store) => (
                 return response
               })
               .then(response => response.text())
-              .then(token => jwt.decode(token, null, true).meta)
+              .then(token => {
+                localStorage.setItem('token', token)
+                return jwt.decode(token, null, true).meta
+              })
               .catch(error => {
                 store.dispatch(
                   addNotification({
