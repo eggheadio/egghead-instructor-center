@@ -32,21 +32,24 @@ export default ({instructor}) => {
                 <RevenueIconLabel amount={currentRevenue.revenue} />
               </div>
 
-              <div>
-                <Heading level='3'>
-                  Total
-                </Heading>
-                <IconLabel
-                  iconType='course'
-                  labelText={`${formatNumber()(published_courses)} published courses`}
-                />
-                <IconLabel
-                  iconType='lesson'
-                  labelText={`${formatNumber()(published_lessons)} published lessons`}
-                />
-                <SubscriberMinutesIconLabel amount={totalRevenue.minutes_watched} />
-                <RevenueIconLabel amount={totalRevenue.revenue} />
-              </div>
+              {totalRevenue
+                ? <div>
+                    <Heading level='3'>
+                      Total
+                    </Heading>
+                    <IconLabel
+                      iconType='course'
+                      labelText={`${formatNumber()(published_courses)} published courses`}
+                    />
+                    <IconLabel
+                      iconType='lesson'
+                      labelText={`${formatNumber()(published_lessons)} published lessons`}
+                    />
+                    <SubscriberMinutesIconLabel amount={totalRevenue.minutes_watched} />
+                    <RevenueIconLabel amount={totalRevenue.revenue} />
+                  </div>
+                : null
+              }
 
             </div>
 
