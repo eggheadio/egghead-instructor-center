@@ -7,8 +7,6 @@ const NotificationCenter = ({notification}) => (
     isActive={notification.isActive}
     type={notification.type}
     message={notification.message}
-    actionText={notification.actionText}
-    onClickHandler={notification.onClickHandler}
   />
 )
 

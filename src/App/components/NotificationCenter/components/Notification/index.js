@@ -1,26 +1,28 @@
 import React from 'react'
-import {Notification as NotificationLibrary} from 'react-notification';
 
-/*
 const types = {
   info: 'bg-light-blue',
   error: 'bg-light-red',
 }
-*/
-
-// className={`pa3 br2 ${types[type]}`}
 
 export default ({
-  type = 'info',
   isActive,
+  type,
   message = '',
-  actionText,
-  onClickHandler,
 }) => (
-  <NotificationLibrary
-    isActive={isActive}
-    message={message}
-    action={actionText}
-    onClick={onClickHandler}
-  />
+  <div
+    className={`
+      fixed bottom-0 left-0 ma3 br2 pv3 ph4 shadow-1
+      ${types[type]}
+    `}
+    style={{
+      willChange: 'transform, padding',
+      transition: 'transform 0.3s, padding 0.3s',
+      transform: isActive
+        ? 'translateX(0)'
+        : 'translateX(-150%)'
+    }}
+  >
+    {message}
+  </div>
 )

@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 
 const Main = ({children}) => (
-  <main className='pa4 mw8 center'>
+  <main className='pv5 ph4 mw8 center'>
     {children}
   </main>
 )

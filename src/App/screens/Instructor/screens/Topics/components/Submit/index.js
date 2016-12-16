@@ -6,7 +6,6 @@ import {addNotification} from '../../../../../../state/actions'
 import Heading from '../../../../../../components/Heading'
 import {startSubmitLesson} from '../../../../state/actions'
 import Button from '../../../../../../components/Button'
-import Well from '../../../../../../components/Well'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
@@ -14,7 +13,6 @@ const clearedState = {
   title: '',
   summary: '',
   hasError: false,
-  hasSuccess: false,
 }
 
 export default connect(
@@ -24,35 +22,36 @@ export default connect(
 
   state = clearedState
 
-  clear = () => {
-    this.setState(clearedState)
-  }
-
   submit = () => {
     const {title, summary} = this.state
-    const {instructor, startSubmitLesson} = this.props
+    const {instructor, startSubmitLesson, addNotification} = this.props
     startSubmitLesson({
       title: title,
       summary: summary,
       state: 'claimed',
       instructor_id: instructor.id,
     })
-    this.clear()
-    this.setState({hasSuccess: true})
+    this.setState(clearedState)
+    addNotification({
+      type: 'info',
+      message: (
+        <div>Lesson topic saved! <Link to='/' className='blue'>View</Link></div>
+      ),
+    })
   }
 
   handleSubmitAttempt = () => {
-    const {addNotification} = this.props
     const {title} = this.state
+    const {addNotification} = this.props
     if(size(title) > 0) {
       this.submit()
     }
     else {
-      this.setState({hasError: true})
       addNotification({
         type: 'error',
         message: 'Missing required form input',
       })
+      this.setState({hasError: true})
     }
   }
 
@@ -69,7 +68,7 @@ export default connect(
   }
 
   render() {
-    const {title, summary, hasError, hasSuccess} = this.state
+    const {title, summary, hasError} = this.state
     return (
       <div>
 
@@ -101,15 +100,6 @@ export default connect(
             className={inputClassNames}
           />
         </div>
-
-        {hasSuccess
-          ? <div className='mb3'>
-              <Well>
-                Lesson topic saved! <Link to='/' className='blue'>View</Link>
-              </Well>
-            </div>
-          : null
-        }
 
         <Button onClick={this.handleSubmitAttempt}>
           Submit
