@@ -3,12 +3,13 @@ import {ENDED_FETCH_USER} from '../actions/appActionTypes';
 
 const cachedUser = () => {
   const cachedToken = localStorage.getItem('token')
-  console.log('cachedToken', cachedToken)
-  return jwt.decode(cachedToken, null, true).meta
+  return cachedToken
+    ? jwt.decode(cachedToken, null, true).meta
+    : false
 }
 
 export default (
-  state = cachedUser() || false,
+  state = cachedUser(),
   action
 ) => {
   switch (action.type) {
