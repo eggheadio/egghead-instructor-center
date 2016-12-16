@@ -18,12 +18,7 @@ export default (lessonOptions, store) => (
     fetch(createLessonsUrl(lessonOptions), {headers})
       .then(response => {
         if (!response.ok) {
-          store.dispatch(
-            addNotification({
-              type: 'error',
-              message: `Fetching lessons failed. Error message: ${response.statusText}`,
-            })
-          )
+          throw Error(`Fetching lessons failed - error message: ${response.statusText}`);
         }
         return response
       })
@@ -32,7 +27,7 @@ export default (lessonOptions, store) => (
         store.dispatch(
           addNotification({
             type: 'error',
-            message: `The lessons data was rejected. Error message: ${error}`,
+            message: error.message,
           })
         )
       })

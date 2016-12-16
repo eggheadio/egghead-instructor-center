@@ -15,12 +15,7 @@ export default (action$, store) => (
         })
           .then(response => {
             if (!response.ok) {
-              store.dispatch(
-                addNotification({
-                  type: 'error',
-                  message: `Submitting lesson failed. Error message: ${response.statusText}`,
-                })
-              )
+              throw Error(`Submitting your lesson failed - error message: ${response.statusText}`);
             }
             return response
           })
@@ -30,7 +25,7 @@ export default (action$, store) => (
             store.dispatch(
               addNotification({
                 type: 'error',
-                message: `The submitted lesson data was rejected. Error message: ${error}`,
+                message: error.message,
               })
             )
           })

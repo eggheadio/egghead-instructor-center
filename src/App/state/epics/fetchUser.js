@@ -14,12 +14,7 @@ export default (action$, store) => (
           ? fetch(endpoint)
               .then(response => {
                 if (!response.ok) {
-                  store.dispatch(
-                    addNotification({
-                      type: 'error',
-                      message: `Fetching your user data failed. Error message: ${response.statusText}`,
-                    })
-                  )
+                  throw Error(`Fetching your user data failed - error message: ${response.statusText}`);
                 }
                 return response
               })
@@ -29,7 +24,7 @@ export default (action$, store) => (
                 store.dispatch(
                   addNotification({
                     type: 'error',
-                    message: `Your user data was rejected. Error message: ${error}`,
+                    message: error.message,
                   })
                 )
               })
@@ -42,13 +37,11 @@ export default (action$, store) => (
               headers,
             })
               .then(response => {
-                if (!response.ok) {
-                  store.dispatch(
-                    addNotification({
-                      type: 'error',
-                      message: `Fetching your user data failed. Error message: ${response.statusText}`,
-                    })
-                  )
+                if (response.status === 401) {
+                  throw Error('Wrong email or password');
+                }
+                else if (!response.ok) {
+                  throw Error(`Fetching your user data failed - error message: ${response.statusText}`);
                 }
                 return response
               })
@@ -58,7 +51,7 @@ export default (action$, store) => (
                 store.dispatch(
                   addNotification({
                     type: 'error',
-                    message: `Your user data was rejected. Error message: ${error}`,
+                    message: error.message,
                   })
                 )
               })

@@ -11,12 +11,7 @@ export default (action$, store) => (
         fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/instructors/${payload.instructorId}`, {headers})
           .then(response => {
             if (!response.ok) {
-              store.dispatch(
-                addNotification({
-                  type: 'error',
-                  message: `Fetching instructor data failed. Error message: ${response.statusText}`,
-                })
-              )
+              throw Error(`Fetching instructor data failed - error message: ${response.statusText}`);
             }
             return response
           })
@@ -26,7 +21,7 @@ export default (action$, store) => (
             store.dispatch(
               addNotification({
                 type: 'error',
-                message: `The instructor data was rejected. Error message: ${error}`,
+                message: error.message,
               })
             )
           })

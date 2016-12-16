@@ -19,12 +19,7 @@ export default (action$, store) => (
         })
           .then(response => {
             if (!response.ok) {
-              store.dispatch(
-                addNotification({
-                  type: 'error',
-                  message: `Updating lesson state failed. Error message: ${response.statusText}`,
-                })
-              )
+              throw Error(`Updating lesson state failed - error message: ${response.statusText}`);
             }
             return response
           })
@@ -34,7 +29,7 @@ export default (action$, store) => (
             store.dispatch(
               addNotification({
                 type: 'error',
-                message: `The updated lesson data was rejected. Error message: ${error}`,
+                message: error.message,
               })
             )
           })
