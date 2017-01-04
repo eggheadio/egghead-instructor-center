@@ -10,6 +10,7 @@ const PaginatedLessonList = ({
   total,
   currentPage,
   pageSize,
+  fallback,
 }) => {
 
   const pageNum = Math.ceil(total / pageSize)
@@ -63,7 +64,7 @@ const PaginatedLessonList = ({
           }
 
         </div>
-      : <div>No lessons to show</div>
+      : fallback
   )
 }
 

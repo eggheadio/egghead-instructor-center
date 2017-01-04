@@ -3,6 +3,7 @@ import Heading from '../../../../../../components/Heading'
 import {inProgressLessonStates, publishedLessonStates} from '../../../../utils/lessonStatesGroups'
 import LessonList from '../../../../components/LessonList'
 import Tabs from './components/Tabs'
+import NoLessonsClaimFallback from './components/NoLessonsClaimFallback'
 
 export default ({instructor, lessonPage}) => (
   <div>
@@ -18,6 +19,12 @@ export default ({instructor, lessonPage}) => (
           <LessonList
             states={inProgressLessonStates}
             isOwnedByInstructor
+            fallback={
+              <NoLessonsClaimFallback 
+                instructorId={instructor.id}
+                description='You have no lessons in progress'
+              />
+            }
           />
         ),
       },
@@ -27,6 +34,12 @@ export default ({instructor, lessonPage}) => (
           <LessonList
             states={publishedLessonStates}
             isOwnedByInstructor
+            fallback={
+              <NoLessonsClaimFallback 
+                instructorId={instructor.id}
+                description='You have no published lessons'
+              />
+            }
           />
         ),
       },

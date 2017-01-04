@@ -14,6 +14,14 @@ export default () => (
       Here's what we'd love to see recorded right now. Claimed topics will be yours for 2 weeks, and then they'll be reopened for others to claim.
     </div>
 
-    <LessonList states={unclaimedTopicsLessonStates} />
+    <LessonList
+      states={unclaimedTopicsLessonStates} 
+      fallback={
+        <div className='mv3 i gray'>
+          All requested topics have been claimed, but you can submit your own!
+        </div>
+      }
+    />
+
   </div>
 )
