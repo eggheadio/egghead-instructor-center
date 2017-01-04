@@ -8,6 +8,7 @@ const LessonList = ({
   lessonPage,
   states,
   isOwnedByInstructor = false,
+  fallback,
 }) => (
   <LessonsByPage
     instructor={isOwnedByInstructor ? instructor : false}
@@ -20,6 +21,7 @@ const LessonList = ({
         total={lessonPage.total}
         currentPage={currentPage}
         pageSize={pageSize}
+        fallback={fallback}
       />
     )}
   </LessonsByPage>

@@ -3,7 +3,6 @@ import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonSummary from './components/LessonSummary'
-import NoLessons from './components/NoLessons'
 
 const PaginatedLessonList = ({
   fetchLessons,
@@ -11,6 +10,7 @@ const PaginatedLessonList = ({
   total,
   currentPage,
   pageSize,
+  fallback,
 }) => {
 
   const pageNum = Math.ceil(total / pageSize)
@@ -64,7 +64,7 @@ const PaginatedLessonList = ({
           }
 
         </div>
-      : <NoLessons />
+    : fallback
   )
 }
 
