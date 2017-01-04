@@ -2,8 +2,7 @@ import React from 'react'
 import Icon from '../Icon'
 
 export default () => (
-  <div>
-    <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+  <div className='mv3 gray'>
     <Icon
       type='refresh'
       size='2'
