@@ -64,7 +64,7 @@ const PaginatedLessonList = ({
           }
 
         </div>
-    : fallback
+      : fallback
   )
 }
 
