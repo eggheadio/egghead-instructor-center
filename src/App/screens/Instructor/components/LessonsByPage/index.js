@@ -19,7 +19,7 @@ export default connect(
   }
 
   state = {
-    isLoading: true,
+    isLoading: false,
     currentPage: 1,
   }
 
