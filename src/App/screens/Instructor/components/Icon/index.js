@@ -22,11 +22,13 @@ export const types = {
   'revenue': 'money',
   'course': 'folder-open-o',
   'lesson': 'file-o',
+  'refresh': 'refresh',
 }
 
 const Icon = ({
   type,
   size = '1',
+  spin = false,
   className = '',
 }) => (
   <span className={`
@@ -34,12 +36,14 @@ const Icon = ({
     fa-${types[type]} 
     ${sizes[size]}
     ${className}
+    ${spin ? 'fa-spin' : ''}
   `} />
 )
 
 Icon.propTypes = {
   type: PropTypes.oneOf(keys(types)).isRequired,
   size: PropTypes.oneOf(keys(sizes)),
+  spin: PropTypes.bool,
   className:  PropTypes.string,
 }
 

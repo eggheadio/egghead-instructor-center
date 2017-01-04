@@ -1,9 +1,12 @@
-import {Component, PropTypes} from 'react'
+import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {startFetchInstructorLessons, startFetchAllLessons} from '../../state/actions'
+import Loading from '../Loading'
 
 export default connect(
-  null,
+  ({instructorScreen}) => ({
+    lessonPage: instructorScreen.lessonPage,
+  }),
   {startFetchInstructorLessons, startFetchAllLessons}
 )(class LessonsByPage extends Component {
   
@@ -16,7 +19,8 @@ export default connect(
   }
 
   state = {
-    currentPage: 1
+    isLoading: false,
+    currentPage: 1,
   }
 
   fetchLessons = (currentPage = 1) => {
@@ -47,11 +51,13 @@ export default connect(
 
   render() {
     const {currentPage} = this.state
-    const {children, pageSize} = this.props
-    return children({
-      currentPage,
-      pageSize,
-      fetchLessons: this.fetchLessons,
-    })
+    const {lessonPage, children, pageSize} = this.props
+    return lessonPage.isLoading
+      ? <Loading />
+      : children({
+          currentPage,
+          pageSize,
+          fetchLessons: this.fetchLessons,
+        })
   }
 })

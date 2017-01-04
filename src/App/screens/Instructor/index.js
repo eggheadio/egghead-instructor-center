@@ -9,6 +9,7 @@ import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
 import Topics from './screens/Topics'
 import Nav from './components/Nav'
+import Loading from './components/Loading'
 
 export default connect(
   ({appScreen, instructorScreen}) => ({
@@ -44,7 +45,11 @@ export default connect(
 
     if(!instructor) {
       startFetchInstructor(params.instructorId)
-      return <Main>Loading...</Main>
+      return (
+        <Main>
+          <Loading />
+        </Main>
+      )
     }
 
     if(params.instructorId !== toString(user.id)) {

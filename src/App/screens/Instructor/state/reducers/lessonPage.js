@@ -11,6 +11,7 @@ export default (
   state = {
     total: '0',
     lessons: [],
+    isLoading: false,
   },
   action
 ) => {
@@ -21,6 +22,7 @@ export default (
       const {states} = action.payload.lessonOptions
       return {
         ...state,
+        isLoading: true,
         states,
       }
 
@@ -29,6 +31,7 @@ export default (
       const {lessonPage} = action.payload
       return {
         ...state,
+        isLoading: false,
         ...lessonPage,
       }
 
