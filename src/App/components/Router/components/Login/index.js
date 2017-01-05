@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {every, size} from 'lodash'
 import {startFetchUser, addNotification} from '../../../../state/actions'
+import {guideUrl} from '../../../../utils/urls'
 import Main from '../../../../components/Main'
 import Heading from '../../../../components/Heading'
 import Button from '../../../../components/Button'
@@ -72,7 +73,7 @@ export default connect(
             Instructor 101 Guide
           </Heading>
 
-          <Anchor url='https://instructor.egghead.io/guide'>
+          <Anchor url={guideUrl}>
             <Button>
               View the guide
             </Button>
