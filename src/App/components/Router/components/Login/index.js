@@ -73,6 +73,10 @@ export default connect(
             Instructor 101 Guide
           </Heading>
 
+          <div className='mb3'>
+            We've put together a guide to help you understand how lessons are created for egghead.io.
+          </div>
+
           <Anchor url={guideUrl}>
             <Button>
               View the guide
@@ -87,7 +91,7 @@ export default connect(
           </Heading>
 
           <div className='mb3'>
-            You need to log in to view the Instructor Center.
+            If you're an existing egghead.io instructor, please log in to access the instructor center.
           </div>
 
           <div className='mb2'>
