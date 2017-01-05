@@ -39,15 +39,8 @@ export default class Nav extends Component {
 
         <div className='mw8 center relative flex-ns items-center-ns'>
 
-          <div className='ph4 flex items-center justify-between'>
-            <div className='flex items-center'>
-              <div className='w2 mr2'>
-                <Logo />
-              </div>
-              <div className='white'>
-                Instructor Center
-              </div>
-            </div>
+          <div className='ph4 mr2'>
+            <Logo />
           </div>
 
           <nav className={`
@@ -79,7 +72,7 @@ export default class Nav extends Component {
 
           <div
             onClick={this.toggle.bind(this)}
-            className='absolute top-0 right-1 dn-ns'
+            className='absolute top-0 right-2 mt1 dn-ns'
           >
             {this.state.isOpen
               ? <Icon
