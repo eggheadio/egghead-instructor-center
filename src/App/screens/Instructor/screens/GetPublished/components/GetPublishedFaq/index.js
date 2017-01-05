@@ -1,5 +1,6 @@
 import React from 'react'
 import {map} from 'lodash'
+import {paymentInfoUrl} from '../../../../../../utils/urls'
 import Heading from '../../../../../../components/Heading'
 import InfoBlock from './components/InfoBlock'
 
@@ -7,7 +8,7 @@ const questions = [
   {
     question: 'How much money will I make?',
     answer: 'Royalties can range anywhere from pocket change to surpassing your full-time job\'s income. It all depends on how many lessons and courses you create all your hard work snowballs into beautiful recurring residual income!',
-    moreInfoUrl: 'https://instructor.egghead.io/01-invited/getting-paid.html',
+    moreInfoUrl: paymentInfoUrl,
   },
   {
     question: 'When do I get paid?',

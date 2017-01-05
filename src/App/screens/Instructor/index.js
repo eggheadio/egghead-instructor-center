@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {Match} from 'react-router'
 import {connect} from 'react-redux'
 import {toString} from 'lodash'
+import {guideUrl} from '../../utils/urls'
 import {addNotification} from '../../state/actions'
 import Main from '../../components/Main'
 import {startFetchInstructor} from './state/actions'
@@ -90,6 +91,10 @@ export default connect(
               text: 'Topics',
               route: '/topics',
             },
+            {
+              text: 'Guide',
+              route: '/guide',
+            },
           ]}
         />
 
@@ -118,6 +123,14 @@ export default connect(
                 lessonPage={lessonPage}
               />
             )}
+          />
+
+          <Match
+            pattern={`${pathname}/guide`}
+            render={() => {
+              window.location.href = guideUrl
+              return null
+            }}
           />
 
         </Main>

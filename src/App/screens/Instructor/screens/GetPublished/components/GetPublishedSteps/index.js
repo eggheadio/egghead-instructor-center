@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import {map, uniq, compact, isString} from 'lodash'
+import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from '../../../../../../utils/urls'
 import Heading from '../../../../../../components/Heading'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
@@ -20,17 +21,17 @@ const GetPublishedSteps = ({
     {
       isComplete: isString(instructor.slack_id),
       description: 'Join egghead Slack',
-      moreInfoUrl: 'https://instructor.egghead.io/01-invited/invited.html',
+      moreInfoUrl: chatInfoUrl,
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'submitted'),
       description: 'Submit rough draft lesson',
-      moreInfoUrl: 'https://instructor.egghead.io/01-invited/first-lesson.html',
+      moreInfoUrl: roughDraftInfoUrl,
     },
     {
       isComplete: isString(instructor.gear_tracking_id),
       description: 'Get gear',
-      moreInfoUrl: 'https://instructor.egghead.io/02-creating-lessons/recording-gear.html',
+      moreInfoUrl: gearSetupInfoUrl,
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'updated'),
