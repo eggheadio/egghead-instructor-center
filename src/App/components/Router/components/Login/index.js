@@ -5,6 +5,7 @@ import {startFetchUser, addNotification} from '../../../../state/actions'
 import Main from '../../../../components/Main'
 import Heading from '../../../../components/Heading'
 import Button from '../../../../components/Button'
+import Anchor from '../../../../components/Anchor'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
@@ -66,37 +67,53 @@ export default connect(
     return (
       <Main>
 
-        <Heading level='2'>
-          Login
-        </Heading>
-
         <div className='mb3'>
-          You need to log in to view this.
+          <Heading level='2'>
+            Instructor 101 Guide
+          </Heading>
+
+          <Anchor url='https://instructor.egghead.io/guide'>
+            <Button>
+              View the guide
+            </Button>
+          </Anchor>
         </div>
 
-        <div className='mb2'>
-          <input
-            type='text'
-            placeholder='Email *'
-            value={email}
-            onChange={this.handleEmailChange}
-            className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
-          />
-        </div>
+        <div>
 
-        <div className='mb2'>
-          <input
-            type='password'
-            placeholder='Password *'
-            value={password}
-            onChange={this.handlePasswordChange}
-            className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
-          />
-        </div>
+          <Heading level='2'>
+            Instructor Center
+          </Heading>
 
-        <Button onClick={this.handleSubmitAttempt}>
-          Submit
-        </Button>
+          <div className='mb3'>
+            You need to log in to view the Instructor Center.
+          </div>
+
+          <div className='mb2'>
+            <input
+              type='text'
+              placeholder='Email *'
+              value={email}
+              onChange={this.handleEmailChange}
+              className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
+            />
+          </div>
+
+          <div className='mb2'>
+            <input
+              type='password'
+              placeholder='Password *'
+              value={password}
+              onChange={this.handlePasswordChange}
+              className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
+            />
+          </div>
+
+          <Button onClick={this.handleSubmitAttempt}>
+            Log in
+          </Button>
+
+        </div>
 
       </Main>
     )

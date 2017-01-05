@@ -1,6 +1,6 @@
 import React from 'react'
 import Heading from '../../../../../../components/Heading'
-import Anchor from '../../../../components/Anchor'
+import Anchor from '../../../../../../components/Anchor'
 
 export default () => (
   <div>
