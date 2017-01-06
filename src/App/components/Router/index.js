@@ -18,7 +18,7 @@ const Router = ({user}) => (
               exactly
               pattern='/'
               render={() => (
-                <Redirect to={`instructors/${user.id}`} />
+                <Redirect to={`instructors/${user.instructor_id}`} />
               )}
             />
 

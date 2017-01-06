@@ -53,12 +53,12 @@ export default connect(
       )
     }
 
-    if(params.instructorId !== toString(user.id)) {
+    if(params.instructorId !== toString(user.instructor_id)) {
       addNotification({
         type: 'error',
         message: 'You can only view your own instructor pages',
         action: {
-          path: `/instructors/${user.id}`,
+          path: `/instructors/${user.instructor_id}`,
           description: 'View my instructor pages',
         },
       })
