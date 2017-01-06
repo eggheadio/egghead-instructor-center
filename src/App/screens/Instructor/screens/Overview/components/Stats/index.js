@@ -21,7 +21,7 @@ export default ({instructor}) => {
 
       <div className='mb4'>
 
-        {revenue
+        {revenue && currentRevenue
           ? <div>
 
               <div className='mb3'>
@@ -54,7 +54,7 @@ export default ({instructor}) => {
             </div>
 
           : <div>
-              You don't have any views or money yet. Time to publish some lessons!
+              There's no revenue to report. Time to publish some lessons!
             </div>
         }
         
