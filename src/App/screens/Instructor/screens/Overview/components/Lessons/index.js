@@ -21,7 +21,7 @@ export default ({instructor, lessonPage}) => (
             isOwnedByInstructor
             fallback={
               <NoLessonsClaimFallback 
-                instructorId={instructor.id}
+                instructorId={instructor.slug}
                 description='You have no lessons in progress'
               />
             }
@@ -36,7 +36,7 @@ export default ({instructor, lessonPage}) => (
             isOwnedByInstructor
             fallback={
               <NoLessonsClaimFallback 
-                instructorId={instructor.id}
+                instructorId={instructor.slug}
                 description='You have no published lessons'
               />
             }
