@@ -8,7 +8,7 @@ import Main from '../../components/Main'
 import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
-import Topics from './screens/Topics'
+import NewLessons from './screens/NewLessons'
 import Nav from './components/Nav'
 import Loading from './components/Loading'
 
@@ -88,8 +88,8 @@ export default connect(
               route: '',
             },
             {
-              text: 'Topics',
-              route: '/topics',
+              text: 'New Lessons',
+              route: '/new-lessons',
             },
             {
               text: 'Guide',
@@ -116,9 +116,9 @@ export default connect(
           />
 
           <Match 
-            pattern={`${pathname}/topics`}
+            pattern={`${pathname}/new-lessons`}
             render={() => (
-              <Topics
+              <NewLessons
                 instructor={instructor}
                 lessonPage={lessonPage}
               />

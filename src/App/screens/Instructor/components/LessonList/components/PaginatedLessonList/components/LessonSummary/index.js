@@ -24,7 +24,7 @@ const LessonSummary = ({
         })
         addNotification({
           type: 'info',
-          message: 'Lesson topic claimed!',
+          message: 'New lesson claimed!',
           action: {
             path: '/',
             description: 'View',

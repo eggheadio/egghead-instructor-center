@@ -5,11 +5,11 @@ import Button from '../../../../../../../../components/Button'
 export default ({instructorId, description}) => (
   <div>
     <div className='mv3 i orange'>
-      {description}. Claim or submit a topic to get started!
+      {description}. Claim a new lesson to get started!
     </div>
-    <Link to={`/instructors/${instructorId}/topics`}>
+    <Link to={`/instructors/${instructorId}/new-lessons`}>
       <Button>
-        Claim a topic
+        New lessons
       </Button>
     </Link>
   </div>
