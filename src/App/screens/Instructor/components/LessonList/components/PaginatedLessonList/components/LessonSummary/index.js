@@ -18,7 +18,7 @@ const LessonSummary = ({
       label: 'Claim',
       action() {
         startUpdateLessonState({
-          instructorId: instructor.slug,
+          instructorId: instructor.id,
           lesson,
           newState: 'claimed',
         })

@@ -28,7 +28,7 @@ export default connect(
       title: title,
       summary: summary,
       state: 'claimed',
-      instructor_id: instructor.slug,
+      instructor_id: instructor.id,
     })
     this.setState(clearedState)
     addNotification({
