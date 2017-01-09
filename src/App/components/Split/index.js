@@ -4,11 +4,14 @@ import React, {PropTypes} from 'react'
 import Heading from '../Heading'
 
 const Split = ({
+  intro,
   title,
   main,
   aside,
 }) => (
   <div>
+
+    {intro}
 
     <Heading level='1'>
       {title}
@@ -30,7 +33,8 @@ const Split = ({
 )
 
 Split.propTypes = {
-  title: PropTypes.node.isRequired,
+  intro: PropTypes.node,
+  title: PropTypes.string.isRequired,
   main: PropTypes.node.isRequired,
   aside: PropTypes.node.isRequired,
 }
