@@ -24,6 +24,10 @@ const GetPublishedSteps = ({
       moreInfoUrl: chatInfoUrl,
     },
     {
+      isComplete: isStepComplete(instructorLessonStates, 'claimed'),
+      description: 'Claim a new lesson',
+    },
+    {
       isComplete: isStepComplete(instructorLessonStates, 'submitted'),
       description: 'Submit rough draft lesson',
       moreInfoUrl: roughDraftInfoUrl,
