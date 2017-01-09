@@ -12,13 +12,13 @@ export default () => (
 
     <ul>
       <li>
-        We've put together comprehensive how-tos covering a lot of the common issues that instructors encounter in <Anchor url={guideUrl}>The Instructor Guide</Anchor>. It's here to help you make great work that will resonate.
+        We've put together comprehensive how-tos covering a lot of the common issues that instructors encounter in <Anchor url={guideUrl} isSeparateTab>The Instructor Guide</Anchor>. It's here to help you make great work that will resonate.
       </li>
       <li>
-        Joel and Trevor can help with almost anything related to making egghead.io lessons. <Anchor url='https://eggheadio.slack.com/messages/egghead-instructors/'>Reach out any time in Slack</Anchor>.
+        Joel and Trevor can help with almost anything related to making egghead.io lessons. <Anchor url='https://eggheadio.slack.com/messages/egghead-instructors/' isSeparateTab>Reach out any time in Slack</Anchor>.
       </li>
       <li>
-        The <Anchor url={chatUrl}>eggheadio-instructors Slack channel</Anchor> is available for instructors to chat and see each other's progress. Come join the fun!
+        The <Anchor url={chatUrl} isSeparateTab>eggheadio-instructors Slack channel</Anchor> is available for instructors to chat and see each other's progress. Come join the fun!
       </li>
     </ul>
 
