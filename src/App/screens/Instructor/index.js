@@ -82,22 +82,29 @@ export default connect(
 
         <Nav
           pathname={pathname}
-          routes={[
+          items={[
             {
               text: 'Overview',
-              route: '',
+              action: '',
             },
             {
               text: 'New Lessons',
-              route: '/new-lessons',
+              action: '/new-lessons',
             },
             {
               text: 'Guide',
-              route: '/guide',
+              action: guideUrl,
             },
             {
               text: 'Chat',
-              route: '/chat',
+              action: chatUrl,
+            },
+            {
+              text: 'Log out',
+              action: () => {
+                localStorage.removeItem('token')
+                window.location.reload()
+              }
             },
           ]}
         />
@@ -128,23 +135,6 @@ export default connect(
               />
             )}
           />
-
-          <Match
-            pattern={`${pathname}/guide`}
-            render={() => {
-              window.location.href = guideUrl
-              return null
-            }}
-          />
-
-          <Match
-            pattern={`${pathname}/chat`}
-            render={() => {
-              window.location.href = chatUrl
-              return null
-            }}
-          />
-
 
         </Main>
 
