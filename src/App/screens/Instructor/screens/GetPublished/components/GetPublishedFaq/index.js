@@ -1,31 +1,19 @@
 import React from 'react'
 import {map} from 'lodash'
 import {
-  incomeAmountQuestionText,
-  incomeAmountAnswerText,
-  incomeStartQuestionText,
-  incomeStartAnswerText,
-  viewerStatsQuestionText,
-  viewerStatsAnswerText,
+  whatNowQuestionText,
+  whatNowAnswerText,
   faqTitleText,
 } from '../../../../../../utils/text'
-import {paymentInfoUrl} from '../../../../../../utils/urls'
+import {guideUrl} from '../../../../../../utils/urls'
 import Heading from '../../../../../../components/Heading'
 import InfoBlock from './components/InfoBlock'
 
 const questions = [
   {
-    question: incomeAmountQuestionText,
-    answer: incomeAmountAnswerText,
-    moreInfoUrl: paymentInfoUrl,
-  },
-  {
-    question: incomeStartQuestionText,
-    answer: incomeStartAnswerText,
-  },
-  {
-    question: viewerStatsQuestionText,
-    answer: viewerStatsAnswerText,
+    question: whatNowQuestionText,
+    answer: whatNowAnswerText,
+    moreInfoUrl: guideUrl,
   },
 ]
 

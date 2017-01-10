@@ -37,14 +37,8 @@ export const greetingTitleText = 'Hi'
 
 export const faqTitleText = 'FAQ'
 
-export const incomeAmountQuestionText = 'How much money will I make?'
-export const incomeAmountAnswerText = 'Royalties can range anywhere from pocket change to surpassing your full-time job\'s income. It all depends on how many lessons and courses you create all your hard work snowballs into beautiful recurring residual income!'
-
-export const incomeStartQuestionText = 'When do I get paid?'
-export const incomeStartAnswerText = 'After you publish your first lesson, at the beginning of the following month we will set up your direct deposit.'
-
-export const viewerStatsQuestionText = 'Can I see viewer stats for my lessons?'
-export const viewerStatsAnswerText = 'Yep! After you publish your first lesson, you will start getting nightly emails with viewer stats on your published lessons.'
+export const whatNowQuestionText = 'What do I do now?'
+export const whatNowAnswerText = 'Complete the checklist to get published! Everything you need to know can be found in the Instructor 101 Guide. Feel free to reach out to Joel and Trevor in the egghead.io Slack as well any time.'
 
 export const emailLabelText = 'Email *'
 export const passwordLabelText = 'Password *'
