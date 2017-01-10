@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {Match} from 'react-router'
 import {connect} from 'react-redux'
 import {toString} from 'lodash'
-import {guideUrl} from '../../utils/urls'
+import {guideUrl, chatUrl} from '../../utils/urls'
 import {addNotification} from '../../state/actions'
 import Main from '../../components/Main'
 import {startFetchInstructor} from './state/actions'
@@ -95,6 +95,10 @@ export default connect(
               text: 'Guide',
               route: '/guide',
             },
+            {
+              text: 'Chat',
+              route: '/chat',
+            },
           ]}
         />
 
@@ -132,6 +136,15 @@ export default connect(
               return null
             }}
           />
+
+          <Match
+            pattern={`${pathname}/chat`}
+            render={() => {
+              window.location.href = chatUrl
+              return null
+            }}
+          />
+
 
         </Main>
 
