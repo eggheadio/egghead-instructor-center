@@ -17,6 +17,8 @@ const overrides = require('./overrides')
 
 module.exports = () => {
 
+  const baseUrl = 'http://localhost:4000/api/v1'
+
   const instructorCount = random.number({
     min: 20,
     max: 200,
@@ -53,70 +55,67 @@ module.exports = () => {
     }),
   })
 
-  const baseUrl = 'http://localhost:4000/api/v1'
+  const instructors = times(instructorCount, () => {
+    const fullName = name.findName()
+    const slug = kebabCase(fullName)
+    const id = slug
+    return {
+      id,
+      slug,
+      full_name: fullName,
+      first_name: head(split(fullName, ' ')),
+      avatar_url: image.avatar(),
+      lessons_url: `${baseUrl}/instructors/${id}/lessons`,
+      slack_id: random.arrayElement([null, internet.userName()]),
+      gear_tracking_id: random.arrayElement([null, random.uuid()]),
+      published_courses: random.number({
+        min: 0,
+        max: 20,
+      }),
+      published_lessons: has(overrides, 'publishedLessons')
+        ? overrides.publishedLessons
+        : random.number({
+            min: 0,
+            max: 70,
+          }),
+      revenue: {
+        current: 'mar',
+        jan: revenueFactory(),
+        feb: revenueFactory(),
+        mar: revenueFactory(),
+      }
+    }
+  })
+
+  const lessons = times(lessonCount, () => {
+    const title = lorem.sentence()
+    const slug = kebabCase(title)
+    const id = slug
+    const instructor = random.arrayElement(instructors)
+    return {
+      id,
+      slug,
+      title,
+      summary: random.arrayElement([null, lorem.paragraph()]),
+      state: random.arrayElement(lessonStates),
+      lesson_url: `${baseUrl}/lessons/${id}`,
+      instructor_url: `${baseUrl}/instructors/${instructor.id}`,
+
+      // Only needed for json-server hypermedia connection
+      instructor_id: instructor.id,
+    }
+  })
 
   return {
-
     user: {
       jwt: jwt.encode({
         meta: {
-          id: 0,
+          instructor_id: head(instructors).id,
           is_instructor: true,
         },
       }, 'secret'),
     },
-
-    instructors: times(instructorCount, index => {
-      const id = index
-      const fullName = name.findName()
-      return {
-        id,
-        slug: kebabCase(fullName),
-        full_name: fullName,
-        first_name: head(split(fullName, ' ')),
-        avatar_url: image.avatar(),
-        lessons_url: `${baseUrl}/instructors/${id}/lessons`,
-        slack_id: random.arrayElement([null, internet.userName()]),
-        gear_tracking_id: random.arrayElement([null, random.uuid()]),
-        published_courses: random.number({
-          min: 0,
-          max: 20,
-        }),
-        published_lessons: has(overrides, 'publishedLessons')
-          ? overrides.publishedLessons
-          : random.number({
-              min: 0,
-              max: 70,
-            }),
-        revenue: {
-          current: 'mar',
-          jan: revenueFactory(),
-          feb: revenueFactory(),
-          mar: revenueFactory(),
-        }
-      }
-    }),
-
-    lessons: times(lessonCount, index => {
-      const id = index
-      const title = lorem.sentence()
-      const instructorId = random.number({
-        min: 0,
-        max: instructorCount
-      })
-      return {
-        id,
-        slug: kebabCase(title),
-        title,
-        summary: random.arrayElement([null, lorem.paragraph()]),
-        state: random.arrayElement(lessonStates),
-        lesson_url: `${baseUrl}/lessons/${id}`,
-        instructor_url: `${baseUrl}/instructors/${instructorId}`,
-
-        // Only needed for json-server hypermedia connection
-        instructor_id: instructorId,
-      }
-    }),
-
+    instructors,
+    lessons,
   }
 }

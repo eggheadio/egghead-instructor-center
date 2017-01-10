@@ -1,7 +1,11 @@
 import React, {PropTypes} from 'react'
 import {map, uniq, compact, isString} from 'lodash'
-import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from '../../../../../../utils/urls'
-import Heading from '../../../../../../components/Heading'
+import {getPublishedDescriptionText} from '../../../../../../utils/text'
+import {
+  chatInfoUrl, 
+  roughDraftInfoUrl, 
+  gearSetupInfoUrl,
+} from '../../../../../../utils/urls'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
 import DescriptionBlock from './components/DescriptionBlock'
@@ -22,6 +26,10 @@ const GetPublishedSteps = ({
       isComplete: isString(instructor.slack_id),
       description: 'Join egghead Slack',
       moreInfoUrl: chatInfoUrl,
+    },
+    {
+      isComplete: isStepComplete(instructorLessonStates, 'claimed'),
+      description: 'Claim a new lesson',
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'submitted'),
@@ -50,12 +58,8 @@ const GetPublishedSteps = ({
   return (
     <div>
 
-      <Heading level='2'>
-        To Do
-      </Heading>
-
       <DescriptionBlock>
-        Hey {instructor.first_name}! Work with your mentor to complete these items so you can get published!
+        {getPublishedDescriptionText}
       </DescriptionBlock>
 
       <div className='mt3'>

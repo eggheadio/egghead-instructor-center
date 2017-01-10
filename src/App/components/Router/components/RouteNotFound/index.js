@@ -1,4 +1,9 @@
 import React from 'react'
+import {
+  pageNotFoundTitleText,
+  pageNotFoundDescriptionText,
+  crackedEggoAltText,
+} from '../../../../utils/text'
 import Main from '../../../../components/Main'
 import Split from '../../../../components/Split'
 import Heading from '../../../../components/Heading'
@@ -11,15 +16,15 @@ export default () => (
       main={
         <img
           src={crackedEggo}
-          alt='egghead.io page not found logo'
+          alt={crackedEggoAltText}
         />
       }
       aside={
         <div>
           <Heading level='3'>
-            Page not found
+            {pageNotFoundTitleText}
           </Heading>
-          <p>Sorry, nothing can be found at this URL</p>
+          <p>{pageNotFoundDescriptionText}</p>
         </div>
       }
     />

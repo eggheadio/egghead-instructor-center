@@ -1,5 +1,10 @@
 import React from 'react'
 import formatNumber from 'format-number'
+import {
+  statsTitleText,
+  totalTitleText,
+  noRevenueDescriptionText,
+} from '../../../../../../utils/text'
 import Heading from '../../../../../../components/Heading'
 import currentMonthName from './utils/currentMonthName'
 import IconLabel from './components/IconLabel'
@@ -16,7 +21,7 @@ export default ({instructor}) => {
     <div>
 
       <Heading level='2'>
-        Stats
+        {statsTitleText}
       </Heading>
 
       <div className='mb4'>
@@ -35,7 +40,7 @@ export default ({instructor}) => {
               {totalRevenue
                 ? <div>
                     <Heading level='3'>
-                      Total
+                      {totalTitleText}
                     </Heading>
                     <IconLabel
                       iconType='course'
@@ -54,7 +59,7 @@ export default ({instructor}) => {
             </div>
 
           : <div>
-              There's no revenue to report. Time to publish some lessons!
+              {noRevenueDescriptionText}
             </div>
         }
         

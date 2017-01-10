@@ -2,13 +2,14 @@ import React, {Component, PropTypes} from 'react'
 import {Match} from 'react-router'
 import {connect} from 'react-redux'
 import {toString} from 'lodash'
-import {guideUrl} from '../../utils/urls'
+import {forbiddenDescriptionText, forbiddenActionText} from '../../utils/text'
+import {guideUrl, chatUrl} from '../../utils/urls'
 import {addNotification} from '../../state/actions'
 import Main from '../../components/Main'
 import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
-import Topics from './screens/Topics'
+import NewLessons from './screens/NewLessons'
 import Nav from './components/Nav'
 import Loading from './components/Loading'
 
@@ -56,22 +57,10 @@ export default connect(
     if(params.instructorId !== toString(user.instructor_id)) {
       addNotification({
         type: 'error',
-        message: 'You can only view your own instructor pages',
+        message: forbiddenDescriptionText,
         action: {
           path: `/instructors/${user.instructor_id}`,
-          description: 'View my instructor pages',
-        },
-      })
-      return null
-    }
-
-    if(!user.is_instructor) {
-      addNotification({
-        type: 'error',
-        message: 'Only instructors can view this',
-        action: {
-          path: '/guide',
-          description: 'View guide',
+          description: forbiddenActionText,
         },
       })
       return null
@@ -82,18 +71,29 @@ export default connect(
 
         <Nav
           pathname={pathname}
-          routes={[
+          items={[
             {
               text: 'Overview',
-              route: '',
+              action: '',
             },
             {
-              text: 'Topics',
-              route: '/topics',
+              text: 'New Lessons',
+              action: '/new-lessons',
             },
             {
               text: 'Guide',
-              route: '/guide',
+              action: guideUrl,
+            },
+            {
+              text: 'Chat',
+              action: chatUrl,
+            },
+            {
+              text: 'Log out',
+              action: () => {
+                localStorage.removeItem('token')
+                window.location.reload()
+              }
             },
           ]}
         />
@@ -116,21 +116,13 @@ export default connect(
           />
 
           <Match 
-            pattern={`${pathname}/topics`}
+            pattern={`${pathname}/new-lessons`}
             render={() => (
-              <Topics
+              <NewLessons
                 instructor={instructor}
                 lessonPage={lessonPage}
               />
             )}
-          />
-
-          <Match
-            pattern={`${pathname}/guide`}
-            render={() => {
-              window.location.href = guideUrl
-              return null
-            }}
           />
 
         </Main>

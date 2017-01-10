@@ -1,21 +1,11 @@
 import {
-  topicsLessonStates,
-  unclaimedTopicsLessonStates,
+  requestedLessonStates,
   inProgressLessonStates,
   publishedLessonStates,
 } from '.'
 
-test('topics', () => (
-  expect(topicsLessonStates).toEqual([
-    'proposed',
-    'cancelled',
-    'accepted',
-    'claimed',
-  ])
-))
-
-test('unclaimed topics', () => (
-  expect(unclaimedTopicsLessonStates).toEqual([
+test('requested lessons', () => (
+  expect(requestedLessonStates).toEqual([
     'accepted',
   ])
 ))

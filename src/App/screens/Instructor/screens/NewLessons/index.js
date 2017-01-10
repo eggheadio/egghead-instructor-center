@@ -8,7 +8,7 @@ export default ({
   lessonPage,
 }) => (
   <Split
-    title='Topics'
+    title='New Lessons'
     main={
       <Requested
         instructor={instructor}

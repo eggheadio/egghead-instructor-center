@@ -5,10 +5,11 @@ import React, {PropTypes} from 'react'
 const Anchor = ({
   url,
   children,
+  isSeparateTab = false,
 }) => (
   <a
     href={url}
-    target='_blank'
+    target={isSeparateTab ? '_blank' : '_self'}
     className='blue'
   >
     {children}

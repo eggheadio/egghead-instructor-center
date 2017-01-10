@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react'
 
 const Avatar = ({name, url}) => (
   <img
-    alt={`Avatar for ${name}`}
+    alt={name}
     src={url}
     className='br-100'
   />

@@ -3,7 +3,10 @@ import Anchor from '../../../../../../components/Anchor'
 import Icon from '../../../../components/Icon'
 
 const MoreInfo = ({url}) => (
-  <Anchor url={url}>
+  <Anchor 
+    url={url}
+    isSeparateTab
+  >
     <Icon type='more-info' />
   </Anchor>
 )
@@ -13,4 +16,3 @@ MoreInfo.propTypes = {
 }
 
 export default MoreInfo
-

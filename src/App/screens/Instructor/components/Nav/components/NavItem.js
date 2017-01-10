@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 
-const NavLink = ({
-  route,
+const NavItem = ({
+  text,
   isActive,
   onClick,
   href,
@@ -10,6 +10,7 @@ const NavLink = ({
     href={href}
     onClick={onClick}
     className={`
+      pointer
       f6
       pv3 pv4-ns ph4 ph3-ns
       ttu
@@ -21,15 +22,15 @@ const NavLink = ({
       }
     `}
   >
-    {route.text}
+    {text}
   </a>
 )
 
-NavLink.propTypes = {
-  route: PropTypes.object.isRequired,
+NavItem.propTypes = {
+  text: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
 }
 
-export default NavLink
+export default NavItem

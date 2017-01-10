@@ -1,6 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {truncate} from 'lodash'
+import {
+  viewActionText,
+  claimActionText,
+  claimedDescriptionText,
+} from '../../../../../../../../utils/text'
 import {addNotification} from '../../../../../../../../state/actions'
 import {startUpdateLessonState} from '../../../../../../state/actions'
 import Heading from '../../../../../../../../components/Heading'
@@ -15,19 +20,19 @@ const LessonSummary = ({
 
   const nextStepForCurrentStates = {
     accepted: {
-      label: 'Claim',
+      label: claimActionText,
       action() {
         startUpdateLessonState({
-          instructorId: instructor.slug,
+          instructorId: instructor.id,
           lesson,
           newState: 'claimed',
         })
         addNotification({
           type: 'info',
-          message: 'Lesson topic claimed!',
+          message: claimedDescriptionText,
           action: {
             path: '/',
-            description: 'View',
+            description: viewActionText,
           },
         })
       }

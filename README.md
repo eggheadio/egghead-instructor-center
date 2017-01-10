@@ -123,6 +123,7 @@ The *root screen* is the container for the entire app. It has everything a scree
 
 - `index.js` wires up the component and state trees.
 - `state/` wires up all sub-screen `reducers/` and `epics/`.
+- `utils/` contains utilities used across the entire app, including URL and hard-coded text strings.
 
 ### Styles
 

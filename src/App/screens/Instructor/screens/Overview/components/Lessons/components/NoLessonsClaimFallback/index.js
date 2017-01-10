@@ -1,15 +1,16 @@
 import React from 'react'
 import {Link} from 'react-router'
+import {claimDescriptionText, newLessonsTitleText} from '../../../../../../../../utils/text'
 import Button from '../../../../../../../../components/Button'
 
 export default ({instructorId, description}) => (
   <div>
     <div className='mv3 i orange'>
-      {description}. Claim or submit a topic to get started!
+      {description}. {claimDescriptionText}
     </div>
-    <Link to={`/instructors/${instructorId}/topics`}>
+    <Link to={`/instructors/${instructorId}/new-lessons`}>
       <Button>
-        Claim a topic
+        {newLessonsTitleText}
       </Button>
     </Link>
   </div>

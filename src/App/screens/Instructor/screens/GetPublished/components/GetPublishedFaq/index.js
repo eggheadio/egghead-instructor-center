@@ -1,22 +1,19 @@
 import React from 'react'
 import {map} from 'lodash'
-import {paymentInfoUrl} from '../../../../../../utils/urls'
+import {
+  whatNowQuestionText,
+  whatNowAnswerText,
+  faqTitleText,
+} from '../../../../../../utils/text'
+import {guideUrl} from '../../../../../../utils/urls'
 import Heading from '../../../../../../components/Heading'
 import InfoBlock from './components/InfoBlock'
 
 const questions = [
   {
-    question: 'How much money will I make?',
-    answer: 'Royalties can range anywhere from pocket change to surpassing your full-time job\'s income. It all depends on how many lessons and courses you create all your hard work snowballs into beautiful recurring residual income!',
-    moreInfoUrl: paymentInfoUrl,
-  },
-  {
-    question: 'When do I get paid?',
-    answer: 'After you publish your first lesson, at the beginning of the following month we will set up your direct deposit.',
-  },
-  {
-    question: 'Can I see viewer stats for my lessons?',
-    answer: 'Yep! After you publish your first lesson, you will start getting nightly emails with viewer stats on your published lessons.',
+    question: whatNowQuestionText,
+    answer: whatNowAnswerText,
+    moreInfoUrl: guideUrl,
   },
 ]
 
@@ -24,7 +21,7 @@ const GetPublishedFaq = () => (
   <div>
 
     <Heading level='2'>
-      FAQ
+      {faqTitleText}
     </Heading>
 
     {map(questions, (question, index) => (
