@@ -1,6 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {size} from 'lodash'
+import {
+  submitActionText,
+  viewActionText,
+  missingInputDescriptionText,
+  lessonSummaryLabelText,
+  newLessonSubmissionDescriptionText,
+  titleLabelText,
+} from '../../../../../../utils/text'
 import {addNotification} from '../../../../../../state/actions'
 import Heading from '../../../../../../components/Heading'
 import {startSubmitLesson} from '../../../../state/actions'
@@ -36,7 +44,7 @@ export default connect(
       message: 'Lesson submitted and claimed!',
       action: {
         path: '/',
-        description: 'View',
+        description: viewActionText,
       },
     })
   }
@@ -50,7 +58,7 @@ export default connect(
     else {
       addNotification({
         type: 'error',
-        message: 'Missing required form input',
+        message: missingInputDescriptionText,
       })
       this.setState({hasError: true})
     }
@@ -74,17 +82,17 @@ export default connect(
       <div>
 
         <Heading level='2'>
-          Submit
+          {submitActionText}
         </Heading>
 
         <div className='mb3'>
-          Got an idea for something to record? Great! Submit anything and everything. You can submit as many as you'd like. You'll automatically "Claim" your submissions.
+          {newLessonSubmissionDescriptionText}
         </div>
 
         <div className='mb2'>
           <input
             type='text'
-            placeholder='Title *'
+            placeholder={titleLabelText}
             value={title}
             onChange={this.handleTitleChange}
             className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
@@ -94,7 +102,7 @@ export default connect(
         <div className='mb2'>
           <textarea
             type='text'
-            placeholder='Summary (optional, but preferred)'
+            placeholder={lessonSummaryLabelText}
             rows='5'
             value={summary}
             onChange={this.handleSummaryChange}
@@ -103,7 +111,7 @@ export default connect(
         </div>
 
         <Button onClick={this.handleSubmitAttempt}>
-          Submit
+          {submitActionText}
         </Button>
 
       </div>

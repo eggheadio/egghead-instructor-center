@@ -1,4 +1,5 @@
 import React from 'react'
+import {getPublishedTitleText} from '../../../../utils/text'
 import Split from '../../../../components/Split'
 import LessonsByPage from '../../components/LessonsByPage'
 import Intro from '../../components/Intro'
@@ -15,7 +16,7 @@ export default ({
         intro={
           <Intro instructor={instructor} />
         }
-        title='Get Published'
+        title={getPublishedTitleText}
         main={
           <GetPublishedSteps
             instructor={instructor}

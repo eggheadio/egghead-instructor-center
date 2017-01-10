@@ -1,4 +1,5 @@
 import React from 'react'
+import {greetingTitleText} from '../../../../utils/text'
 import Avatar from '../Avatar'
 
 export default ({instructor}) => (
@@ -10,7 +11,7 @@ export default ({instructor}) => (
       />
     </div>
     <div className='f4 b gray i mt2'>
-      Hi {instructor.first_name}!
+      {greetingTitleText} {instructor.first_name}!
     </div>
   </div>
 )

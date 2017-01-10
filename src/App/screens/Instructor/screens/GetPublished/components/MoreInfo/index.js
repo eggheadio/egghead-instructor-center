@@ -16,4 +16,3 @@ MoreInfo.propTypes = {
 }
 
 export default MoreInfo
-

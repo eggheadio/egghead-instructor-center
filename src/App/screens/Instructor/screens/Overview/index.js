@@ -1,4 +1,5 @@
 import React from 'react'
+import {overviewTitleText} from '../../../../utils/text'
 import Split from '../../../../components/Split'
 import Intro from '../../components/Intro'
 import Lessons from './components/Lessons'
@@ -13,7 +14,7 @@ export default ({
     intro={
       <Intro instructor={instructor} />
     }
-    title='Overview'
+    title={overviewTitleText}
     main={
       <Lessons
         instructor={instructor}

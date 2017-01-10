@@ -3,6 +3,17 @@ import {connect} from 'react-redux'
 import {every, size} from 'lodash'
 import {startFetchUser, addNotification} from '../../../../state/actions'
 import {guideUrl} from '../../../../utils/urls'
+import {
+  appTitleText,
+  loginTitleText,
+  loginDescriptionText,
+  emailLabelText,
+  passwordLabelText,
+  missingInputDescriptionText,
+  guideTitleText, 
+  guideDescriptionText,
+  guideActionText,
+} from '../../../../utils/text'
 import Main from '../../../../components/Main'
 import Heading from '../../../../components/Heading'
 import Button from '../../../../components/Button'
@@ -45,7 +56,7 @@ export default connect(
     else {
       addNotification({
         type: 'error',
-        message: 'Missing required form input',
+        message: missingInputDescriptionText,
       })
       this.setState({hasError: true})
     }
@@ -70,16 +81,16 @@ export default connect(
 
         <div className='mb3'>
           <Heading level='2'>
-            Instructor 101 Guide
+            {guideTitleText}
           </Heading>
 
           <div className='mb3'>
-            We've put together a guide to help you understand how lessons are created for egghead.io.
+            {guideDescriptionText}
           </div>
 
           <Anchor url={guideUrl}>
             <Button>
-              View the guide
+              {guideActionText}
             </Button>
           </Anchor>
         </div>
@@ -87,17 +98,17 @@ export default connect(
         <div>
 
           <Heading level='2'>
-            Instructor Center
+            {appTitleText}
           </Heading>
 
           <div className='mb3'>
-            If you're an existing egghead.io instructor, please log in to access the instructor center.
+            {loginDescriptionText}
           </div>
 
           <div className='mb2'>
             <input
               type='text'
-              placeholder='Email *'
+              placeholder={emailLabelText}
               value={email}
               onChange={this.handleEmailChange}
               className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
@@ -107,7 +118,7 @@ export default connect(
           <div className='mb2'>
             <input
               type='password'
-              placeholder='Password *'
+              placeholder={passwordLabelText}
               value={password}
               onChange={this.handlePasswordChange}
               className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
@@ -115,7 +126,7 @@ export default connect(
           </div>
 
           <Button onClick={this.handleSubmitAttempt}>
-            Log in
+            {loginTitleText}
           </Button>
 
         </div>

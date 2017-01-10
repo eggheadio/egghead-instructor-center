@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {Match} from 'react-router'
 import {connect} from 'react-redux'
 import {toString} from 'lodash'
+import {forbiddenDescriptionText, forbiddenActionText} from '../../utils/text'
 import {guideUrl, chatUrl} from '../../utils/urls'
 import {addNotification} from '../../state/actions'
 import Main from '../../components/Main'
@@ -56,22 +57,10 @@ export default connect(
     if(params.instructorId !== toString(user.instructor_id)) {
       addNotification({
         type: 'error',
-        message: 'You can only view your own instructor pages',
+        message: forbiddenDescriptionText,
         action: {
           path: `/instructors/${user.instructor_id}`,
-          description: 'View my instructor pages',
-        },
-      })
-      return null
-    }
-
-    if(!user.is_instructor) {
-      addNotification({
-        type: 'error',
-        message: 'Only instructors can view this',
-        action: {
-          path: '/guide',
-          description: 'View guide',
+          description: forbiddenActionText,
         },
       })
       return null

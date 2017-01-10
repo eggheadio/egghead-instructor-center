@@ -1,6 +1,10 @@
 import React, {PropTypes} from 'react'
 import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
+import {
+  previousLabelText,
+  nextLabelText,
+} from '../../../../../../utils/text'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonSummary from './components/LessonSummary'
 
@@ -42,8 +46,8 @@ const PaginatedLessonList = ({
                 pageRangeDisplayed={3}
                 marginPagesDisplayed={1}
                 initialSelected={currentPage - 1}
-                previousLabel={'Previous'}
-                nextLabel={'Next'}
+                previousLabel={previousLabelText}
+                nextLabel={nextLabelText}
                 clickCallback={(page) => {
                   const {selected} = page
                   if (currentPage !== selected + 1) {

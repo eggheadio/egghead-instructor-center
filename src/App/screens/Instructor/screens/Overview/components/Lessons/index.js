@@ -1,4 +1,10 @@
 import React from 'react'
+import {
+  lessonsTitleText,
+  inProgressTitleText,
+  noInProgressLessonsDescriptionText,
+  noPublishedLessonsDescriptionText,
+} from '../../../../../../utils/text'
 import Heading from '../../../../../../components/Heading'
 import {inProgressLessonStates, publishedLessonStates} from '../../../../utils/lessonStatesGroups'
 import LessonList from '../../../../components/LessonList'
@@ -9,12 +15,12 @@ export default ({instructor, lessonPage}) => (
   <div>
     
     <Heading level='2'>
-      Lessons
+      {lessonsTitleText}
     </Heading>
 
     <Tabs groups={[
       {
-        title: 'In Progress',
+        title: inProgressTitleText,
         component: (
           <LessonList
             states={inProgressLessonStates}
@@ -22,7 +28,7 @@ export default ({instructor, lessonPage}) => (
             fallback={
               <NoLessonsClaimFallback 
                 instructorId={instructor.id}
-                description='You have no lessons in progress'
+                description={noInProgressLessonsDescriptionText}
               />
             }
           />
@@ -37,7 +43,7 @@ export default ({instructor, lessonPage}) => (
             fallback={
               <NoLessonsClaimFallback 
                 instructorId={instructor.id}
-                description='You have no published lessons'
+                description={noPublishedLessonsDescriptionText}
               />
             }
           />

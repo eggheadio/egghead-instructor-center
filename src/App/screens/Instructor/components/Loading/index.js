@@ -1,4 +1,5 @@
 import React from 'react'
+import {loadingTitleText} from '../../../../utils/text'
 import Icon from '../Icon'
 
 export default () => (
@@ -9,6 +10,6 @@ export default () => (
       spin
       className='mr2'
     />
-    Loading...
+    {loadingTitleText}...
   </div>
 )
