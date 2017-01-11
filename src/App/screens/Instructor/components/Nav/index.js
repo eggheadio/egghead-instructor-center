@@ -38,16 +38,20 @@ export default class Nav extends Component {
     const {pathname, items} = this.props
 
     return (
-      <header className='pv3 pv0-ns bg-black-70'>
+      <header className='bg-black-70'>
 
-        <div className='mw8 center relative flex-ns items-center-ns'>
+        <div className='
+          mw8 center relative
+          flex-ns items-center-ns flex-wrap-ns
+        '>
 
-          <div className='ph4 mr2'>
+          <div className='ph4 pv3'>
             <Logo />
           </div>
 
           <nav className={`
-            mt3 mt0-ns
+            pv3 pv0-ns
+            ml4-ns
             ${this.state.isOpen
               ? 'flex'
               : 'dn'
@@ -101,7 +105,7 @@ export default class Nav extends Component {
 
           <div
             onClick={this.toggle.bind(this)}
-            className='absolute top-0 right-2 mt1 dn-ns'
+            className='absolute top-1 right-2 mt1 dn-ns'
           >
             {this.state.isOpen
               ? <Icon
