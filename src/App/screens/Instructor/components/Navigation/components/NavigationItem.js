@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 
-const NavItem = ({
+const NavigationItem = ({
   text,
   isActive,
   onClick,
@@ -26,11 +26,11 @@ const NavItem = ({
   </a>
 )
 
-NavItem.propTypes = {
+NavigationItem.propTypes = {
   text: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
   href: PropTypes.string,
 }
 
-export default NavItem
+export default NavigationItem

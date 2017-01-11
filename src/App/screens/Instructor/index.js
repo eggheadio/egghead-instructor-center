@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {Match} from 'react-router'
 import {connect} from 'react-redux'
-import {toString} from 'lodash'
+import {compact, toString} from 'lodash'
 import {forbiddenDescriptionText, forbiddenActionText} from '../../utils/text'
 import {guideUrl, chatUrl} from '../../utils/urls'
 import {addNotification} from '../../state/actions'
@@ -10,7 +10,7 @@ import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
 import NewLessons from './screens/NewLessons'
-import Nav from './components/Nav'
+import Navigation from './components/Navigation'
 import Loading from './components/Loading'
 
 export default connect(
@@ -69,9 +69,15 @@ export default connect(
     return (
       <div>
 
-        <Nav
+        <Navigation
           pathname={pathname}
-          items={[
+          items={compact([
+            (instructor.published_lessons === 0)
+              ? {
+                  text: 'Get Published',
+                  action: '/get-published',
+                }
+              : null,
             {
               text: 'Overview',
               action: '',
@@ -95,24 +101,30 @@ export default connect(
                 window.location.reload()
               }
             },
-          ]}
+          ])}
         />
 
         <Main>
 
           <Match 
+            pattern={`${pathname}/get-published`}
+            render={() => (
+              <GetPublished 
+                instructor={instructor}
+                lessonPage={lessonPage}
+              />
+            )}
+          />
+
+          <Match 
             exactly
             pattern={pathname}
-            render={() => (instructor.published_lessons > 0)
-              ? <Overview
-                  instructor={instructor}
-                  lessonPage={lessonPage}
-                />
-              : <GetPublished 
-                  instructor={instructor}
-                  lessonPage={lessonPage}
-                />
-            }
+            render={() => (
+              <Overview
+                instructor={instructor}
+                lessonPage={lessonPage}
+              />
+            )}
           />
 
           <Match 
