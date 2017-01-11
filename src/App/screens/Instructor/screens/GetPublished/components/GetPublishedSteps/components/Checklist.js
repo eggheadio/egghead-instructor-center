@@ -1,9 +1,10 @@
 import React, {PropTypes} from 'react'
+import {Link} from 'react-router'
 import {map} from 'lodash'
 import Icon from '../../../../../components/Icon'
 import MoreInfo from '../../MoreInfo'
 
-const Checklist = ({items}) => (
+const Checklist = ({items, instructorId}) => (
   <div>
     {map(items, (item, index) => (
       <div
@@ -40,6 +41,18 @@ const Checklist = ({items}) => (
                 </span>
               : null
             }
+            {item.action
+              ? <Link 
+                  to={`/instructors/${instructorId}${item.action}`}
+                  className='ml2'
+                >
+                  <Icon
+                    type='arrow-right'
+                    className='blue'
+                  />
+                </Link>
+              : null
+            }
           </div>
         </div>
 
@@ -52,6 +65,7 @@ Checklist.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     isComplete: PropTypes.bool.isRequired,
     description: PropTypes.string.isRequired,
+    actionUrl: PropTypes.string,
     moreInfoUrl: PropTypes.string,
   })).isRequired,
 }
