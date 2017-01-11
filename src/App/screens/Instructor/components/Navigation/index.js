@@ -3,9 +3,9 @@ import {Link} from 'react-router'
 import {map, isFunction, startsWith} from 'lodash'
 import Icon from '../Icon'
 import Logo from '../Logo'
-import NavItem from './components/NavItem'
+import NavigationItem from './components/NavigationItem'
 
-export default class Nav extends Component {
+export default class Navigation extends Component {
   
   static propTypes = {
     pathname: PropTypes.string.isRequired,
@@ -62,7 +62,7 @@ export default class Nav extends Component {
 
               if(isFunction(item.action)) {
                 return (
-                  <NavItem
+                  <NavigationItem
                     key={index}
                     text={item.text}
                     isActive={false}
@@ -83,7 +83,7 @@ export default class Nav extends Component {
                       onClick={this.close}
                     >
                       {({isActive, onClick, href}) => (
-                        <NavItem
+                        <NavigationItem
                           text={item.text}
                           isActive={isActive}
                           onClick={onClick}
@@ -91,7 +91,7 @@ export default class Nav extends Component {
                         />
                       )}
                     </Link>
-                  : <NavItem
+                  : <NavigationItem
                       key={index}
                       text={item.text}
                       isActive={false}

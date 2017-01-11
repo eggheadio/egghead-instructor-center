@@ -7,7 +7,7 @@ import {
   missingInputDescriptionText,
   lessonSummaryLabelText,
   newLessonSubmissionDescriptionText,
-  titleLabelText,
+  lessonTitleLabelText,
 } from '../../../../../../utils/text'
 import {addNotification} from '../../../../../../state/actions'
 import Heading from '../../../../../../components/Heading'
@@ -92,7 +92,7 @@ export default connect(
         <div className='mb2'>
           <input
             type='text'
-            placeholder={titleLabelText}
+            placeholder={lessonTitleLabelText}
             value={title}
             onChange={this.handleTitleChange}
             className={`${inputClassNames}${hasError ? ' b--red' : ''}`}

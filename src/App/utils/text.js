@@ -3,6 +3,7 @@ export const appTitleText = 'Instructor 101 Guide'
 export const overviewTitleText = 'Overview'
 
 export const newLessonsTitleText = 'New Lessons'
+export const newLessonsActionText = 'Claim a new lesson'
 
 export const forbiddenDescriptionText = 'You can only view your own pages'
 export const forbiddenActionText = 'View my instructor pages'
@@ -11,9 +12,9 @@ export const lessonsTitleText = 'Lessons'
 
 export const inProgressTitleText = 'In progress'
 
-export const noInProgressLessonsDescriptionText = 'You have no lessons in progress'
+export const noInProgressLessonsDescriptionText = 'You have no lessons in progress. Go claim a new lesson!'
 
-export const noPublishedLessonsDescriptionText = 'You have no published lessons'
+export const noPublishedLessonsDescriptionText = 'Looks like you don\'t have any published lessons. Go complete the Get Published checklist!'
 
 export const revenueTitleText = 'Revenue'
 
@@ -25,6 +26,7 @@ export const noRevenueDescriptionText = 'There\'s no revenue to report. Time to 
 
 export const getPublishedTitleText = 'Get published'
 export const getPublishedDescriptionText = 'Work with your mentor to complete these items so you can get published!'
+export const getPublishedActionText = 'Get published'
 
 export const requestedTitleText = 'Requested'
 export const requestedDescriptionText = 'Here\'s what we\'d love to see recorded right now. Claimed lessons will be yours for 2 weeks, and then they\'ll be reopened for others to claim.'
@@ -68,7 +70,6 @@ export const newLessonSubmissionDescriptionText = 'Got an idea for something to 
 export const loadingTitleText = 'Loading'
 
 export const lessonTitleLabelText = 'Title *'
-
 export const lessonSummaryLabelText = 'Summary (optional, but preferred)'
 
 export const previousLabelText = 'Previous'

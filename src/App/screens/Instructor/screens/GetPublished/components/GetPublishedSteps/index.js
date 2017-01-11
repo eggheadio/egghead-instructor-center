@@ -20,7 +20,7 @@ const GetPublishedSteps = ({
   const steps = [
     {
       isComplete: true,
-      description: 'Create an instructor account',
+      description: 'Create instructor account',
     },
     {
       isComplete: isString(instructor.slack_id),
@@ -29,12 +29,14 @@ const GetPublishedSteps = ({
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'claimed'),
-      description: 'Claim a new lesson',
+      description: 'Claim new lesson',
+      action: '/new-lessons',
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'submitted'),
-      description: 'Submit rough draft lesson',
+      description: 'Submit rough draft',
       moreInfoUrl: roughDraftInfoUrl,
+      action: '/',
     },
     {
       isComplete: isString(instructor.gear_tracking_id),
@@ -43,11 +45,15 @@ const GetPublishedSteps = ({
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'updated'),
-      description: 'Re-record and update lesson',
+      description: 'Re-record with gear',
+      moreInfoUrl: roughDraftInfoUrl,
+      action: '/',
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'approved'),
-      description: 'Iterate with mentor until lesson is approved',
+      description: 'Iterate until approved',
+      moreInfoUrl: roughDraftInfoUrl,
+      action: '/',
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'published'),
@@ -63,7 +69,10 @@ const GetPublishedSteps = ({
       </DescriptionBlock>
 
       <div className='mt3'>
-        <Checklist items={steps} />
+        <Checklist 
+          items={steps} 
+          instructorId={instructor.id}
+        />
       </div>
 
     </div>

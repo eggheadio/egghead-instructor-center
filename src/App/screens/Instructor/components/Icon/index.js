@@ -23,6 +23,7 @@ export const types = {
   'course': 'folder-open-o',
   'lesson': 'file-o',
   'refresh': 'refresh',
+  'arrow-right': 'arrow-right',
 }
 
 const Icon = ({
