@@ -51,6 +51,7 @@ export default (action$, store) => (
               .then(response => response.text())
               .then(token => {
                 localStorage.setItem('token', token)
+                window.location.reload()
                 return jwt.decode(token, null, true).meta
               })
               .catch(error => {
