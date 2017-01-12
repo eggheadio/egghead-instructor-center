@@ -1,7 +1,8 @@
 import {Observable} from 'rxjs'
 import {addNotification} from '../../../../state/actions'
+import createResourceBody from './utils/createResourceBody'
 import {STARTED_SUBMIT_LESSON} from '../actions/instructorActionTypes'
-import {endSubmitLesson} from '../actions'
+import {startUpdateLessonState, endSubmitLesson} from '../actions'
 import headers from '../../../../utils/headers'
 
 export default (action$, store) => (
@@ -10,7 +11,7 @@ export default (action$, store) => (
       ({payload}) => Observable.fromPromise(
         fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`, {
           method: 'POST',
-          body: JSON.stringify(payload.lesson),
+          body: JSON.stringify(createResourceBody('lesson', payload.lesson)),
           headers,
         })
           .then(response => {
@@ -30,8 +31,15 @@ export default (action$, store) => (
             )
           })
       ),
-      ({payload}, lesson) => (
+      ({payload}, lesson) => {
+        if(payload.lesson.state) {
+          startUpdateLessonState({
+            instructorId: lesson.instructor.id,
+            lesson,
+            newState: payload.lesson.state,
+          })
+        }
         endSubmitLesson()
-      )
+      }
     )
 )
