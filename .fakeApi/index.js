@@ -106,6 +106,83 @@ module.exports = () => {
     }
   })
 
+  const technologies = {
+    technologies: [
+      {
+        "id": 15,
+        "label": "HTML 5",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/015/thumb/html5.png?1465958987",
+        "http_url": "https://egghead-io-staging.com/technologies/html"
+      },
+      {
+        "id": 13,
+        "label": "CSS",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/013/thumb/css.png?1451251812",
+        "http_url": "https://egghead-io-staging.com/technologies/css"
+      },
+      {
+        "id": 1,
+        "label": "Angular 1.x",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/001/thumb/angularjs.png?1396227088",
+        "http_url": "https://egghead-io-staging.com/technologies/angularjs"
+      },
+      {
+        "id": 10,
+        "label": "TypeScript",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/010/thumb/typescript.png?1426608111",
+        "http_url": "https://egghead-io-staging.com/technologies/typescript"
+      },
+      {
+        "id": 12,
+        "label": "RxJS",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/012/thumb/rx.png?1431738111",
+        "http_url": "https://egghead-io-staging.com/technologies/rx"
+      },
+      {
+        "id": 6,
+        "label": "JavaScript",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/006/thumb/js.png?1396287299",
+        "http_url": "https://egghead-io-staging.com/technologies/js"
+      },
+      {
+        "id": 2,
+        "label": "React",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/002/thumb/react.png?1396227379",
+        "http_url": "https://egghead-io-staging.com/technologies/react"
+      },
+      {
+        "id": 5,
+        "label": "D3",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/005/thumb/d3.png?1396287226",
+        "http_url": "https://egghead-io-staging.com/technologies/d3"
+      },
+      {
+        "id": 7,
+        "label": "Node.js",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/007/thumb/node.png?1396287356",
+        "http_url": "https://egghead-io-staging.com/technologies/node"
+      },
+      {
+        "id": 11,
+        "label": "Angular 2",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/011/thumb/angular2.png?1431720365",
+        "http_url": "https://egghead-io-staging.com/technologies/angular2"
+      },
+      {
+        "id": 8,
+        "label": "Tools",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/008/thumb/html5.png?1396287555",
+        "http_url": "https://egghead-io-staging.com/technologies/otherjs"
+      },
+      {
+        "id": 14,
+        "label": "Elm",
+        "icon_thumb_url": "https://d2eip9sf3oo6c2.cloudfront.net/technologies/icons/000/000/014/thumb/elm.png?1452701700",
+        "http_url": "https://egghead-io-staging.com/technologies/elm"
+      }
+    ]
+  }
+
   return {
     user: {
       jwt: jwt.encode({
@@ -117,5 +194,6 @@ module.exports = () => {
     },
     instructors,
     lessons,
+    technologies,
   }
 }

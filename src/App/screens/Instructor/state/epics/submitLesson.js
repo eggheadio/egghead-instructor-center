@@ -32,7 +32,7 @@ export default (action$, store) => (
           })
       ),
       ({payload}, lesson) => {
-        if(payload.lesson.state) {
+        if(payload.lesson.state && !process.env.REACT_APP_FAKE_API) {
           store.dispatch(startUpdateLessonState({
             instructorId: lesson.instructor.id,
             lesson,
