@@ -39,7 +39,7 @@ export default (action$, store) => (
             newState: payload.lesson.state,
           }))
         }
-        endSubmitLesson()
+        return endSubmitLesson()
       }
     )
 )
