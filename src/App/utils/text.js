@@ -70,7 +70,8 @@ export const newLessonSubmissionDescriptionText = 'Got an idea for something to 
 export const loadingTitleText = 'Loading'
 
 export const lessonTitleLabelText = 'Title *'
-export const lessonSummaryLabelText = 'Summary (optional, but preferred)'
+export const lessonTechnologyLabelText = 'Technology *'
+export const lessonSummaryLabelText = 'Summary'
 
 export const previousLabelText = 'Previous'
 export const nextLabelText = 'Next'

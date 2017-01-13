@@ -67,3 +67,15 @@ export const startSubmitLesson = (lesson) => ({
 export const endSubmitLesson = () => ({
   type: instructorActionTypes.ENDED_SUBMIT_LESSON,
 })
+
+export const startFetchTechnologies = () => ({
+  type: instructorActionTypes.STARTED_FETCH_TECHNOLOGIES,
+})
+
+export const endFetchTechnologies = (technologies) => ({
+  type: instructorActionTypes.ENDED_FETCH_TECHNOLOGIES,
+  payload: {
+    technologies
+  },
+})
+

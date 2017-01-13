@@ -1,33 +1,48 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {size} from 'lodash'
+import {size, every} from 'lodash'
 import {
   submitActionText,
   viewActionText,
   missingInputDescriptionText,
-  lessonSummaryLabelText,
   newLessonSubmissionDescriptionText,
   lessonTitleLabelText,
+  lessonTechnologyLabelText,
+  lessonSummaryLabelText,
 } from '../../../../../../utils/text'
 import {addNotification} from '../../../../../../state/actions'
 import Heading from '../../../../../../components/Heading'
-import {startSubmitLesson} from '../../../../state/actions'
+import {startFetchTechnologies, startSubmitLesson} from '../../../../state/actions'
 import Button from '../../../../../../components/Button'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
 const clearedState = {
   title: '',
+  technology: '',
   summary: '',
   hasError: false,
 }
 
 export default connect(
-  null,
-  {startSubmitLesson, addNotification}
+  ({instructorScreen}) => ({
+    technologies: instructorScreen.technologies,
+  }),
+  {
+    addNotification,
+    startFetchTechnologies,
+    startSubmitLesson,
+  }
 )(class Submit extends Component {
 
   state = clearedState
+
+  componentWillMount() {
+    const {technologies} = this.props
+    if(!technologies) {
+      startFetchTechnologies()
+    }
+  }
 
   submit = () => {
     const {title, summary} = this.state
@@ -50,9 +65,9 @@ export default connect(
   }
 
   handleSubmitAttempt = () => {
-    const {title} = this.state
+    const {title, technology} = this.state
     const {addNotification} = this.props
-    if(size(title) > 0) {
+    if(every([title, technology], (input) => size(input) > 0)) {
       this.submit()
     }
     else {
@@ -67,6 +82,12 @@ export default connect(
   handleTitleChange = (event) => {
     this.setState({
       title: event.target.value
+    })
+  }
+
+  handleTechnologyChange = (event) => {
+    this.setState({
+      technology: event.target.value
     })
   }
 
@@ -90,9 +111,11 @@ export default connect(
         </div>
 
         <div className='mb2'>
+          <div className='b gray'>
+            {lessonTitleLabelText}
+          </div>
           <input
             type='text'
-            placeholder={lessonTitleLabelText}
             value={title}
             onChange={this.handleTitleChange}
             className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
@@ -100,9 +123,24 @@ export default connect(
         </div>
 
         <div className='mb2'>
+          <div className='b gray'>
+            {lessonTechnologyLabelText}
+          </div>
+          <select
+            value={this.state.technology}
+            onChange={this.handleTechnologyChange}
+            className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
+          >
+            <option value='grapefruit'>Grapefruit</option>
+          </select>
+        </div>
+
+        <div className='mb2'>
+          <div className='b gray'>
+            {lessonSummaryLabelText}
+          </div>
           <textarea
             type='text'
-            placeholder={lessonSummaryLabelText}
             rows='5'
             value={summary}
             onChange={this.handleSummaryChange}
