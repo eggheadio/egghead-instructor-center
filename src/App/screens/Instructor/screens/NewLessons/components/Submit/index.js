@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {size, every} from 'lodash'
+import {map, size, every} from 'lodash'
 import {
   submitActionText,
   viewActionText,
@@ -19,7 +19,7 @@ const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
 const clearedState = {
   title: '',
-  technology: '',
+  technologyId: '',
   summary: '',
   hasError: false,
 }
@@ -38,17 +38,18 @@ export default connect(
   state = clearedState
 
   componentWillMount() {
-    const {technologies} = this.props
+    const {startFetchTechnologies, technologies} = this.props
     if(!technologies) {
       startFetchTechnologies()
     }
   }
 
   submit = () => {
-    const {title, summary} = this.state
+    const {title, technologyId, summary} = this.state
     const {instructor, startSubmitLesson, addNotification} = this.props
     startSubmitLesson({
       title: title,
+      technology_id: technologyId,
       summary: summary,
       state: 'claimed',
       instructor_id: instructor.id,
@@ -65,9 +66,9 @@ export default connect(
   }
 
   handleSubmitAttempt = () => {
-    const {title, technology} = this.state
+    const {title, technologyId} = this.state
     const {addNotification} = this.props
-    if(every([title, technology], (input) => size(input) > 0)) {
+    if(every([title, technologyId], (input) => size(input) > 0)) {
       this.submit()
     }
     else {
@@ -87,7 +88,7 @@ export default connect(
 
   handleTechnologyChange = (event) => {
     this.setState({
-      technology: event.target.value
+      technologyId: event.target.value
     })
   }
 
@@ -98,7 +99,7 @@ export default connect(
   }
 
   render() {
-    const {title, summary, hasError} = this.state
+    const {title, technologyId, summary, hasError} = this.state
     return (
       <div>
 
@@ -127,11 +128,19 @@ export default connect(
             {lessonTechnologyLabelText}
           </div>
           <select
-            value={this.state.technology}
+            value={technologyId}
             onChange={this.handleTechnologyChange}
             className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
           >
-            <option value='grapefruit'>Grapefruit</option>
+            <option value=''></option>
+            {map(this.props.technologies, (technology) => (
+              <option 
+                key={technology.id}
+                value={technology.id}
+              >
+                {technology.label}
+              </option>
+            ))}
           </select>
         </div>
 

@@ -33,11 +33,11 @@ export default (action$, store) => (
       ),
       ({payload}, lesson) => {
         if(payload.lesson.state) {
-          startUpdateLessonState({
+          store.dispatch(startUpdateLessonState({
             instructorId: lesson.instructor.id,
             lesson,
             newState: payload.lesson.state,
-          })
+          }))
         }
         endSubmitLesson()
       }
