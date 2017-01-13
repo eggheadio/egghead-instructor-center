@@ -68,7 +68,7 @@ export const endSubmitLesson = () => ({
   type: instructorActionTypes.ENDED_SUBMIT_LESSON,
 })
 
-export const startFetchTechnologies = () => ({
+export const startFetchTechnologies = () => (console.log('hit action creator, working') || {
   type: instructorActionTypes.STARTED_FETCH_TECHNOLOGIES,
 })
 
@@ -78,4 +78,3 @@ export const endFetchTechnologies = (technologies) => ({
     technologies
   },
 })
-

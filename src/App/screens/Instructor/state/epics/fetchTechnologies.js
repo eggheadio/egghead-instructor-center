@@ -8,11 +8,14 @@ export default (action$, store) => (
   action$.ofType(STARTED_FETCH_TECHNOLOGIES)
     .switchMap(
       ({payload}) => Observable.fromPromise(
-        console.log('hit') ||
+
+        // TODO: hit this log - why isn't action creator dispatching STARTED_FETCH_TECHNOLOGIES action?
+        console.log('hit epic, not working') ||
+
         fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/technologies`, {headers})
           .then(response => {
             if (!response.ok) {
-              throw Error(`Fetching instructor data failed - error message: ${response.statusText}`);
+              throw Error(`Fetching technology data failed - error message: ${response.statusText}`);
             }
             return response
           })
