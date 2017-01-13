@@ -4,19 +4,43 @@ import {STARTED_UPDATE_LESSON_STATE} from '../actions/instructorActionTypes'
 import {endUpdateLessonState} from '../actions'
 import headers from '../../../../utils/headers'
 
+const lessonStateUrls = {
+  // 'proposed': 'propose_url',
+  'cancelled': 'cancel_url',
+  'accepted': 'accept_url',
+  'claimed': 'claim_url',
+  'submitted': 'submit_url',
+  'rejected': 'reject_url',
+  'updated': 'apply_update_url',
+  'approved': 'approve_url',
+  'published': 'publish_url',
+  'flagged': 'flag_url',
+  'revised': 'revise_url',
+  'retired': 'retire_url',
+}
+
 export default (action$, store) => (
   action$.ofType(STARTED_UPDATE_LESSON_STATE)
     .switchMap(
       ({payload}) => Observable.fromPromise(
-        fetch(payload.lesson.lesson_url, {
-          method: 'PUT',
-          body: JSON.stringify({
-            ...payload.lesson,
-            instructor_id: payload.instructorId,
-            state: payload.newState,
-          }),
-          headers,
-        })
+        fetch(
+          process.env.REACT_APP_FAKE_API 
+            ? payload.lesson.lesson_url
+            : payload.lesson[lessonStateUrls[payload.newState]],
+          {
+            method: process.env.REACT_APP_FAKE_API
+              ? 'PUT'
+              : 'POST',
+            body: process.env.REACT_APP_FAKE_API
+              ? JSON.stringify({
+                ...payload.lesson,
+                instructor_id: payload.instructorId,
+                state: payload.newState,
+              })
+              : null,
+            headers,
+          }
+        )
           .then(response => {
             if (!response.ok) {
               throw Error(`Updating lesson state failed - error message: ${response.statusText}`);

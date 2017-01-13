@@ -23,7 +23,7 @@ const Prompt = ({
 
 export default connect(
   ({instructorScreen}) => ({
-    instructorId: instructorScreen.instructor.id,
+    instructorId: instructorScreen.instructor.slug,
   }),
   null
 )(Prompt)

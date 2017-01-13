@@ -3,5 +3,6 @@
   "/api/v1/": "/",
   "/instructors": "/instructors",
   "/instructors/:id": "/instructors/:id",
-  "/instructors/:id/lessons": "/lessons?instructor_id=:id"
+  "/instructors/:id/lessons": "/lessons?instructor_id=:id",
+  "/technologies": "/technologies"
 }
