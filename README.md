@@ -14,6 +14,7 @@ An app for egghead instructors to do all the instructor things.
 - Node
 - Yarn
 - [egghead-systems](https://github.com/eggheadio/egghead-systems)
+- Copy `.env_template` to `.env`
 
 ---
 
