@@ -19,7 +19,7 @@ const Router = ({addUser, user}) => {
     <BrowserRouter>
       <div>
 
-        {size(user) > 0
+        {size(user) > 0 && user.is_instructor
           ? <div>
 
               <Match
