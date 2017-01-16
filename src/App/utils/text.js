@@ -32,7 +32,7 @@ export const requestedTitleText = 'Requested'
 export const requestedDescriptionText = 'Here\'s what we\'d love to see recorded right now. Claimed lessons will be yours for 2 weeks, and then they\'ll be reopened for others to claim.'
 export const requestedEmptyDescriptionText = 'All requested lessons have been claimed, but you can submit your own!'
 
-export const loginTitleText = 'Log in'
+export const loginTitleText = 'Log in via egghead'
 export const loginDescriptionText = 'If you\'re an existing egghead.io instructor, please log in to access the instructor center.'
 
 export const greetingTitleText = 'Hi'
