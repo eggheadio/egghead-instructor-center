@@ -7,6 +7,11 @@ export const addUser = (token) => ({
   },
 })
 
+export const removeUser = () => ({
+  type: appActionTypes.REMOVE_USER,
+  payload: {},
+})
+
 export const addNotification = (notification) => ({
   type: appActionTypes.ADD_NOTIFICATION,
   payload: {

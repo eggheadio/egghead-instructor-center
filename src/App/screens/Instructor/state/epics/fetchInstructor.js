@@ -1,8 +1,9 @@
 import {Observable} from 'rxjs'
-import {addNotification} from '../../../../state/actions'
+import headers from '../../../../utils/headers'
+import {loginExpiredDescriptionText} from '../../../../utils/text'
+import {removeUser, addNotification} from '../../../../state/actions'
 import {STARTED_FETCH_INSTRUCTOR} from '../actions/instructorActionTypes'
 import {endFetchInstructor} from '../actions'
-import headers from '../../../../utils/headers'
 
 export default (action$, store) => (
   action$.ofType(STARTED_FETCH_INSTRUCTOR)
@@ -10,7 +11,11 @@ export default (action$, store) => (
       ({payload}) => Observable.fromPromise(
         fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/instructors/${payload.instructorId}`, {headers})
           .then(response => {
-            if (!response.ok) {
+            if (response.status === 401) {
+              store.dispatch(removeUser())
+              throw Error(loginExpiredDescriptionText)
+            }
+            else if (!response.ok) {
               throw Error(`Fetching instructor data failed - error message: ${response.statusText}`);
             }
             return response

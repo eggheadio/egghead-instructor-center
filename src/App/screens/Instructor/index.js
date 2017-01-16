@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {compact, toString} from 'lodash'
 import {forbiddenDescriptionText, forbiddenActionText} from '../../utils/text'
 import {guideUrl, chatUrl} from '../../utils/urls'
-import {addNotification} from '../../state/actions'
+import {removeUser, addNotification} from '../../state/actions'
 import Main from '../../components/Main'
 import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
@@ -18,7 +18,11 @@ export default connect(
     user: appScreen.user,
     ...instructorScreen,
   }),
-  {startFetchInstructor, addNotification}
+  {
+    removeUser,
+    addNotification,
+    startFetchInstructor
+  }
 )(class Instructor extends Component {
 
   static propTypes = {
@@ -38,6 +42,7 @@ export default connect(
     const {
       params,
       pathname,
+      removeUser,
       addNotification,
       startFetchInstructor,
       user,
@@ -96,10 +101,7 @@ export default connect(
             },
             {
               text: 'Log out',
-              action: () => {
-                localStorage.removeItem('token')
-                window.location.reload()
-              }
+              action: removeUser,
             },
           ])}
         />

@@ -1,5 +1,5 @@
 import jwt from 'jwt-simple'
-import {ADD_USER} from '../actions/appActionTypes';
+import {ADD_USER, REMOVE_USER} from '../actions/appActionTypes';
 
 const decodeUser = token => jwt.decode(token, null, true).meta
 
@@ -24,6 +24,11 @@ export default (
         ...state,
         ...decodeUser(token),
       }
+
+    case REMOVE_USER:
+      localStorage.removeItem('token')
+      window.location.reload()
+      return state
 
     default:
       return state
