@@ -30,9 +30,9 @@ const PaginatedLessonList = ({
       ? <div>
 
           <div className='bg-light-gray br2'>
-            {map(sortLessonsByState(lessons), (lesson) => (
+            {map(sortLessonsByState(lessons), (lesson, index) => (
               <div
-                key={lesson.id}
+                key={index}
                 className='bb b--black-20 pa3'
               >
                 <LessonSummary lesson={lesson} />
