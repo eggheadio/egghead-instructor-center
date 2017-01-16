@@ -14,18 +14,14 @@ An app for egghead instructors to do all the instructor things.
 - Node
 - Yarn
 - [egghead-systems](https://github.com/eggheadio/egghead-systems)
-
-## Environments
-
-- Copy `.env_template` to `.env`.
-- For each environment in `.env`, paste the JWT you get from: `curl -X POST -d "email={email}" -d "password={password}" {environment}/users/native_auth`
-- Note that JWTs expire and when you get a `403 forbidden` you will need to update your JWTs.
+- Copy `.env_template` to `.env`
 
 ---
 
 # Workflow
 
 - `yarn` to install latest packages.
+- Uncomment the environment you want to use in `.env`
 - `yarn dev` to develop (runs APIs, development server, linting, and compiling).
 - [localhost:3000](http://localhost:3000) to view app.
 - `yarn test` to run tests.

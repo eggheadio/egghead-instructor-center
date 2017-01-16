@@ -1,8 +1,10 @@
+import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import {addNotification} from '../../../../state/actions'
+import headers from '../../../../utils/headers'
+import {loginExpiredDescriptionText} from '../../../../utils/text'
+import {removeUser, addNotification} from '../../../../state/actions'
 import {STARTED_FETCH_TECHNOLOGIES} from '../actions/instructorActionTypes'
 import {endFetchTechnologies} from '../actions'
-import headers from '../../../../utils/headers'
 
 export default (action$, store) => (
   action$.ofType(STARTED_FETCH_TECHNOLOGIES)
@@ -10,7 +12,11 @@ export default (action$, store) => (
       ({payload}) => Observable.fromPromise(
         fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/technologies`, {headers})
           .then(response => {
-            if (!response.ok) {
+            if (includes([401, 404], response.status)) {
+              store.dispatch(removeUser())
+              throw Error(loginExpiredDescriptionText)
+            }
+            else if (!response.ok) {
               throw Error(`Fetching technology data failed - error message: ${response.statusText}`);
             }
             return response

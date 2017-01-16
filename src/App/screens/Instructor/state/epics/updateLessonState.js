@@ -1,8 +1,10 @@
+import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import {addNotification} from '../../../../state/actions'
+import headers from '../../../../utils/headers'
+import {loginExpiredDescriptionText} from '../../../../utils/text'
+import {removeUser, addNotification} from '../../../../state/actions'
 import {STARTED_UPDATE_LESSON_STATE} from '../actions/instructorActionTypes'
 import {endUpdateLessonState} from '../actions'
-import headers from '../../../../utils/headers'
 
 const lessonStateUrls = {
   // 'proposed': 'propose_url',
@@ -42,7 +44,11 @@ export default (action$, store) => (
           }
         )
           .then(response => {
-            if (!response.ok) {
+            if (includes([401, 404], response.status)) {
+              store.dispatch(removeUser())
+              throw Error(loginExpiredDescriptionText)
+            }
+            else if (!response.ok) {
               throw Error(`Updating lesson state failed - error message: ${response.statusText}`);
             }
             return response

@@ -1,18 +1,15 @@
 import * as appActionTypes from './appActionTypes'
 
-export const startFetchUser = ({email, password}) => ({
-  type: appActionTypes.STARTED_FETCH_USER,
+export const addUser = (token) => ({
+  type: appActionTypes.ADD_USER,
   payload: {
-    email,
-    password,
+    token,
   },
 })
 
-export const endFetchUser = (user) => ({
-  type: appActionTypes.ENDED_FETCH_USER,
-  payload: {
-    user,
-  },
+export const removeUser = () => ({
+  type: appActionTypes.REMOVE_USER,
+  payload: {},
 })
 
 export const addNotification = (notification) => ({

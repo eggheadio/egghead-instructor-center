@@ -7,5 +7,5 @@ npm-debug.log
 # compiled
 build
 
-# secrets
+# config
 .env

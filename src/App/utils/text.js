@@ -1,4 +1,4 @@
-export const appTitleText = 'Instructor 101 Guide'
+export const appTitleText = 'Instructor Center'
 
 export const overviewTitleText = 'Overview'
 
@@ -32,8 +32,10 @@ export const requestedTitleText = 'Requested'
 export const requestedDescriptionText = 'Here\'s what we\'d love to see recorded right now. Claimed lessons will be yours for 2 weeks, and then they\'ll be reopened for others to claim.'
 export const requestedEmptyDescriptionText = 'All requested lessons have been claimed, but you can submit your own!'
 
-export const loginTitleText = 'Log in'
+export const loginTitleText = 'Log in via egghead'
 export const loginDescriptionText = 'If you\'re an existing egghead.io instructor, please log in to access the instructor center.'
+
+export const loginExpiredDescriptionText = 'Your log in has expired, logging you out'
 
 export const greetingTitleText = 'Hi'
 
@@ -42,8 +44,6 @@ export const faqTitleText = 'FAQ'
 export const whatNowQuestionText = 'What do I do now?'
 export const whatNowAnswerText = 'Complete the checklist to get published! Everything you need to know can be found in the Instructor 101 Guide. Feel free to reach out to Joel and Trevor in the egghead.io Slack as well any time.'
 
-export const emailLabelText = 'Email *'
-export const passwordLabelText = 'Password *'
 export const missingInputDescriptionText = 'Missing required form input'
 
 export const guideTitleText = 'Instructor 101 Guide'
