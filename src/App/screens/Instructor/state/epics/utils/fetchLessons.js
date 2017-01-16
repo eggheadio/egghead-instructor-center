@@ -1,3 +1,4 @@
+import {includes} from 'lodash'
 import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
 import headers from '../../../../../utils/headers'
@@ -18,7 +19,7 @@ export default (lessonOptions, store) => (
   Observable.fromPromise(
     fetch(createLessonsUrl(lessonOptions), {headers})
       .then(response => {
-        if (response.status === 401) {
+        if (includes([401, 404], response.status)) {
           store.dispatch(removeUser())
           throw Error(loginExpiredDescriptionText)
         }

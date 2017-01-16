@@ -1,3 +1,4 @@
+import {includes} from 'lodash'
 import {Observable} from 'rxjs'
 import headers from '../../../../utils/headers'
 import {loginExpiredDescriptionText} from '../../../../utils/text'
@@ -16,7 +17,7 @@ export default (action$, store) => (
           headers,
         })
           .then(response => {
-            if (response.status === 401) {
+            if (includes([401, 404], response.status)) {
               store.dispatch(removeUser())
               throw Error(loginExpiredDescriptionText)
             }
