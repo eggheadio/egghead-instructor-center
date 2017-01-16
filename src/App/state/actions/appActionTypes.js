@@ -1,5 +1,4 @@
-export const STARTED_FETCH_USER = 'STARTED_FETCH_USER'
-export const ENDED_FETCH_USER = 'ENDED_FETCH_USER'
+export const ADD_USER = 'ADD_USER'
 
 export const ADD_NOTIFICATION = 'ADD_NOTIFICATION'
 

@@ -2,47 +2,56 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {size} from 'lodash'
 import {BrowserRouter, Match, Redirect, Miss} from 'react-router'
+import {addUser} from '../../state/actions'
 import Instructor from '../../screens/Instructor'
-import Login from './components/Login'
+import getUrlParameter from './utils/getUrlParameter'
+import LoggedOut from './components/LoggedOut'
 import RouteNotFound from './components/RouteNotFound'
 import NotificationCenter from './components/NotificationCenter'
 
-const Router = ({user}) => (
-  <BrowserRouter>
-    <div>
+const Router = ({addUser, user}) => {
+  const token = getUrlParameter('jwt')
+  if(token) {
+    addUser(token)
+  }
 
-      {size(user) > 0
-        ? <div>
+  return (
+    <BrowserRouter>
+      <div>
 
-            <Match
-              exactly
-              pattern='/'
-              render={() => (
-                <Redirect to={`instructors/${user.instructor_id}`} />
-              )}
-            />
+        {size(user) > 0
+          ? <div>
 
-            <Match
-              pattern='/instructors/:instructorId'
-              component={Instructor}
-            />
+              <Match
+                exactly
+                pattern='/'
+                render={() => (
+                  <Redirect to={`instructors/${user.instructor_id}`} />
+                )}
+              />
 
-            <Miss component={RouteNotFound} />
+              <Match
+                pattern='/instructors/:instructorId'
+                component={Instructor}
+              />
 
-          </div>
+              <Miss component={RouteNotFound} />
 
-        : <Login />
-      }
+            </div>
 
-      <NotificationCenter />
+          : <LoggedOut />
+        }
 
-    </div>
-  </BrowserRouter>
-)
+        <NotificationCenter />
+
+      </div>
+    </BrowserRouter>
+  )
+}
 
 export default connect(
   ({appScreen}) => ({
     user: appScreen.user,
   }),
-  null
+  {addUser}
 )(Router)
