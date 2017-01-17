@@ -17,6 +17,7 @@ export default ({instructor}) => {
 
   const {revenue, published_courses, published_lessons} = instructor
   const currentMonthRevenue = find(revenue, ['month', currentMonthStart()]);
+  console.log('currentMonthRevenue', currentMonthRevenue)
   const currentTotalRevenue = totalRevenue(revenue)
 
   return(
@@ -28,11 +29,11 @@ export default ({instructor}) => {
 
       <IconLabel
         iconType='course'
-        labelText={`${formatNumber()(published_courses)} published courses`}
+        labelText={`${formatNumber({round: 2})(published_courses)} published courses`}
       />
       <IconLabel
         iconType='lesson'
-        labelText={`${formatNumber()(published_lessons)} published lessons`}
+        labelText={`${formatNumber({round: 2})(published_lessons)} published lessons`}
       />
       {currentMonthRevenue
         ? <div>
