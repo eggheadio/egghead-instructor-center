@@ -1,0 +1,84 @@
+{
+  "id": 85,
+  "slug": "arunoda-susiripala",
+  "full_name": "Arunoda Susiripala",
+  "first_name": "Arunoda",
+  "last_name": "Susiripala",
+  "twitter": "arunoda",
+  "website": "https://voice.kadira.io/",
+  "bio": "",
+  "bio_short": "I co-created React Storybook and maintaining a lot of React and Meteor open source projects. ",
+  "google_plus": "",
+  "http_url": "http://egghead.dev:5000/instructors/arunoda-susiripala",
+  "avatar_url": "https://d2eip9sf3oo6c2.cloudfront.net/instructors/avatars/000/000/085/original/Screen_Shot_2016-09-19_at_10.35.42_PM.png?1474304822",
+  "lessons_url": "http://egghead.dev:5000/api/v1/instructors/arunoda-susiripala/lessons",
+  "published_lessons": 2,
+  "published_courses": 0,
+  "slack_id": "",
+  "email": null,
+  "gear_tracking_number": null,
+  "pending_lessons": 4,
+  "reviewing_lessons": 0,
+  "revenue": [
+    {
+      "month": "2016-02-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-03-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-04-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-05-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-06-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-07-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-08-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-09-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-10-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-11-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2016-12-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    },
+    {
+      "month": "2017-01-01",
+      "minutes_watched": 0,
+      "revenue": 0
+    }
+  ]
+}
