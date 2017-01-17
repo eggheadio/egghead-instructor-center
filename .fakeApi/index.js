@@ -44,7 +44,7 @@ module.exports = () => {
     'retired',
   ]
 
-  const revenueFactory = (maxMinutesWatched = 100000, maxRevenue = 10000) => ({
+  const revenueNumbersFactory = (maxMinutesWatched = 100000, maxRevenue = 10000) => ({
     minutes_watched: random.number({
       min: 1,
       max: maxMinutesWatched,
@@ -78,12 +78,11 @@ module.exports = () => {
             min: 0,
             max: 70,
           }),
-      revenue: {
-        current: 'mar',
-        jan: revenueFactory(),
-        feb: revenueFactory(),
-        mar: revenueFactory(),
-      }
+      revenue: [
+        Object.assign({month: '2016-11-01'}, revenueNumbersFactory()),
+        Object.assign({month: '2016-12-01'}, revenueNumbersFactory()),
+        Object.assign({month: '2017-01-01'}, revenueNumbersFactory()),
+      ],
     }
   })
 

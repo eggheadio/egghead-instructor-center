@@ -16,11 +16,15 @@ export const noInProgressLessonsDescriptionText = 'You have no lessons in progre
 
 export const noPublishedLessonsDescriptionText = 'Looks like you don\'t have any published lessons. Go complete the Get Published checklist!'
 
-export const revenueTitleText = 'Revenue'
-
 export const statsTitleText = 'Stats'
 
-export const totalTitleText = 'Total'
+export const currentMonthRevenueTitleText = 'Next paycheck (estimated)'
+
+export const totalRevenueTitleText = 'Last twelve months'
+
+export const revenueLabelText = 'dollars'
+
+export const subscriberMinutesLabelText = 'subscriber minutes'
 
 export const noRevenueDescriptionText = 'There\'s no revenue to report. Time to publish some lessons!'
 
