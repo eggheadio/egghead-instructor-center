@@ -23,7 +23,9 @@ export default ({
     }
     aside={
       <div>
-        <Stats instructor={instructor} />
+        <div className='mb4'>
+          <Stats instructor={instructor} />
+        </div>
         <Help />
       </div>
     }
