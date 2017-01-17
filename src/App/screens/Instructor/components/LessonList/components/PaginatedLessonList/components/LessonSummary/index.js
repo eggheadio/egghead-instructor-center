@@ -42,9 +42,15 @@ const LessonSummary = ({
   const nextStepForCurrentState = nextStepForCurrentStates[lesson.state]
 
   return (
-    <div className='flex-ns items-center'>
+    <div className='flex items-start'>
 
-      <div className={`mr3 ${nextStepForCurrentState ? 'w-75' : ''}`}>
+      <img
+        src={lesson.technology.logo_http_url}
+        alt={lesson.technology.label}
+        className='mw2 mr3'
+      />
+
+      <div>
         <Heading level='5'>
           {lesson.title}
         </Heading>
@@ -54,19 +60,16 @@ const LessonSummary = ({
             : '...'
           }
         </div>
-      </div>
-
-      {nextStepForCurrentState
-        ? <div className='w-25-ns mt3 mt0-ns'>
-            <Button
+        {nextStepForCurrentState
+          ? <Button
               onClick={nextStepForCurrentState.action}
-              className='w-100-ns'
+              className='mt2'
             >
               {nextStepForCurrentState.label}
             </Button>
-          </div>
-        : null
-      }
+          : null
+        }
+      </div>
 
     </div>
   )
