@@ -1,5 +1,5 @@
 import React from 'react'
-import {find} from 'lodash'
+import {find, size} from 'lodash'
 import formatNumber from 'format-number'
 import {
   currentMonthRevenueTitleText,
@@ -35,15 +35,18 @@ export default ({instructor}) => {
         iconType='lesson'
         labelText={`${formatNumber({round: 2})(published_lessons)} published lessons`}
       />
-      {currentMonthRevenue
-        ? <div>
-            <div className='mv3'>
-              <RevenuePeriod
-                title={currentMonthRevenueTitleText}
-                revenue={currentMonthRevenue.revenue}
-                subscriberMinutes={currentMonthRevenue.minutes_watched}
-              />
-            </div>
+      {size(revenue) > 0
+        ? <div className='mt3'>
+            {currentMonthRevenue && currentMonthRevenue.revenue > 0
+              ? <div className='mb3'>
+                  <RevenuePeriod
+                    title={currentMonthRevenueTitleText}
+                    revenue={currentMonthRevenue.revenue}
+                    subscriberMinutes={currentMonthRevenue.minutes_watched}
+                  />
+                </div>
+              : null
+            }
             <RevenuePeriod
               title={totalRevenueTitleText}
               revenue={currentTotalRevenue.revenue}
