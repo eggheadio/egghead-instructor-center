@@ -55,10 +55,10 @@ export const guideDescriptionText = 'We\'ve put together the Instructor 101 Guid
 export const guideActionText = 'View the guide'
 
 export const adminDescriptionText = 'Joel and Trevor can help with almost anything related to making egghead.io lessons.'
-export const adminActionText = 'Reach out any time in Slack'
+export const adminActionText = 'Send a message'
 
-export const instructorsChatDescription = 'The egghead-instructors Slack channel is available for instructors to chat and see each other\'s progress. Come join the fun!'
-export const instructorsChatAction = 'View the channel'
+export const instructorsChatDescriptionText = 'The egghead-instructors Slack channel is available for instructors to chat and see each other\'s progress. Come join the fun!'
+export const instructorsChatActionText = 'View the channel'
 
 export const pageNotFoundTitleText = 'Page not found'
 export const pageNotFoundDescriptionText = 'Sorry, nothing can be found at this URL'
