@@ -4,12 +4,13 @@ import {
   guideDescriptionText,
   guideActionText,
   adminDescriptionText,
-  instructorsChatDescription,
   adminActionText,
+  instructorsChatDescriptionText,
+  instructorsChatActionText,
 } from '../../../../../../utils/text'
 import {guideUrl, chatUrl, instructorsChatUrl} from '../../../../../../utils/urls'
 import Heading from '../../../../../../components/Heading'
-import Anchor from '../../../../../../components/Anchor'
+import List from './components/List'
 
 export default () => (
   <div>
@@ -18,20 +19,23 @@ export default () => (
       {helpTitleText}
     </Heading>
 
-    <ul>
-      <li>
-        {guideDescriptionText}
-        <Anchor url={guideUrl} isSeparateTab>{guideActionText}</Anchor>
-      </li>
-      <li>
-        {adminDescriptionText}
-        <Anchor url={chatUrl} isSeparateTab>{adminActionText}</Anchor>
-      </li>
-      <li>
-        {instructorsChatDescription}
-        <Anchor url={instructorsChatUrl} isSeparateTab>View the channel</Anchor>
-      </li>
-    </ul>
+    <List items={[
+      {
+        description: guideDescriptionText,
+        url: guideUrl,
+        action: guideActionText,
+      },
+      {
+        description: adminDescriptionText,
+        url: chatUrl,
+        action: adminActionText,
+      },
+      {
+        description: instructorsChatDescriptionText,
+        url: instructorsChatUrl,
+        action: instructorsChatActionText,
+      },
+    ]} />
 
   </div>
 )
