@@ -3,7 +3,7 @@ import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
 import headers from '../../../../../utils/headers'
 import {loginExpiredDescriptionText} from '../../../../../utils/text'
-import {removeUser, addNotification} from '../../../../../state/actions'
+import {startRemoveUser, startShowNotification} from '../../../../../state/actions'
 import createLessonsUrl from './createLessonsUrl'
 
 const handleLessonsResponse = (response) => (
@@ -20,7 +20,7 @@ export default (lessonOptions, store) => (
     fetch(createLessonsUrl(lessonOptions), {headers})
       .then(response => {
         if (includes([401, 404], response.status)) {
-          store.dispatch(removeUser())
+          store.dispatch(startRemoveUser())
           throw Error(loginExpiredDescriptionText)
         }
         else if (!response.ok) {
@@ -31,7 +31,7 @@ export default (lessonOptions, store) => (
       .then(handleLessonsResponse)
       .catch(error => {
         store.dispatch(
-          addNotification({
+          startShowNotification({
             type: 'error',
             message: error.message,
           })

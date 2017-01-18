@@ -1,57 +1,64 @@
-import React from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {size} from 'lodash'
 import {BrowserRouter, Match, Redirect, Miss} from 'react-router'
-import {addUser} from '../../state/actions'
+import {startAddUser} from '../../state/actions'
 import Instructor from '../../screens/Instructor'
 import getUrlParameter from './utils/getUrlParameter'
+import removeQueryString from './utils/removeQueryString'
 import LoggedOut from './components/LoggedOut'
 import RouteNotFound from './components/RouteNotFound'
 import NotificationCenter from './components/NotificationCenter'
-
-const Router = ({addUser, user}) => {
-  const token = getUrlParameter('jwt')
-  if(token) {
-    addUser(token)
-  }
-
-  return (
-    <BrowserRouter>
-      <div>
-
-        {size(user) > 0 && user.is_instructor
-          ? <div>
-
-              <Match
-                exactly
-                pattern='/'
-                render={() => (
-                  <Redirect to={`instructors/${user.instructor_id}`} />
-                )}
-              />
-
-              <Match
-                pattern='/instructors/:instructorId'
-                component={Instructor}
-              />
-
-              <Miss component={RouteNotFound} />
-
-            </div>
-
-          : <LoggedOut />
-        }
-
-        <NotificationCenter />
-
-      </div>
-    </BrowserRouter>
-  )
-}
 
 export default connect(
   ({appScreen}) => ({
     user: appScreen.user,
   }),
-  {addUser}
-)(Router)
+  {startAddUser}
+)(class Router extends Component {
+
+  componentDidMount() {
+    const {startAddUser, user} = this.props
+    const token = getUrlParameter('jwt')
+    if(token && !user) {
+      removeQueryString()
+      startAddUser(token)
+    }
+  }
+
+  render() {
+    const {user} = this.props
+    const hasLoadedInstructor = user && user.is_instructor
+    return (
+      <BrowserRouter>
+        <div>
+
+          {hasLoadedInstructor
+            ? <div>
+
+                <Match
+                  exactly
+                  pattern='/'
+                  render={() => (
+                    <Redirect to={`instructors/${user.instructor_id}`} />
+                  )}
+                />
+
+                <Match
+                  pattern='/instructors/:instructorId'
+                  component={Instructor}
+                />
+
+                <Miss component={RouteNotFound} />
+
+              </div>
+
+            : <LoggedOut />
+          }
+
+          <NotificationCenter />
+
+        </div>
+      </BrowserRouter>
+    )
+  }
+})

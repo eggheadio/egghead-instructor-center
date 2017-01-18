@@ -10,7 +10,7 @@ import {
   lessonTechnologyLabelText,
   lessonSummaryLabelText,
 } from '../../../../../../utils/text'
-import {addNotification} from '../../../../../../state/actions'
+import {startShowNotification} from '../../../../../../state/actions'
 import Heading from '../../../../../../components/Heading'
 import {startFetchTechnologies, startSubmitLesson} from '../../../../state/actions'
 import Button from '../../../../../../components/Button'
@@ -29,7 +29,7 @@ export default connect(
     technologies: instructorScreen.technologies,
   }),
   {
-    addNotification,
+    startShowNotification,
     startFetchTechnologies,
     startSubmitLesson,
   }
@@ -46,7 +46,7 @@ export default connect(
 
   submit = () => {
     const {title, technologyId, summary} = this.state
-    const {instructor, startSubmitLesson, addNotification} = this.props
+    const {instructor, startSubmitLesson, startShowNotification} = this.props
     startSubmitLesson({
       title: title,
       technology_id: technologyId,
@@ -55,7 +55,7 @@ export default connect(
       instructor_id: instructor.id,
     })
     this.setState(clearedState)
-    addNotification({
+    startShowNotification({
       type: 'info',
       message: 'Lesson submitted and claimed!',
       action: {
@@ -67,12 +67,12 @@ export default connect(
 
   handleSubmitAttempt = () => {
     const {title, technologyId} = this.state
-    const {addNotification} = this.props
+    const {startShowNotification} = this.props
     if(every([title, technologyId], (input) => size(input) > 0)) {
       this.submit()
     }
     else {
-      addNotification({
+      startShowNotification({
         type: 'error',
         message: missingInputDescriptionText,
       })
