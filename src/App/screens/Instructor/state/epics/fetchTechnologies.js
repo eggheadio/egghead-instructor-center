@@ -1,6 +1,6 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import headers from '../../../../utils/headers'
+import getHeaders from '../../../../utils/getHeaders'
 import {loginExpiredDescriptionText} from '../../../../utils/text'
 import {startRemoveUser, startShowNotification} from '../../../../state/actions'
 import {STARTED_FETCH_TECHNOLOGIES} from '../actions/instructorActionTypes'
@@ -10,7 +10,9 @@ export default (action$, store) => (
   action$.ofType(STARTED_FETCH_TECHNOLOGIES)
     .switchMap(
       ({payload}) => Observable.fromPromise(
-        fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/technologies`, {headers})
+        fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/technologies`, {
+          headers: getHeaders(store.getState().appScreen.user.token),
+        })
           .then(response => {
             if (includes([401, 404], response.status)) {
               store.dispatch(startRemoveUser())

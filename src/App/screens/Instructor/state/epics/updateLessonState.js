@@ -1,6 +1,6 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import headers from '../../../../utils/headers'
+import getHeaders from '../../../../utils/getHeaders'
 import {loginExpiredDescriptionText} from '../../../../utils/text'
 import {startRemoveUser, startShowNotification} from '../../../../state/actions'
 import {STARTED_UPDATE_LESSON_STATE} from '../actions/instructorActionTypes'
@@ -40,7 +40,7 @@ export default (action$, store) => (
                 state: payload.newState,
               })
               : null,
-            headers,
+            headers: getHeaders(store.getState().appScreen.user.token),
           }
         )
           .then(response => {

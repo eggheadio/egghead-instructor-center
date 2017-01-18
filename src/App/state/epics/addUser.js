@@ -6,6 +6,9 @@ export default (action$) => (
   action$.ofType(STARTED_ADD_USER)
     .map(({payload}) => {
       localStorage.setItem('token', payload.token)
-      return endAddUser(jwt.decode(payload.token, null, true).meta)
+      return endAddUser({
+        token: payload.token,
+        user: jwt.decode(payload.token, null, true).meta
+      })
     })
 )

@@ -1,7 +1,7 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
-import headers from '../../../../../utils/headers'
+import getHeaders from '../../../../../utils/getHeaders'
 import {loginExpiredDescriptionText} from '../../../../../utils/text'
 import {startRemoveUser, startShowNotification} from '../../../../../state/actions'
 import createLessonsUrl from './createLessonsUrl'
@@ -17,7 +17,9 @@ const handleLessonsResponse = (response) => (
 
 export default (lessonOptions, store) => (
   Observable.fromPromise(
-    fetch(createLessonsUrl(lessonOptions), {headers})
+    fetch(createLessonsUrl(lessonOptions), {
+      headers: getHeaders(store.getState().appScreen.user.token),
+    })
       .then(response => {
         if (includes([401, 404], response.status)) {
           store.dispatch(startRemoveUser())

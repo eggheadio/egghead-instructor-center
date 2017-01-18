@@ -1,6 +1,6 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import headers from '../../../../utils/headers'
+import getHeaders from '../../../../utils/getHeaders'
 import {loginExpiredDescriptionText} from '../../../../utils/text'
 import {startRemoveUser, startShowNotification} from '../../../../state/actions'
 import {STARTED_SUBMIT_LESSON} from '../actions/instructorActionTypes'
@@ -14,7 +14,7 @@ export default (action$, store) => (
         fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`, {
           method: 'POST',
           body: JSON.stringify(createResourceBody('lesson', payload.lesson)),
-          headers,
+          headers: getHeaders(),
         })
           .then(response => {
             if (includes([401, 404], response.status)) {

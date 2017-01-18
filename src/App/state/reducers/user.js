@@ -17,9 +17,10 @@ export default (
   switch (action.type) {
 
     case ENDED_ADD_USER:
-      const {user} = action.payload
+      const {token, user} = action.payload
       return {
         ...state,
+        token,
         ...user,
       }
 
