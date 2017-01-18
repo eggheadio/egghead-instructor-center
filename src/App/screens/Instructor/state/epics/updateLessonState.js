@@ -44,7 +44,7 @@ export default (action$, store) => (
           }
         )
           .then(response => {
-            if (includes([401, 404], response.status)) {
+            if (includes([401, 403, 404], response.status)) {
               store.dispatch(startRemoveUser())
               throw Error(loginExpiredDescriptionText)
             }
