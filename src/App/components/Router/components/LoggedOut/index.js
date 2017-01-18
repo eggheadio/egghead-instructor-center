@@ -1,5 +1,5 @@
 import React from 'react'
-import {loginUrl, guideUrl} from '../../../../utils/urls'
+import {getLoginUrl, guideUrl} from '../../../../utils/urls'
 import {
   appTitleText,
   loginTitleText,
@@ -42,7 +42,7 @@ export default () => (
         {loginDescriptionText}
       </div>
 
-      <Anchor url={loginUrl}>
+      <Anchor url={getLoginUrl()}>
         <Button>
           {loginTitleText}
         </Button>
