@@ -17,7 +17,6 @@ export default ({instructor}) => {
 
   const {revenue, published_courses, published_lessons} = instructor
   const currentMonthRevenue = find(revenue, ['month', currentMonthStart()]);
-  console.log('currentMonthRevenue', currentMonthRevenue)
   const currentTotalRevenue = totalRevenue(revenue)
 
   return(
