@@ -1,4 +1,4 @@
-import {ADD_NOTIFICATION, REMOVE_NOTIFICATION} from '../actions/appActionTypes';
+import {STARTED_SHOW_NOTIFICATION, ENDED_SHOW_NOTIFICATION} from '../actions/appActionTypes';
 
 export default (
   state = {},
@@ -6,14 +6,14 @@ export default (
 ) => {
   switch (action.type) {
 
-    case ADD_NOTIFICATION:
+    case STARTED_SHOW_NOTIFICATION:
       const {notification} = action.payload
       return {
         isActive: true,
         ...notification,
       }
 
-    case REMOVE_NOTIFICATION:
+    case ENDED_SHOW_NOTIFICATION:
       return {
         ...state,
         isActive: false,

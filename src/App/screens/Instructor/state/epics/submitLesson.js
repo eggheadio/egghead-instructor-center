@@ -1,8 +1,8 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import headers from '../../../../utils/headers'
+import getHeaders from '../../../../utils/getHeaders'
 import {loginExpiredDescriptionText} from '../../../../utils/text'
-import {removeUser, addNotification} from '../../../../state/actions'
+import {startRemoveUser, startShowNotification} from '../../../../state/actions'
 import {STARTED_SUBMIT_LESSON} from '../actions/instructorActionTypes'
 import {startUpdateLessonState, endSubmitLesson} from '../actions'
 import createResourceBody from './utils/createResourceBody'
@@ -14,11 +14,11 @@ export default (action$, store) => (
         fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`, {
           method: 'POST',
           body: JSON.stringify(createResourceBody('lesson', payload.lesson)),
-          headers,
+          headers: getHeaders(),
         })
           .then(response => {
-            if (includes([401, 404], response.status)) {
-              store.dispatch(removeUser())
+            if (includes([401, 403, 404], response.status)) {
+              store.dispatch(startRemoveUser())
               throw Error(loginExpiredDescriptionText)
             }
             else if (!response.ok) {
@@ -30,7 +30,7 @@ export default (action$, store) => (
           .then(lesson => lesson)
           .catch(error => {
             store.dispatch(
-              addNotification({
+              startShowNotification({
                 type: 'error',
                 message: error.message,
               })

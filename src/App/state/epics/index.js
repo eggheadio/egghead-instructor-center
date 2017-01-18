@@ -1,6 +1,10 @@
 import {combineEpics} from 'redux-observable'
-import addNotification from './addNotification'
+import addUser from './addUser'
+import removeUser from './removeUser'
+import showNotification from './showNotification'
 
 export default combineEpics(
-  addNotification,
+  addUser,
+  removeUser,
+  showNotification,
 )

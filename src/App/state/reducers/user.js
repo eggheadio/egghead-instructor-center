@@ -1,13 +1,16 @@
 import jwt from 'jwt-simple'
-import {ADD_USER, REMOVE_USER} from '../actions/appActionTypes';
+import {ENDED_ADD_USER, ENDED_REMOVE_USER} from '../actions/appActionTypes';
 
-const decodeUser = token => jwt.decode(token, null, true).meta
+const defaultState = false
 
 const cachedUser = () => {
   const cachedToken = localStorage.getItem('token')
   return cachedToken
-    ? decodeUser(cachedToken)
-    : false
+    ? {
+        token: cachedToken,
+        ...jwt.decode(cachedToken, null, true).meta,
+      }
+    : defaultState
 }
 
 export default (
@@ -16,23 +19,19 @@ export default (
 ) => {
   switch (action.type) {
 
-    case ADD_USER:
-      const {token} = action.payload
-      localStorage.setItem('token', token)
-      window.location.reload()
+    case ENDED_ADD_USER:
+      const {token, user} = action.payload
       return {
         ...state,
-        ...decodeUser(token),
+        token,
+        ...user,
       }
 
-    case REMOVE_USER:
-      localStorage.removeItem('token')
-      window.location.reload()
-      return state
+    case ENDED_REMOVE_USER:
+      return defaultState
 
     default:
       return state
 
   }
 }
-

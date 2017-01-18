@@ -6,7 +6,7 @@ import {
   claimActionText,
   claimedDescriptionText,
 } from '../../../../../../../../utils/text'
-import {addNotification} from '../../../../../../../../state/actions'
+import {startShowNotification} from '../../../../../../../../state/actions'
 import {startUpdateLessonState} from '../../../../../../state/actions'
 import Heading from '../../../../../../../../components/Heading'
 import Button from '../../../../../../../../components/Button'
@@ -14,7 +14,7 @@ import Button from '../../../../../../../../components/Button'
 const LessonSummary = ({
   instructor,
   lesson,
-  addNotification,
+  startShowNotification,
   startUpdateLessonState,
 }) => {
 
@@ -27,7 +27,7 @@ const LessonSummary = ({
           lesson,
           newState: 'claimed',
         })
-        addNotification({
+        startShowNotification({
           type: 'info',
           message: claimedDescriptionText,
           action: {
@@ -79,5 +79,5 @@ export default connect(
   ({instructorScreen}) => ({
     instructor: instructorScreen.instructor,
   }),
-  {addNotification, startUpdateLessonState}
+  {startShowNotification, startUpdateLessonState}
 )(LessonSummary)
