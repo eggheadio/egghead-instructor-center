@@ -6,7 +6,10 @@ const defaultState = false
 const cachedUser = () => {
   const cachedToken = localStorage.getItem('token')
   return cachedToken
-    ? jwt.decode(cachedToken, null, true).meta
+    ? {
+        token: cachedToken,
+        ...jwt.decode(cachedToken, null, true).meta,
+      }
     : defaultState
 }
 
