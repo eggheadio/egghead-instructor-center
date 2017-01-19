@@ -1,9 +1,10 @@
 import React, {Component, PropTypes} from 'react'
 import {Match} from 'react-router'
 import {connect} from 'react-redux'
-import {compact, toString} from 'lodash'
+import {compact, toString, includes} from 'lodash'
 import {forbiddenDescriptionText, forbiddenActionText} from '../../utils/text'
 import {guideUrl, chatUrl} from '../../utils/urls'
+import adminSlugs from '../../utils/adminSlugs'
 import {startRemoveUser, startShowNotification} from '../../state/actions'
 import Main from '../../components/Main'
 import {startFetchInstructor} from './state/actions'
@@ -59,7 +60,9 @@ export default connect(
       )
     }
 
-    if(params.instructorId !== toString(user.instructor_id)) {
+    const hasAccess = includes(adminSlugs, user.instructor_id)
+      || params.instructorId === toString(user.instructor_id)
+    if(!hasAccess) {
       startShowNotification({
         type: 'error',
         message: forbiddenDescriptionText,
