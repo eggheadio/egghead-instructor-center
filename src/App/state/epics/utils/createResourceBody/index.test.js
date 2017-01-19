@@ -1,4 +1,4 @@
-import {reset, turnOn, turnOff} from '../fakeApi'
+import {reset, turnOn, turnOff} from '../../../../utils/fakeApi'
 import createResourceBody from '.'
 
 const resourceFixture = {
