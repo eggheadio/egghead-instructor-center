@@ -1,6 +1,6 @@
 import React from 'react'
-import {loadingTitleText} from '../../../../utils/text'
-import Icon from '../../../../components/Icon'
+import {loadingTitleText} from '../../utils/text'
+import Icon from '../Icon'
 
 export default () => (
   <div className='mv3 gray'>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {greetingTitleText} from '../../../../utils/text'
-import Avatar from '../Avatar'
+import Avatar from '../../../../components/Avatar'
 
 export default ({instructor}) => (
   <div className='flex items-center'>

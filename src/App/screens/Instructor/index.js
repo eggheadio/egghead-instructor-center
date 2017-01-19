@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import {Match, Link} from 'react-router'
 import {connect} from 'react-redux'
 import {compact, toString, includes} from 'lodash'
@@ -23,7 +23,7 @@ import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
 import NewLessons from './screens/NewLessons'
-import Loading from './components/Loading'
+import Loading from '../../components/Loading'
 
 export default connect(
   ({appScreen, instructorScreen}) => ({
@@ -33,14 +33,9 @@ export default connect(
   {
     startRemoveUser,
     startShowNotification,
-    startFetchInstructor
+    startFetchInstructor,
   }
 )(class Instructor extends Component {
-
-  static propTypes = {
-    params: PropTypes.object.isRequired,
-    pathname: PropTypes.string.isRequired
-  }
 
   componentWillReceiveProps(nextProps) {
     const {instructorId} = this.props.params
