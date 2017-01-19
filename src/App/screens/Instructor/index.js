@@ -7,11 +7,11 @@ import {guideUrl, chatUrl} from '../../utils/urls'
 import adminSlugs from '../../utils/adminSlugs'
 import {startRemoveUser, startShowNotification} from '../../state/actions'
 import Main from '../../components/Main'
+import Navigation from '../../components/Navigation'
 import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
 import NewLessons from './screens/NewLessons'
-import Navigation from './components/Navigation'
 import Loading from './components/Loading'
 
 export default connect(

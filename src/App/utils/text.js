@@ -6,7 +6,7 @@ export const newLessonsTitleText = 'New Lessons'
 export const newLessonsActionText = 'Claim a new lesson'
 
 export const forbiddenDescriptionText = 'You can only view your own pages'
-export const forbiddenActionText = 'View my instructor pages'
+export const forbiddenActionText = 'View my pages'
 
 export const lessonsTitleText = 'Lessons'
 

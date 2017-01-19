@@ -2,7 +2,7 @@ import React from 'react'
 import {
   instructorEggoAltText,
   instructorBannerAltText,
-} from '../../../../utils/text'
+} from '../../utils/text'
 import instructorEggo from './instructorEggo.svg'
 import instructorBanner from './instructorBanner.svg'
 
