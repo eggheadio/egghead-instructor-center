@@ -3,8 +3,8 @@ import {
   helpTitleText,
   guideDescriptionText,
   guideActionText,
-  adminDescriptionText,
-  adminActionText,
+  adminsDescriptionText,
+  adminsActionText,
   instructorsChatDescriptionText,
   instructorsChatActionText,
 } from '../../../../../../utils/text'
@@ -26,9 +26,9 @@ export default () => (
         action: guideActionText,
       },
       {
-        description: adminDescriptionText,
+        description: adminsDescriptionText,
         url: chatUrl,
-        action: adminActionText,
+        action: adminsActionText,
       },
       {
         description: instructorsChatDescriptionText,

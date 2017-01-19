@@ -1,5 +1,9 @@
 export const appTitleText = 'Instructor Center'
 
+export const adminActionText = 'Switch to admin view'
+
+export const instructorActionText = 'Switch to instructor view'
+
 export const overviewTitleText = 'Overview'
 
 export const newLessonsTitleText = 'New Lessons'
@@ -54,8 +58,8 @@ export const guideTitleText = 'Instructor 101 Guide'
 export const guideDescriptionText = 'We\'ve put together the Instructor 101 Guide  with comprehensive how-tos covering a lot of the common issues that instructors encounter. It\'s here to help you make great work that will resonate.'
 export const guideActionText = 'View the guide'
 
-export const adminDescriptionText = 'Joel and Trevor can help with almost anything related to making egghead.io lessons.'
-export const adminActionText = 'Send a message'
+export const adminsDescriptionText = 'Joel and Trevor can help with almost anything related to making egghead.io lessons.'
+export const adminsActionText = 'Send a message'
 
 export const instructorsChatDescriptionText = 'The egghead-instructors Slack channel is available for instructors to chat and see each other\'s progress. Come join the fun!'
 export const instructorsChatActionText = 'View the channel'
@@ -83,6 +87,10 @@ export const nextLabelText = 'Next'
 export const claimActionText = 'Claim'
 export const claimDescriptionText = 'Claim a new lesson to get started'
 export const claimedDescriptionText = 'New lesson claimed!'
+
+export const instructorPulseTitleText = 'Instructor Pulse'
+
+export const requestedLessonsTitleText = 'Requested Lessons'
 
 export const crackedEggoAltText = 'Cracked eggo logo'
 export const instructorEggoAltText = 'egghead.io instructors logo, eggo only'

@@ -1,14 +1,19 @@
 import React from 'react'
-import {Match} from 'react-router'
+import {Match, Link} from 'react-router'
 import {connect} from 'react-redux'
 import {includes} from 'lodash'
-import {forbiddenDescriptionText, forbiddenActionText} from '../../utils/text'
+import {
+  forbiddenDescriptionText,
+  forbiddenActionText,
+  instructorActionText,
+} from '../../utils/text'
 import adminSlugs from '../../utils/adminSlugs'
 import {startRemoveUser, startShowNotification} from '../../state/actions'
 import Main from '../../components/Main'
 import Navigation from '../../components/Navigation'
-import Overview from './screens/Overview'
-import NewLessons from './screens/NewLessons'
+import Button from '../../components/Button'
+import InstructorPulse from './screens/InstructorPulse'
+import RequestedLessons from './screens/RequestedLessons'
 
 const Admin = ({
   params,
@@ -36,16 +41,24 @@ const Admin = ({
   return (
     <div>
 
+      <nav className='pa3 bg-light-blue flex justify-center'>
+        <Link to={`/`}>
+          <Button>
+            {instructorActionText}
+          </Button>
+        </Link>
+      </nav>
+
       <Navigation
         pathname={pathname}
         items={[
           {
-            text: 'Overview',
+            text: 'Instructor Pulse',
             action: '',
           },
           {
-            text: 'New Lessons',
-            action: '/new-lessons',
+            text: 'Requested Lessons',
+            action: '/requested-lessons',
           },
           {
             text: 'Log out',
@@ -60,14 +73,14 @@ const Admin = ({
           exactly
           pattern={pathname}
           render={() => (
-            <Overview />
+            <InstructorPulse />
           )}
         />
 
         <Match 
-          pattern={`${pathname}/new-lessons`}
+          pattern={`${pathname}/requested-lessons`}
           render={() => (
-            <NewLessons />
+            <RequestedLessons />
           )}
         />
 

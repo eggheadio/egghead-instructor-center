@@ -61,12 +61,11 @@ const LessonSummary = ({
           }
         </div>
         {nextStepForCurrentState
-          ? <Button
-              onClick={nextStepForCurrentState.action}
-              className='mt2'
-            >
-              {nextStepForCurrentState.label}
-            </Button>
+          ? <div className='mt2'>
+              <Button onClick={nextStepForCurrentState.action}>
+                {nextStepForCurrentState.label}
+              </Button>
+            </div>
           : null
         }
       </div>

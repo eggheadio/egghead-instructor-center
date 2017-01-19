@@ -1,5 +1,5 @@
 import React from 'react'
-import {overviewTitleText} from '../../../../utils/text'
+import {instructorPulseTitleText} from '../../../../utils/text'
 import Split from '../../../../components/Split'
 
 export default () => (
@@ -7,7 +7,7 @@ export default () => (
     intro={
       <div>intro</div>
     }
-    title={overviewTitleText}
+    title={instructorPulseTitleText}
     main={
       <div>main</div>
     }

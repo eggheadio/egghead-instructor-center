@@ -14,7 +14,7 @@ export default ({items}) => (
           {item.description}
         </div>
         <Anchor url={item.url}>
-          <Button>
+          <Button subtle>
             {item.action}
           </Button>
         </Anchor>

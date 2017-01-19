@@ -1,13 +1,18 @@
 import React, {Component, PropTypes} from 'react'
-import {Match} from 'react-router'
+import {Match, Link} from 'react-router'
 import {connect} from 'react-redux'
 import {compact, toString, includes} from 'lodash'
-import {forbiddenDescriptionText, forbiddenActionText} from '../../utils/text'
+import {
+  forbiddenDescriptionText,
+  forbiddenActionText,
+  adminActionText,
+} from '../../utils/text'
 import {guideUrl, chatUrl} from '../../utils/urls'
 import adminSlugs from '../../utils/adminSlugs'
 import {startRemoveUser, startShowNotification} from '../../state/actions'
 import Main from '../../components/Main'
 import Navigation from '../../components/Navigation'
+import Button from '../../components/Button'
 import {startFetchInstructor} from './state/actions'
 import Overview from './screens/Overview'
 import GetPublished from './screens/GetPublished'
@@ -60,8 +65,10 @@ export default connect(
       )
     }
 
-    const hasAccess = includes(adminSlugs, user.instructor_id)
-      || params.instructorId === toString(user.instructor_id)
+    const isAdmin = includes(adminSlugs, user.instructor_id)
+    const isOwnPages = params.instructorId === toString(user.instructor_id)
+    const hasAccess = isAdmin || isOwnPages 
+
     if(!hasAccess) {
       startShowNotification({
         type: 'error',
@@ -76,6 +83,17 @@ export default connect(
 
     return (
       <div>
+
+        {isAdmin
+          ? <nav className='pa3 bg-dark-gray flex justify-center'>
+              <Link to={`/admin`}>
+                <Button subtle>
+                  {adminActionText}
+                </Button>
+              </Link>
+            </nav>
+          : null
+        }
 
         <Navigation
           pathname={pathname}
