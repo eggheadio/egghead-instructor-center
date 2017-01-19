@@ -1,12 +1,12 @@
 import lessonPage from '.'
-import {startUpdateLessonState} from '../actions'
+import {startUpdateLessonState} from '../../../../../state/actions'
 
 test('lesson states are updated when the new state is included in the current view', () => {
   const stateFixture = {
     instructor: {},
     lessonPage: {
       states: ['claimed', 'submitted'],
-      total: '2',
+      total: '1',
       lessons: [
         {
           id: 'a',
@@ -25,7 +25,7 @@ test('lesson states are updated when the new state is included in the current vi
     instructor: {},
     lessonPage: {
       states: ['claimed', 'submitted'],
-      total: '2',
+      total: '1',
       lessons: [
         {
           id: 'a',

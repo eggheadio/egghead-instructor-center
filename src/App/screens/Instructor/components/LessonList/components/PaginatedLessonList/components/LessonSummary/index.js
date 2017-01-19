@@ -6,8 +6,7 @@ import {
   claimActionText,
   claimedDescriptionText,
 } from '../../../../../../../../utils/text'
-import {startShowNotification} from '../../../../../../../../state/actions'
-import {startUpdateLessonState} from '../../../../../../state/actions'
+import {startShowNotification, startUpdateLessonState} from '../../../../../../../../state/actions'
 import Heading from '../../../../../../../../components/Heading'
 import Button from '../../../../../../../../components/Button'
 

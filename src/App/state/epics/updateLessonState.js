@@ -1,13 +1,12 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import getHeaders from '../../../../utils/getHeaders'
-import {loginExpiredDescriptionText} from '../../../../utils/text'
-import {startRemoveUser, startShowNotification} from '../../../../state/actions'
-import {STARTED_UPDATE_LESSON_STATE} from '../actions/instructorActionTypes'
+import getHeaders from '../../utils/getHeaders'
+import {loginExpiredDescriptionText} from '../../utils/text'
+import {STARTED_UPDATE_LESSON_STATE} from '../actions/appActionTypes'
+import {startRemoveUser, startShowNotification} from '../actions'
 import {endUpdateLessonState} from '../actions'
 
 const lessonStateUrls = {
-  // 'proposed': 'propose_url',
   'cancelled': 'cancel_url',
   'accepted': 'accept_url',
   'claimed': 'claim_url',

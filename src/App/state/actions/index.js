@@ -35,6 +35,32 @@ export const endShowNotification = () => ({
   payload: {},
 })
 
+export const startUpdateLessonState = ({
+  instructorId,
+  lesson,
+  newState,
+}) => ({
+  type: appActionTypes.STARTED_UPDATE_LESSON_STATE,
+  payload: {
+    instructorId,
+    lesson,
+    newState,
+  },
+})
+
+export const endUpdateLessonState = () => ({
+  type: appActionTypes.ENDED_UPDATE_LESSON_STATE,
+})
+
+export const startSubmitLesson = (lesson) => ({
+  type: appActionTypes.STARTED_SUBMIT_LESSON,
+  payload: {lesson},
+})
+
+export const endSubmitLesson = () => ({
+  type: appActionTypes.ENDED_SUBMIT_LESSON,
+})
+
 export const startFetchTechnologies = () => ({
   type: appActionTypes.STARTED_FETCH_TECHNOLOGIES,
 })
