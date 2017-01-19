@@ -13,7 +13,7 @@ import Main from '../../components/Main'
 import Navigation from '../../components/Navigation'
 import Button from '../../components/Button'
 import InstructorPulse from './screens/InstructorPulse'
-import RequestedLessons from './screens/RequestedLessons'
+import NewRequestedLessons from './screens/NewRequestedLessons'
 
 const Admin = ({
   params,
@@ -80,7 +80,7 @@ const Admin = ({
         <Match 
           pattern={`${pathname}/requested-lessons`}
           render={() => (
-            <RequestedLessons />
+            <NewRequestedLessons />
           )}
         />
 

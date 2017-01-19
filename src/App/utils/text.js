@@ -90,7 +90,7 @@ export const claimedDescriptionText = 'New lesson claimed!'
 
 export const instructorPulseTitleText = 'Instructor Pulse'
 
-export const requestedLessonsTitleText = 'Requested Lessons'
+export const newRequestedLessonsTitleText = 'New Requested Lessons'
 
 export const crackedEggoAltText = 'Cracked eggo logo'
 export const instructorEggoAltText = 'egghead.io instructors logo, eggo only'

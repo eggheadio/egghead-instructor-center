@@ -1,9 +1,9 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import getHeaders from '../../../../utils/getHeaders'
-import {loginExpiredDescriptionText} from '../../../../utils/text'
-import {startRemoveUser, startShowNotification} from '../../../../state/actions'
-import {STARTED_FETCH_TECHNOLOGIES} from '../actions/instructorActionTypes'
+import getHeaders from '../../utils/getHeaders'
+import {loginExpiredDescriptionText} from '../../utils/text'
+import {startRemoveUser, startShowNotification} from '../actions'
+import {STARTED_FETCH_TECHNOLOGIES} from '../actions/appActionTypes'
 import {endFetchTechnologies} from '../actions'
 
 export default (action$, store) => (

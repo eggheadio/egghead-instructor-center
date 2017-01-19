@@ -9,11 +9,14 @@ import {
   lessonTitleLabelText,
   lessonTechnologyLabelText,
   lessonSummaryLabelText,
-} from '../../../../../../utils/text'
-import {startShowNotification} from '../../../../../../state/actions'
-import Heading from '../../../../../../components/Heading'
-import {startFetchTechnologies, startSubmitLesson} from '../../../../state/actions'
-import Button from '../../../../../../components/Button'
+} from '../../utils/text'
+import {
+  startShowNotification,
+  startFetchTechnologies,
+  startSubmitLesson,
+} from '../../state/actions'
+import Heading from '../Heading'
+import Button from '../Button'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
@@ -25,8 +28,8 @@ const clearedState = {
 }
 
 export default connect(
-  ({instructorScreen}) => ({
-    technologies: instructorScreen.technologies,
+  ({appScreen}) => ({
+    technologies: appScreen.technologies,
   }),
   {
     startShowNotification,

@@ -34,3 +34,14 @@ export const endShowNotification = () => ({
   type: appActionTypes.ENDED_SHOW_NOTIFICATION,
   payload: {},
 })
+
+export const startFetchTechnologies = () => ({
+  type: appActionTypes.STARTED_FETCH_TECHNOLOGIES,
+})
+
+export const endFetchTechnologies = (technologies) => ({
+  type: appActionTypes.ENDED_FETCH_TECHNOLOGIES,
+  payload: {
+    technologies
+  },
+})

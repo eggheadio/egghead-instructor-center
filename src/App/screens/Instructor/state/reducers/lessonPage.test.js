@@ -14,7 +14,6 @@ test('lesson states are updated when the new state is included in the current vi
         },
       ],
     },
-    technologies: false,
   }
   expect(lessonPage(stateFixture, startUpdateLessonState({
     instructorId: '1',
@@ -34,7 +33,6 @@ test('lesson states are updated when the new state is included in the current vi
         },
       ],
     },
-    technologies: false,
   })
 })
 
@@ -55,7 +53,6 @@ test('lessons are removed when the new state is not included in the current view
         },
       ],
     },
-    technologies: false,
   }
   expect(lessonPage(stateFixture, startUpdateLessonState({
     instructorId: '1',
@@ -75,6 +72,5 @@ test('lessons are removed when the new state is not included in the current view
         },
       ],
     },
-    technologies: false,
   })
 })

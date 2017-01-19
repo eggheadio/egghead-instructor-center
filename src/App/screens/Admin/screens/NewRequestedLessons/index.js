@@ -1,5 +1,5 @@
 import React from 'react'
-import {requestedLessonsTitleText} from '../../../../utils/text'
+import {newRequestedLessonsTitleText} from '../../../../utils/text'
 import Split from '../../../../components/Split'
 
 export default () => (
@@ -7,7 +7,7 @@ export default () => (
     intro={
       <div>intro</div>
     }
-    title={requestedLessonsTitleText}
+    title={newRequestedLessonsTitleText}
     main={
       <div>main</div>
     }

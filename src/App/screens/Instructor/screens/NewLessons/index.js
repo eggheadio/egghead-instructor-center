@@ -1,7 +1,7 @@
 import React from 'react'
 import Split from '../../../../components/Split'
+import Submit from '../../../../components/Submit'
 import Requested from './components/Requested'
-import Submit from './components/Submit'
 
 export default ({
   instructor,
