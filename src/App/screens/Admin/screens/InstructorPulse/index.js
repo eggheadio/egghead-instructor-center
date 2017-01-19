@@ -4,15 +4,12 @@ import Split from '../../../../components/Split'
 
 export default () => (
   <Split
-    intro={
-      <div>intro</div>
-    }
     title={instructorPulseTitleText}
     main={
-      <div>main</div>
+      <div>...</div>
     }
     aside={
-      <div>aside</div>
+      <div>...</div>
     }
   />
 )

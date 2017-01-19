@@ -7,7 +7,7 @@ export default () => (
   <Split
     title={newRequestedLessonsTitleText}
     main={
-      <div>main</div>
+      <div>...</div>
     }
     aside={
       <Submit type='accepted' />
