@@ -60,7 +60,7 @@ export default connect(
       )
     }
 
-    const hasAccess = includes(adminSlugs, params.instructorId)
+    const hasAccess = includes(adminSlugs, user.instructor_id)
       || params.instructorId === toString(user.instructor_id)
     if(!hasAccess) {
       startShowNotification({
