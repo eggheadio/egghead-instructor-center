@@ -61,6 +61,8 @@ export const guideActionText = 'View the guide'
 export const adminsDescriptionText = 'Joel and Trevor can help with almost anything related to making egghead.io lessons.'
 export const adminsActionText = 'Send a message'
 
+export const chatTitleText = 'Chat'
+
 export const instructorsChatDescriptionText = 'The egghead-instructors Slack channel is available for instructors to chat and see each other\'s progress. Come join the fun!'
 export const instructorsChatActionText = 'View the channel'
 
@@ -91,6 +93,8 @@ export const claimedDescriptionText = 'New lesson claimed!'
 export const instructorPulseTitleText = 'Instructor Pulse'
 
 export const newRequestedLessonsTitleText = 'New Requested Lessons'
+
+export const logOutTitleText = 'Log out'
 
 export const crackedEggoAltText = 'Cracked eggo logo'
 export const instructorEggoAltText = 'egghead.io instructors logo, eggo only'

@@ -6,6 +6,9 @@ import {
   forbiddenDescriptionText,
   forbiddenActionText,
   instructorActionText,
+  instructorPulseTitleText,
+  newRequestedLessonsTitleText,
+  logOutTitleText,
 } from '../../utils/text'
 import adminSlugs from '../../utils/adminSlugs'
 import {startRemoveUser, startShowNotification} from '../../state/actions'
@@ -53,15 +56,15 @@ const Admin = ({
         pathname={pathname}
         items={[
           {
-            text: 'Instructor Pulse',
+            text: instructorPulseTitleText,
             action: '',
           },
           {
-            text: 'Requested Lessons',
+            text: newRequestedLessonsTitleText,
             action: '/requested-lessons',
           },
           {
-            text: 'Log out',
+            text: logOutTitleText,
             action: startRemoveUser,
           },
         ]}

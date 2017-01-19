@@ -1,4 +1,5 @@
 import React from 'react'
+import {newLessonsTitleText} from '../../../../utils/text'
 import Split from '../../../../components/Split'
 import Submit from '../../../../components/Submit'
 import Requested from './components/Requested'
@@ -8,7 +9,7 @@ export default ({
   lessonPage,
 }) => (
   <Split
-    title='New Lessons'
+    title={newLessonsTitleText}
     main={
       <Requested
         instructor={instructor}

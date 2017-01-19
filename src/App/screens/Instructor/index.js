@@ -6,6 +6,12 @@ import {
   forbiddenDescriptionText,
   forbiddenActionText,
   adminActionText,
+  getPublishedTitleText,
+  overviewTitleText,
+  newLessonsTitleText,
+  guideTitleText,
+  chatTitleText,
+  logOutTitleText,
 } from '../../utils/text'
 import {guideUrl, chatUrl} from '../../utils/urls'
 import adminSlugs from '../../utils/adminSlugs'
@@ -100,28 +106,28 @@ export default connect(
           items={compact([
             (instructor.published_lessons === 0)
               ? {
-                  text: 'Get Published',
+                  text: getPublishedTitleText,
                   action: '/get-published',
                 }
               : null,
             {
-              text: 'Overview',
+              text: overviewTitleText,
               action: '',
             },
             {
-              text: 'New Lessons',
+              text: newLessonsTitleText,
               action: '/new-lessons',
             },
             {
-              text: 'Guide',
+              text: guideTitleText,
               action: guideUrl,
             },
             {
-              text: 'Chat',
+              text: chatTitleText,
               action: chatUrl,
             },
             {
-              text: 'Log out',
+              text: logOutTitleText,
               action: startRemoveUser,
             },
           ])}

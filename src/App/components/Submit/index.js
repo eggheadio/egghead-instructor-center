@@ -40,6 +40,10 @@ export default connect(
 
   state = clearedState
 
+  static defaultProps = {
+    type: 'claimed',
+  }
+
   componentWillMount() {
     const {startFetchTechnologies, technologies} = this.props
     if(!technologies) {
@@ -49,18 +53,18 @@ export default connect(
 
   submit = () => {
     const {title, technologyId, summary} = this.state
-    const {instructor, startSubmitLesson, startShowNotification} = this.props
+    const {instructor, startSubmitLesson, startShowNotification, type} = this.props
     startSubmitLesson({
       title: title,
       technology_id: technologyId,
       summary: summary,
-      state: 'claimed',
-      instructor_id: instructor.id,
+      state: type,
+      instructor_id: instructor ? instructor.id : null,
     })
     this.setState(clearedState)
     startShowNotification({
       type: 'info',
-      message: 'Lesson submitted and claimed!',
+      message: 'Lesson submitted!',
       action: {
         path: '/',
         description: viewActionText,
@@ -102,7 +106,13 @@ export default connect(
   }
 
   render() {
-    const {title, technologyId, summary, hasError} = this.state
+    const {
+      title,
+      technologyId,
+      summary, 
+      hasError,
+    } = this.state
+    const {technologies, type} = this.props
     return (
       <div>
 
@@ -110,9 +120,12 @@ export default connect(
           {submitActionText}
         </Heading>
 
-        <div className='mb3'>
-          {newLessonSubmissionDescriptionText}
-        </div>
+        {type === 'claimed'
+          ? <div className='mb3'>
+              {newLessonSubmissionDescriptionText}
+            </div>
+          : null
+        }
 
         <div className='mb2'>
           <div className='b gray'>
@@ -136,7 +149,7 @@ export default connect(
             className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
           >
             <option value=''></option>
-            {map(this.props.technologies, (technology) => (
+            {map(technologies, (technology) => (
               <option 
                 key={technology.id}
                 value={technology.id}
