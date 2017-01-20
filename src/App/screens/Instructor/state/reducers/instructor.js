@@ -8,7 +8,6 @@ export default (
 
     case ENDED_FETCH_INSTRUCTOR:
       return {
-        ...state,
         ...action.payload.instructor,
       }
 
