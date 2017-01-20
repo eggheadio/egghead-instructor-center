@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router'
-import {viewActionText} from '../../../../../../utils/text'
-import Heading from '../../../../../../components/Heading'
-import Avatar from '../../../../../../components/Avatar'
+import {viewActionText} from '../../../../../../../../utils/text'
+import Heading from '../../../../../../../../components/Heading'
+import Avatar from '../../../../../../../../components/Avatar'
 
 export default ({instructor}) => (
   <div className='flex items-center'>
