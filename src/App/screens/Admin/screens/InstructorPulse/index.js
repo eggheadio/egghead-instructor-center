@@ -1,15 +1,23 @@
 import React from 'react'
-import {instructorPulseTitleText} from '../../../../utils/text'
+import {filter} from 'lodash'
+import {instructorPulseTitleText, allTitleText, unpublishedTitleText} from '../../../../utils/text'
 import Split from '../../../../components/Split'
+import InstructorsList from './components/InstructorsList'
 
-export default () => (
+export default ({instructors}) => (
   <Split
     title={instructorPulseTitleText}
     main={
-      <div>...</div>
+      <InstructorsList
+        title={unpublishedTitleText}
+        instructors={filter(instructors, ['published_lessons', 0])}
+      />
     }
     aside={
-      <div>...</div>
+      <InstructorsList
+        title={allTitleText}
+        instructors={instructors}
+      />
     }
   />
 )

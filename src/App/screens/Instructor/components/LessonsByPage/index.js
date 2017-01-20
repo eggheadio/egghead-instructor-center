@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import {startFetchInstructorLessons, startFetchAllLessons} from '../../state/actions'
-import Loading from '../Loading'
+import Loading from '../../../../components/Loading'
 
 export default connect(
   ({instructorScreen}) => ({

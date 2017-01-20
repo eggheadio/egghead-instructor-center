@@ -16,7 +16,13 @@ export const lessonsTitleText = 'Lessons'
 
 export const inProgressTitleText = 'In progress'
 
+export const unpublishedTitleText = 'Unpublished'
+
+export const allTitleText = 'All'
+
 export const noInProgressLessonsDescriptionText = 'You have no lessons in progress. Go claim a new lesson!'
+
+export const noInstructorsDescriptionText = 'No instructors to show'
 
 export const noPublishedLessonsDescriptionText = 'Looks like you don\'t have any published lessons. Go complete the Get Published checklist!'
 
