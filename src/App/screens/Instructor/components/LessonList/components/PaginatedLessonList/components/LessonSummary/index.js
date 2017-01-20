@@ -40,7 +40,7 @@ const LessonSummary = ({
     },
     claimed: {
       label: submitActionText,
-      action: `/lessons/${lesson.slug}`,
+      action: `/instructors/${instructor.slug}/lessons/${lesson.slug}`,
     },
   }
 

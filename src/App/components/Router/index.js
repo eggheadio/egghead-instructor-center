@@ -4,7 +4,6 @@ import {BrowserRouter, Match, Redirect, Miss} from 'react-router'
 import {startAddUser} from '../../state/actions'
 import Instructor from '../../screens/Instructor'
 import Admin from '../../screens/Admin'
-import Lesson from '../../screens/Lesson'
 import getUrlParameter from './utils/getUrlParameter'
 import removeQueryString from './utils/removeQueryString'
 import LoggedOut from './components/LoggedOut'
@@ -48,12 +47,6 @@ export default connect(
                 <Match
                   pattern='/instructors/:instructorId'
                   component={Instructor}
-                />
-
-                <Match 
-                  exactly
-                  pattern='/lessons/:lessonSlug'
-                  component={Lesson}
                 />
 
                 <Match

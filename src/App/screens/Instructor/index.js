@@ -23,6 +23,7 @@ import Loading from '../../components/Loading'
 import {startFetchInstructor} from './state/actions'
 import GetPublished from './screens/GetPublished'
 import Overview from './screens/Overview'
+import Lesson from './screens/Lesson'
 import NewLessons from './screens/NewLessons'
 
 export default connect(
@@ -149,6 +150,11 @@ export default connect(
                 lessonPage={lessonPage}
               />
             )}
+          />
+
+          <Match 
+            pattern={`${pathname}/lessons/:lessonSlug`}
+            component={Lesson}
           />
 
           <Match 
