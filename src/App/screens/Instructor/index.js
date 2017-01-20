@@ -19,11 +19,11 @@ import {startRemoveUser, startShowNotification} from '../../state/actions'
 import Main from '../../components/Main'
 import Navigation from '../../components/Navigation'
 import Button from '../../components/Button'
-import {startFetchInstructor} from './state/actions'
-import Overview from './screens/Overview'
-import GetPublished from './screens/GetPublished'
-import NewLessons from './screens/NewLessons'
 import Loading from '../../components/Loading'
+import {startFetchInstructor} from './state/actions'
+import GetPublished from './screens/GetPublished'
+import Overview from './screens/Overview'
+import NewLessons from './screens/NewLessons'
 
 export default connect(
   ({appScreen, instructorScreen}) => ({

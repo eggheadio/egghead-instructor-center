@@ -1,10 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {truncate} from 'lodash'
+import {truncate, isFunction} from 'lodash'
+import {Link} from 'react-router'
 import {
   viewActionText,
   claimActionText,
   claimedDescriptionText,
+  submitActionText,
 } from '../../../../../../../../utils/text'
 import {startShowNotification, startUpdateLessonState} from '../../../../../../../../state/actions'
 import Heading from '../../../../../../../../components/Heading'
@@ -36,6 +38,10 @@ const LessonSummary = ({
         })
       }
     },
+    claimed: {
+      label: submitActionText,
+      action: `/lessons/${lesson.slug}`,
+    },
   }
 
   const nextStepForCurrentState = nextStepForCurrentStates[lesson.state]
@@ -61,9 +67,16 @@ const LessonSummary = ({
         </div>
         {nextStepForCurrentState
           ? <div className='mt2'>
-              <Button onClick={nextStepForCurrentState.action}>
-                {nextStepForCurrentState.label}
-              </Button>
+              {isFunction(nextStepForCurrentState.action)
+                ? <Button onClick={nextStepForCurrentState.action}>
+                    {nextStepForCurrentState.label}
+                  </Button>
+                : <Link to={nextStepForCurrentState.action}>
+                    <Button>
+                      {nextStepForCurrentState.label}
+                    </Button>
+                  </Link>
+              }
             </div>
           : null
         }

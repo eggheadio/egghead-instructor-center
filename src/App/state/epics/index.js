@@ -5,6 +5,7 @@ import showNotification from './showNotification'
 import updateLessonState from './updateLessonState'
 import submitLesson from './submitLesson'
 import fetchTechnologies from './fetchTechnologies'
+import fetchLesson from './fetchLesson'
 
 export default combineEpics(
   addUser,
@@ -12,5 +13,6 @@ export default combineEpics(
   showNotification,
   updateLessonState,
   submitLesson,
-  fetchTechnologies
+  fetchTechnologies,
+  fetchLesson
 )
