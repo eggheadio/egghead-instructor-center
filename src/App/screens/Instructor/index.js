@@ -57,15 +57,6 @@ export default connect(
       lessonPage,
     } = this.props
 
-    if(!instructor) {
-      startFetchInstructor(params.instructorId)
-      return (
-        <Main>
-          <Loading />
-        </Main>
-      )
-    }
-
     const isAdmin = includes(adminSlugs, user.instructor_id)
     const isOwnPages = params.instructorId === toString(user.instructor_id)
     const hasAccess = isAdmin || isOwnPages 
@@ -80,6 +71,15 @@ export default connect(
         },
       })
       return null
+    }
+
+    if(!instructor || params.instructorId !== instructor.slug) {
+      startFetchInstructor(params.instructorId)
+      return (
+        <Main>
+          <Loading />
+        </Main>
+      )
     }
 
     return (
