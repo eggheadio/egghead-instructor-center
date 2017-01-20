@@ -59,7 +59,9 @@ const LessonSummary = ({
         <Heading level='5'>
           {lesson.title}
         </Heading>
-        <div>
+        <div style={{
+          wordBreak: 'break-word',
+        }}>
           {lesson.summary
             ? truncate(lesson.summary, {length: 144})
             : '...'
