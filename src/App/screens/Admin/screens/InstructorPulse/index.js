@@ -1,6 +1,6 @@
 import React from 'react'
-import {filter} from 'lodash'
-import {instructorPulseTitleText, allTitleText, unpublishedTitleText} from '../../../../utils/text'
+import {filter, reject} from 'lodash'
+import {instructorPulseTitleText, publishedTitleText, unpublishedTitleText} from '../../../../utils/text'
 import Split from '../../../../components/Split'
 import InstructorsList from './components/InstructorsList'
 
@@ -15,8 +15,8 @@ export default ({instructors}) => (
     }
     aside={
       <InstructorsList
-        title={allTitleText}
-        instructors={instructors}
+        title={publishedTitleText}
+        instructors={reject(instructors, ['published_lessons', 0])}
       />
     }
   />

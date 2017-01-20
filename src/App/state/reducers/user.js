@@ -22,7 +22,6 @@ export default (
     case ENDED_ADD_USER:
       const {token, user} = action.payload
       return {
-        ...state,
         token,
         ...user,
       }

@@ -8,7 +8,6 @@ export default (
 
     case ENDED_FETCH_TECHNOLOGIES:
       return {
-        ...state,
         ...action.payload.technologies,
       }
 

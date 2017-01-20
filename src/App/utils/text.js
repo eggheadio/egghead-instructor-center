@@ -18,7 +18,7 @@ export const inProgressTitleText = 'In progress'
 
 export const unpublishedTitleText = 'Unpublished'
 
-export const allTitleText = 'All'
+export const publishedTitleText = 'Published'
 
 export const noInProgressLessonsDescriptionText = 'You have no lessons in progress. Go claim a new lesson!'
 
