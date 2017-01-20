@@ -81,6 +81,8 @@ export const viewActionText = 'View'
 
 export const submitActionText = 'Submit'
 
+export const updateActionText = 'Update'
+
 export const newLessonSubmissionDescriptionText = 'Got an idea for something to record? Great! Submit anything and everything. You can submit as many as you\'d like. You\'ll automatically "Claim" your submissions.'
 
 export const loadingTitleText = 'Loading'

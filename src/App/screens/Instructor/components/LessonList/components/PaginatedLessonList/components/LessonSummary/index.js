@@ -7,6 +7,7 @@ import {
   claimActionText,
   claimedDescriptionText,
   submitActionText,
+  updateActionText,
 } from '../../../../../../../../utils/text'
 import {startShowNotification, startUpdateLessonState} from '../../../../../../../../state/actions'
 import Heading from '../../../../../../../../components/Heading'
@@ -19,8 +20,11 @@ const LessonSummary = ({
   startUpdateLessonState,
 }) => {
 
+  const lessonPath = `/instructors/${instructor.slug}/lessons/${lesson.slug}`
+
   const nextStepForCurrentStates = {
     accepted: {
+      requiresUserAction: true,
       label: claimActionText,
       action() {
         startUpdateLessonState({
@@ -39,12 +43,25 @@ const LessonSummary = ({
       }
     },
     claimed: {
+      requiresUserAction: true,
       label: submitActionText,
-      action: `/instructors/${instructor.slug}/lessons/${lesson.slug}`,
+      action: lessonPath,
+    },
+    rejected: {
+      requiresUserAction: true,
+      label: updateActionText,
+      action: lessonPath,
     },
   }
 
-  const nextStepForCurrentState = nextStepForCurrentStates[lesson.state]
+  const nextStepForCurrentState = nextStepForCurrentStates[lesson.state] || {
+    label: viewActionText,
+    action: lessonPath,
+  }
+
+  const sharedButtonProps = {
+    subtle: nextStepForCurrentState.requiresUserAction ? false : true,
+  }
 
   return (
     <div className='flex items-start'>
@@ -70,11 +87,11 @@ const LessonSummary = ({
         {nextStepForCurrentState
           ? <div className='mt2'>
               {isFunction(nextStepForCurrentState.action)
-                ? <Button onClick={nextStepForCurrentState.action}>
+                ? <Button {...sharedButtonProps} onClick={nextStepForCurrentState.action}>
                     {nextStepForCurrentState.label}
                   </Button>
                 : <Link to={nextStepForCurrentState.action}>
-                    <Button>
+                    <Button {...sharedButtonProps}>
                       {nextStepForCurrentState.label}
                     </Button>
                   </Link>
