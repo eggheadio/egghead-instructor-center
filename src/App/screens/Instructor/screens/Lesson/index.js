@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import {find} from 'lodash'
 import {connect} from 'react-redux'
+import {lessonTitleText} from '../../../../utils/text'
 import {startFetchLesson} from '../../../../state/actions'
 import Split from '../../../../components/Split'
 import Main from '../../../../components/Main'
 import Loading from '../../../../components/Loading'
+import Heading from '../../../../components/Heading'
+import WistiaVideo from './components/WistiaVideo'
 
 export default connect(
   ({appScreen}, {params}) => ({
@@ -34,12 +37,33 @@ export default connect(
 
     return (
       <Split
-        title={lesson.title}
+        title={lessonTitleText}
         main={
-          <div>todo</div>
+          <div>
+            <Heading level='3'>
+              {lesson.title}
+            </Heading>
+            <div>
+              {lesson.state}
+            </div>
+            <div>
+              <img
+                src={lesson.technology.logo_http_url}
+                alt={lesson.technology.label}
+                className='mw2 mr3'
+              />
+              {lesson.technology.label}
+            </div>
+            <div>
+              {lesson.instructor.full_name}
+            </div>
+            <div>
+              {lesson.summary}
+            </div>
+          </div>
         }
         aside={
-          <div>todo</div>
+          <WistiaVideo wistiaId={lesson.wistia_id} />
         }
       />
     )

@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
 
-const WistiaVideo = ({wistia_id}) => {
+const WistiaVideo = ({wistiaId}) => {
 
-  const url = `//fast.wistia.net/embed/iframe/${wistia_id}?videoFoam=true`
+  const url = `//fast.wistia.net/embed/iframe/${wistiaId}?videoFoam=true`
   const iframeRefCallback = function iframeRefCallback(iframe) {
     if (iframe) {
       iframe.contentWindow.location.replace(url)
@@ -44,7 +44,7 @@ const WistiaVideo = ({wistia_id}) => {
 }
 
 WistiaVideo.propTypes = {
-  wistia_id: PropTypes.string.isRequired
+  wistiaId: PropTypes.string.isRequired,
 }
 
 export default WistiaVideo

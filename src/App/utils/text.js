@@ -14,6 +14,8 @@ export const forbiddenActionText = 'View my pages'
 
 export const lessonsTitleText = 'Lessons'
 
+export const lessonTitleText = 'Lesson'
+
 export const inProgressTitleText = 'In progress'
 
 export const unpublishedTitleText = 'Unpublished'
