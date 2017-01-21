@@ -52,7 +52,9 @@ export default ({lesson}) => {
     },
     {
       title: videoTitleText,
-      children: <WistiaVideo wistiaId={lesson.wistia_id} />
+      children: lesson.wistia_id
+        ? <WistiaVideo wistiaId={lesson.wistia_id} />
+        : null
     },
   ]
 
