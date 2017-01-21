@@ -6,8 +6,8 @@ import {startFetchLesson} from '../../../../state/actions'
 import Split from '../../../../components/Split'
 import Main from '../../../../components/Main'
 import Loading from '../../../../components/Loading'
-import Heading from '../../../../components/Heading'
-import WistiaVideo from './components/WistiaVideo'
+import Status from './components/Status'
+import Data from './components/Data'
 
 export default connect(
   ({appScreen}, {params}) => ({
@@ -39,31 +39,10 @@ export default connect(
       <Split
         title={lessonTitleText}
         main={
-          <div>
-            <Heading level='3'>
-              {lesson.title}
-            </Heading>
-            <div>
-              {lesson.state}
-            </div>
-            <div>
-              <img
-                src={lesson.technology.logo_http_url}
-                alt={lesson.technology.label}
-                className='mw2 mr3'
-              />
-              {lesson.technology.label}
-            </div>
-            <div>
-              {lesson.instructor.full_name}
-            </div>
-            <div>
-              {lesson.summary}
-            </div>
-          </div>
+          <Status lesson={lesson} />
         }
         aside={
-          <WistiaVideo wistiaId={lesson.wistia_id} />
+          <Data lesson={lesson} />
         }
       />
     )

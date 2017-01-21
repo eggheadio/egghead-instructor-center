@@ -16,6 +16,16 @@ export const lessonsTitleText = 'Lessons'
 
 export const lessonTitleText = 'Lesson'
 
+export const titleTitleText = 'Title'
+
+export const instructorTitleText = 'Instructor'
+
+export const technologyTitleText = 'Technology'
+
+export const summaryTitleText = 'Summary'
+
+export const videoTitleText = 'Video'
+
 export const inProgressTitleText = 'In progress'
 
 export const unpublishedTitleText = 'Unpublished'
