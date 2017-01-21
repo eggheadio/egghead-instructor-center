@@ -6,7 +6,7 @@ import {startFetchLesson} from '../../../../state/actions'
 import Split from '../../../../components/Split'
 import Main from '../../../../components/Main'
 import Loading from '../../../../components/Loading'
-import Status from './components/Status'
+import NextStep from './components/NextStep'
 import Data from './components/Data'
 
 export default connect(
@@ -39,7 +39,7 @@ export default connect(
       <Split
         title={lessonTitleText}
         main={
-          <Status lesson={lesson} />
+          <NextStep lesson={lesson} />
         }
         aside={
           <Data lesson={lesson} />

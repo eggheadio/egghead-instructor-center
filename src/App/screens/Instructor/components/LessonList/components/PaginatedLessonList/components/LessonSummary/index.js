@@ -5,9 +5,7 @@ import {Link} from 'react-router'
 import {
   viewActionText,
   claimActionText,
-  claimedDescriptionText,
-  submitActionText,
-  updateActionText,
+  claimCompleteDescriptionText,
 } from '../../../../../../../../utils/text'
 import {startShowNotification, startUpdateLessonState} from '../../../../../../../../state/actions'
 import Heading from '../../../../../../../../components/Heading'
@@ -22,7 +20,7 @@ const LessonSummary = ({
 
   const lessonPath = `/instructors/${instructor.slug}/lessons/${lesson.slug}`
 
-  const nextStepForCurrentStates = {
+  const actionForCurrentStates = {
     accepted: {
       requiresUserAction: true,
       label: claimActionText,
@@ -34,7 +32,7 @@ const LessonSummary = ({
         })
         startShowNotification({
           type: 'info',
-          message: claimedDescriptionText,
+          message: claimCompleteDescriptionText,
           action: {
             path: '/',
             description: viewActionText,
@@ -44,23 +42,23 @@ const LessonSummary = ({
     },
     claimed: {
       requiresUserAction: true,
-      label: submitActionText,
+      label: viewActionText,
       action: lessonPath,
     },
     rejected: {
       requiresUserAction: true,
-      label: updateActionText,
+      label: viewActionText,
       action: lessonPath,
     },
   }
 
-  const nextStepForCurrentState = nextStepForCurrentStates[lesson.state] || {
+  const actionForCurrentState = actionForCurrentStates[lesson.state] || {
     label: viewActionText,
     action: lessonPath,
   }
 
   const sharedButtonProps = {
-    subtle: nextStepForCurrentState.requiresUserAction ? false : true,
+    subtle: actionForCurrentState.requiresUserAction ? false : true,
   }
 
   return (
@@ -84,15 +82,15 @@ const LessonSummary = ({
             : '...'
           }
         </div>
-        {nextStepForCurrentState
+        {actionForCurrentState
           ? <div className='mt2'>
-              {isFunction(nextStepForCurrentState.action)
-                ? <Button {...sharedButtonProps} onClick={nextStepForCurrentState.action}>
-                    {nextStepForCurrentState.label}
+              {isFunction(actionForCurrentState.action)
+                ? <Button {...sharedButtonProps} onClick={actionForCurrentState.action}>
+                    {actionForCurrentState.label}
                   </Button>
-                : <Link to={nextStepForCurrentState.action}>
+                : <Link to={actionForCurrentState.action}>
                     <Button {...sharedButtonProps}>
-                      {nextStepForCurrentState.label}
+                      {actionForCurrentState.label}
                     </Button>
                   </Link>
               }
