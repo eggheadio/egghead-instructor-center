@@ -74,6 +74,12 @@ const LessonSummary = ({
         <Heading level='5'>
           {lesson.title}
         </Heading>
+        <div className={`
+          mb2 ttu tc pa1 br2 ba f6 dib
+          ${actionForCurrentState.requiresUserAction ? 'orange b--orange' : 'b--black-50'}
+        `}>
+          {lesson.state}
+        </div>
         <div style={{
           wordBreak: 'break-word',
         }}>
