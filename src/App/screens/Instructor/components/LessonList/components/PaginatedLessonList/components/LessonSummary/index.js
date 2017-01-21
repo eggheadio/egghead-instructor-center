@@ -1,10 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {truncate} from 'lodash'
+import {truncate, isFunction} from 'lodash'
+import {Link} from 'react-router'
 import {
   viewActionText,
   claimActionText,
-  claimedDescriptionText,
+  claimCompleteDescriptionText,
 } from '../../../../../../../../utils/text'
 import {startShowNotification, startUpdateLessonState} from '../../../../../../../../state/actions'
 import Heading from '../../../../../../../../components/Heading'
@@ -17,8 +18,11 @@ const LessonSummary = ({
   startUpdateLessonState,
 }) => {
 
-  const nextStepForCurrentStates = {
+  const lessonPath = `/instructors/${instructor.slug}/lessons/${lesson.slug}`
+
+  const actionForCurrentStates = {
     accepted: {
+      requiresUserAction: true,
       label: claimActionText,
       action() {
         startUpdateLessonState({
@@ -28,7 +32,7 @@ const LessonSummary = ({
         })
         startShowNotification({
           type: 'info',
-          message: claimedDescriptionText,
+          message: claimCompleteDescriptionText,
           action: {
             path: '/',
             description: viewActionText,
@@ -36,9 +40,26 @@ const LessonSummary = ({
         })
       }
     },
+    claimed: {
+      requiresUserAction: true,
+      label: viewActionText,
+      action: lessonPath,
+    },
+    rejected: {
+      requiresUserAction: true,
+      label: viewActionText,
+      action: lessonPath,
+    },
   }
 
-  const nextStepForCurrentState = nextStepForCurrentStates[lesson.state]
+  const actionForCurrentState = actionForCurrentStates[lesson.state] || {
+    label: viewActionText,
+    action: lessonPath,
+  }
+
+  const sharedButtonProps = {
+    subtle: actionForCurrentState.requiresUserAction ? false : true,
+  }
 
   return (
     <div className='flex items-start'>
@@ -53,17 +74,32 @@ const LessonSummary = ({
         <Heading level='5'>
           {lesson.title}
         </Heading>
-        <div>
+        <div className={`
+          mb2 ttu tc pa1 br2 ba f6 dib
+          ${actionForCurrentState.requiresUserAction ? 'orange b--orange' : 'b--black-50'}
+        `}>
+          {lesson.state}
+        </div>
+        <div style={{
+          wordBreak: 'break-word',
+        }}>
           {lesson.summary
             ? truncate(lesson.summary, {length: 144})
             : '...'
           }
         </div>
-        {nextStepForCurrentState
+        {actionForCurrentState
           ? <div className='mt2'>
-              <Button onClick={nextStepForCurrentState.action}>
-                {nextStepForCurrentState.label}
-              </Button>
+              {isFunction(actionForCurrentState.action)
+                ? <Button {...sharedButtonProps} onClick={actionForCurrentState.action}>
+                    {actionForCurrentState.label}
+                  </Button>
+                : <Link to={actionForCurrentState.action}>
+                    <Button {...sharedButtonProps}>
+                      {actionForCurrentState.label}
+                    </Button>
+                  </Link>
+              }
             </div>
           : null
         }

@@ -14,6 +14,20 @@ export const forbiddenActionText = 'View my pages'
 
 export const lessonsTitleText = 'Lessons'
 
+export const lessonTitleText = 'Lesson'
+
+export const statusTitleText = 'Status'
+
+export const titleTitleText = 'Title'
+
+export const instructorTitleText = 'Instructor'
+
+export const technologyTitleText = 'Technology'
+
+export const summaryTitleText = 'Summary'
+
+export const videoTitleText = 'Video'
+
 export const inProgressTitleText = 'In progress'
 
 export const unpublishedTitleText = 'Unpublished'
@@ -81,6 +95,8 @@ export const viewActionText = 'View'
 
 export const submitActionText = 'Submit'
 
+export const updateActionText = 'Update'
+
 export const newLessonSubmissionDescriptionText = 'Got an idea for something to record? Great! Submit anything and everything. You can submit as many as you\'d like. You\'ll automatically "Claim" your submissions.'
 
 export const loadingTitleText = 'Loading'
@@ -94,13 +110,20 @@ export const nextLabelText = 'Next'
 
 export const claimActionText = 'Claim'
 export const claimDescriptionText = 'Claim a new lesson to get started'
-export const claimedDescriptionText = 'New lesson claimed!'
+export const claimCompleteDescriptionText = 'New lesson claimed!'
 
 export const instructorPulseTitleText = 'Instructor Pulse'
 
 export const newRequestedLessonsTitleText = 'New Requested Lessons'
 
 export const logOutTitleText = 'Log out'
+
+export const claimedDescriptionText = 'You\'ve claimed this lesson - it\'s just waiting for you to submit a video!'
+export const submittedDescriptionText = 'Sweet! Your lesson has been submitted and is waiting for approval.'
+export const rejectedDescriptionText = 'Your lesson needs to be updated from the feedback you received.'
+export const updatedDescriptionText = 'Cha ching. Lesson updated! Waiting for approval.'
+export const approvedDescriptionText = 'Nice work! Your lesson has been approved and is in the publishing queue.'
+export const publishedDescriptionText = 'Congrats! Your lesson has been published.'
 
 export const crackedEggoAltText = 'Cracked eggo logo'
 export const instructorEggoAltText = 'egghead.io instructors logo, eggo only'

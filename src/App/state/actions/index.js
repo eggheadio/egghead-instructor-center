@@ -71,3 +71,17 @@ export const endFetchTechnologies = (technologies) => ({
     technologies
   },
 })
+
+export const startFetchLesson = (lessonSlug) => ({
+  type: appActionTypes.STARTED_FETCH_LESSON,
+  payload: {
+    lessonSlug,
+  }
+})
+
+export const endFetchLesson = (lesson) => ({
+  type: appActionTypes.ENDED_FETCH_LESSON,
+  payload: {
+    lesson
+  },
+})
