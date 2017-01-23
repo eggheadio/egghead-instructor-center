@@ -36,13 +36,11 @@ export const endShowNotification = () => ({
 })
 
 export const startUpdateLessonState = ({
-  instructorId,
   lesson,
   newState,
 }) => ({
   type: appActionTypes.STARTED_UPDATE_LESSON_STATE,
   payload: {
-    instructorId,
     lesson,
     newState,
   },

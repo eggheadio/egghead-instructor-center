@@ -44,7 +44,6 @@ export default (action$, store) => (
       ({payload}, lesson) => {
         if(payload.lesson.state && !process.env.REACT_APP_FAKE_API) {
           store.dispatch(startUpdateLessonState({
-            instructorId: lesson.instructor_id,
             lesson,
             newState: payload.lesson.state,
           }))
