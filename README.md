@@ -47,6 +47,7 @@ An app for egghead instructors to do all the instructor things.
 - **Fake API:** JSON Server + Faker
 - **Continuous Integration:** Codeship
 - **Deployment:** Codeship -> Heroku \*
+- **Error Tracking:** Honeybadger
 
 _\* Relies on `create-react-app` setup_
 
