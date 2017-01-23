@@ -59,7 +59,7 @@ export default connect(
       technology_id: technologyId,
       summary: summary,
       state: type,
-      instructor_id: instructor ? instructor.id : null,
+      ...(instructor ? {instructor_id: instructor.id} : {}),
     })
     this.setState(clearedState)
     startShowNotification({
