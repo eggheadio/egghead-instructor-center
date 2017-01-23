@@ -28,7 +28,6 @@
   "dependencies": {
     "font-awesome": "^4.6.3",
     "format-number": "^2.0.1",
-    "honeybadger-js": "^0.4.3",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.16.2",
     "parse-link-header": "^0.4.1",
