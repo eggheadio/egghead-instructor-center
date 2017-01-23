@@ -35,7 +35,6 @@ export default (action$, store) => (
             body: process.env.REACT_APP_FAKE_API
               ? JSON.stringify({
                 ...payload.lesson,
-                instructor_id: payload.instructorId,
                 state: payload.newState,
               })
               : null,

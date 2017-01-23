@@ -21,7 +21,6 @@ export default (
     case STARTED_FETCH_ALL_LESSONS:
       const {states} = action.payload.lessonOptions
       return {
-        ...state,
         isLoading: true,
         states,
       }
@@ -30,7 +29,6 @@ export default (
     case ENDED_FETCH_ALL_LESSONS:
       const {lessonPage} = action.payload
       return {
-        ...state,
         isLoading: false,
         ...lessonPage,
       }
