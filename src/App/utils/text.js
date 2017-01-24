@@ -7,7 +7,7 @@ export const instructorActionText = 'Switch to instructor view'
 export const overviewTitleText = 'Overview'
 
 export const newLessonsTitleText = 'New Lessons'
-export const newLessonsActionText = 'Claim a new lesson'
+export const newLessonsActionText = 'Create a new lesson'
 
 export const forbiddenDescriptionText = 'You can only view your own pages'
 export const forbiddenActionText = 'View my pages'
@@ -34,7 +34,7 @@ export const unpublishedTitleText = 'Unpublished'
 
 export const publishedTitleText = 'Published'
 
-export const noInProgressLessonsDescriptionText = 'You have no lessons in progress. Go claim a new lesson!'
+export const noInProgressLessonsDescriptionText = 'You\'ve got no lessons in progress.'
 
 export const noInstructorsDescriptionText = 'No instructors to show'
 
@@ -42,23 +42,23 @@ export const noPublishedLessonsDescriptionText = 'Looks like you don\'t have any
 
 export const statsTitleText = 'Stats'
 
-export const currentMonthRevenueTitleText = 'Next paycheck (estimated)'
+export const currentMonthRevenueTitleText = 'Estimated royalties'
 
 export const totalRevenueTitleText = 'Last twelve months'
 
 export const revenueLabelText = 'dollars'
 
-export const subscriberMinutesLabelText = 'subscriber minutes'
+export const subscriberMinutesLabelText = 'minutes watched'
 
-export const noRevenueDescriptionText = 'There\'s no revenue to report. Time to publish some lessons!'
+export const noRevenueDescriptionText = 'There\'s no revenue to report. Publishing lessons is the key.'
 
 export const getPublishedTitleText = 'Get published'
-export const getPublishedDescriptionText = 'Work with your mentor to complete these items so you can get published!'
+export const getPublishedDescriptionText = 'Work with your mentor to complete these items so you can get published.'
 export const getPublishedActionText = 'Get published'
 
 export const requestedTitleText = 'Requested'
-export const requestedDescriptionText = 'Here\'s what we\'d love to see recorded right now. Claimed lessons will be yours for 2 weeks, and then they\'ll be reopened for others to claim.'
-export const requestedEmptyDescriptionText = 'All requested lessons have been claimed, but you can submit your own!'
+export const requestedDescriptionText = 'Here\'s some ideas for lessons that you can start recording today. If you claim one of these ideas, you\'ll have 2 weeks to record a draft and upload it. After that it goes back into the pool for others to claim.'
+export const requestedEmptyDescriptionText = 'There are no requested lessons, but you can create your own.'
 
 export const loginTitleText = 'Log in via egghead'
 export const loginDescriptionText = 'If you\'re an existing egghead.io instructor, please log in to access the instructor center.'
@@ -70,20 +70,20 @@ export const greetingTitleText = 'Hi'
 export const faqTitleText = 'FAQ'
 
 export const whatNowQuestionText = 'What do I do now?'
-export const whatNowAnswerText = 'Complete the checklist to get published! Everything you need to know can be found in the Instructor 101 Guide. Feel free to reach out to Joel and Trevor in the egghead.io Slack as well any time.'
+export const whatNowAnswerText = 'Here\'re the steps you need to complete to publish your first lesson. Most of what you need to know can be found in the Instructor 101 Guide. Feel free to reach out to Joel and Trevor in the egghead.io Slack as well any time.'
 
 export const missingInputDescriptionText = 'Missing required form input'
 
 export const guideTitleText = 'Instructor 101 Guide'
-export const guideDescriptionText = 'We\'ve put together the Instructor 101 Guide  with comprehensive how-tos covering a lot of the common issues that instructors encounter. It\'s here to help you make great work that will resonate.'
+export const guideDescriptionText = 'We\'ve put together a written Instructor Guide with step by step details on creating egghead lessons and courses. It is required reading for all instructors, and will help you make great lessons.'
 export const guideActionText = 'View the guide'
 
-export const adminsDescriptionText = 'Joel and Trevor can help with almost anything related to making egghead.io lessons.'
-export const adminsActionText = 'Send a message'
+export const adminsDescriptionText = 'Joel and Trevor can help with anything related to egghead.io.'
+export const adminsActionText = 'Reach out in Slack'
 
 export const chatTitleText = 'Chat'
 
-export const instructorsChatDescriptionText = 'The egghead-instructors Slack channel is available for instructors to chat and see each other\'s progress. Come join the fun!'
+export const instructorsChatDescriptionText = 'The egghead-instructors Slack channel is available for instructors to chat and see each other\'s progress.'
 export const instructorsChatActionText = 'View the channel'
 
 export const pageNotFoundTitleText = 'Page not found'
@@ -97,7 +97,7 @@ export const submitActionText = 'Submit'
 
 export const updateActionText = 'Update'
 
-export const newLessonSubmissionDescriptionText = 'Got an idea for something to record? Great! Submit anything and everything. You can submit as many as you\'d like. You\'ll automatically "Claim" your submissions.'
+export const newLessonSubmissionDescriptionText = 'Have an idea for an egghead lesson? Fill out this information and get started. Feel free to submit as many ideas as you like.'
 
 export const loadingTitleText = 'Loading'
 
@@ -110,7 +110,7 @@ export const nextLabelText = 'Next'
 
 export const claimActionText = 'Claim'
 export const claimDescriptionText = 'Claim a new lesson to get started'
-export const claimCompleteDescriptionText = 'New lesson claimed!'
+export const claimCompleteDescriptionText = 'This lesson is now yours. The next step is to record.'
 
 export const instructorPulseTitleText = 'Instructor Pulse'
 
@@ -118,12 +118,12 @@ export const newRequestedLessonsTitleText = 'New Requested Lessons'
 
 export const logOutTitleText = 'Log out'
 
-export const claimedDescriptionText = 'You\'ve claimed this lesson - it\'s just waiting for you to submit a video!'
+export const claimedDescriptionText = 'You\'ve claimed this lesson - it\'s just waiting for you to submit a video.'
 export const submittedDescriptionText = 'Sweet! Your lesson has been submitted and is waiting for approval.'
 export const rejectedDescriptionText = 'Your lesson needs to be updated from the feedback you received.'
-export const updatedDescriptionText = 'Cha ching. Lesson updated! Waiting for approval.'
-export const approvedDescriptionText = 'Nice work! Your lesson has been approved and is in the publishing queue.'
-export const publishedDescriptionText = 'Congrats! Your lesson has been published.'
+export const updatedDescriptionText = 'Lesson updated! Waiting for approval.'
+export const approvedDescriptionText = 'Nice work. Your lesson has been approved and is in the publishing queue.'
+export const publishedDescriptionText = 'Your lesson has been published. What\'s next?'
 
 export const crackedEggoAltText = 'Cracked eggo logo'
 export const instructorEggoAltText = 'egghead.io instructors logo, eggo only'
