@@ -34,7 +34,7 @@ export const unpublishedTitleText = 'Unpublished'
 
 export const publishedTitleText = 'Published'
 
-export const noInProgressLessonsDescriptionText = 'You\`ve got no lessons in progress. '
+export const noInProgressLessonsDescriptionText = 'You\'ve got no lessons in progress.'
 
 export const noInstructorsDescriptionText = 'No instructors to show'
 
