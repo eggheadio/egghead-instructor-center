@@ -1,7 +1,7 @@
 import Honeybadger from 'honeybadger-js'
 import {honeybadgerKey} from './keys'
 
-export default (store) => {
+export const initializeErrorTracking = (store) => {
   
   Honeybadger.configure({
     api_key: honeybadgerKey,
