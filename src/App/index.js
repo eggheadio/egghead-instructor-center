@@ -6,9 +6,8 @@ import Router from './components/Router'
 
 const store = configureStore()
 
-trackErrors(store)
-
 if (process.env.NODE_ENV === 'production') {
+  trackErrors(store)
 }
 
 export default (props) => (
