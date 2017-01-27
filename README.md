@@ -59,7 +59,7 @@ _\* Relies on `create-react-app` setup_
 
 Along with typical repo root files, you'll find some custom files and directories:
 
-- `src/`: holds all the components.
+- `src/`: holds all the source code.
 - `.fakeApi/`: holds fake environment API configuration.
 - `public`: used by `create-react-app` to copy files directly to the build folder as an escape hatch; generally read-only.
 - `.yarn.lock`: used by Yarn to ensure consistent package installs; read-only.
@@ -74,7 +74,7 @@ When running the app in the "fake" environment, the `.fakeApi` directory holds c
 - `overrides.js`: add overrides for non-randomized API responses.
 - `routes.js`: maps fake API routes to egghead API routes.
 
-## Source Directory (`src`)
+## Source Directory (`src/*`)
 
 ### Components
 
@@ -114,9 +114,9 @@ screens/ (optional)
 
 All resources are eligible for **promotion** to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ will apply and that shared resource will me _promoted_ to the least common ancestor’s directory. This project uses ES2015 modules for importing and exporting files between files. Generally, when importing a file below the current directly, a relative path should be used (`./components/SubComponent`). Generally, when importing a file above the current directory (something which has been promoted and is being shared above the current directory), an absolute path should be used (`NODE_PATH` is set to `src` so `import Icon from 'components/Icon'` will grab `src/components/Icon`.
 
-### Root Screen (`src/`)
+### Root Screen (`src`)
 
-The *root screen* is the container for the entire app. It has everything a screen has with a few additions:
+The `src` directory is the container for the entire app. It has everything a screen has with a few additions:
 
 - `index.js` wires up the component and state trees.
 - `state/` wires up all sub-screen `reducers/` and `epics/`.
