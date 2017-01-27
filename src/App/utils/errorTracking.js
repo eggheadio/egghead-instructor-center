@@ -12,6 +12,7 @@ export const initializeErrorTracking = (store) => {
     const instructorId = store.getState().appScreen.user.instructor_id
     Honeybadger.setContext({
       instructorId,
+      precedingActions: JSON.parse(localStorage.getItem('precedingActions')),
     })
     Honeybadger.notify(error ? error : {
       name: message,
