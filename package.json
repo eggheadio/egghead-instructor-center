@@ -5,10 +5,10 @@
     "dev": "npm-run-all -p dev:**",
     "dev:api": "json-server -w .fakeApi/index.js -r .fakeApi/routes.json -p 4000",
     "dev:app": "yarn start",
-    "test": "NODE_PATH=./src react-scripts test --env=jsdom",
-    "build": "NODE_PATH=./src react-scripts build",
+    "test": "NODE_PATH=./src/App react-scripts test --env=jsdom",
+    "build": "NODE_PATH=./src/App react-scripts build",
     "verify": "CI=true yarn test && yarn build",
-    "start": "NODE_PATH=./src react-scripts start"
+    "start": "NODE_PATH=./src/App react-scripts start"
   },
   "engines": {
     "node": ">=6.0.0"

@@ -74,7 +74,7 @@ When running the app in the "fake" environment, the `.fakeApi` directory holds c
 - `overrides.js`: add overrides for non-randomized API responses.
 - `routes.js`: maps fake API routes to egghead API routes.
 
-## Source Directory (`src/`)
+## Source Directory (`src`)
 
 ### Components
 
@@ -110,11 +110,11 @@ screens/ (optional)
 - `state/`: `actions/`, `reducers/`, and `epics/` to wire up state.
 - `screens/`: optional, sub-screens paired with sub-routes.
 
-### Promotion
+### Promotion and Paths
 
-All resources are eligible for *promotion* to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ will apply and that shared resource will me **promoted** to the least common ancestor’s directory.
+All resources are eligible for **promotion** to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ will apply and that shared resource will me _promoted_ to the least common ancestor’s directory. This project uses ES2015 modules for importing and exporting files between files. When importing a file below the current directly, a relative path should be used (`./components/SubComponent`). When importing a file above the current directory (something which has been promoted and is being shared above the current directory), an absolute path should be used (`NODE_PATH` is set to `src` so `import Icon from 'components/Icon'` will grab `src/components/Icon`.
 
-### Root Screen (`src/App`)
+### Root Screen (`src/`)
 
 The *root screen* is the container for the entire app. It has everything a screen has with a few additions:
 

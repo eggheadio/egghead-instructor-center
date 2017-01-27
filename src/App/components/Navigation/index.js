@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import {Link} from 'react-router'
 import {map, isFunction, startsWith} from 'lodash'
-import Icon from '../Icon'
-import Logo from '../Logo'
+import Icon from 'components/Icon'
+import Logo from 'components/Logo'
 import NavigationItem from './components/NavigationItem'
 
 export default class Navigation extends Component {
