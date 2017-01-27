@@ -1,5 +1,5 @@
-import {STARTED_SHOW_NOTIFICATION} from '../actions/appActionTypes'
-import {endShowNotification} from '../actions'
+import {STARTED_SHOW_NOTIFICATION} from 'state/actions/appActionTypes'
+import {endShowNotification} from 'state/actions'
 
 export default (action$) => (
   action$.ofType(STARTED_SHOW_NOTIFICATION)

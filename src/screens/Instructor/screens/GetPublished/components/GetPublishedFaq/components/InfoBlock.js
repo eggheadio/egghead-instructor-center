@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import Heading from '../../../../../../../components/Heading'
+import Heading from 'components/Heading'
 import MoreInfo from '../../MoreInfo'
 
 const InfoBlock = ({

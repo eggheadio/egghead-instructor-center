@@ -1,4 +1,4 @@
-import {ENDED_FETCH_INSTRUCTORS} from '../actions/adminActionTypes';
+import {ENDED_FETCH_INSTRUCTORS} from 'screens/Admin/state/actions/adminActionTypes';
 
 export default (
   state = false,
@@ -16,4 +16,3 @@ export default (
 
   }
 }
-

@@ -1,7 +1,7 @@
 import React from 'react'
 import {map} from 'lodash'
-import Anchor from '../../../../../../../../components/Anchor'
-import Button from '../../../../../../../../components/Button'
+import Anchor from 'components/Anchor'
+import Button from 'components/Button'
 
 export default ({items}) => (
   <div>

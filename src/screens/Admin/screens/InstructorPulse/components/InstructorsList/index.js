@@ -1,7 +1,7 @@
 import React from 'react'
 import {map, size} from 'lodash'
-import {noInstructorsDescriptionText} from '../../../../../../utils/text'
-import Heading from '../../../../../../components/Heading'
+import {noInstructorsDescriptionText} from 'utils/text'
+import Heading from 'components/Heading'
 import InstructorSummary from './components/InstructorSummary'
 
 export default ({title, instructors}) => (

@@ -3,10 +3,10 @@ import {
   requestedTitleText,
   requestedDescriptionText,
   requestedEmptyDescriptionText,
-} from '../../../../../../utils/text'
-import Heading from '../../../../../../components/Heading'
-import {requestedLessonStates} from '../../../../utils/lessonStatesGroups'
-import LessonList from '../../../../components/LessonList'
+} from 'utils/text'
+import Heading from 'components/Heading'
+import {requestedLessonStates} from 'screens/Instructor/utils/lessonStatesGroups'
+import LessonList from 'screens/Instructor/components/LessonList'
 
 export default () => (
   <div>

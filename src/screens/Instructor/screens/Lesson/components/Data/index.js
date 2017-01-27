@@ -6,9 +6,9 @@ import {
   technologyTitleText,
   summaryTitleText,
   videoTitleText,
-} from '../../../../../../utils/text'
-import Heading from '../../../../../../components/Heading'
-import Avatar from '../../../../../../components/Avatar'
+} from 'utils/text'
+import Heading from 'components/Heading'
+import Avatar from 'components/Avatar'
 import WistiaVideo from './components/WistiaVideo'
 
 export default ({lesson}) => {

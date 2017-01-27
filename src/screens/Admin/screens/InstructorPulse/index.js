@@ -1,7 +1,7 @@
 import React from 'react'
 import {filter, reject} from 'lodash'
-import {instructorPulseTitleText, publishedTitleText, unpublishedTitleText} from '../../../../utils/text'
-import Split from '../../../../components/Split'
+import {instructorPulseTitleText, publishedTitleText, unpublishedTitleText} from 'utils/text'
+import Split from 'components/Split'
 import InstructorsList from './components/InstructorsList'
 
 export default ({instructors}) => (

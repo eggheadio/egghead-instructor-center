@@ -4,9 +4,9 @@ import {
   whatNowQuestionText,
   whatNowAnswerText,
   faqTitleText,
-} from '../../../../../../utils/text'
-import {guideUrl} from '../../../../../../utils/urls'
-import Heading from '../../../../../../components/Heading'
+} from 'utils/text'
+import {guideUrl} from 'utils/urls'
+import Heading from 'components/Heading'
 import InfoBlock from './components/InfoBlock'
 
 const questions = [

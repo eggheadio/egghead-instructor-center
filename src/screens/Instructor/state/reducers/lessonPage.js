@@ -1,5 +1,5 @@
 import {findIndex, reject, includes, slice} from 'lodash'
-import {STARTED_UPDATE_LESSON_STATE} from '../../../../state/actions/appActionTypes';
+import {STARTED_UPDATE_LESSON_STATE} from 'state/actions/appActionTypes';
 import {
   STARTED_FETCH_INSTRUCTOR_LESSONS,
   STARTED_FETCH_ALL_LESSONS,

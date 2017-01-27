@@ -1,14 +1,14 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import getHeaders from '../../utils/getHeaders'
-import {loginExpiredDescriptionText} from '../../utils/text'
-import {STARTED_SUBMIT_LESSON} from '../actions/appActionTypes'
+import getHeaders from 'utils/getHeaders'
+import {loginExpiredDescriptionText} from 'utils/text'
+import {STARTED_SUBMIT_LESSON} from 'state/actions/appActionTypes'
 import {
   startRemoveUser,
   startShowNotification,
   startUpdateLessonState,
   endSubmitLesson,
-} from '../actions'
+} from 'state/actions'
 import createResourceBody from './utils/createResourceBody'
 
 export default (action$, store) => (

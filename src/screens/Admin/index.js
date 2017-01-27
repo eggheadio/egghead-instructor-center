@@ -9,16 +9,16 @@ import {
   instructorPulseTitleText,
   newRequestedLessonsTitleText,
   logOutTitleText,
-} from '../../utils/text'
-import adminSlugs from '../../utils/adminSlugs'
-import {startRemoveUser, startShowNotification} from '../../state/actions'
-import Main from '../../components/Main'
-import Navigation from '../../components/Navigation'
-import Button from '../../components/Button'
+} from 'utils/text'
+import adminSlugs from 'utils/adminSlugs'
+import {startRemoveUser, startShowNotification} from 'state/actions'
+import Main from 'components/Main'
+import Navigation from 'components/Navigation'
+import Button from 'components/Button'
+import Loading from 'components/Loading'
 import {startFetchInstructors} from './state/actions'
 import InstructorPulse from './screens/InstructorPulse'
 import NewRequestedLessons from './screens/NewRequestedLessons'
-import Loading from '../../components/Loading'
 
 export default connect(
   ({appScreen, adminScreen}) => ({

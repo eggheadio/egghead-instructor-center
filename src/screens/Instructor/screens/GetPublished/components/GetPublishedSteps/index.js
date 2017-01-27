@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react'
 import {map, uniq, compact, isString} from 'lodash'
-import {getPublishedDescriptionText} from '../../../../../../utils/text'
+import {getPublishedDescriptionText} from 'utils/text'
 import {
   chatInfoUrl, 
   roughDraftInfoUrl, 
   gearSetupInfoUrl,
-} from '../../../../../../utils/urls'
+} from 'utils/urls'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
 import DescriptionBlock from './components/DescriptionBlock'

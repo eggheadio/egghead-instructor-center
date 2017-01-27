@@ -1,9 +1,9 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
 import parse from 'parse-link-header'
-import getHeaders from '../../../../../utils/getHeaders'
-import {loginExpiredDescriptionText} from '../../../../../utils/text'
-import {startRemoveUser, startShowNotification} from '../../../../../state/actions'
+import getHeaders from 'utils/getHeaders'
+import {loginExpiredDescriptionText} from 'utils/text'
+import {startRemoveUser, startShowNotification} from 'state/actions'
 import createLessonsUrl from './createLessonsUrl'
 
 const handleLessonsResponse = (response) => (

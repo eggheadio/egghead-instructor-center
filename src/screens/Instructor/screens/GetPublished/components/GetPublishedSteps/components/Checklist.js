@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import {Link} from 'react-router'
 import {map} from 'lodash'
-import Icon from '../../../../../../../components/Icon'
+import Icon from 'components/Icon'
 import MoreInfo from '../../MoreInfo'
 
 const Checklist = ({items, instructorId}) => (

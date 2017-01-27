@@ -1,10 +1,9 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import getHeaders from '../../utils/getHeaders'
-import {loginExpiredDescriptionText} from '../../utils/text'
-import {startRemoveUser, startShowNotification} from '../actions'
-import {STARTED_FETCH_LESSON} from '../actions/appActionTypes'
-import {endFetchLesson} from '../actions'
+import getHeaders from 'utils/getHeaders'
+import {loginExpiredDescriptionText} from 'utils/text'
+import {STARTED_FETCH_LESSON} from 'state/actions/appActionTypes'
+import {startRemoveUser, startShowNotification, endFetchLesson} from 'state/actions'
 
 export default (action$, store) => (
   action$.ofType(STARTED_FETCH_LESSON)

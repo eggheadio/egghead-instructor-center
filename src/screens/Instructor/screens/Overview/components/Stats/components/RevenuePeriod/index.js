@@ -1,7 +1,7 @@
 import React from 'react'
 import formatNumber from 'format-number'
-import {subscriberMinutesLabelText} from '../../../../../../../../utils/text'
-import Heading from '../../../../../../../../components/Heading'
+import {subscriberMinutesLabelText} from 'utils/text'
+import Heading from 'components/Heading'
 import IconLabel from '../IconLabel'
 
 export default ({title, revenue, subscriberMinutes}) => (

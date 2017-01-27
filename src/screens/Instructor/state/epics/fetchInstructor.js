@@ -1,8 +1,8 @@
 import {includes} from 'lodash'
 import {Observable} from 'rxjs'
-import getHeaders from '../../../../utils/getHeaders'
-import {loginExpiredDescriptionText} from '../../../../utils/text'
-import {startRemoveUser, startShowNotification} from '../../../../state/actions'
+import getHeaders from 'utils/getHeaders'
+import {loginExpiredDescriptionText} from 'utils/text'
+import {startRemoveUser, startShowNotification} from 'state/actions'
 import {STARTED_FETCH_INSTRUCTOR} from '../actions/instructorActionTypes'
 import {endFetchInstructor} from '../actions'
 

@@ -6,11 +6,11 @@ import {
   noInProgressLessonsDescriptionText,
   noPublishedLessonsDescriptionText,
   getPublishedActionText,
-} from '../../../../../../utils/text'
-import Heading from '../../../../../../components/Heading'
-import {inProgressLessonStates, publishedLessonStates} from '../../../../utils/lessonStatesGroups'
-import Prompt from '../../../../components/Prompt'
-import LessonList from '../../../../components/LessonList'
+} from 'utils/text'
+import Heading from 'components/Heading'
+import {inProgressLessonStates, publishedLessonStates} from 'screens/Instructor/utils/lessonStatesGroups'
+import Prompt from 'screens/Instructor/components/Prompt'
+import LessonList from 'screens/Instructor/components/LessonList'
 import Tabs from './components/Tabs'
 
 export default ({instructor, lessonPage}) => (

@@ -1,4 +1,4 @@
-import {ENDED_FETCH_LESSON} from '../actions/appActionTypes';
+import {ENDED_FETCH_LESSON} from 'state/actions/appActionTypes';
 
 export default (
   state = false,

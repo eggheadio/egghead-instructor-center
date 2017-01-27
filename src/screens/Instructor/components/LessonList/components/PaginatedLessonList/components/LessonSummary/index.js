@@ -6,10 +6,10 @@ import {
   viewActionText,
   claimActionText,
   claimCompleteDescriptionText,
-} from '../../../../../../../../utils/text'
-import {startShowNotification, startUpdateLessonState} from '../../../../../../../../state/actions'
-import Heading from '../../../../../../../../components/Heading'
-import Button from '../../../../../../../../components/Button'
+} from 'utils/text'
+import {startShowNotification, startUpdateLessonState} from 'state/actions'
+import Heading from 'components/Heading'
+import Button from 'components/Button'
 
 const LessonSummary = ({
   instructor,

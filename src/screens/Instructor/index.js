@@ -12,14 +12,14 @@ import {
   guideTitleText,
   chatTitleText,
   logOutTitleText,
-} from '../../utils/text'
-import {guideUrl, chatUrl} from '../../utils/urls'
-import adminSlugs from '../../utils/adminSlugs'
-import {startRemoveUser, startShowNotification} from '../../state/actions'
-import Main from '../../components/Main'
-import Navigation from '../../components/Navigation'
-import Button from '../../components/Button'
-import Loading from '../../components/Loading'
+} from 'utils/text'
+import {guideUrl, chatUrl} from 'utils/urls'
+import adminSlugs from 'utils/adminSlugs'
+import {startRemoveUser, startShowNotification} from 'state/actions'
+import Main from 'components/Main'
+import Navigation from 'components/Navigation'
+import Button from 'components/Button'
+import Loading from 'components/Loading'
 import {startFetchInstructor} from './state/actions'
 import GetPublished from './screens/GetPublished'
 import Overview from './screens/Overview'

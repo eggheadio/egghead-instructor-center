@@ -112,7 +112,7 @@ screens/ (optional)
 
 ### Promotion and Paths
 
-All resources are eligible for **promotion** to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ will apply and that shared resource will me _promoted_ to the least common ancestor’s directory. This project uses ES2015 modules for importing and exporting files between files. When importing a file below the current directly, a relative path should be used (`./components/SubComponent`). When importing a file above the current directory (something which has been promoted and is being shared above the current directory), an absolute path should be used (`NODE_PATH` is set to `src` so `import Icon from 'components/Icon'` will grab `src/components/Icon`.
+All resources are eligible for **promotion** to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ will apply and that shared resource will me _promoted_ to the least common ancestor’s directory. This project uses ES2015 modules for importing and exporting files between files. Generally, when importing a file below the current directly, a relative path should be used (`./components/SubComponent`). Generally, when importing a file above the current directory (something which has been promoted and is being shared above the current directory), an absolute path should be used (`NODE_PATH` is set to `src` so `import Icon from 'components/Icon'` will grab `src/components/Icon`.
 
 ### Root Screen (`src/`)
 

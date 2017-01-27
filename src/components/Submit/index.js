@@ -9,14 +9,14 @@ import {
   lessonTitleLabelText,
   lessonTechnologyLabelText,
   lessonSummaryLabelText,
-} from '../../utils/text'
+} from 'utils/text'
 import {
   startShowNotification,
   startFetchTechnologies,
   startSubmitLesson,
-} from '../../state/actions'
-import Heading from '../Heading'
-import Button from '../Button'
+} from 'state/actions'
+import Heading from 'components/Heading'
+import Button from 'components/Button'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 

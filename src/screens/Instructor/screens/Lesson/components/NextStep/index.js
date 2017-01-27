@@ -7,8 +7,8 @@ import {
   updatedDescriptionText,
   approvedDescriptionText,
   publishedDescriptionText,
-} from '../../../../../../utils/text'
-import Heading from '../../../../../../components/Heading'
+} from 'utils/text'
+import Heading from 'components/Heading'
 
 const statusByLessonState = {
   claimed: {

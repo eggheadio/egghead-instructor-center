@@ -7,9 +7,9 @@ import {
   adminsActionText,
   instructorsChatDescriptionText,
   instructorsChatActionText,
-} from '../../../../../../utils/text'
-import {guideUrl, chatUrl, instructorsChatUrl} from '../../../../../../utils/urls'
-import Heading from '../../../../../../components/Heading'
+} from 'utils/text'
+import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
+import Heading from 'components/Heading'
 import List from './components/List'
 
 export default () => (

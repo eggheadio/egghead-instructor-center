@@ -1,7 +1,7 @@
 // TODO: Consume from egghead-ui once published
 
 import React, {PropTypes} from 'react'
-import Heading from '../Heading'
+import Heading from 'components/Heading'
 
 const Split = ({
   intro,

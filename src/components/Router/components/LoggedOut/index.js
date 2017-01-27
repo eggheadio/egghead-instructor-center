@@ -1,5 +1,5 @@
 import React from 'react'
-import {getLoginUrl, guideUrl} from '../../../../utils/urls'
+import {getLoginUrl, guideUrl} from 'utils/urls'
 import {
   appTitleText,
   loginTitleText,
@@ -7,11 +7,11 @@ import {
   guideTitleText, 
   guideDescriptionText,
   guideActionText,
-} from '../../../../utils/text'
-import Main from '../../../../components/Main'
-import Heading from '../../../../components/Heading'
-import Button from '../../../../components/Button'
-import Anchor from '../../../../components/Anchor'
+} from 'utils/text'
+import Main from 'components/Main'
+import Heading from 'components/Heading'
+import Button from 'components/Button'
+import Anchor from 'components/Anchor'
 
 export default () => (
   <Main>

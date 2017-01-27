@@ -3,10 +3,10 @@ import {
   pageNotFoundTitleText,
   pageNotFoundDescriptionText,
   crackedEggoAltText,
-} from '../../../../utils/text'
-import Main from '../../../../components/Main'
-import Split from '../../../../components/Split'
-import Heading from '../../../../components/Heading'
+} from 'utils/text'
+import Main from 'components/Main'
+import Split from 'components/Split'
+import Heading from 'components/Heading'
 import crackedEggo from './crackedEggo.png'
 
 export default () => (

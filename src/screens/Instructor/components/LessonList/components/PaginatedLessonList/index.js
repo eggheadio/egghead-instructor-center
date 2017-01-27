@@ -4,7 +4,7 @@ import {map} from 'lodash'
 import {
   previousLabelText,
   nextLabelText,
-} from '../../../../../../utils/text'
+} from 'utils/text'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonSummary from './components/LessonSummary'
 
