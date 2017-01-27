@@ -2586,6 +2586,10 @@ home-or-tmp@^2.0.0:
     os-homedir "^1.0.0"
     os-tmpdir "^1.0.1"
 
+honeybadger-js@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/honeybadger-js/-/honeybadger-js-0.4.3.tgz#624796f10c92074ea4e8cd91751e062f4a942191"
+
 hosted-git-info@^2.1.4:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.1.5.tgz#0ba81d90da2e25ab34a332e6ec77936e1598118b"
