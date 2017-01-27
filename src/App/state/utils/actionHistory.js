@@ -14,6 +14,5 @@ export default (store) => next => action => {
   ]
   const mostRecentPrecedingActions = slice(fullPrecedingActions, fullPrecedingActions.length - precedingActionsCount)
   localStorage.setItem('precedingActions', JSON.stringify(mostRecentPrecedingActions))
-  console.log('actionType', actionType)
   return next(action)
 }
