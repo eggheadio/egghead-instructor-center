@@ -20,7 +20,7 @@ export default ({instructors}) => (
       <InstructorsList
         title={publishedTitleText}
         instructors={reject(instructors, ['published_lessons', 0])
-          .sort(sortBy('-submitted_lessons', '-claimed_lessons', 'published_lessons', '-approved_lessons', '-id'))}
+          .sort(sortBy('-submitted_lessons', '-claimed_lessons', '-approved_lessons', 'published_lessons', '-id'))}
       />
     }
   />
