@@ -9,9 +9,6 @@ export const overviewTitleText = 'Overview'
 export const newLessonsTitleText = 'New Lessons'
 export const newLessonsActionText = 'Create a new lesson'
 
-export const forbiddenDescriptionText = 'You can only view your own pages'
-export const forbiddenActionText = 'View my pages'
-
 export const lessonsTitleText = 'Lessons'
 
 export const lessonTitleText = 'Lesson'

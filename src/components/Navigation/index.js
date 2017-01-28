@@ -8,7 +8,6 @@ import NavigationItem from './components/NavigationItem'
 export default class Navigation extends Component {
   
   static propTypes = {
-    pathname: PropTypes.string.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
       text: PropTypes.string.isRequired,
       action: PropTypes.oneOfType([
@@ -35,7 +34,7 @@ export default class Navigation extends Component {
   }
 
   render() {
-    const {pathname, items} = this.props
+    const {items} = this.props
 
     return (
       <header className='bg-black-70'>
@@ -79,7 +78,7 @@ export default class Navigation extends Component {
                   ? <Link
                       key={index}
                       activeOnlyWhenExact
-                      to={`${pathname}${item.action}`}
+                      to={item.action}
                       onClick={this.close}
                     >
                       {({isActive, onClick, href}) => (

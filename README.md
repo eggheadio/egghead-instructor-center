@@ -48,6 +48,7 @@ An app for egghead instructors to do all the instructor things.
 - **Continuous Integration:** Codeship
 - **Deployment:** Codeship -> Heroku \*
 - **Error Tracking:** Honeybadger
+- **Endpoints:** egghead-rails rest APIs
 
 _\* Relies on `create-react-app` setup_
 
@@ -132,6 +133,12 @@ Files that could benefit from tests have an `index.test.js` file next to them. T
 
 ---
 
+# Endpoints
+
+Endpoint data uses hypermedia and only returns what the user has access to, so all UI based on permissions can be combined without separate routes for "roles". There is no such thing as roles in this system, but what data a response has, based on the user.
+
+---
+
 # Pull Requests
 
 ![Animated gif of pull request process](https://cloud.githubusercontent.com/assets/5497885/20947829/3bd6ce70-bbce-11e6-86a5-9df6e067c8cc.gif)
@@ -140,5 +147,4 @@ Files that could benefit from tests have an `index.test.js` file next to them. T
 - Submit a pull request to `master`.
 - [Continuous integration](https://app.codeship.com/projects/183842) runs automatically.
 - Merge pull request.
-- [Continuous deployment](https://app.codeship.com/projects/183842) pushes latest code to [staging](https://instructor-center.herokuapp.com) automatically.
-- _TODO: copy staging to prod after testing_
+- [Continuous deployment](https://app.codeship.com/projects/183842) pushes latest code to [prod](https://instructor.egghead.io) automatically.
