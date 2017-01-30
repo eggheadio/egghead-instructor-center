@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import {Match, Link} from 'react-router'
 import {connect} from 'react-redux'
-import {guideUrl, chatUrl} from 'utils/urls'
-import adminSlugs from 'utils/adminSlugs'
 import {startRemoveUser, startShowNotification} from 'state/actions'
 import Navigation from 'components/Navigation'
 import Button from 'components/Button'
