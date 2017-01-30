@@ -1,4 +1,4 @@
-import {ENDED_FETCH_TECHNOLOGIES} from 'state/actions/appActionTypes';
+import {ENDED_FETCH_TECHNOLOGIES} from 'state/actions/actionTypes'
 
 export default (
   state = false,

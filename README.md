@@ -111,14 +111,6 @@ screens/ (optional)
 - `state/`: `actions/`, `reducers/`, and `epics/` to wire up state.
 - `screens/`: optional, sub-screens paired with sub-routes.
 
-### Promotion
-
-All resources are eligible for **promotion** to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ applies and that shared resource is _promoted_ to the least common ancestor’s directory.
-
-### Paths
-
-This project uses ES2015 modules for sharing code between files. `NODE_PATH` is set to `src` so `import Icon from 'components/Icon'` will grab `src/components/Icon`. When trying to decide if an import should use an absolute or relative path, it depends on the situation: if something belongs to an inner module/component, it should reference the pieces relatively; if something is using a general promoted module/component, it should import the pieces absolutely. A good rule of thumb is to keep everything relative that would be moved together so it is self-contained.
-
 ### Root Screen (`src`)
 
 The `src` directory is the container for the entire app. It has everything a screen has with a few additions:
@@ -130,6 +122,14 @@ The `src` directory is the container for the entire app. It has everything a scr
 ### Styles
 
 Styling is done with default Tachyons classes. The `*-ns` (not small) classes are used to apply anything specific to non-mobile screen sizes, so that all components are built mobile-first.
+
+### Promotion
+
+All resources are eligible for **promotion** to facilitate code reuse. If a resource is shared by multiple directories, the principle of _least common ancestor_ applies and that shared resource is _promoted_ to the least common ancestor’s directory.
+
+### Paths
+
+This project uses ES2015 modules for sharing code between files. `NODE_PATH` is set to `src` so `import Icon from 'components/Icon'` will grab `src/components/Icon`. When trying to decide if an import should use an absolute or relative path, it depends on the situation: if something belongs to an inner module/component, it should reference the pieces relatively; if something is using a general promoted module/component, it should import the pieces absolutely. A good rule of thumb is to keep everything relative that would be moved together so it is self-contained.
 
 ### Routes
 

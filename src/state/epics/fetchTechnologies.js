@@ -2,7 +2,7 @@ import {includes} from 'lodash'
 import {Observable} from 'rxjs'
 import getHeaders from 'utils/getHeaders'
 import {loginExpiredDescriptionText} from 'utils/text'
-import {STARTED_FETCH_TECHNOLOGIES} from 'state/actions/appActionTypes'
+import {STARTED_FETCH_TECHNOLOGIES} from 'state/actions/actionTypes'
 import {startRemoveUser, startShowNotification, endFetchTechnologies} from 'state/actions'
 
 export default (action$, store) => (
@@ -18,7 +18,7 @@ export default (action$, store) => (
               throw Error(loginExpiredDescriptionText)
             }
             else if (!response.ok) {
-              throw Error(`Fetching technology data failed - error message: ${response.statusText}`);
+              throw Error(`Fetching technology data failed - error message: ${response.statusText}`)
             }
             return response
           })

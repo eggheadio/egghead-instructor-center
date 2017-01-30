@@ -1,4 +1,4 @@
-import {STARTED_REMOVE_USER} from 'state/actions/appActionTypes'
+import {STARTED_REMOVE_USER} from 'state/actions/actionTypes'
 import {endRemoveUser} from 'state/actions'
 
 export default (action$) => (

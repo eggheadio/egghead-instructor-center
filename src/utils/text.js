@@ -1,7 +1,5 @@
 export const appTitleText = 'Instructor Center'
 
-export const adminActionText = 'Switch to admin view'
-
 export const instructorActionText = 'Switch to instructor view'
 
 export const overviewTitleText = 'Overview'

@@ -4,33 +4,32 @@ import 'font-awesome/css/font-awesome.min.css'
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import {Provider, connect} from 'react-redux'
-import {BrowserRouter, Match, Redirect, Miss, Link} from 'react-router'
-import {compact, includes} from 'lodash'
-import {initializeErrorTracking} from './utils/errorTracking'
+import {BrowserRouter, Match, Miss} from 'react-router'
+
+import {initializeErrorTracking} from 'utils/errorTracking'
 import {
-  adminActionText,
-  getPublishedTitleText,
   overviewTitleText,
   newLessonsTitleText,
   guideTitleText,
   chatTitleText,
   logOutTitleText,
-} from './utils/text'
-import {guideUrl, chatUrl} from './utils/urls'
-import adminSlugs from './utils/adminSlugs'
-import getUrlParameter from './utils/getUrlParameter'
-import removeQueryString from './utils/removeQueryString'
-import configureStore from './state/'
-import {startAddUser, startRemoveUser, startShowNotification, startFetchInstructor} from './state/actions'
-import GetPublished from './screens/GetPublished'
+} from 'utils/text'
+import {guideUrl, chatUrl} from 'utils/urls'
+import getUrlParameter from 'utils/getUrlParameter'
+import removeQueryString from 'utils/removeQueryString'
+
+import configureStore from 'state/'
+import {startAddUser, startRemoveUser, startShowNotification, startFetchInstructor} from 'state/actions'
+
+import Main from 'components/Main'
+import Loading from 'components/Loading'
+
 import Overview from './screens/Overview'
-import Lesson from './screens/Lesson'
-import NewLessons from './screens/NewLessons'
-import Admin from './screens/Admin'
-import Main from './components/Main'
-import Loading from './components/Loading'
+import New from './screens/Lessons/screens/New'
+import Lesson from './screens/Lessons/screens/Lesson'
+import Instructors from './screens/Instructors'
+
 import Navigation from './components/Navigation'
-import Button from './components/Button'
 import LoggedOut from './components/LoggedOut'
 import RouteNotFound from './components/RouteNotFound'
 import NotificationCenter from './components/NotificationCenter'
@@ -42,10 +41,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const Routes = connect(
-  ({appScreen, instructorScreen}) => ({
+  ({appScreen}) => ({
     user: appScreen.user,
-    instructor: instructorScreen.instructor,
-    lessonPage: instructorScreen.lessonPage,
+    instructor: appScreen.instructor,
+    lessonPage: appScreen.lessonPage,
   }),
   {
     startAddUser,
@@ -55,7 +54,7 @@ const Routes = connect(
   }
 )(class Routes extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
 
     const {user, instructor, startAddUser} = this.props
     const token = getUrlParameter('jwt')
@@ -90,21 +89,14 @@ const Routes = connect(
 
   render() {
 
-    const {user, instructor, lessonPage} = this.props
-    const isAdmin = includes(adminSlugs, user.instructor_id)
+    const {instructor, lessonPage} = this.props
 
     return (
       <BrowserRouter>
         <div>
 
           <Navigation
-            items={compact([
-              (instructor.published_lessons === 0)
-                ? {
-                    text: getPublishedTitleText,
-                    action: '/get-published',
-                  }
-                : null,
+            items={[
               {
                 text: overviewTitleText,
                 action: '',
@@ -125,42 +117,14 @@ const Routes = connect(
                 text: logOutTitleText,
                 action: startRemoveUser,
               },
-            ])}
+            ]}
           />
 
           <Main>
 
-            {isAdmin
-              ? <nav className='pa3 bg-dark-gray flex justify-center'>
-                  <Link to={`/admin`}>
-                    <Button subtle>
-                      {adminActionText}
-                    </Button>
-                  </Link>
-                </nav>
-              : null
-            }
-
             <Match
               exactly
               pattern='/'
-              render={() => (
-                <Redirect to='/overview' />
-              )}
-            />
-
-            <Match 
-              pattern='/get-published'
-              render={() => (
-                <GetPublished 
-                  instructor={instructor}
-                  lessonPage={lessonPage}
-                />
-              )}
-            />
-
-            <Match
-              pattern='/overview'
               render={() => (
                 <Overview
                   instructor={instructor}
@@ -170,23 +134,27 @@ const Routes = connect(
             />
 
             <Match 
-              pattern={`/lessons/:lessonSlug`}
-              component={Lesson}
-            />
-
-            <Match 
-              pattern={'/new-lessons'}
+              pattern={'/lessons/new'}
               render={() => (
-                <NewLessons
+                <New
                   instructor={instructor}
                   lessonPage={lessonPage}
                 />
               )}
             />
 
+            <Match 
+              pattern={`/lessons/:lessonSlug`}
+              render={() => (
+                <Lesson />
+              )}
+            />
+
             <Match
-              pattern='/admin'
-              component={Admin}
+              pattern='/instructors'
+              render={() => (
+                <Instructors />
+              )}
             />
 
             <Miss component={RouteNotFound} />

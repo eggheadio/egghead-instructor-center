@@ -1,5 +1,5 @@
 import jwt from 'jwt-simple'
-import {ENDED_ADD_USER, ENDED_REMOVE_USER} from 'state/actions/appActionTypes';
+import {ENDED_ADD_USER, ENDED_REMOVE_USER} from 'state/actions/actionTypes'
 
 const defaultState = false
 

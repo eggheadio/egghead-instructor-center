@@ -2,7 +2,7 @@ import {includes} from 'lodash'
 import {Observable} from 'rxjs'
 import getHeaders from 'utils/getHeaders'
 import {loginExpiredDescriptionText} from 'utils/text'
-import {STARTED_UPDATE_LESSON_STATE} from 'state/actions/appActionTypes'
+import {STARTED_UPDATE_LESSON_STATE} from 'state/actions/actionTypes'
 import {startRemoveUser, startShowNotification, endUpdateLessonState} from 'state/actions'
 
 const lessonStateUrls = {
@@ -46,7 +46,7 @@ export default (action$, store) => (
               throw Error(loginExpiredDescriptionText)
             }
             else if (!response.ok) {
-              throw Error(`Updating lesson state failed - error message: ${response.statusText}`);
+              throw Error(`Updating lesson state failed - error message: ${response.statusText}`)
             }
             return response
           })

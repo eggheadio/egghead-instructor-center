@@ -1,5 +1,5 @@
 import jwt from 'jwt-simple'
-import {STARTED_ADD_USER} from 'state/actions/appActionTypes'
+import {STARTED_ADD_USER} from 'state/actions/actionTypes'
 import {endAddUser} from 'state/actions'
 
 export default (action$) => (

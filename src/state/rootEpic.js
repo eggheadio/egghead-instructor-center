@@ -1,10 +1,9 @@
 import {combineEpics} from 'redux-observable'
-import instructorScreenEpics from 'screens/Instructor/state/epics'
-import adminScreenEpics from 'screens/Admin/state/epics'
-import appScreenEpics from './epics'
+
+import appScreenEpics from 'state/epics'
+import instructorsScreenEpics from 'screens/Instructors/state/epics'
 
 export default combineEpics(
   appScreenEpics,
-  instructorScreenEpics,
-  adminScreenEpics
+  instructorsScreenEpics
 )

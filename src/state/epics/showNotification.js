@@ -1,4 +1,4 @@
-import {STARTED_SHOW_NOTIFICATION} from 'state/actions/appActionTypes'
+import {STARTED_SHOW_NOTIFICATION} from 'state/actions/actionTypes'
 import {endShowNotification} from 'state/actions'
 
 export default (action$) => (

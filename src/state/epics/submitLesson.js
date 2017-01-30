@@ -2,7 +2,7 @@ import {includes} from 'lodash'
 import {Observable} from 'rxjs'
 import getHeaders from 'utils/getHeaders'
 import {loginExpiredDescriptionText} from 'utils/text'
-import {STARTED_SUBMIT_LESSON} from 'state/actions/appActionTypes'
+import {STARTED_SUBMIT_LESSON} from 'state/actions/actionTypes'
 import {
   startRemoveUser,
   startShowNotification,
@@ -26,7 +26,7 @@ export default (action$, store) => (
               throw Error(loginExpiredDescriptionText)
             }
             else if (!response.ok) {
-              throw Error(`Submitting your lesson failed - error message: ${response.statusText}`);
+              throw Error(`Submitting your lesson failed - error message: ${response.statusText}`)
             }
             return response
           })
