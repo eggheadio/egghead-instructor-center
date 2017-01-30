@@ -9,6 +9,8 @@ export const newLessonsActionText = 'Create a new lesson'
 
 export const lessonsTitleText = 'Lessons'
 
+export const instructorsTitleText = 'Instructors'
+
 export const lessonTitleText = 'Lesson'
 
 export const statusTitleText = 'Status'

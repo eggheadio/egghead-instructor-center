@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import {lessonTitleText} from 'utils/text'
 import {startFetchLesson} from 'state/actions'
 import Split from 'components/Split'
-import Main from 'components/Main'
 import Loading from 'components/Loading'
 import NextStep from './components/NextStep'
 import Data from './components/Data'
@@ -23,16 +22,18 @@ export default connect(
     }
   }
 
-  render() {
+  componentDidMount() {
     const {lesson, params, startFetchLesson} = this.props
-
     if(!lesson || params.lessonSlug !== lesson.slug) {
       startFetchLesson(params.lessonSlug)
-      return (
-        <Main>
-          <Loading />
-        </Main>
-      )
+    }
+  }
+
+  render() {
+    const {lesson, params} = this.props
+
+    if(!lesson || params.lessonSlug !== lesson.slug) {
+      return <Loading />
     }
 
     return (

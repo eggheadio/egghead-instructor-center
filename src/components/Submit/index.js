@@ -44,7 +44,7 @@ export default connect(
     type: 'claimed',
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const {startFetchTechnologies, technologies} = this.props
     if(!technologies) {
       startFetchTechnologies()

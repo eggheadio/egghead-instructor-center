@@ -10,6 +10,7 @@ import {initializeErrorTracking} from 'utils/errorTracking'
 import {
   overviewTitleText,
   newLessonsTitleText,
+  instructorsTitleText,
   guideTitleText,
   chatTitleText,
   logOutTitleText,
@@ -54,42 +55,33 @@ const Routes = connect(
   }
 )(class Routes extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
 
-    const {user, instructor, startAddUser} = this.props
+    const {user, instructor, startAddUser, startFetchInstructor} = this.props
     const token = getUrlParameter('jwt')
 
-    if(!token && !user) {
-      return (
-        <Main>
-          <LoggedOut />
-        </Main>
-      )
-    }
-
-    else if(token && !user) {
+    if(token && !user) {
       removeQueryString()
       startAddUser(token)
-      return (
-        <Main>
-          <Loading />
-        </Main>
-      )
     }
 
-    else if(!instructor) {
+    if(user && !instructor) {
       startFetchInstructor(user.instructor_id)
-      return (
-        <Main>
-          <Loading />
-        </Main>
-      )
     }
   }
 
   render() {
 
-    const {instructor, lessonPage} = this.props
+    const {user, instructor, lessonPage} = this.props
+    const token = getUrlParameter('jwt')
+
+    if(!token && !user) {
+      return <LoggedOut />
+    }
+
+    else if(!user || !instructor) {
+      return <Loading />
+    }
 
     return (
       <BrowserRouter>
@@ -103,7 +95,11 @@ const Routes = connect(
               },
               {
                 text: newLessonsTitleText,
-                action: '/new-lessons',
+                action: '/lessons/new',
+              },
+              {
+                text: instructorsTitleText,
+                action: '/instructors',
               },
               {
                 text: guideTitleText,

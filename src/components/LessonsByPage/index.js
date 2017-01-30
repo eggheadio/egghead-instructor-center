@@ -47,7 +47,7 @@ export default connect(
       : startFetchAllLessons(sharedOptions)
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchLessons()
   }
 

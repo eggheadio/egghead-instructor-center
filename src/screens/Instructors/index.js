@@ -6,7 +6,6 @@ import {instructorPulseTitleText, unpublishedTitleText, publishedTitleText} from
 
 import {startFetchInstructors} from 'state/actions'
 
-import Main from 'components/Main'
 import Loading from 'components/Loading'
 import Split from 'components/Split'
 
@@ -21,23 +20,22 @@ export default connect(
   }
 )(class Admin extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
 
     const {instructors, startFetchInstructors} = this.props
 
     if(!instructors) {
       startFetchInstructors()
-      return (
-        <Main>
-          <Loading />
-        </Main>
-      )
     }
   }
 
   render() {
     
     const {instructors} = this.props
+
+    if(!instructors) {
+      return <Loading />
+    }
 
     return (
       <Split
