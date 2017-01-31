@@ -60,7 +60,7 @@ export const requestedEmptyDescriptionText = 'There are no requested lessons, bu
 export const loginTitleText = 'Log in via egghead'
 export const loginDescriptionText = 'If you\'re an existing egghead.io instructor, please log in to access the instructor center.'
 
-export const loginExpiredDescriptionText = 'Your log in has expired, logging you out'
+export const loginExpiredDescriptionText = 'Your log in has expired, please log in again'
 
 export const greetingTitleText = 'Hi'
 
