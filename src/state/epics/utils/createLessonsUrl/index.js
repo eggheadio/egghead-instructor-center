@@ -1,4 +1,3 @@
-import devQueryString from 'query-string'
 import createQueryString from '../createQueryString'
 
 export default ({
@@ -27,9 +26,7 @@ export default ({
     ),
   }
 
-  const queryString = process.env.REACT_APP_FAKE_API
-    ? `?${devQueryString.stringify(params)}`
-    : createQueryString(params)
+  const queryString = createQueryString(params)
 
   const lessonsUrl = lessons_url
     ? lessons_url

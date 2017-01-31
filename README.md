@@ -61,19 +61,10 @@ _\* Relies on `create-react-app` setup_
 Along with typical repo root files, you'll find some custom files and directories:
 
 - `src/`: holds all the source code.
-- `.fakeApi/`: holds fake environment API configuration.
 - `public`: used by `create-react-app` to copy files directly to the build folder as an escape hatch; generally read-only.
 - `.yarn.lock`: used by Yarn to ensure consistent package installs; read-only.
 - `.env`: holds private environment configuration (stored only on your machine); generally read-only once set up.
 - `.env_template`: an example for you to copy to `.env`; generally read-only.
-
-### Fake API (`.fakeApi/`)
-
-When running the app in the "fake" environment, the `.fakeApi` directory holds configuration for the API.
-
-- `index.js`: fake API entry point; generates randomized API responses whenever the API server is run. This helps our code stay flexible with different data.
-- `overrides.js`: add overrides for non-randomized API responses.
-- `routes.js`: maps fake API routes to egghead API routes.
 
 ## Source Directory (`src/*`)
 

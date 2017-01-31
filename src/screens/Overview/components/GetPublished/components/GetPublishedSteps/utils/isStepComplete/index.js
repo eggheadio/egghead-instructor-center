@@ -1,5 +1,6 @@
 import {includes, indexOf, slice, some} from 'lodash'
-import lessonStates from 'screens/Instructor/utils/lessonStates'
+
+import lessonStates from 'utils/lessonStates'
 
 export default (instructorLessonStates, minimumLessonState) => {
   const qualifyingLessonStates = slice(

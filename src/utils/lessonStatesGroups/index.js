@@ -1,5 +1,6 @@
-import lessonStates from '../lessonStates'
 import {slice, indexOf} from 'lodash'
+
+import lessonStates from '../lessonStates'
 
 export const requestedLessonStates = ['accepted']
 
