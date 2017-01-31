@@ -14,7 +14,7 @@ export default (action$, store) => (
           headers: getHeaders(store.getState().appScreen.user.token)
         })
           .then(response => {
-            if (includes([401, 403, 404], response.status)) {
+            if (includes([401, 403], response.status)) {
               store.dispatch(startRemoveUser())
               throw Error(loginExpiredDescriptionText)
             }
