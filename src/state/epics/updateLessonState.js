@@ -24,19 +24,9 @@ export default (action$, store) => (
     .switchMap(
       ({payload}) => Observable.fromPromise(
         fetch(
-          process.env.REACT_APP_FAKE_API 
-            ? payload.lesson.lesson_url
-            : payload.lesson[lessonStateUrls[payload.newState]],
+          payload.lesson[lessonStateUrls[payload.newState]],
           {
-            method: process.env.REACT_APP_FAKE_API
-              ? 'PUT'
-              : 'POST',
-            body: process.env.REACT_APP_FAKE_API
-              ? JSON.stringify({
-                ...payload.lesson,
-                state: payload.newState,
-              })
-              : null,
+            method: 'POST',
             headers: getHeaders(store.getState().appScreen.user.token),
           }
         )

@@ -85,6 +85,10 @@ React router is used for routing. URLs follow the Rails standard routing scheme,
 
 Fetch is used with the `egghead-rails` rest APIs. The endpoint data uses hypermedia and only returns what the user has access to, so all UI based on permissions can be combined without separate routes for "roles". There is no such thing as roles in this system, but what data a response has, based on the user.
 
+# Environment
+
+The `.env` file is used to load environment variables. The base url of endpoint calls is set here to use different environment endpoints as well.
+
 # Public folder
 
 The `public/` folder is used by `react-scripts` to copy files directly to the `build/` folder root. It contains things like the root `index.html` and favicons/app icons. It is generally read-only.

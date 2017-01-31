@@ -9,7 +9,6 @@ import {
   startUpdateLessonState,
   endSubmitLesson,
 } from 'state/actions'
-import createResourceBody from './utils/createResourceBody'
 
 export default (action$, store) => (
   action$.ofType(STARTED_SUBMIT_LESSON)
@@ -17,7 +16,7 @@ export default (action$, store) => (
       ({payload}) => Observable.fromPromise(
         fetch(`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`, {
           method: 'POST',
-          body: JSON.stringify(createResourceBody('lesson', payload.lesson)),
+          body: JSON.stringify({'lesson': payload.lesson}),
           headers: getHeaders(store.getState().appScreen.user.token),
         })
           .then(response => {
@@ -42,7 +41,7 @@ export default (action$, store) => (
           })
       ),
       ({payload}, lesson) => {
-        if(payload.lesson.state && !process.env.REACT_APP_FAKE_API) {
+        if(payload.lesson.state) {
           store.dispatch(startUpdateLessonState({
             lesson,
             newState: payload.lesson.state,
