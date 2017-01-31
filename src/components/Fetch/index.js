@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {loginExpiredDescriptionText} from 'utils/text'
 import notify from 'utils/notify'
 import logout from 'utils/logout'
+import Loading from 'components/Loading'
 import FetchBase from './components/FetchBase'
 
 const statusCodes = {
@@ -41,7 +42,25 @@ export default class Fetch extends Component {
         url={this.getUrl()}
         headers={this.getHeaders()}
         onError={this.handleError}
-      />
+      >
+        {({fetching, error, data}) => {
+          if (fetching) {
+            return <Loading />
+          }
+          if (error) {
+            return (
+              <div className='red'>
+                Error: {error.message}
+              </div>
+            )
+          }
+          if (data) {
+            return this.props.children({
+              data,
+            })
+          }
+        }}
+      </FetchBase>
     )
   }
 }

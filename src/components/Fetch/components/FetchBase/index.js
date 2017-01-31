@@ -1,13 +1,20 @@
 import { Component, PropTypes } from 'react'
 import axios from 'axios'
-import {isEqual} from 'lodash'
+import {isEqual, first} from 'lodash'
 
 const http = axios.create()
+
+const requestMethods = [
+  'get',
+  'post',
+  'put',
+  'delete',
+]
 
 export default class FetchBase extends Component {
 
   static propTypes = {
-    method: PropTypes.oneOf(['get', 'post', 'put', 'delete']),
+    method: PropTypes.oneOf(requestMethods),
     url: PropTypes.string.isRequired,
     params: PropTypes.object,
     headers: PropTypes.object,
@@ -19,7 +26,9 @@ export default class FetchBase extends Component {
     children: PropTypes.func,
   }
 
-  static defaultProps = { method: 'get' }
+  static defaultProps = {
+    method: first(requestMethods),
+  }
 
   state = {
     fetching: !this.props.lazy,
