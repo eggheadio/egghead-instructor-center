@@ -5,7 +5,6 @@ import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import {Provider, connect} from 'react-redux'
 import {BrowserRouter, Match, Miss} from 'react-router'
-
 import {initializeErrorTracking} from 'utils/errorTracking'
 import {
   overviewTitleText,
@@ -18,18 +17,14 @@ import {
 import {guideUrl, chatUrl} from 'utils/urls'
 import getUrlParameter from 'utils/getUrlParameter'
 import removeQueryString from 'utils/removeQueryString'
-
 import configureStore from 'state/'
 import {startAddUser, startRemoveUser, startShowNotification, startFetchInstructor} from 'state/actions'
-
 import Main from 'components/Main'
 import Loading from 'components/Loading'
-
 import Overview from './screens/Overview'
 import New from './screens/Lessons/screens/New'
 import Lesson from './screens/Lessons/screens/Lesson'
 import Instructors from './screens/Instructors'
-
 import Navigation from './components/Navigation'
 import LoggedOut from './components/LoggedOut'
 import RouteNotFound from './components/RouteNotFound'

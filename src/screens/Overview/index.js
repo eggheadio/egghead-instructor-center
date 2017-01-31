@@ -1,9 +1,6 @@
 import React from 'react'
-
 import {overviewTitleText} from 'utils/text'
-
 import Split from 'components/Split'
-
 import Intro from './components/Intro'
 import Lessons from './components/Lessons'
 import Stats from './components/Stats'

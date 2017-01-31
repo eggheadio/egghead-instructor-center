@@ -2,29 +2,16 @@ import {includes} from 'lodash'
 import {Observable} from 'rxjs'
 import getHeaders from 'utils/getHeaders'
 import {loginExpiredDescriptionText} from 'utils/text'
+import {lessonStatesUrls} from 'utils/lessonStates'
 import {STARTED_UPDATE_LESSON_STATE} from 'state/actions/actionTypes'
 import {startRemoveUser, startShowNotification, endUpdateLessonState} from 'state/actions'
-
-const lessonStateUrls = {
-  'cancelled': 'cancel_url',
-  'accepted': 'accept_url',
-  'claimed': 'claim_url',
-  'submitted': 'submit_url',
-  'rejected': 'reject_url',
-  'updated': 'apply_update_url',
-  'approved': 'approve_url',
-  'published': 'publish_url',
-  'flagged': 'flag_url',
-  'revised': 'revise_url',
-  'retired': 'retire_url',
-}
 
 export default (action$, store) => (
   action$.ofType(STARTED_UPDATE_LESSON_STATE)
     .switchMap(
       ({payload}) => Observable.fromPromise(
         fetch(
-          payload.lesson[lessonStateUrls[payload.newState]],
+          payload.lesson[lessonStatesUrls[payload.newState]],
           {
             method: 'POST',
             headers: getHeaders(store.getState().appScreen.user.token),

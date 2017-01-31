@@ -1,6 +1,21 @@
 import {slice, indexOf} from 'lodash'
 
-import lessonStates from '../lessonStates'
+const lessonStates = [
+  'proposed',
+  'cancelled',
+  'accepted',
+  'claimed',
+  'submitted',
+  'rejected',
+  'updated',
+  'approved',
+  'published',
+  'flagged',
+  'revised',
+  'retired',
+]
+
+export default lessonStates
 
 export const requestedLessonStates = ['accepted']
 

@@ -1,5 +1,4 @@
 import {includes, indexOf, slice, some} from 'lodash'
-
 import lessonStates from 'utils/lessonStates'
 
 export default (instructorLessonStates, minimumLessonState) => {

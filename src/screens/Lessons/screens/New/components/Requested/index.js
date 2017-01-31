@@ -1,12 +1,10 @@
 import React from 'react'
-
 import {
   requestedTitleText,
   requestedDescriptionText,
   requestedEmptyDescriptionText,
 } from 'utils/text'
-import {requestedLessonStates} from 'utils/lessonStatesGroups'
-
+import {requestedLessonStates} from 'utils/lessonStates'
 import Heading from 'components/Heading'
 import LessonList from 'components/LessonList'
 

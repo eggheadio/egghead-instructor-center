@@ -1,5 +1,3 @@
-// TODO: Consume from egghead-ui once published
-
 import React, {PropTypes} from 'react'
 import {keys} from 'lodash'
 

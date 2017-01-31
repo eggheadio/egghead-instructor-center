@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   newLessonsActionText,
   lessonsTitleText,
@@ -8,11 +7,9 @@ import {
   noPublishedLessonsDescriptionText,
   getPublishedActionText,
 } from 'utils/text'
-import {inProgressLessonStates, publishedLessonStates} from 'utils/lessonStatesGroups'
-
+import {inProgressLessonStates, publishedLessonStates} from 'utils/lessonStates'
 import Heading from 'components/Heading'
 import LessonList from 'components/LessonList'
-
 import Prompt from '../Prompt'
 import Tabs from './components/Tabs'
 

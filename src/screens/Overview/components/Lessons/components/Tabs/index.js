@@ -1,9 +1,8 @@
-// TODO: Consume from egghead-ui once published
-
 import React, {Component} from 'react'
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs'
-Tabs.setUseDefaultStyles(false)
 import {map} from 'lodash'
+
+Tabs.setUseDefaultStyles(false)
 
 export default class extends Component {
 
