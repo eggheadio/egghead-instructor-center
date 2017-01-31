@@ -41,16 +41,7 @@ export default class Fetch extends Component {
         url={this.getUrl()}
         headers={this.getHeaders()}
         onError={this.handleError}
-      >
-        {({fetching, error}) => {
-          if (fetching) {
-            return <div>loading</div>
-          }
-          if (error) {
-            return <div>error</div>
-          }
-        }}
-      </FetchBase>
+      />
     )
   }
 }
