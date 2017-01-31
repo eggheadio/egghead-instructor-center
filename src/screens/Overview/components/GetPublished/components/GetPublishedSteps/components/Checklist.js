@@ -43,7 +43,7 @@ const Checklist = ({items, instructorId}) => (
             }
             {item.action
               ? <Link 
-                  to={`/instructors/${instructorId}${item.action}`}
+                  to={item.action}
                   className='ml2'
                 >
                   <Icon

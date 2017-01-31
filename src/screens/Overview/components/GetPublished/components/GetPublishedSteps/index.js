@@ -30,13 +30,12 @@ const GetPublishedSteps = ({
     {
       isComplete: isStepComplete(instructorLessonStates, 'claimed'),
       description: 'Claim new lesson',
-      action: '/new-lessons',
+      action: '/lessons/new',
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'submitted'),
       description: 'Submit rough draft',
       moreInfoUrl: roughDraftInfoUrl,
-      action: '/',
     },
     {
       isComplete: isString(instructor.gear_tracking_id),
@@ -47,13 +46,11 @@ const GetPublishedSteps = ({
       isComplete: isStepComplete(instructorLessonStates, 'updated'),
       description: 'Re-record with gear',
       moreInfoUrl: roughDraftInfoUrl,
-      action: '/',
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'approved'),
       description: 'Iterate until approved',
       moreInfoUrl: roughDraftInfoUrl,
-      action: '/',
     },
     {
       isComplete: isStepComplete(instructorLessonStates, 'published'),

@@ -60,12 +60,12 @@ const Routes = connect(
     const {user, instructor, startAddUser, startFetchInstructor} = this.props
     const token = getUrlParameter('jwt')
 
-    if(token && !user) {
+    if(token) {
       removeQueryString()
       startAddUser(token)
     }
 
-    if(user && !instructor) {
+    if (user && !instructor) {
       startFetchInstructor(user.instructor_id)
     }
   }
@@ -79,7 +79,7 @@ const Routes = connect(
       return <LoggedOut />
     }
 
-    else if(!user || !instructor) {
+    if(!user || !instructor) {
       return <Loading />
     }
 
@@ -141,8 +141,8 @@ const Routes = connect(
 
             <Match 
               pattern={`/lessons/:lessonSlug`}
-              render={() => (
-                <Lesson />
+              render={({params}) => (
+                <Lesson lessonSlug={params.lessonSlug} />
               )}
             />
 

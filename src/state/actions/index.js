@@ -98,17 +98,17 @@ export const endFetchAllLessons = (lessonPage) => ({
   },
 })
 
-export const startFetchInstructor = (appId) => ({
+export const startFetchInstructor = (instructorId) => ({
   type: actionTypes.STARTED_FETCH_INSTRUCTOR,
   payload: {
-    appId
+    instructorId
   },
 })
 
-export const endFetchInstructor = (app) => ({
+export const endFetchInstructor = (instructor) => ({
   type: actionTypes.ENDED_FETCH_INSTRUCTOR,
   payload: {
-    app
+    instructor
   },
 })
 

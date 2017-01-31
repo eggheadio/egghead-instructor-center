@@ -9,30 +9,30 @@ import NextStep from './components/NextStep'
 import Data from './components/Data'
 
 export default connect(
-  ({appScreen}, {params}) => ({
-    lesson: find(appScreen.lessons, ['slug', params.lessonSlug]),
+  ({appScreen}, {lessonSlug}) => ({
+    lesson: find(appScreen.lessons, ['slug', lessonSlug]),
   }),
   {startFetchLesson}
 )(class Lesson extends Component {
 
   componentWillReceiveProps(nextProps) {
-    const {lessonSlug} = this.props.params
-    if (lessonSlug !== nextProps.params.lessonSlug) {
-      this.props.startFetchLesson(nextProps.params.lessonSlug)
+    const {lessonSlug} = this.props
+    if (lessonSlug !== nextProps.lessonSlug) {
+      this.props.startFetchLesson(nextProps.lessonSlug)
     }
   }
 
   componentDidMount() {
-    const {lesson, params, startFetchLesson} = this.props
-    if(!lesson || params.lessonSlug !== lesson.slug) {
-      startFetchLesson(params.lessonSlug)
+    const {lesson, lessonSlug, startFetchLesson} = this.props
+    if(!lesson || lessonSlug !== lesson.slug) {
+      startFetchLesson(lessonSlug)
     }
   }
 
   render() {
-    const {lesson, params} = this.props
+    const {lesson, lessonSlug} = this.props
 
-    if(!lesson || params.lessonSlug !== lesson.slug) {
+    if(!lesson || lessonSlug !== lesson.slug) {
       return <Loading />
     }
 

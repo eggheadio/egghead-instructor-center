@@ -18,7 +18,7 @@ const LessonSummary = ({
   startUpdateLessonState,
 }) => {
 
-  const lessonPath = `/instructors/${instructor.slug}/lessons/${lesson.slug}`
+  const lessonPath = `/lessons/${lesson.slug}`
 
   const actionForCurrentStates = {
     accepted: {
