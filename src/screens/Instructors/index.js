@@ -2,14 +2,14 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {filter, reject} from 'lodash'
 import {instructorPulseTitleText, unpublishedTitleText, publishedTitleText} from 'utils/text'
-import {startFetchInstructors} from 'state/actions'
 import Loading from 'components/Loading'
 import Split from 'components/Split'
+import {startFetchInstructors} from './state/actions'
 import InstructorsList from './components/InstructorsList'
 
 export default connect(
-  ({appScreen}) => ({
-    instructors: appScreen.instructors,
+  ({instructorsScreen}) => ({
+    instructors: instructorsScreen.instructors,
   }),
   {
     startFetchInstructors,
