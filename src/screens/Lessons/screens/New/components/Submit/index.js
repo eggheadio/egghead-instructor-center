@@ -1,20 +1,14 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 import {map, size, every} from 'lodash'
 import {
   submitActionText,
-  viewActionText,
   missingInputDescriptionText,
   newLessonSubmissionDescriptionText,
   lessonTitleLabelText,
   lessonTechnologyLabelText,
   lessonSummaryLabelText,
 } from 'utils/text'
-import {
-  startShowNotification,
-  startFetchTechnologies,
-  startSubmitLesson,
-} from 'state/actions'
+import Request from 'components/Request'
 import Heading from 'components/Heading'
 import Button from 'components/Button'
 import Error from 'components/Error'
@@ -25,62 +19,19 @@ const clearedState = {
   title: '',
   technologyId: '',
   summary: '',
-  hasError: false,
+  hasMissingInput: false,
 }
 
-export default connect(
-  ({appScreen}) => ({
-    technologies: appScreen.technologies,
-  }),
-  {
-    startShowNotification,
-    startFetchTechnologies,
-    startSubmitLesson,
-  }
-)(class Submit extends Component {
+export default class Submit extends Component {
 
   state = clearedState
 
-  static defaultProps = {
-    type: 'claimed',
-  }
-
-  componentDidMount() {
-    const {startFetchTechnologies, technologies} = this.props
-    if(!technologies) {
-      startFetchTechnologies()
-    }
-  }
-
-  submit = () => {
-    const {title, technologyId, summary} = this.state
-    const {instructor, startSubmitLesson, startShowNotification, type} = this.props
-    startSubmitLesson({
-      title: title,
-      technology_id: technologyId,
-      summary: summary,
-      state: type,
-      ...(instructor ? {instructor_id: instructor.id} : {}),
-    })
+  handleClearInput = () => {
     this.setState(clearedState)
-    startShowNotification({
-      type: 'info',
-      message: 'Lesson submitted!',
-      action: {
-        path: '/',
-        description: viewActionText,
-      },
-    })
   }
 
-  handleSubmitAttempt = () => {
-    const {title, technologyId} = this.state
-    if(every([title, technologyId], (input) => size(input) > 0)) {
-      this.submit()
-    }
-    else {
-      this.setState({hasError: true})
-    }
+  handleMissingInput = () => {
+    this.setState({hasMissingInput: true})
   }
 
   handleTitleChange = (event) => {
@@ -106,9 +57,9 @@ export default connect(
       title,
       technologyId,
       summary, 
-      hasError,
+      hasMissingInput,
     } = this.state
-    const {technologies, type} = this.props
+    const {instructor} = this.props
     return (
       <div>
 
@@ -116,12 +67,9 @@ export default connect(
           {submitActionText}
         </Heading>
 
-        {type === 'claimed'
-          ? <div className='mb3'>
-              {newLessonSubmissionDescriptionText}
-            </div>
-          : null
-        }
+        <div className='mb3'>
+          {newLessonSubmissionDescriptionText}
+        </div>
 
         <div className='mb2'>
           <div className='b gray'>
@@ -131,30 +79,34 @@ export default connect(
             type='text'
             value={title}
             onChange={this.handleTitleChange}
-            className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
+            className={`${inputClassNames}${hasMissingInput ? ' b--red' : ''}`}
           />
         </div>
 
-        <div className='mb2'>
-          <div className='b gray'>
-            {lessonTechnologyLabelText}
-          </div>
-          <select
-            value={technologyId}
-            onChange={this.handleTechnologyChange}
-            className={`${inputClassNames}${hasError ? ' b--red' : ''}`}
-          >
-            <option value=''></option>
-            {map(technologies, (technology) => (
-              <option 
-                key={technology.id}
-                value={technology.id}
+        <Request url='/api/v1/technologies'>
+          {({data}) => (
+            <div className='mb2'>
+              <div className='b gray'>
+                {lessonTechnologyLabelText}
+              </div>
+              <select
+                value={technologyId}
+                onChange={this.handleTechnologyChange}
+                className={`${inputClassNames}${hasMissingInput ? ' b--red' : ''}`}
               >
-                {technology.label}
-              </option>
-            ))}
-          </select>
-        </div>
+                <option value=''></option>
+                {map(data.technologies, (technology) => (
+                  <option 
+                    key={technology.id}
+                    value={technology.id}
+                  >
+                    {technology.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+        </Request>
 
         <div className='mb2'>
           <div className='b gray'>
@@ -169,7 +121,7 @@ export default connect(
           />
         </div>
 
-        {hasError
+        {hasMissingInput
           ? <div className='mb2'>
               <Error>
                 {missingInputDescriptionText}
@@ -178,11 +130,33 @@ export default connect(
           : null
         }
 
-        <Button onClick={this.handleSubmitAttempt}>
-          {submitActionText}
-        </Button>
+        <Request
+          lazy
+          method='post'
+          url='/api/v1/lessons'
+          body={{
+            title: title,
+            technology_id: technologyId,
+            summary: summary,
+            instructor_id: instructor.id,
+          }}
+        >
+          {({request}) => (
+            <Button onClick={() => {
+              if(every([title, technologyId], (input) => size(input) > 0)) {
+                request()
+                this.handleClearInput()
+              }
+              else {
+                this.handleMissingInput()
+              }
+            }}>
+              {submitActionText}
+            </Button>
+          )}
+        </Request>
 
       </div>
     )
   }
-})
+}
