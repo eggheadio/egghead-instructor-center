@@ -37,7 +37,7 @@ export const requestedLessonStates = ['accepted']
 
 export const inProgressLessonStates = slice(
   lessonStates,
-  indexOf(lessonStates, 'claimed'),
+  indexOf(lessonStates, 'proposed'),
   indexOf(lessonStates, 'published')
 )
 
