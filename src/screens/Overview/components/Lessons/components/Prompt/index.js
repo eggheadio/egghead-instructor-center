@@ -3,19 +3,21 @@ import {Link} from 'react-router-dom'
 import Button from 'components/Button'
 
 export default ({
-  instructor,
   description,
+  actionText,
   action,
-  route,
 }) => (
   <div>
     <div className='mb3 i orange'>
       {description}
     </div>
-    <Link to={`/instructors/${instructor.slug}${route}`}>
-      <Button>
-        {action}
-      </Button>
-    </Link>
+    {action
+      ? <Link to={action}>
+          <Button>
+            {actionText}
+          </Button>
+        </Link>
+      : null
+    }
   </div>
 )

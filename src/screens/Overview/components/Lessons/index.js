@@ -5,7 +5,6 @@ import {
   inProgressTitleText,
   noInProgressLessonsDescriptionText,
   noPublishedLessonsDescriptionText,
-  getPublishedActionText,
 } from 'utils/text'
 import {inProgressLessonStates, publishedLessonStates} from 'utils/lessonStates'
 import Heading from 'components/Heading'
@@ -18,12 +17,7 @@ export default ({instructor, lessonPage}) => (
 
     {(instructor.published_lessons === 0)
       ? <div className='mb3 pa3 bg-light-gray br2'>
-          <Prompt
-            instructor={instructor}
-            description={noPublishedLessonsDescriptionText}
-            action={getPublishedActionText}
-            route={'/get-published'}
-          />
+          <Prompt description={noPublishedLessonsDescriptionText} />
         </div>
       : null
     }
@@ -43,8 +37,8 @@ export default ({instructor, lessonPage}) => (
               <div className='mt3'>
                 <Prompt
                   description={noInProgressLessonsDescriptionText}
-                  action={newLessonsActionText}
-                  route={'/new-lessons'}
+                  actionText={newLessonsActionText}
+                  action={'/lessons/new'}
                 />
               </div>
             }
@@ -59,11 +53,7 @@ export default ({instructor, lessonPage}) => (
             isOwnedByInstructor
             fallback={
               <div className='mt3'>
-                <Prompt
-                  description={noPublishedLessonsDescriptionText}
-                  action={getPublishedActionText}
-                  route={'/get-published'}
-                />
+                <Prompt description={noPublishedLessonsDescriptionText} />
               </div>
             }
           />
