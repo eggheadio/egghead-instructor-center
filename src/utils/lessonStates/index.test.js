@@ -8,6 +8,10 @@ test('requested lessons', () => (
 
 test('in progress', () => (
   expect(inProgressLessonStates).toEqual([
+    'proposed',
+    'cancelled',
+    'accepted',
+    'requested',
     'claimed',
     'submitted',
     'rejected',
