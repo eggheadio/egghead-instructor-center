@@ -1,6 +1,6 @@
 import React from 'react'
 import {truncate} from 'lodash'
-import {Link} from 'react-router'
+import {Link} from 'react-router-dom'
 import {
   viewActionText,
   claimActionText,

@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import {Link} from 'react-router'
+import {Link} from 'react-router-dom'
 import {map, isFunction, startsWith} from 'lodash'
 import Icon from 'components/Icon'
 import Logo from 'components/Logo'

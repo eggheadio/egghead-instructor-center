@@ -4,7 +4,7 @@ import 'font-awesome/css/font-awesome.min.css'
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import {Provider, connect} from 'react-redux'
-import {BrowserRouter, Route, Switch} from 'react-router'
+import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {initializeErrorTracking} from 'utils/errorTracking'
 import {
   overviewTitleText,

@@ -26,7 +26,7 @@
     "react-dom": "^15.4.2",
     "react-paginate": "^2.2.3",
     "react-redux": "^5.0.1",
-    "react-router": "^4.0.0-beta.1",
+    "react-router-dom": "4.0.0-beta.3",
     "react-tabs": "^0.8.2",
     "react-truncate": "^1.1.4",
     "redux": "^3.6.0",
