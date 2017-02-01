@@ -4,7 +4,7 @@ import 'font-awesome/css/font-awesome.min.css'
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import {Provider, connect} from 'react-redux'
-import {BrowserRouter, Match, Miss} from 'react-router'
+import {BrowserRouter, Route, Switch} from 'react-router'
 import {initializeErrorTracking} from 'utils/errorTracking'
 import {
   overviewTitleText,
@@ -113,9 +113,9 @@ const Routes = connect(
 
           <Main>
 
-            <Match
-              exactly
-              pattern='/'
+            <Route
+              exact
+              path='/'
               render={() => (
                 <Overview
                   instructor={instructor}
@@ -124,31 +124,35 @@ const Routes = connect(
               )}
             />
 
-            <Match 
-              pattern={'/lessons/new'}
-              render={() => (
-                <New
-                  instructor={instructor}
-                  lessonPage={lessonPage}
-                />
-              )}
-            />
+            <Switch>
 
-            <Match 
-              pattern={`/lessons/:lessonSlug`}
-              render={({params}) => (
-                <Lesson lessonSlug={params.lessonSlug} />
-              )}
-            />
+              <Route 
+                path={'/lessons/new'}
+                render={() => (
+                  <New
+                    instructor={instructor}
+                    lessonPage={lessonPage}
+                  />
+                )}
+              />
 
-            <Match
-              pattern='/instructors'
+              <Route 
+                path={`/lessons/:lessonSlug`}
+                render={({params}) => (
+                  <Lesson lessonSlug={params.lessonSlug} />
+                )}
+              />
+
+            </Switch>
+
+            <Route
+              path='/instructors'
               render={() => (
                 <Instructors />
               )}
             />
 
-            <Miss component={RouteNotFound} />
+            <Route component={RouteNotFound} />
 
           </Main>
 
