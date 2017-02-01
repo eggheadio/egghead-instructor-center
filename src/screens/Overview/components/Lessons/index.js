@@ -10,7 +10,7 @@ import {
 import {inProgressLessonStates, publishedLessonStates} from 'utils/lessonStates'
 import Heading from 'components/Heading'
 import LessonList from 'components/LessonList'
-import Prompt from '../Prompt'
+import Prompt from './components/Prompt'
 import Tabs from './components/Tabs'
 
 export default ({instructor, lessonPage}) => (
@@ -19,6 +19,7 @@ export default ({instructor, lessonPage}) => (
     {(instructor.published_lessons === 0)
       ? <div className='mb3 pa3 bg-light-gray br2'>
           <Prompt
+            instructor={instructor}
             description={noPublishedLessonsDescriptionText}
             action={getPublishedActionText}
             route={'/get-published'}

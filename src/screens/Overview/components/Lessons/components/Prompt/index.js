@@ -1,10 +1,9 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Button from 'components/Button'
 
-const Prompt = ({
-  instructorId,
+export default ({
+  instructor,
   description,
   action,
   route,
@@ -13,17 +12,10 @@ const Prompt = ({
     <div className='mb3 i orange'>
       {description}
     </div>
-    <Link to={`/instructors/${instructorId}${route}`}>
+    <Link to={`/instructors/${instructor.slug}${route}`}>
       <Button>
         {action}
       </Button>
     </Link>
   </div>
 )
-
-export default connect(
-  ({appScreen}) => ({
-    instructorId: appScreen.instructor.slug,
-  }),
-  null
-)(Prompt)
