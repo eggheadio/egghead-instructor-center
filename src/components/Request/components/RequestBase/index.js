@@ -31,7 +31,7 @@ export default class RequestBase extends Component {
   }
 
   state = {
-    fetching: !this.props.lazy,
+    running: !this.props.lazy,
     response: null,
     data: null,
     error: null,
@@ -39,13 +39,13 @@ export default class RequestBase extends Component {
 
   componentDidMount() {
     if (!this.props.lazy) {
-      this.fetch()
+      this.request()
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (!this.props.lazy && !isEqual(this.props, nextProps)) {
-      this.fetch()
+      this.request()
     }
   }
 
@@ -53,8 +53,8 @@ export default class RequestBase extends Component {
     this.willUnmount = true
   }
 
-  fetch = (body = this.props.body) => {
-    this.setState({fetching: true}, () => {
+  request = (body = this.props.body) => {
+    this.setState({request: true}, () => {
       http.request({
         method: this.props.method,
         url: this.props.url,
@@ -66,7 +66,7 @@ export default class RequestBase extends Component {
           return
         }
         this.setState({
-          fetching: false,
+          running: false,
           response,
           data: response.data,
           error: null,
@@ -83,7 +83,7 @@ export default class RequestBase extends Component {
           return
         }
         this.setState({
-          fetching: false,
+          running: false,
           response: error,
           error,
         }, () => {
@@ -104,8 +104,8 @@ export default class RequestBase extends Component {
     }
     return this.props.children({
       response: this.state.response,
-      fetching: this.state.fetching,
-      fetch: this.fetch,
+      running: this.state.running,
+      request: this.request,
       data: this.state.data,
       error: this.state.error,
     }) || null

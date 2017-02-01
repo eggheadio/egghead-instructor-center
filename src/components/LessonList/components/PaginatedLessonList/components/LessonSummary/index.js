@@ -19,8 +19,8 @@ export default ({instructor, lesson}) => {
           method='post'
           url={lesson.claim_url}
         >
-          {({fetch}) => (
-            <Button onClick={() => fetch()}>
+          {({request}) => (
+            <Button onClick={() => request()}>
               {claimActionText}
             </Button>
           )}
