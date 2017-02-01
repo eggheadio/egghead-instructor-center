@@ -1,17 +1,25 @@
 import {slice, indexOf} from 'lodash'
 import {
-  claimedDescriptionText,
-  submittedDescriptionText,
-  rejectedDescriptionText,
-  updatedDescriptionText,
-  approvedDescriptionText,
-  publishedDescriptionText,
+  proposedStateDescriptionText,
+  cancelledStateDescriptionText,
+  acceptedStateDescriptionText,
+  requestedStateDescriptionText,
+  claimedStateDescriptionText,
+  submittedStateDescriptionText,
+  rejectedStateDescriptionText,
+  updatedStateDescriptionText,
+  approvedStateDescriptionText,
+  publishedStateDescriptionText,
+  flaggedStateDescriptionText,
+  revisedStateDescriptionText,
+  retiredStateDescriptionText,
 } from 'utils/text'
 
 const lessonStates = [
   'proposed',
   'cancelled',
   'accepted',
+  'requested',
   'claimed',
   'submitted',
   'rejected',
@@ -39,25 +47,50 @@ export const publishedLessonStates = slice(
 )
 
 export const statusByLessonState = {
+  proposed: {
+    description: proposedStateDescriptionText,
+  },
+  cancelled: {
+    requiresUserAction: true,
+    description: cancelledStateDescriptionText,
+  },
+  accepted: {
+    requiresUserAction: true,
+    description: acceptedStateDescriptionText,
+  },
+  requested: {
+    requiresUserAction: true,
+    description: requestedStateDescriptionText,
+  },
   claimed: {
     requiresUserAction: true,
-    description: claimedDescriptionText,
+    description: claimedStateDescriptionText,
   },
   submitted: {
-    description: submittedDescriptionText,
+    description: submittedStateDescriptionText,
   },
   rejected: {
     requiresUserAction: true,
-    description: rejectedDescriptionText,
+    description: rejectedStateDescriptionText,
   },
   updated: {
-    description: updatedDescriptionText,
+    description: updatedStateDescriptionText,
   },
   approved: {
-    description: approvedDescriptionText,
+    description: approvedStateDescriptionText,
   },
   published: {
-    description: publishedDescriptionText,
+    description: publishedStateDescriptionText,
+  },
+  flagged: {
+    requiresUserAction: true,
+    description: flaggedStateDescriptionText,
+  },
+  revised: {
+    description: revisedStateDescriptionText,
+  },
+  retired: {
+    description: retiredStateDescriptionText,
   },
 }
 
