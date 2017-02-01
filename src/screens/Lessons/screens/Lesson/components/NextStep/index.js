@@ -1,37 +1,7 @@
 import React from 'react'
-import {
-  statusTitleText,
-  claimedDescriptionText,
-  submittedDescriptionText,
-  rejectedDescriptionText,
-  updatedDescriptionText,
-  approvedDescriptionText,
-  publishedDescriptionText,
-} from 'utils/text'
+import {statusTitleText} from 'utils/text'
+import {statusByLessonState} from 'utils/lessonStates'
 import Heading from 'components/Heading'
-
-const statusByLessonState = {
-  claimed: {
-    requiresUserAction: true,
-    description: claimedDescriptionText,
-  },
-  submitted: {
-    description: submittedDescriptionText,
-  },
-  rejected: {
-    requiresUserAction: true,
-    description: rejectedDescriptionText,
-  },
-  updated: {
-    description: updatedDescriptionText,
-  },
-  approved: {
-    description: approvedDescriptionText,
-  },
-  published: {
-    description: publishedDescriptionText,
-  },
-}
 
 export default ({lesson}) => statusByLessonState[lesson.state]
   ?  <div>

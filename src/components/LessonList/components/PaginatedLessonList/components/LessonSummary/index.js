@@ -1,65 +1,40 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {truncate, isFunction} from 'lodash'
+import {truncate} from 'lodash'
 import {Link} from 'react-router'
 import {
   viewActionText,
   claimActionText,
-  claimCompleteDescriptionText,
 } from 'utils/text'
-import {startShowNotification, startUpdateLessonState} from 'state/actions'
+import {statusByLessonState} from 'utils/lessonStates'
+import Request from 'components/Request'
 import Heading from 'components/Heading'
 import Button from 'components/Button'
 
-const LessonSummary = ({
-  instructor,
-  lesson,
-  startShowNotification,
-  startUpdateLessonState,
-}) => {
+export default ({instructor, lesson}) => {
 
-  const lessonPath = `/lessons/${lesson.slug}`
-
-  const actionForCurrentStates = {
-    accepted: {
-      requiresUserAction: true,
-      label: claimActionText,
-      action() {
-        startUpdateLessonState({
-          instructorId: instructor.id,
-          lesson,
-          newState: 'claimed',
-        })
-        startShowNotification({
-          type: 'info',
-          message: claimCompleteDescriptionText,
-          action: {
-            path: '/',
-            description: viewActionText,
-          },
-        })
-      }
-    },
-    claimed: {
-      requiresUserAction: true,
-      label: viewActionText,
-      action: lessonPath,
-    },
-    rejected: {
-      requiresUserAction: true,
-      label: viewActionText,
-      action: lessonPath,
-    },
+  const actionByCurrentStates = {
+    accepted: lesson.claim_url
+      ? <Request
+          lazy
+          method='post'
+          url={lesson.claim_url}
+        >
+          {({fetch}) => (
+            <Button onClick={() => fetch()}>
+              {claimActionText}
+            </Button>
+          )}
+        </Request>
+      : null,
   }
 
-  const actionForCurrentState = actionForCurrentStates[lesson.state] || {
-    label: viewActionText,
-    action: lessonPath,
-  }
-
-  const sharedButtonProps = {
-    subtle: actionForCurrentState.requiresUserAction ? false : true,
-  }
+  const action = actionByCurrentStates[lesson.state] || (
+    <Link to={`lessons/${lesson.slug}`}>
+      <Button>
+        {viewActionText}
+      </Button>
+    </Link>
+  )
 
   return (
     <div className='flex items-start'>
@@ -76,7 +51,10 @@ const LessonSummary = ({
         </Heading>
         <div className={`
           mb2 ttu tc pa1 br2 ba f6 dib
-          ${actionForCurrentState.requiresUserAction ? 'orange b--orange' : 'b--black-50'}
+          ${statusByLessonState[lesson.state].requiresUserAction
+            ? 'orange b--orange'
+            : 'b--black-50'
+          }
         `}>
           {lesson.state}
         </div>
@@ -88,30 +66,11 @@ const LessonSummary = ({
             : '...'
           }
         </div>
-        {actionForCurrentState
-          ? <div className='mt2'>
-              {isFunction(actionForCurrentState.action)
-                ? <Button {...sharedButtonProps} onClick={actionForCurrentState.action}>
-                    {actionForCurrentState.label}
-                  </Button>
-                : <Link to={actionForCurrentState.action}>
-                    <Button {...sharedButtonProps}>
-                      {actionForCurrentState.label}
-                    </Button>
-                  </Link>
-              }
-            </div>
-          : null
-        }
+        <div className='mt2'>
+          {action}
+        </div>
       </div>
 
     </div>
   )
 }
-
-export default connect(
-  ({appScreen}) => ({
-    instructor: appScreen.instructor,
-  }),
-  {startShowNotification, startUpdateLessonState}
-)(LessonSummary)

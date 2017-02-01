@@ -11,7 +11,7 @@ const requestMethods = [
   'delete',
 ]
 
-export default class FetchBase extends Component {
+export default class RequestBase extends Component {
 
   static propTypes = {
     method: PropTypes.oneOf(requestMethods),

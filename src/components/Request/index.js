@@ -1,21 +1,22 @@
 import React, {Component, PropTypes} from 'react'
+import {startsWith} from 'lodash'
 import {loginExpiredDescriptionText} from 'utils/text'
 import notify from 'utils/notify'
 import logout from 'utils/logout'
 import Loading from 'components/Loading'
-import FetchBase from './components/FetchBase'
+import RequestBase from './components/RequestBase'
 
 const statusCodes = {
   unauthorized: 401,
 }
 
-export default class Fetch extends Component {
+export default class Request extends Component {
 
   static propTypes = {
-    path: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
   }
 
-  getUrl = () => `${process.env.REACT_APP_EGGHEAD_BASE_URL}${this.props.path}`
+  getUrlWithBase = () => `${process.env.REACT_APP_EGGHEAD_BASE_URL}${this.props.url}`
 
   getHeaders = () => ({
     ...this.props.headers,
@@ -36,10 +37,11 @@ export default class Fetch extends Component {
   }
 
   render() {
+    const {url, children, ...rest} = this.props
     return (
-      <FetchBase
-        {...this.props}
-        url={this.getUrl()}
+      <RequestBase
+        {...rest}
+        url={startsWith(url, '/') ? this.getUrlWithBase() : url}
         headers={this.getHeaders()}
         onError={this.handleError}
       >
@@ -55,12 +57,12 @@ export default class Fetch extends Component {
             )
           }
           if (data) {
-            return this.props.children({
+            return children({
               data,
             })
           }
         }}
-      </FetchBase>
+      </RequestBase>
     )
   }
 }

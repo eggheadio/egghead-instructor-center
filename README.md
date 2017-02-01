@@ -83,7 +83,7 @@ React router is used for routing. URLs follow the Rails standard routing scheme,
 
 # Endpoints
 
-Fetch is used with the `egghead-rails` rest APIs. The endpoint data uses hypermedia and only returns what the user has access to, so all UI based on permissions can be combined without separate routes for "roles". There is no such thing as roles in this system, but what data a response has, based on the user.
+The `Request` component is used with the `egghead-rails` rest APIs. The endpoint data uses hypermedia and only returns what the user has access to, so all UI based on permissions can be combined without separate routes for "roles". There is no such thing as roles in this system, but what data a response has, based on the user.
 
 # Environment
 
