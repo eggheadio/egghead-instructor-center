@@ -1,9 +1,19 @@
 import React, {Component, PropTypes} from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {map, isFunction, startsWith} from 'lodash'
 import Icon from 'components/Icon'
 import Logo from 'components/Logo'
-import NavigationItem from './components/NavigationItem'
+
+const sharedLinkClassnames = `
+  pointer
+  f6
+  pv3 pv4-ns ph4 ph3-ns
+  ttu
+  no-underline
+  white-60 
+`
+
+const activeLinkClassnames = 'bl bl-0-ns bb-ns bw2 bw1-ns b--orange white'
 
 export default class Navigation extends Component {
   
@@ -61,42 +71,38 @@ export default class Navigation extends Component {
 
               if(isFunction(item.action)) {
                 return (
-                  <NavigationItem
+                  <a
                     key={index}
-                    text={item.text}
-                    isActive={false}
+                    className={sharedLinkClassnames}
                     onClick={() => {
                       this.close()
                       item.action()
                     }}
-                  />
+                  >
+                    {item.text}
+                  </a>
                 )
               }
 
               else {
-                return item.action === '' || startsWith(item.action, '/')
-                  ? <Link
+                return startsWith(item.action, '/')
+                  ? <NavLink
                       key={index}
-                      activeOnlyWhenExact
-                      to={item.action}
+                      className={sharedLinkClassnames}
+                      activeClassName={activeLinkClassnames}
                       onClick={this.close}
+                      to={item.action}
                     >
-                      {({isActive, onClick, href}) => (
-                        <NavigationItem
-                          text={item.text}
-                          isActive={isActive}
-                          onClick={onClick}
-                          href={href}
-                        />
-                      )}
-                    </Link>
-                  : <NavigationItem
+                      {item.text}
+                    </NavLink>
+                  : <a
                       key={index}
-                      text={item.text}
-                      isActive={false}
+                      className={sharedLinkClassnames}
                       onClick={this.close}
                       href={item.action}
-                    />
+                    >
+                      {item.text}
+                    </a>
               }
 
             })}

@@ -86,7 +86,7 @@ const Routes = connect(
             items={[
               {
                 text: overviewTitleText,
-                action: '',
+                action: '/',
               },
               {
                 text: newLessonsTitleText,
@@ -113,18 +113,18 @@ const Routes = connect(
 
           <Main>
 
-            <Route
-              exact
-              path='/'
-              render={() => (
-                <Overview
-                  instructor={instructor}
-                  lessonPage={lessonPage}
-                />
-              )}
-            />
-
             <Switch>
+
+              <Route
+                exact
+                path='/'
+                render={() => (
+                  <Overview
+                    instructor={instructor}
+                    lessonPage={lessonPage}
+                  />
+                )}
+              />
 
               <Route 
                 path={'/lessons/new'}
@@ -143,16 +143,16 @@ const Routes = connect(
                 )}
               />
 
+              <Route
+                path='/instructors'
+                render={() => (
+                  <Instructors />
+                )}
+              />
+
+              <Route component={RouteNotFound} />
+
             </Switch>
-
-            <Route
-              path='/instructors'
-              render={() => (
-                <Instructors />
-              )}
-            />
-
-            <Route component={RouteNotFound} />
 
           </Main>
 
