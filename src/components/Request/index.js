@@ -4,6 +4,7 @@ import {loginExpiredDescriptionText} from 'utils/text'
 import notify from 'utils/notify'
 import logout from 'utils/logout'
 import Loading from 'components/Loading'
+import Error from 'components/Error'
 import RequestBase from './components/RequestBase'
 
 const statusCodes = {
@@ -51,9 +52,9 @@ export default class Request extends Component {
           }
           if (error) {
             return (
-              <div className='red'>
+              <Error>
                 Error: {error.message}
-              </div>
+              </Error>
             )
           }
           return children({

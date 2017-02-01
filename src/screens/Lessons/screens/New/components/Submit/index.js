@@ -17,6 +17,7 @@ import {
 } from 'state/actions'
 import Heading from 'components/Heading'
 import Button from 'components/Button'
+import Error from 'components/Error'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
 
@@ -74,15 +75,10 @@ export default connect(
 
   handleSubmitAttempt = () => {
     const {title, technologyId} = this.state
-    const {startShowNotification} = this.props
     if(every([title, technologyId], (input) => size(input) > 0)) {
       this.submit()
     }
     else {
-      startShowNotification({
-        type: 'error',
-        message: missingInputDescriptionText,
-      })
       this.setState({hasError: true})
     }
   }
@@ -172,6 +168,15 @@ export default connect(
             className={inputClassNames}
           />
         </div>
+
+        {hasError
+          ? <div className='mb2'>
+              <Error>
+                {missingInputDescriptionText}
+              </Error>
+            </div>
+          : null
+        }
 
         <Button onClick={this.handleSubmitAttempt}>
           {submitActionText}
