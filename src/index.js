@@ -137,8 +137,8 @@ const Routes = connect(
 
               <Route 
                 path={`/lessons/:lessonSlug`}
-                render={({params}) => (
-                  <Lesson lessonSlug={params.lessonSlug} />
+                render={({match}) => (
+                  <Lesson lessonSlug={match.params.lessonSlug} />
                 )}
               />
 
