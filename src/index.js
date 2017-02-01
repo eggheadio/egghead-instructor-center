@@ -28,7 +28,6 @@ import Instructors from './screens/Instructors'
 import Navigation from './components/Navigation'
 import LoggedOut from './components/LoggedOut'
 import RouteNotFound from './components/RouteNotFound'
-import NotificationCenter from './components/NotificationCenter'
 
 const store = configureStore()
 
@@ -155,8 +154,6 @@ const Routes = connect(
             </Switch>
 
           </Main>
-
-          <NotificationCenter />
 
         </div>
       </BrowserRouter>
