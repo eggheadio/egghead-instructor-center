@@ -1,5 +1,3 @@
-// TODO: Consume from egghead-ui once published
-
 import React from 'react'
 
 export default ({children, onClick, subtle}) => (

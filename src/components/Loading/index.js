@@ -3,7 +3,7 @@ import {loadingTitleText} from 'utils/text'
 import Icon from 'components/Icon'
 
 export default () => (
-  <div className='mv3 gray'>
+  <div className='ma3 gray'>
     <Icon
       type='refresh'
       size='2'
