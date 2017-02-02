@@ -103,11 +103,11 @@ export default class RequestBase extends Component {
       return null
     }
     return this.props.children({
-      response: this.state.response,
-      running: this.state.running,
       request: this.request,
-      data: this.state.data,
+      running: this.state.running,
       error: this.state.error,
+      data: this.state.data,
+      response: this.state.response,
     }) || null
   }
 }

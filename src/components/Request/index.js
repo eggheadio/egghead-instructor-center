@@ -46,7 +46,7 @@ export default class Request extends Component {
         headers={this.getHeaders()}
         onError={this.handleError}
       >
-        {({request, running, error, data}) => {
+        {({request, running, error, data, response}) => {
           if (running) {
             return <Loading />
           }
@@ -60,6 +60,7 @@ export default class Request extends Component {
           return children({
             request,
             data,
+            response,
           })
         }}
       </RequestBase>

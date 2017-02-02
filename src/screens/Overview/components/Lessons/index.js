@@ -24,7 +24,6 @@ export default ({instructor, lessonPage}) => (
         title: inProgressTitleText,
         component: (
           <LessonList
-            instructor={instructor}
             states={inProgressLessonStates}
             fallback={
               <div className='mt3'>
@@ -35,6 +34,7 @@ export default ({instructor, lessonPage}) => (
                 />
               </div>
             }
+            instructor={instructor}
           />
         ),
       },
@@ -42,13 +42,13 @@ export default ({instructor, lessonPage}) => (
         title: 'Published',
         component: (
           <LessonList
-            instructor={instructor}
             states={publishedLessonStates}
             fallback={
               <div className='mt3'>
                 <Prompt description={noPublishedLessonsDescriptionText} />
               </div>
             }
+            instructor={instructor}
           />
         ),
       },

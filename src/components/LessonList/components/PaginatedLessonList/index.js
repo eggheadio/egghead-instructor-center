@@ -1,20 +1,17 @@
 import React, {PropTypes} from 'react'
 import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
-import {
-  previousLabelText,
-  nextLabelText,
-} from 'utils/text'
+import {previousLabelText, nextLabelText} from 'utils/text'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonSummary from './components/LessonSummary'
 
 const PaginatedLessonList = ({
-  fetchLessons,
-  lessons,
-  total,
-  currentPage,
-  pageSize,
   fallback,
+  pageSize,
+  currentPage,
+  total,
+  lessons,
+  requestNextPage,
 }) => {
 
   const pageNum = Math.ceil(total / pageSize)
@@ -51,7 +48,7 @@ const PaginatedLessonList = ({
                 clickCallback={(page) => {
                   const {selected} = page
                   if (currentPage !== selected + 1) {
-                    fetchLessons(selected + 1)
+                    requestNextPage(selected + 1)
                   }
                 }}
                 containerClassName='mb0 pa0 list mt4 flex items-center'
@@ -73,10 +70,12 @@ const PaginatedLessonList = ({
 }
 
 PaginatedLessonList.propTypes = {
-  lessons: PropTypes.array.isRequired,
-  fetchLessons: PropTypes.func.isRequired,
-  total: PropTypes.string,
+  fallback: PropTypes.node.isRequired,
+  pageSize: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
+  total: PropTypes.string,
+  lessons: PropTypes.array.isRequired,
+  requestNextPage: PropTypes.func.isRequired,
 }
 
 export default PaginatedLessonList

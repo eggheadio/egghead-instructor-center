@@ -1,4 +1,4 @@
-import createQueryString from '../createQueryString'
+import createQueryString from './utils/createQueryString'
 
 export default ({
   states,
