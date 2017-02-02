@@ -15,10 +15,8 @@ import {
   logOutTitleText,
 } from 'utils/text'
 import {guideUrl, chatUrl} from 'utils/urls'
-import getUrlParameter from 'utils/getUrlParameter'
-import removeQueryString from 'utils/removeQueryString'
+import {login, logout} from 'utils/authentication'
 import configureStore from 'state/'
-import {startAddUser, startRemoveUser} from 'state/actions'
 import Request from 'components/Request'
 import Main from 'components/Main'
 import Overview from './screens/Overview'
@@ -37,32 +35,29 @@ if (process.env.NODE_ENV === 'production') {
 
 const Routes = connect(
   ({appScreen}) => ({
-    user: appScreen.user,
     lessonPage: appScreen.lessonPage,
   }),
-  {
-    startAddUser,
-    startRemoveUser,
-  }
+  null
 )(class Routes extends Component {
 
+  state = {
+    user: false,
+  }
+
   componentDidMount() {
+    login(this.addUser)
+  }
 
-    const {startAddUser} = this.props
-    const token = getUrlParameter('jwt')
-
-    if(token) {
-      removeQueryString()
-      startAddUser(token)
-    }
+  addUser = (user) => {
+    this.setState({user})
   }
 
   render() {
 
-    const {user, lessonPage} = this.props
-    const token = getUrlParameter('jwt')
+    const {user} = this.state
+    const {lessonPage} = this.props
 
-    if(!token && !user) {
+    if(!user) {
       return <LoggedOut />
     }
 
@@ -94,7 +89,7 @@ const Routes = connect(
               },
               {
                 text: logOutTitleText,
-                action: startRemoveUser,
+                action: logout,
               },
             ]}
           />
