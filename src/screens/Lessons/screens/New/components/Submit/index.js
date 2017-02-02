@@ -135,10 +135,12 @@ export default class Submit extends Component {
           method='post'
           url='/api/v1/lessons'
           body={{
-            title: title,
-            technology_id: technologyId,
-            summary: summary,
-            instructor_id: instructor.id,
+            'lesson': {
+              title: title,
+              technology_id: technologyId,
+              summary: summary,
+              instructor_id: instructor.id,
+            }
           }}
         >
           {({request}) => (
