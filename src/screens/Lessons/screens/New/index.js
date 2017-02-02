@@ -2,7 +2,7 @@ import React from 'react'
 import {newLessonsTitleText} from 'utils/text'
 import Split from 'components/Split'
 import Requested from './components/Requested'
-import Submit from './components/Submit'
+import Propose from './components/Propose'
 
 export default ({instructor}) => (
   <Split
@@ -11,7 +11,7 @@ export default ({instructor}) => (
       <Requested instructor={instructor} />
     }
     aside={
-      <Submit instructor={instructor} />
+      <Propose instructor={instructor} />
     }
   />
 )

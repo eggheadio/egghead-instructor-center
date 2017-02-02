@@ -4,7 +4,6 @@ import {
   requestedDescriptionText,
   requestedEmptyDescriptionText,
 } from 'utils/text'
-import {requestedLessonStates} from 'utils/lessonStates'
 import Heading from 'components/Heading'
 import LessonList from 'components/LessonList'
 
@@ -20,7 +19,7 @@ export default () => (
     </div>
 
     <LessonList
-      states={requestedLessonStates} 
+      states={['requested']} 
       fallback={
         <div className='mv3 i gray'>
           {requestedEmptyDescriptionText}

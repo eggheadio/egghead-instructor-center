@@ -1,40 +1,12 @@
 import React from 'react'
 import {truncate} from 'lodash'
 import {Link} from 'react-router-dom'
-import {
-  viewActionText,
-  claimActionText,
-} from 'utils/text'
+import {viewActionText} from 'utils/text'
 import {statusByLessonState} from 'utils/lessonStates'
-import Request from 'components/Request'
 import Heading from 'components/Heading'
 import Button from 'components/Button'
 
 export default ({instructor, lesson}) => {
-
-  const actionByCurrentStates = {
-    accepted: lesson.claim_url
-      ? <Request
-          lazy
-          method='post'
-          url={lesson.claim_url}
-        >
-          {({request}) => (
-            <Button onClick={() => request()}>
-              {claimActionText}
-            </Button>
-          )}
-        </Request>
-      : null,
-  }
-
-  const action = actionByCurrentStates[lesson.state] || (
-    <Link to={`lessons/${lesson.slug}`}>
-      <Button>
-        {viewActionText}
-      </Button>
-    </Link>
-  )
 
   return (
     <div className='flex items-start'>
@@ -67,7 +39,11 @@ export default ({instructor, lesson}) => {
           }
         </div>
         <div className='mt2'>
-          {action}
+          <Link to={`/lessons/${lesson.slug}`}>
+            <Button>
+              {viewActionText}
+            </Button>
+          </Link>
         </div>
       </div>
 

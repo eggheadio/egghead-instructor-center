@@ -90,8 +90,6 @@ export const helpTitleText = 'Got questions? Feeling stuck?'
 
 export const viewActionText = 'View'
 
-export const submitActionText = 'Submit'
-
 export const updateActionText = 'Update'
 
 export const newLessonSubmissionDescriptionText = 'Have an idea for an egghead lesson? Fill out this information and get started. Feel free to submit as many ideas as you like.'
@@ -105,7 +103,6 @@ export const lessonSummaryLabelText = 'Summary'
 export const previousLabelText = 'Previous'
 export const nextLabelText = 'Next'
 
-export const claimActionText = 'Claim'
 export const claimDescriptionText = 'Claim a new lesson to get started'
 export const claimCompleteDescriptionText = 'This lesson is now yours. The next step is to record.'
 
@@ -128,6 +125,20 @@ export const publishedStateDescriptionText = `This lesson has been published. Wh
 export const flaggedStateDescriptionText = `This lesson has been flagged - it needs some changes.`
 export const revisedStateDescriptionText = `This lesson has revised. Waiting for approval.`
 export const retiredStateDescriptionText = `This lesson has been retired.`
+
+export const proposeActionText = `Propose`
+export const cancelActionText = `Cancel`
+export const acceptActionText = `Accept`
+export const requestActionText = `Request`
+export const claimActionText = `Claim`
+export const submitActionText = `Submit`
+export const rejectActionText = `Reject`
+export const applyUpdateActionText = `Apply update`
+export const approveActionText =  `Approve`
+export const publishActionText = `Publish`
+export const flagActionText = `Flag`
+export const reviseActionText = `Revise`
+export const retireActionText = `Retire`
 
 export const crackedEggoAltText = 'Cracked eggo logo'
 export const instructorEggoAltText = 'egghead.io instructors logo, eggo only'

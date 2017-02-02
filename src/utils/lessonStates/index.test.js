@@ -1,10 +1,4 @@
-import {requestedLessonStates, inProgressLessonStates, publishedLessonStates} from '.'
-
-test('requested lessons', () => (
-  expect(requestedLessonStates).toEqual([
-    'accepted',
-  ])
-))
+import {inProgressLessonStates, publishedLessonStates} from '.'
 
 test('in progress', () => (
   expect(inProgressLessonStates).toEqual([

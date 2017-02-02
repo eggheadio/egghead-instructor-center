@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {map, size, every} from 'lodash'
 import {
-  submitActionText,
+  proposeActionText,
   missingInputDescriptionText,
   newLessonSubmissionDescriptionText,
   lessonTitleLabelText,
@@ -22,7 +22,7 @@ const clearedState = {
   hasMissingInput: false,
 }
 
-export default class Submit extends Component {
+export default class Propose extends Component {
 
   state = clearedState
 
@@ -64,7 +64,7 @@ export default class Submit extends Component {
       <div>
 
         <Heading level='2'>
-          {submitActionText}
+          {proposeActionText}
         </Heading>
 
         <div className='mb3'>
@@ -153,7 +153,7 @@ export default class Submit extends Component {
                 this.handleMissingInput()
               }
             }}>
-              {submitActionText}
+              {proposeActionText}
             </Button>
           )}
         </Request>

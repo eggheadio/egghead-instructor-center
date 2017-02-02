@@ -13,6 +13,18 @@ import {
   flaggedStateDescriptionText,
   revisedStateDescriptionText,
   retiredStateDescriptionText,
+  cancelActionText,
+  acceptActionText,
+  requestActionText,
+  claimActionText,
+  submitActionText,
+  rejectActionText,
+  applyUpdateActionText,
+  approveActionText,
+  publishActionText,
+  flagActionText,
+  reviseActionText,
+  retireActionText,
 } from 'utils/text'
 
 const lessonStates = [
@@ -32,8 +44,6 @@ const lessonStates = [
 ]
 
 export default lessonStates
-
-export const requestedLessonStates = ['accepted']
 
 export const inProgressLessonStates = slice(
   lessonStates,
@@ -94,3 +104,41 @@ export const statusByLessonState = {
   },
 }
 
+export const actionByLessonState = {
+  cancel: {
+    title: cancelActionText,
+  },
+  accept: {
+    title: acceptActionText,
+  },
+  request: {
+    title: requestActionText,
+  },
+  claim: {
+    title: claimActionText,
+  },
+  submit: {
+    title: submitActionText,
+  },
+  reject: {
+    title: rejectActionText,
+  },
+  apply_update: {
+    title: applyUpdateActionText,
+  },
+  approve: {
+    title: approveActionText,
+  },
+  publish: {
+    title: publishActionText,
+  },
+  flag: {
+    title: flagActionText,
+  },
+  revise: {
+    title: reviseActionText,
+  },
+  retire: {
+    title: retireActionText,
+  },
+}
