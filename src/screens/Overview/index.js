@@ -3,7 +3,7 @@ import {overviewTitleText} from 'utils/text'
 import Split from 'components/Split'
 import Hello from './components/Hello'
 import NextMilestone from './components/NextMilestone'
-import Lessons from './components/Lessons'
+import InstructorLessons from './components/InstructorLessons'
 import Stats from './components/Stats'
 import Help from './components/Help'
 
@@ -16,7 +16,7 @@ export default ({instructor}) => (
     main={
       <div>
         <NextMilestone instructor={instructor} />
-        <Lessons instructor={instructor} />
+        <InstructorLessons instructor={instructor} />
       </div>
     }
     aside={
