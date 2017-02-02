@@ -12,7 +12,7 @@ import LessonList from 'components/LessonList'
 import Prompt from './components/Prompt'
 import Tabs from './components/Tabs'
 
-export default ({instructor}) => (
+export default ({instructor}) => null && (
   <div>
 
     <Heading level='2'>

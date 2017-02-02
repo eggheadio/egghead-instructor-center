@@ -1,7 +1,21 @@
 import React from 'react'
-
-// TODO: Add milestones (no published lessons -> get published, < 12 lessons -> unlock self approval)
+import createLessonsUrl from 'utils/createLessonsUrl'
+import Request from 'components/Request'
+import GetPublished from './components/GetPublished'
 
 export default ({instructor}) => (
-  <div></div>
+  instructor.published_lessons === 0
+    ? <Request 
+        url={createLessonsUrl({
+          lessons_url: instructor.lessons_url
+        })}
+      >
+        {({data}) => (
+          <GetPublished
+            instructor={instructor} 
+            firstPageOfLessons={data}
+          />
+        )}
+      </Request>
+    : null
 )

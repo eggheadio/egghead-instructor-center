@@ -2,8 +2,8 @@ import createQueryString from './utils/createQueryString'
 
 export default ({
   states,
-  pageSize,
-  page,
+  pageSize = 15,
+  page = 1,
   lessons_url, 
 }) => {
 

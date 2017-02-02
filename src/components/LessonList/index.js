@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import createLessonsUrl from './utils/createLessonsUrl'
+import createLessonsUrl from 'utils/createLessonsUrl'
 import PaginatedLessonList from './components/PaginatedLessonList'
 
 export default class LessonList extends Component {
@@ -9,10 +9,6 @@ export default class LessonList extends Component {
     fallback: PropTypes.node.isRequired,
     instructor: PropTypes.object,
     pageSize: PropTypes.number,
-  }
-
-  static defaultProps = {
-    pageSize: 15,
   }
 
   state = {
