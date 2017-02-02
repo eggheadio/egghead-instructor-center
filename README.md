@@ -51,7 +51,7 @@ utils/ (optional)
 screens/ (optional)
 ```
 
-- `index.js`, `components/`, `utils/`: same as a vanilla component, except `index.js` is generally a stateful class component with endpoint calls that pass data down to the components below it.
+- `index.js`, `components/`, `utils/`: same as a vanilla component, except `index.js` generally makes endpoint requests and passes state or endpoint data down to the components below it.
 - `screens/`: optional sub-screens paired with sub-routes.
 
 # Promotion
