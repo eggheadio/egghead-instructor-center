@@ -8,15 +8,17 @@ export default ({
   action,
 }) => (
   <div>
-    <div className='mb3 i orange'>
+    <div className='i orange'>
       {description}
     </div>
     {action
-      ? <Link to={action}>
-          <Button>
-            {actionText}
-          </Button>
-        </Link>
+      ? <div className='mt3'>
+          <Link to={action}>
+            <Button>
+              {actionText}
+            </Button>
+          </Link>
+        </div>
       : null
     }
   </div>
