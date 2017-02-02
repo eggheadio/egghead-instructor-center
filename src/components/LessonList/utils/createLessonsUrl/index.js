@@ -7,6 +7,9 @@ export default ({
   lessons_url, 
 }) => {
 
+  const allLessonsUrl = `${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`
+  const lessonsUrl = lessons_url || allLessonsUrl
+
   const params = {
     'page': page,
     'size': pageSize,
@@ -15,12 +18,7 @@ export default ({
       : {}
     ),
   }
-
   const queryString = createQueryString(params)
-
-  const lessonsUrl = lessons_url
-      ? lessons_url
-      : `${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`
 
   return `${lessonsUrl}${queryString}`
 }

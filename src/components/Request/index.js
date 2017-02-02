@@ -39,6 +39,7 @@ export default class Request extends Component {
 
   render() {
     const {url, children, ...rest} = this.props
+
     return (
       <RequestBase
         {...rest}
