@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import createLessonsUrl from 'utils/createLessonsUrl'
+import Request from 'components/Request'
 import PaginatedLessonList from './components/PaginatedLessonList'
 
 export default class LessonList extends Component {
@@ -9,6 +10,10 @@ export default class LessonList extends Component {
     fallback: PropTypes.node.isRequired,
     instructor: PropTypes.object,
     pageSize: PropTypes.number,
+  }
+
+  static defaultProps = {
+    pageSize: 15,
   }
 
   state = {
@@ -39,7 +44,7 @@ export default class LessonList extends Component {
             fallback={fallback}
             pageSize={pageSize}
             currentPage={currentPage}
-            total={response.headers.get('x-total-count')}
+            total={response.headers['x-total-count']}
             lessons={data}
             requestNextPage={(nextPage) => {
               this.handleCurrentPage(nextPage)
