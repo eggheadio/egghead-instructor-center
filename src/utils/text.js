@@ -31,11 +31,11 @@ export const unpublishedTitleText = 'Unpublished'
 
 export const publishedTitleText = 'Published'
 
-export const noInProgressLessonsDescriptionText = `You've got no lessons in progress.`
+export const noInProgressLessonsDescriptionText = `You have no lessons in progress.`
 
 export const noInstructorsDescriptionText = 'No instructors to show'
 
-export const noPublishedLessonsDescriptionText = `Looks like you don't have any published lessons. Go complete the Get Published checklist!`
+export const noPublishedLessonsDescriptionText = `Looks like you don't have any published lessons.`
 
 export const statsTitleText = 'Stats'
 

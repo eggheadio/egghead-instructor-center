@@ -15,13 +15,6 @@ import Tabs from './components/Tabs'
 export default ({instructor, lessonPage}) => (
   <div>
 
-    {(instructor.published_lessons === 0)
-      ? <div className='mb3 pa3 bg-light-gray br2'>
-          <Prompt description={noPublishedLessonsDescriptionText} />
-        </div>
-      : null
-    }
-    
     <Heading level='2'>
       {lessonsTitleText}
     </Heading>
