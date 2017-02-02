@@ -7,10 +7,7 @@ import Lessons from './components/Lessons'
 import Stats from './components/Stats'
 import Help from './components/Help'
 
-export default ({
-  instructor,
-  lessonPage,
-}) => (
+export default ({instructor}) => (
   <Split
     intro={
       <Hello instructor={instructor} />
@@ -18,11 +15,8 @@ export default ({
     title={overviewTitleText}
     main={
       <div>
-        <NextMilestone lessonPage={lessonPage} />
-        <Lessons
-          instructor={instructor}
-          lessonPage={lessonPage}
-        />
+        <NextMilestone instructor={instructor} />
+        <Lessons instructor={instructor} />
       </div>
     }
     aside={

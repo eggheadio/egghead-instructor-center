@@ -44,7 +44,6 @@ export default class Routes extends Component {
   render() {
 
     const {user} = this.state
-    const {lessonPage} = this.props
 
     if(!user) {
       return <LoggedOut />
@@ -93,10 +92,7 @@ export default class Routes extends Component {
                 render={() => (
                   <Request url={`/api/v1/instructors/${user.instructor_id}`}>
                     {({data}) => (
-                      <Overview
-                        instructor={data} 
-                        lessonPage={lessonPage}
-                      />
+                      <Overview instructor={data} />
                     )}
                   </Request>
                 )}
@@ -108,31 +104,29 @@ export default class Routes extends Component {
                 render={() => (
                   <Request url={`/api/v1/instructors/${user.instructor_id}`}>
                     {({data}) => (
-                      <New
-                        instructor={data}
-                        lessonPage={lessonPage}
-                      />
+                      <New instructor={data} />
                     )}
                   </Request>
                 )}
               />
 
               <Route 
-                path={`/lessons/:lessonSlug`}
+                path={`/lessons/:slug`}
                 render={({match}) => (
-                  <Lesson lessonSlug={match.params.lessonSlug} />
+                  <Request url={`/api/v1/lessons/${match.params.slug}`}>
+                    {({data}) => (
+                      <Lesson lesson={data} />
+                    )}
+                  </Request>
                 )}
               />
 
               <Route 
-                path={`/instructors/:instructorSlug`}
+                path={`/instructors/:slug`}
                 render={({match}) => (
-                  <Request url={`/api/v1/instructors/${match.params.instructorSlug}`}>
+                  <Request url={`/api/v1/instructors/${match.params.slug}`}>
                     {({data}) => (
-                      <Overview
-                        instructor={data} 
-                        lessonPage={lessonPage}
-                      />
+                      <Overview instructor={data} />
                     )}
                   </Request>
                 )}
@@ -141,7 +135,11 @@ export default class Routes extends Component {
               <Route
                 path='/instructors'
                 render={() => (
-                  <Instructors />
+                  <Request url='/api/v1/instructors'>
+                    {({data}) => (
+                      <Instructors instructors={data} />
+                    )}
+                  </Request>
                 )}
               />
 

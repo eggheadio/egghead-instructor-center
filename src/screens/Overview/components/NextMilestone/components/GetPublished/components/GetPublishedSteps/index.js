@@ -10,12 +10,10 @@ import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
 import DescriptionBlock from './components/DescriptionBlock'
 
-const GetPublishedSteps = ({
-  instructor,
-  lessonPage,
-}) => {
+const GetPublishedSteps = ({instructor}) => {
 
-  const instructorLessonStates = compact(uniq(map(lessonPage.lessons, 'state')))
+  const lessons = []
+  const instructorLessonStates = compact(uniq(map(lessons, 'state')))
 
   const steps = [
     {
@@ -78,7 +76,6 @@ const GetPublishedSteps = ({
 
 GetPublishedSteps.propTypes = {
   instructor: PropTypes.object.isRequired,
-  lessonPage: PropTypes.object.isRequired,
 }
 
 export default GetPublishedSteps
