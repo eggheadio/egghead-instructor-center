@@ -1,6 +1,6 @@
 import jwt from 'jwt-simple'
-import getUrlParameter from 'utils/getUrlParameter'
-import removeQueryString from 'utils/removeQueryString'
+import removeQueryString from './utils/removeQueryString'
+import getUrlParameter from './utils/getUrlParameter'
 
 const decodeToken = (token) => jwt.decode(token, null, true).meta
 
