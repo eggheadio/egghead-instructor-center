@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react'
 import {startsWith} from 'lodash'
-import {loginExpiredDescriptionText} from 'utils/text'
 import {logout} from 'utils/authentication'
 import Loading from 'components/Loading'
 import Error from 'components/Error'
