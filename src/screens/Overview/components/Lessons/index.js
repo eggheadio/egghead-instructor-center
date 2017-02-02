@@ -31,8 +31,8 @@ export default ({instructor, lessonPage}) => (
         title: inProgressTitleText,
         component: (
           <LessonList
+            instructor={instructor}
             states={inProgressLessonStates}
-            isOwnedByInstructor
             fallback={
               <div className='mt3'>
                 <Prompt
@@ -49,8 +49,8 @@ export default ({instructor, lessonPage}) => (
         title: 'Published',
         component: (
           <LessonList
+            instructor={instructor}
             states={publishedLessonStates}
-            isOwnedByInstructor
             fallback={
               <div className='mt3'>
                 <Prompt description={noPublishedLessonsDescriptionText} />

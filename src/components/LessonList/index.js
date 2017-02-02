@@ -7,11 +7,10 @@ const LessonList = ({
   instructor,
   lessonPage,
   states,
-  isOwnedByInstructor = false,
   fallback,
 }) => (
   <LessonsByPage
-    instructor={isOwnedByInstructor ? instructor : false}
+    instructor={instructor || false}
     states={states}
   >
     {({currentPage, fetchLessons, pageSize}) => (
@@ -29,7 +28,6 @@ const LessonList = ({
 
 export default connect(
   ({appScreen}) => ({
-    instructor: appScreen.instructor,
     lessonPage: appScreen.lessonPage,
   }),
   null,
