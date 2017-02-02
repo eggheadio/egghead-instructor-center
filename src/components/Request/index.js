@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {startsWith} from 'lodash'
 import {loginExpiredDescriptionText} from 'utils/text'
-import notify from 'utils/notify'
 import {logout} from 'utils/authentication'
 import Loading from 'components/Loading'
 import Error from 'components/Error'
@@ -29,7 +28,6 @@ export default class Request extends Component {
 
   handleError = (error) => {
     if (error.status === statusCodes.unauthorized) {
-      notify(loginExpiredDescriptionText)
       logout()
     }
     if (this.props.onError) {
