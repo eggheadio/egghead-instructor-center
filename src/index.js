@@ -18,7 +18,7 @@ import {guideUrl, chatUrl} from 'utils/urls'
 import getUrlParameter from 'utils/getUrlParameter'
 import removeQueryString from 'utils/removeQueryString'
 import configureStore from 'state/'
-import {startAddUser, startRemoveUser, startShowNotification, startFetchInstructor} from 'state/actions'
+import {startAddUser, startRemoveUser} from 'state/actions'
 import Request from 'components/Request'
 import Main from 'components/Main'
 import Overview from './screens/Overview'
@@ -38,29 +38,22 @@ if (process.env.NODE_ENV === 'production') {
 const Routes = connect(
   ({appScreen}) => ({
     user: appScreen.user,
-    instructor: appScreen.instructor,
     lessonPage: appScreen.lessonPage,
   }),
   {
     startAddUser,
     startRemoveUser,
-    startShowNotification,
-    startFetchInstructor,
   }
 )(class Routes extends Component {
 
   componentDidMount() {
 
-    const {user, instructor, startAddUser, startFetchInstructor} = this.props
+    const {startAddUser} = this.props
     const token = getUrlParameter('jwt')
 
     if(token) {
       removeQueryString()
       startAddUser(token)
-    }
-
-    if (user && !instructor) {
-      startFetchInstructor(user.instructor_id)
     }
   }
 
@@ -71,10 +64,6 @@ const Routes = connect(
 
     if(!token && !user) {
       return <LoggedOut />
-    }
-
-    if(!user) {
-      return <div>Loading</div>
     }
 
     return (
@@ -156,7 +145,10 @@ const Routes = connect(
                 render={({match}) => (
                   <Request url={`/api/v1/instructors/${match.params.instructorSlug}`}>
                     {({data}) => (
-                      <Overview instructor={data} />
+                      <Overview
+                        instructor={data} 
+                        lessonPage={lessonPage}
+                      />
                     )}
                   </Request>
                 )}
