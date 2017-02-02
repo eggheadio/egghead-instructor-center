@@ -3,7 +3,6 @@ import 'tachyons'
 import 'font-awesome/css/font-awesome.min.css'
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
-import {Provider, connect} from 'react-redux'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {initializeErrorTracking} from 'utils/errorTracking'
 import {
@@ -16,7 +15,6 @@ import {
 } from 'utils/text'
 import {guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
-import configureStore from 'state/'
 import Request from 'components/Request'
 import Main from 'components/Main'
 import Overview from './screens/Overview'
@@ -27,18 +25,7 @@ import Navigation from './components/Navigation'
 import LoggedOut from './components/LoggedOut'
 import RouteNotFound from './components/RouteNotFound'
 
-const store = configureStore()
-
-if (process.env.NODE_ENV === 'production') {
-  initializeErrorTracking(store)
-}
-
-const Routes = connect(
-  ({appScreen}) => ({
-    lessonPage: appScreen.lessonPage,
-  }),
-  null
-)(class Routes extends Component {
+export default class Routes extends Component {
 
   state = {
     user: false,
@@ -50,6 +37,9 @@ const Routes = connect(
 
   addUser = (user) => {
     this.setState({user})
+    if (process.env.NODE_ENV === 'production') {
+      initializeErrorTracking(user.instructor_id)
+    }
   }
 
   render() {
@@ -166,11 +156,9 @@ const Routes = connect(
       </BrowserRouter>
     )
   }
-})
+}
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Routes />
-  </Provider>,
+  <Routes />,
   document.getElementById('root')
 )
