@@ -3,7 +3,6 @@ import {find, size} from 'lodash'
 import formatNumber from 'format-number'
 import {
   currentMonthRevenueTitleText,
-  totalRevenueTitleText,
   statsTitleText,
   noRevenueDescriptionText,
 } from 'utils/text'
@@ -47,7 +46,7 @@ export default ({instructor}) => {
               : null
             }
             <RevenuePeriod
-              title={totalRevenueTitleText}
+              title={`Previous ${size(revenue)} months`}
               revenue={currentTotalRevenue.revenue}
               subscriberMinutes={currentTotalRevenue.minutes_watched}
             />

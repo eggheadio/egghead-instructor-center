@@ -41,8 +41,6 @@ export const statsTitleText = 'Stats'
 
 export const currentMonthRevenueTitleText = 'Estimated royalties'
 
-export const totalRevenueTitleText = 'Last twelve months'
-
 export const revenueLabelText = 'dollars'
 
 export const subscriberMinutesLabelText = 'minutes watched'
