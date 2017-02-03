@@ -1,5 +1,7 @@
 export const appTitleText = 'Instructor Center'
 
+export const instructorsOnlyDescriptionText = 'Only instructors can view the Instructor Center'
+
 export const instructorActionText = 'Switch to instructor view'
 
 export const overviewTitleText = 'Overview'
