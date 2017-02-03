@@ -97,7 +97,9 @@ export default class Routes extends Component {
                 render={() => (
                   <Request url={`/api/v1/instructors/${user.instructor_id}`}>
                     {({data}) => (
-                      <Overview instructor={data} />
+                      <div>
+                        <Overview instructor={data} />
+                      </div>
                     )}
                   </Request>
                 )}
