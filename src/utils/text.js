@@ -1,5 +1,7 @@
 export const appTitleText = 'Instructor Center'
 
+export const instructorsOnlyDescriptionText = 'Only instructors can view the Instructor Center'
+
 export const instructorActionText = 'Switch to instructor view'
 
 export const overviewTitleText = 'Overview'
@@ -41,13 +43,13 @@ export const statsTitleText = 'Stats'
 
 export const currentMonthRevenueTitleText = 'Estimated royalties'
 
-export const totalRevenueTitleText = 'Last twelve months'
-
 export const revenueLabelText = 'dollars'
 
 export const subscriberMinutesLabelText = 'minutes watched'
 
 export const noRevenueDescriptionText = `There's no revenue to report. Publishing lessons is the key.`
+
+export const nextMilestoneTitleText = 'Next milestone'
 
 export const getPublishedTitleText = 'Get published'
 export const getPublishedDescriptionText = 'Work with your mentor to complete these items so you can get published.'

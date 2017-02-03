@@ -21,6 +21,7 @@ import New from './screens/Lessons/screens/New'
 import Lesson from './screens/Lessons/screens/Lesson'
 import Instructors from './screens/Instructors'
 import Navigation from './components/Navigation'
+import InstructorsOnly from './components/InstructorsOnly'
 import LoggedOut from './components/LoggedOut'
 import RouteNotFound from './components/RouteNotFound'
 
@@ -47,6 +48,10 @@ export default class Routes extends Component {
 
     if(!user) {
       return <LoggedOut />
+    }
+
+    if(user && !user.instructor_id) {
+      return <InstructorsOnly />
     }
 
     return (
@@ -92,7 +97,9 @@ export default class Routes extends Component {
                 render={() => (
                   <Request url={`/api/v1/instructors/${user.instructor_id}`}>
                     {({data}) => (
-                      <Overview instructor={data} />
+                      <div>
+                        <Overview instructor={data} />
+                      </div>
                     )}
                   </Request>
                 )}

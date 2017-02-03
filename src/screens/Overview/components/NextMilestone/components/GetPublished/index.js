@@ -2,8 +2,8 @@ import React from 'react'
 import {map, uniq, compact, isString} from 'lodash'
 import {getPublishedTitleText, getPublishedDescriptionText} from 'utils/text'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
-import Heading from 'components/Heading'
 import isStepComplete from './utils/isStepComplete'
+import Milestone from '../Milestone'
 import Checklist from './components/Checklist'
 import DescriptionBlock from './components/DescriptionBlock'
 
@@ -56,20 +56,16 @@ export default ({
   ]
 
   return (
-    <div>
-      <Heading level='2'>
-        {getPublishedTitleText}
-      </Heading>
+    <Milestone title={getPublishedTitleText}>
       <DescriptionBlock>
         {getPublishedDescriptionText}
       </DescriptionBlock>
-
       <div className='mt3'>
         <Checklist 
           items={steps} 
           instructorId={instructor.id}
         />
       </div>
-    </div>
+    </Milestone>
   )
 }
