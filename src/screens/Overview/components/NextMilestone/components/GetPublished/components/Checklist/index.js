@@ -22,7 +22,7 @@ const Checklist = ({items, instructorId}) => (
             : <Icon
                 type='step-incomplete'
                 size='2'
-                className='green'
+                className='orange'
               />
           }
         </div>
@@ -31,7 +31,7 @@ const Checklist = ({items, instructorId}) => (
           <div>
             <span className={item.isComplete
               ? 'strike gray'
-              : 'green'
+              : 'orange'
             }>
               {item.description}
             </span>

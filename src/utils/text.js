@@ -47,6 +47,8 @@ export const subscriberMinutesLabelText = 'minutes watched'
 
 export const noRevenueDescriptionText = `There's no revenue to report. Publishing lessons is the key.`
 
+export const nextMilestoneTitleText = 'Next milestone'
+
 export const getPublishedTitleText = 'Get published'
 export const getPublishedDescriptionText = 'Work with your mentor to complete these items so you can get published.'
 export const getPublishedActionText = 'Get published'
