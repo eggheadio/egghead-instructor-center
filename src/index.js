@@ -30,6 +30,7 @@ const App = () => {
   const userUrl = login()
 
   if(!userUrl) {
+    logout()
     return <LoggedOut />
   }
 
