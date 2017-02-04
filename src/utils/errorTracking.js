@@ -1,7 +1,7 @@
 import Honeybadger from 'honeybadger-js'
 import {honeybadgerKey} from './keys'
 
-export const initializeErrorTracking = (instructor_id) => {
+export const initializeErrorTracking = (userId) => {
   
   Honeybadger.configure({
     api_key: honeybadgerKey,
@@ -10,7 +10,7 @@ export const initializeErrorTracking = (instructor_id) => {
 
   window.onerror = (message, url, line, column, error) => {
     Honeybadger.setContext({
-      instructor_id,
+      userId,
       precedingActions: JSON.parse(localStorage.getItem('precedingActions')),
     })
     Honeybadger.notify(error ? error : {
