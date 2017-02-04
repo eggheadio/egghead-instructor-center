@@ -27,15 +27,18 @@ import RouteNotFound from './components/RouteNotFound'
 
 const App = () => {
 
-  const userUrl = login()
+  const decodedToken = login()
 
-  if(!userUrl) {
-    logout()
+  if(!decodedToken) {
     return <LoggedOut />
   }
 
+  if(decodedToken && !decodedToken.user_url) {
+    logout()
+  }
+
   return (
-    <Request url={userUrl}>
+    <Request url={decodedToken.user_url}>
       {({data}) => {
 
         if(data && !data.instructor_url) {
