@@ -1,19 +1,13 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import {startsWith} from 'lodash'
 import {logout} from 'utils/authentication'
-import Loading from 'components/Loading'
-import Error from 'components/Error'
-import RequestBase from './components/RequestBase'
+import {default as RequestBase} from './components/Request'
 
 const statusCodes = {
   unauthorized: 401,
 }
 
 export default class Request extends Component {
-
-  static propTypes = {
-    url: PropTypes.string.isRequired,
-  }
 
   getUrlWithBase = () => `${process.env.REACT_APP_EGGHEAD_BASE_URL}${this.props.url}`
 
@@ -36,7 +30,6 @@ export default class Request extends Component {
 
   render() {
     const {url, children, ...rest} = this.props
-
     return (
       <RequestBase
         {...rest}
@@ -45,18 +38,10 @@ export default class Request extends Component {
         onError={this.handleError}
       >
         {({request, running, error, data, response}) => {
-          if (running) {
-            return <Loading />
-          }
-          if (error) {
-            return (
-              <Error>
-                Error: {error.message}
-              </Error>
-            )
-          }
           return children({
             request,
+            running,
+            error,
             data,
             response,
           })

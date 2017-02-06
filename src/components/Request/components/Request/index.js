@@ -1,21 +1,22 @@
-import { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 import axios from 'axios'
 import {isEqual, first} from 'lodash'
+import Loading from 'components/Loading'
 
 const http = axios.create()
 
-const requestMethods = [
+const methods = [
   'get',
   'post',
   'put',
   'delete',
 ]
 
-export default class RequestBase extends Component {
+export default class Request extends Component {
 
   static propTypes = {
-    method: PropTypes.oneOf(requestMethods),
     url: PropTypes.string.isRequired,
+    method: PropTypes.oneOf(methods),
     params: PropTypes.object,
     headers: PropTypes.object,
     body: PropTypes.object,
@@ -27,7 +28,7 @@ export default class RequestBase extends Component {
   }
 
   static defaultProps = {
-    method: first(requestMethods),
+    method: first(methods),
   }
 
   state = {
@@ -99,15 +100,27 @@ export default class RequestBase extends Component {
   }
 
   render() {
-    if (!this.props.children) {
+    const {children} = this.props
+    const {running, error, data, response} = this.state
+    if (!children) {
       return null
+    }
+    if (running) {
+      return <Loading />
+    }
+    if (error) {
+      return (
+        <Error>
+          Error: {error.message}
+        </Error>
+      )
     }
     return this.props.children({
       request: this.request,
-      running: this.state.running,
-      error: this.state.error,
-      data: this.state.data,
-      response: this.state.response,
+      running,
+      error,
+      data,
+      response,
     }) || null
   }
 }
