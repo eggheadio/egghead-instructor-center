@@ -44,7 +44,9 @@ export default class Navigation extends Component {
   }
 
   render() {
+
     const {items} = this.props
+    const {isOpen} = this.state
 
     return (
       <header className='bg-black-70'>
@@ -61,7 +63,7 @@ export default class Navigation extends Component {
           <nav className={`
             pv3 pv0-ns
             ml4-ns
-            ${this.state.isOpen
+            ${isOpen
               ? 'flex'
               : 'dn'
             }
@@ -113,18 +115,11 @@ export default class Navigation extends Component {
             onClick={this.toggle.bind(this)}
             className='absolute top-1 right-2 mt1 dn-ns'
           >
-            {this.state.isOpen
-              ? <Icon
-                  type='close'
-                  size='3'
-                  className='white'
-                />
-              : <Icon
-                  type='menu'
-                  size='3'
-                  className='white'
-                />
-            }
+            <Icon
+              type={isOpen ? 'close' : 'menu'}
+              size='3'
+              className='white'
+            />
           </div>
 
         </div>
