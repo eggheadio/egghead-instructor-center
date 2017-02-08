@@ -55,7 +55,7 @@ export default class LessonUpload extends Component {
         />
 
         <div>
-        {descriptionByUploadStatus[uploadStatus]}
+          {descriptionByUploadStatus[uploadStatus]}
         </div>
 
       </div>
