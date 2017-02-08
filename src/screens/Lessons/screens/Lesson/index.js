@@ -1,17 +1,17 @@
 import React from 'react'
 import {lessonTitleText} from 'utils/text'
 import Split from 'components/Split'
-import NextSteps from './components/NextSteps'
-import Data from './components/Data'
+import LessonNextSteps from './components/LessonNextSteps'
+import LessonData from './components/LessonData'
 
 export default ({lesson}) => (
   <Split
     title={lessonTitleText}
     main={
-      <NextSteps lesson={lesson} />
+      <LessonNextSteps lesson={lesson} />
     }
     aside={
-      <Data lesson={lesson} />
+      <LessonData lesson={lesson} />
     }
   />
 )

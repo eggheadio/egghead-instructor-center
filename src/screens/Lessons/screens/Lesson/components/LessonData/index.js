@@ -13,6 +13,8 @@ import WistiaVideo from './components/WistiaVideo'
 
 export default ({lesson}) => {
 
+  const {technology, instructor} = lesson
+
   const items = [
     {
       title: titleTitleText,
@@ -24,12 +26,12 @@ export default ({lesson}) => {
         <div className='flex items-center'>
           <div className='mr2'>
             <Avatar
-              name={lesson.instructor.first_name}
-              url={lesson.instructor.avatar_url}
+              name={instructor.first_name}
+              url={instructor.avatar_url}
               size={2}
             />
           </div>
-          {lesson.instructor.full_name}
+          {instructor.full_name}
         </div>
       ),
     },
@@ -38,11 +40,11 @@ export default ({lesson}) => {
       children: (
         <div className='flex items-center'>
           <img
-            src={lesson.technology.logo_http_url}
-            alt={lesson.technology.label}
+            src={technology.logo_http_url}
+            alt={technology.label}
             className='mw2 mr2'
           />
-          {lesson.technology.label}
+          {technology.label}
         </div>
       ),
     },
