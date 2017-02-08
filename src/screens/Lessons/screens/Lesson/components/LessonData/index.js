@@ -11,6 +11,7 @@ import {
 import Heading from 'components/Heading'
 import Avatar from 'components/Avatar'
 import WistiaVideo from './components/WistiaVideo'
+import LessonUpload from './components/LessonUpload'
 
 export default ({lesson}) => {
 
@@ -60,7 +61,7 @@ export default ({lesson}) => {
       title: videoTitleText,
       children: lesson.wistia_id
         ? <WistiaVideo wistiaId={lesson.wistia_id} />
-        : null
+        : <LessonUpload />
     },
   ]
 
