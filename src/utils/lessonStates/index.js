@@ -1,4 +1,4 @@
-import {slice, indexOf} from 'lodash'
+import {slice, indexOf, without} from 'lodash'
 import {
   proposedStateDescriptionText,
   cancelledStateDescriptionText,
@@ -45,11 +45,11 @@ const lessonStates = [
 
 export default lessonStates
 
-export const inProgressLessonStates = slice(
+export const inProgressLessonStates = without(slice(
   lessonStates,
   indexOf(lessonStates, 'proposed'),
   indexOf(lessonStates, 'published')
-)
+), 'cancelled')
 
 export const publishedLessonStates = slice(
   lessonStates,
