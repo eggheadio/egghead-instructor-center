@@ -87,6 +87,7 @@ export default class Navigation extends Component {
               else {
                 return startsWith(item.action, '/')
                   ? <NavLink
+                      exact
                       key={index}
                       className={sharedLinkClassnames}
                       activeClassName={activeLinkClassnames}
