@@ -24,7 +24,7 @@
     "react-addons-create-fragment": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-paginate": "^2.2.3",
-    "react-router-dom": "4.0.0-beta.3",
+    "react-router-dom": "4.0.0-beta.5",
     "react-tabs": "^0.8.2",
     "react-truncate": "^1.1.4",
     "sort-by": "^1.2.0",
