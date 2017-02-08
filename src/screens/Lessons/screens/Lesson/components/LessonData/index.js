@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import {map, size} from 'lodash'
 import {
   titleTitleText,
@@ -23,7 +24,10 @@ export default ({lesson}) => {
     {
       title: instructorTitleText,
       children: (
-        <div className='flex items-center'>
+        <Link
+          to={`/instructors/${instructor.slug}`}
+          className='flex items-center blue'
+        >
           <div className='mr2'>
             <Avatar
               name={instructor.first_name}
@@ -32,7 +36,7 @@ export default ({lesson}) => {
             />
           </div>
           {instructor.full_name}
-        </div>
+        </Link>
       ),
     },
     {
