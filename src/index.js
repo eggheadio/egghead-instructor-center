@@ -51,7 +51,7 @@ const App = () => {
 
         return (
           <BrowserRouter>
-            <div>
+            <div className='bg-navy white min-vh-100'>
 
               <Navigation
                 items={[
