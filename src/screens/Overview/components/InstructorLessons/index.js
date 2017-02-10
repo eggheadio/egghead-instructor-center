@@ -26,13 +26,11 @@ export default ({instructor}) => (
           <LessonList
             states={inProgressLessonStates}
             fallback={
-              <div className='mt3'>
-                <Prompt
-                  description={noInProgressLessonsDescriptionText}
-                  actionText={newLessonsActionText}
-                  action={'/lessons/new'}
-                />
-              </div>
+              <Prompt
+                description={noInProgressLessonsDescriptionText}
+                actionText={newLessonsActionText}
+                action={'/lessons/new'}
+              />
             }
             instructor={instructor}
           />
@@ -44,9 +42,7 @@ export default ({instructor}) => (
           <LessonList
             states={publishedLessonStates}
             fallback={
-              <div className='mt3'>
-                <Prompt description={noPublishedLessonsDescriptionText} />
-              </div>
+              <Prompt description={noPublishedLessonsDescriptionText} />
             }
             instructor={instructor}
           />

@@ -21,7 +21,7 @@ export default () => (
     <LessonList
       states={['requested']} 
       fallback={
-        <div className='mv3 i gray'>
+        <div className='mv3 pa3 br2 i gray'>
           {requestedEmptyDescriptionText}
         </div>
       }

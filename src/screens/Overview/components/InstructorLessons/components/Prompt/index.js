@@ -7,8 +7,8 @@ export default ({
   actionText,
   action,
 }) => (
-  <div>
-    <div className='i orange'>
+  <div className='pa3'>
+    <div className='i'>
       {description}
     </div>
     {action

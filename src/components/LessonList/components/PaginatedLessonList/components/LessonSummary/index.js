@@ -24,8 +24,8 @@ export default ({instructor, lesson}) => {
         <div className={`
           mb2 ttu tc pa1 br2 ba f6 dib
           ${statusByLessonState[lesson.state].requiresUserAction
-            ? 'orange b--orange'
-            : 'b--black-50'
+            ? 'blue b--blue'
+            : 'yellow b--yellow'
           }
         `}>
           {lesson.state}

@@ -9,22 +9,24 @@ export default ({title, instructors}) => (
     <Heading level='2'>
       {title}
     </Heading>
-    {size(instructors) > 0
-      ? <div>
-          <div className='bg-light-gray br2'>
-            {map(instructors, (instructor) => (
-              <div
-                key={instructor.id}
-                className='bb b--black-20 pa3'
-              >
-                <InstructorSummary instructor={instructor} />
-              </div>
-            ))}
+    <div className='bg-light-navy'>
+      {size(instructors) > 0
+        ? <div>
+            <div className='br2'>
+              {map(instructors, (instructor) => (
+                <div
+                  key={instructor.id}
+                  className='bb b--navy pa3'
+                >
+                  <InstructorSummary instructor={instructor} />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      : <div>
-          {noInstructorsDescriptionText}
-        </div>
-    }
+        : <div>
+            {noInstructorsDescriptionText}
+          </div>
+      }
+    </div>
   </div>
 )

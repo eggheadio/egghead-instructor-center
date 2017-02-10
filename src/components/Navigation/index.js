@@ -7,13 +7,13 @@ import Logo from 'components/Logo'
 const sharedLinkClassnames = `
   pointer
   f6
-  pv3 pv4-ns ph4 ph3-ns
+  pv3 ph4
   ttu
   no-underline
-  white-60 
+  gray
 `
 
-const activeLinkClassnames = 'bl bl-0-ns bb-ns bw2 bw1-ns b--orange white'
+const activeLinkClassnames = 'bl bl-0-ns bb-ns bw2 bw1-ns b--yellow white'
 
 export default class Navigation extends Component {
   
@@ -49,7 +49,7 @@ export default class Navigation extends Component {
     const {isOpen} = this.state
 
     return (
-      <header className='bg-black-70'>
+      <header className='bg-light-navy'>
 
         <div className='
           mw8 center relative
@@ -61,13 +61,13 @@ export default class Navigation extends Component {
           </div>
 
           <nav className={`
-            pv3 pv0-ns
+            pv2 pv0-ns
             ml4-ns
             ${isOpen
               ? 'flex'
               : 'dn'
             }
-            flex-ns flex-column flex-row-ns
+            flex-ns flex-column flex-row-ns flex-wrap
           `}>
             {map(items, (item, index) => {
 

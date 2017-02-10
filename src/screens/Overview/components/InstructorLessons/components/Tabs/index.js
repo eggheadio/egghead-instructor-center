@@ -22,7 +22,7 @@ export default class extends Component {
     return (
       <Tabs onSelect={this.handleSelect}>
 
-        <TabList className='list pa0 ma0 bg-moon-gray flex-ns br2 br--top'>
+        <TabList className='list pa0 ma0 bg-light-navy flex-ns br2 br--top'>
           {map(groups, (group, index) => (
             <Tab
               key={index}
@@ -33,8 +33,8 @@ export default class extends Component {
                 pointer
                 bl bl-0-ns bb-ns bw2 bw1-ns
                 ${this.state.selected === index
-                  ? 'b--orange black'
-                  : 'b--transparent black-40'
+                  ? 'b--yellow'
+                  : 'b--transparent gray'
                 }
               `}
             >

@@ -13,8 +13,8 @@ export default ({lesson}) => (
         {statusTitleText}
       </Heading>
       <div className={`
-        mb2 ttu tc pa2 br2 ba
-        ${statusByLessonState[lesson.state].requiresUserAction ? 'orange b--orange' : 'b--black-50'}
+        mb3 ttu tc pv2 ph3 br2 ba dib
+        ${statusByLessonState[lesson.state].requiresUserAction ? 'blue b--blue' : 'yellow b--yellow'}
       `}>
         {lesson.state}
       </div>
@@ -22,7 +22,7 @@ export default ({lesson}) => (
         {statusByLessonState[lesson.state].description}
       </div>
 
-      <div className='flex flex-wrap'>
+      <div className='flex flex-wrap mt3'>
         {map(keys(actionByLessonState), (state, index) => {
           const stateUrl = lesson[`${state}_url`]
           return stateUrl

@@ -13,7 +13,7 @@ import Heading from 'components/Heading'
 import Button from 'components/Button'
 import Error from 'components/Error'
 
-const inputClassNames = 'input-reset pa2 br2 ba b--black-20 w-100'
+const inputClassNames = 'input-reset pa2 br2 bg-dark-navy white ba b--light-navy w-100'
 
 const clearedState = {
   title: '',
@@ -71,8 +71,8 @@ export default class Propose extends Component {
           {newLessonSubmissionDescriptionText}
         </div>
 
-        <div className='mb2'>
-          <div className='b gray'>
+        <div className='mb3'>
+          <div className='b'>
             {lessonTitleLabelText}
           </div>
           <input
@@ -85,8 +85,8 @@ export default class Propose extends Component {
 
         <Request url='/api/v1/technologies'>
           {({data}) => (
-            <div className='mb2'>
-              <div className='b gray'>
+            <div className='mb3'>
+              <div className='b'>
                 {lessonTechnologyLabelText}
               </div>
               <select
@@ -108,8 +108,8 @@ export default class Propose extends Component {
           )}
         </Request>
 
-        <div className='mb2'>
-          <div className='b gray'>
+        <div className='mb3'>
+          <div className='b'>
             {lessonSummaryLabelText}
           </div>
           <textarea
@@ -122,7 +122,7 @@ export default class Propose extends Component {
         </div>
 
         {hasMissingInput
-          ? <div className='mb2'>
+          ? <div className='mb3'>
               <Error>
                 {missingInputDescriptionText}
               </Error>
