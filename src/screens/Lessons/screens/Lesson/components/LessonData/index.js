@@ -65,7 +65,7 @@ export default ({lesson}) => {
       {map(items, (item, index) => (
         <div 
           key={index}
-          className={`${index < (size(items) - 1) ? 'bb' : ''} pb3 mb3 b--black-30`}
+          className={`${index < (size(items) - 1) ? 'bb' : ''} pb3 mb3 b--gray`}
         >
           <Heading level='4'>
             {item.title}
