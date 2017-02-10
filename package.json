@@ -28,7 +28,7 @@
     "react-tabs": "^0.8.2",
     "react-truncate": "^1.1.4",
     "sort-by": "^1.2.0",
-    "tachyons-egghead": "^1.2.0"
+    "tachyons-egghead": "^1.2.1"
   },
   "engines": {
     "node": ">=6.0.0"
