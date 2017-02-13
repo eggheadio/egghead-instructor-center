@@ -27,7 +27,10 @@ export default () => (
     </div>
 
     <div>
-      <Anchor url={guideUrl}>
+      <Anchor
+        url={guideUrl}
+        type='prominent'
+      >
         {guideTitleText}
       </Anchor>
     </div>
