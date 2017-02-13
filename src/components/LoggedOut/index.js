@@ -1,54 +1,36 @@
 import React from 'react'
 import {getLoginUrl, guideUrl} from 'utils/urls'
-import {
-  appTitleText,
-  loginTitleText,
-  loginDescriptionText,
-  guideTitleText, 
-  guideDescriptionText,
-  guideActionText,
-} from 'utils/text'
-import Main from 'components/Main'
-import Heading from 'components/Heading'
+import {loginTitleText, guideTitleText} from 'utils/text'
+import {EggoIcon, InstructorBanner} from 'components/Logo'
 import Button from 'components/Button'
 import Anchor from 'components/Anchor'
+import Cover from './components/Cover'
+import background from './background.jpg'
 
 export default () => (
-  <Main>
+  <Cover image={background}>
 
-    <div className='mb3'>
-      <Heading level='2'>
-        {guideTitleText}
-      </Heading>
-
-      <div className='mb3'>
-        {guideDescriptionText}
-      </div>
-
-      <Anchor url={guideUrl}>
-        <Button>
-          {guideActionText}
-        </Button>
-      </Anchor>
+    <div className='mb4'>
+      <EggoIcon className='w4' />
     </div>
 
-    <div>
+    <div className='mb5'>
+      <InstructorBanner className='w-100 mw6' />
+    </div>
 
-      <Heading level='2'>
-        {appTitleText}
-      </Heading>
-
-      <div className='mb3'>
-        {loginDescriptionText}
-      </div>
-
+    <div className='mb5'>
       <Anchor url={getLoginUrl()}>
         <Button>
           {loginTitleText}
         </Button>
       </Anchor>
-
     </div>
 
-  </Main>
+    <div>
+      <Anchor url={guideUrl}>
+        {guideTitleText}
+      </Anchor>
+    </div>
+
+  </Cover>
 )

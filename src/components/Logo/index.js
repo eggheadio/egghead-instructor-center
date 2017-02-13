@@ -1,22 +1,39 @@
 import React from 'react'
 import {
-  instructorEggoAltText,
+  eggoAltText,
   instructorBannerAltText,
 } from 'utils/text'
-import instructorEggo from './instructorEggo.svg'
+import eggoIcon from './eggoIcon.svg'
+import eggoInstructorBanner from './eggoInstructorBanner.svg'
 import instructorBanner from './instructorBanner.svg'
+
+export const EggoIcon = ({className}) => (
+  <img
+    src={eggoIcon}
+    alt={eggoAltText}
+    className={className}
+  />
+)
+
+export const EggoInstructorBanner = ({className}) => (
+  <img
+    src={eggoInstructorBanner}
+    alt={instructorBannerAltText}
+    className={className}
+  />
+)
+
+export const InstructorBanner = ({className}) => (
+  <img
+    src={instructorBanner}
+    alt={instructorBannerAltText}
+    className={className}
+  />
+)
 
 export default () => (
   <div>
-    <img
-      src={instructorEggo}
-      alt={instructorEggoAltText}
-      className='mw2 db dn-ns'
-    />
-    <img
-      src={instructorBanner}
-      alt={instructorBannerAltText}
-      className='w-100 dn db-ns'
-    />
+    <EggoIcon className='mw2 db dn-ns' />
+    <EggoInstructorBanner className='w-100 dn db-ns' />
   </div>
 )

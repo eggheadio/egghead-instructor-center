@@ -59,7 +59,7 @@ export const requestedTitleText = 'Requested'
 export const requestedDescriptionText = `Here's some ideas for lessons that you can start recording today. If you claim one of these ideas, you'll have 2 weeks to record a draft and upload it. After that it goes back into the pool for others to claim.`
 export const requestedEmptyDescriptionText = 'There are no requested lessons, but you can create your own.'
 
-export const loginTitleText = 'Log in via egghead'
+export const loginTitleText = 'Sign in via egghead'
 export const loginDescriptionText = `If you're an existing egghead.io instructor, please log in to access the instructor center.`
 
 export const loginExpiredDescriptionText = 'Your log in has expired, please log in again'
@@ -143,5 +143,5 @@ export const reviseActionText = `Revise`
 export const retireActionText = `Retire`
 
 export const crackedEggoAltText = 'Cracked eggo logo'
-export const instructorEggoAltText = 'egghead.io instructors logo, eggo only'
+export const eggoAltText = 'egghead.io instructors logo, eggo only'
 export const instructorBannerAltText = 'egghead.io instructors logo'
