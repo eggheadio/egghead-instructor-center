@@ -22,6 +22,7 @@ export const types = {
   'lesson': 'file-o',
   'refresh': 'refresh',
   'arrow-right': 'arrow-right',
+  'chevron-right': 'chevron-right',
 }
 
 const Icon = ({
