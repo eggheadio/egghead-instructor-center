@@ -13,7 +13,7 @@ const prefixByType = {
   prominent: (
     <Icon
       type='chevron-right'
-      className='orange mr2'
+      className='blue mr2'
     />
   ),
 }

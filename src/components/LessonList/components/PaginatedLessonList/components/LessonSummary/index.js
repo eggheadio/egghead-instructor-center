@@ -39,10 +39,7 @@ export default ({instructor, lesson}) => {
           }
         </div>
         <div className='mt2'>
-          <Link 
-            className='no-underline'
-            to={`/lessons/${lesson.slug}`}
-          >
+          <Link to={`/lessons/${lesson.slug}`}>
             <Button size='small'>
               {viewActionText}
             </Button>
