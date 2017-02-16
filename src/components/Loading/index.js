@@ -1,6 +1,6 @@
 import React from 'react'
 import {loadingTitleText} from 'utils/text'
-import Icon from 'components/Icon'
+import {Icon} from 'egghead-ui'
 
 export default () => (
   <div className='ma4 white'>

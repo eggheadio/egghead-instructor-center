@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import Icon from 'components/Icon'
+import {Icon} from 'egghead-ui'
 
 const types = ['inline', 'prominent']
 
