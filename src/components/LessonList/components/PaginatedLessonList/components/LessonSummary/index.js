@@ -3,8 +3,7 @@ import {truncate} from 'lodash'
 import {Link} from 'react-router-dom'
 import {viewActionText} from 'utils/text'
 import {statusByLessonState} from 'utils/lessonStates'
-import Heading from 'components/Heading'
-import {Button} from 'egghead-ui'
+import {Button, Heading} from 'egghead-ui'
 
 export default ({instructor, lesson}) => {
 

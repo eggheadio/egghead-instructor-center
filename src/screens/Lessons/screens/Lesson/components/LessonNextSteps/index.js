@@ -4,7 +4,7 @@ import {statusTitleText} from 'utils/text'
 import {statusByLessonState, actionByLessonState} from 'utils/lessonStates'
 import Request from 'components/Request'
 import {Button} from 'egghead-ui'
-import Heading from 'components/Heading'
+import {Heading} from 'egghead-ui'
 
 export default ({lesson}) => (
   <div>

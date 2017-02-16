@@ -6,7 +6,7 @@ import {
   statsTitleText,
   noRevenueDescriptionText,
 } from 'utils/text'
-import Heading from 'components/Heading'
+import {Heading} from 'egghead-ui'
 import currentMonthStart from './utils/currentMonthStart'
 import totalRevenue from './utils/totalRevenue'
 import IconLabel from './components/IconLabel'

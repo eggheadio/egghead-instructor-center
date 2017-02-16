@@ -9,7 +9,7 @@ import {
   instructorsChatActionText,
 } from 'utils/text'
 import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
-import Heading from 'components/Heading'
+import {Heading} from 'egghead-ui'
 import List from './components/List'
 
 export default () => (

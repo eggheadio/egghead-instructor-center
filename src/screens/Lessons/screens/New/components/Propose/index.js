@@ -9,9 +9,7 @@ import {
   lessonSummaryLabelText,
 } from 'utils/text'
 import Request from 'components/Request'
-import Heading from 'components/Heading'
-import {Button} from 'egghead-ui'
-import {Error} from 'egghead-ui'
+import {Error, Button, Heading} from 'egghead-ui'
 
 const inputClassNames = 'input-reset pa2 br2 bg-dark-navy white ba b--light-navy w-100'
 
