@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 import Anchor from 'components/Anchor'
-import Icon from 'components/Icon'
+import {Icon} from 'egghead-ui'
 
 const MoreInfo = ({url}) => (
   <Anchor 

@@ -4,7 +4,7 @@ import {
   requestedDescriptionText,
   requestedEmptyDescriptionText,
 } from 'utils/text'
-import Heading from 'components/Heading'
+import {Heading} from 'egghead-ui'
 import LessonList from 'components/LessonList'
 
 export default () => (

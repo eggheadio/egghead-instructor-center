@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import Button from 'components/Button'
+import {Button} from 'egghead-ui'
 
 export default ({
   description,
@@ -14,7 +14,7 @@ export default ({
     {action
       ? <div className='mt3'>
           <Link to={action}>
-            <Button>
+            <Button type='primary'>
               {actionText}
             </Button>
           </Link>

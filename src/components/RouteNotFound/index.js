@@ -6,7 +6,7 @@ import {
 } from 'utils/text'
 import Main from 'components/Main'
 import Split from 'components/Split'
-import Heading from 'components/Heading'
+import {Heading} from 'egghead-ui'
 import crackedEggo from './crackedEggo.png'
 
 export default () => (

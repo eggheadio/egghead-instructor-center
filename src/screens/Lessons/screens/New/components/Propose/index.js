@@ -9,9 +9,7 @@ import {
   lessonSummaryLabelText,
 } from 'utils/text'
 import Request from 'components/Request'
-import Heading from 'components/Heading'
-import Button from 'components/Button'
-import Error from 'components/Error'
+import {Error, Button, Heading} from 'egghead-ui'
 
 const inputClassNames = 'input-reset pa2 br2 bg-dark-navy white ba b--light-navy w-100'
 
@@ -144,15 +142,18 @@ export default class Propose extends Component {
           }}
         >
           {({request}) => (
-            <Button onClick={() => {
-              if(every([title, technologyId], (input) => size(input) > 0)) {
-                request()
-                this.handleClearInput()
-              }
-              else {
-                this.handleMissingInput()
-              }
-            }}>
+            <Button
+              type='primary'
+              onClick={() => {
+                if(every([title, technologyId], (input) => size(input) > 0)) {
+                  request()
+                  this.handleClearInput()
+                }
+                else {
+                  this.handleMissingInput()
+                }
+              }}
+            >
               {proposeActionText}
             </Button>
           )}

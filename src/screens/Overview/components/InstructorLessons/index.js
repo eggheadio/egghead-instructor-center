@@ -7,7 +7,7 @@ import {
   noPublishedLessonsDescriptionText,
 } from 'utils/text'
 import {inProgressLessonStates, publishedLessonStates} from 'utils/lessonStates'
-import Heading from 'components/Heading'
+import {Heading} from 'egghead-ui'
 import LessonList from 'components/LessonList'
 import Prompt from './components/Prompt'
 import Tabs from './components/Tabs'

@@ -3,8 +3,7 @@ import {map, keys} from 'lodash'
 import {statusTitleText} from 'utils/text'
 import {statusByLessonState, actionByLessonState} from 'utils/lessonStates'
 import Request from 'components/Request'
-import Button from 'components/Button'
-import Heading from 'components/Heading'
+import {Button, Heading} from 'egghead-ui'
 
 export default ({lesson}) => (
   <div>
@@ -34,7 +33,10 @@ export default ({lesson}) => (
               >
                 {({request}) => (
                   <div className='pa1'>
-                    <Button onClick={() => request()}>
+                    <Button
+                      size='small'
+                      onClick={() => request()}
+                    >
                       {actionByLessonState[state].title}
                     </Button>
                   </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import {nextMilestoneTitleText} from 'utils/text'
-import Heading from 'components/Heading'
+import {Heading} from 'egghead-ui'
 
 export default ({title, children}) => (
   <div className='mb5'>

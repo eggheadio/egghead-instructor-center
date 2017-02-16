@@ -1,7 +1,7 @@
 import React from 'react'
 import {map} from 'lodash'
 import Anchor from 'components/Anchor'
-import Button from 'components/Button'
+import {Button} from 'egghead-ui'
 
 export default ({items}) => (
   <div>
@@ -14,7 +14,7 @@ export default ({items}) => (
           {item.description}
         </div>
         <Anchor url={item.url}>
-          <Button subtle>
+          <Button outline size='small'>
             {item.action}
           </Button>
         </Anchor>

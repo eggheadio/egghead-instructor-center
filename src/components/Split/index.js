@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import Heading from 'components/Heading'
+import {Heading} from 'egghead-ui'
 
 const Split = ({
   intro,

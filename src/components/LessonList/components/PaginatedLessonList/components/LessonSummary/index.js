@@ -3,8 +3,7 @@ import {truncate} from 'lodash'
 import {Link} from 'react-router-dom'
 import {viewActionText} from 'utils/text'
 import {statusByLessonState} from 'utils/lessonStates'
-import Heading from 'components/Heading'
-import Button from 'components/Button'
+import {Button, Heading} from 'egghead-ui'
 
 export default ({instructor, lesson}) => {
 
@@ -40,7 +39,7 @@ export default ({instructor, lesson}) => {
         </div>
         <div className='mt2'>
           <Link to={`/lessons/${lesson.slug}`}>
-            <Button>
+            <Button size='small'>
               {viewActionText}
             </Button>
           </Link>

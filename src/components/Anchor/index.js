@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import Icon from 'components/Icon'
+import {Icon} from 'egghead-ui'
 
 const types = ['inline', 'prominent']
 
@@ -13,7 +13,7 @@ const prefixByType = {
   prominent: (
     <Icon
       type='chevron-right'
-      className='orange mr2'
+      className='blue mr2'
     />
   ),
 }

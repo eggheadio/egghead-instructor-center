@@ -7,7 +7,7 @@ import {
   summaryTitleText,
   videoTitleText,
 } from 'utils/text'
-import Heading from 'components/Heading'
+import {Heading} from 'egghead-ui'
 import Avatar from 'components/Avatar'
 import WistiaVideo from './components/WistiaVideo'
 
