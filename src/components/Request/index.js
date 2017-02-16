@@ -1,13 +1,13 @@
 import React, {Component} from 'react'
 import {startsWith} from 'lodash'
 import {logout} from 'utils/authentication'
-import {default as RequestBase} from './components/Request'
+import {Request} from 'egghead-ui'
 
 const statusCodes = {
   unauthorized: 401,
 }
 
-export default class Request extends Component {
+export default class extends Component {
 
   getUrlWithBase = () => `${process.env.REACT_APP_EGGHEAD_BASE_URL}${this.props.url}`
 
@@ -31,7 +31,7 @@ export default class Request extends Component {
   render() {
     const {url, children, ...rest} = this.props
     return (
-      <RequestBase
+      <Request
         {...rest}
         url={startsWith(url, '/') ? this.getUrlWithBase() : url}
         headers={this.getHeaders()}
@@ -46,7 +46,7 @@ export default class Request extends Component {
             response,
           })
         }}
-      </RequestBase>
+      </Request>
     )
   }
 }
