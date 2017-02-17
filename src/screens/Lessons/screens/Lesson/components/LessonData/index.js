@@ -1,19 +1,23 @@
 import React from 'react'
 import {map, size} from 'lodash'
+import {Heading, Button} from 'egghead-ui'
 import {
   titleTitleText,
   instructorTitleText,
   technologyTitleText,
   summaryTitleText,
   videoTitleText,
+  uploadVideoTitleText,
+  noVideoDescriptionText,
+  editLessonTitleText,
 } from 'utils/text'
-import {Heading} from 'egghead-ui'
+import Anchor from 'components/Anchor'
 import Avatar from 'components/Avatar'
 import WistiaVideo from './components/WistiaVideo'
 
-export default ({lesson}) => {
+export default ({instructor, lesson}) => {
 
-  const {technology, instructor} = lesson
+  const isInstructorsOwnLesson = instructor.slug === lesson.instructor.slug
 
   const items = [
     {
@@ -26,12 +30,12 @@ export default ({lesson}) => {
         <div className='flex items-center'>
           <div className='mr2'>
             <Avatar
-              name={instructor.first_name}
-              url={instructor.avatar_url}
+              name={lesson.instructor.first_name}
+              url={lesson.instructor.avatar_url}
               size={2}
             />
           </div>
-          {instructor.full_name}
+          {lesson.instructor.full_name}
         </div>
       ),
     },
@@ -40,11 +44,11 @@ export default ({lesson}) => {
       children: (
         <div className='flex items-center'>
           <img
-            src={technology.logo_http_url}
-            alt={technology.label}
+            src={lesson.technology.logo_http_url}
+            alt={lesson.technology.label}
             className='mw2 mr2'
           />
-          {technology.label}
+          {lesson.technology.label}
         </div>
       ),
     },
@@ -56,25 +60,49 @@ export default ({lesson}) => {
       title: videoTitleText,
       children: lesson.wistia_id
         ? <WistiaVideo wistiaId={lesson.wistia_id} />
-        : null
+        : isInstructorsOwnLesson 
+          ? <Anchor url={lesson.lesson_http_url}>
+              <Button type='primary'>
+                {uploadVideoTitleText}
+              </Button>
+            </Anchor>
+          : noVideoDescriptionText
     },
   ]
 
   return (
     <div>
-      {map(items, (item, index) => (
-        <div 
-          key={index}
-          className={`${index < (size(items) - 1) ? 'bb' : ''} pb3 mb3 b--gray`}
-        >
-          <Heading level='4'>
-            {item.title}
-          </Heading>
-          <div>
-            {item.children}
+
+      {isInstructorsOwnLesson 
+        ? <div className='mb3'>
+            <Anchor url={lesson.lesson_http_url}>
+              <Button 
+                type='warning'
+                size='small'
+                outline
+              >
+                {editLessonTitleText}
+              </Button>
+            </Anchor>
           </div>
-        </div>
-      ))}
+        : null
+      }
+
+      <div>
+        {map(items, (item, index) => (
+          <div 
+            key={index}
+            className={`${index < (size(items) - 1) ? 'bb' : ''} pb3 mb3 b--gray`}
+          >
+            <Heading level='4'>
+              {item.title}
+            </Heading>
+            <div>
+              {item.children}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

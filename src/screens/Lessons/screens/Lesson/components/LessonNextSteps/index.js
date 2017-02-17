@@ -12,7 +12,7 @@ export default ({lesson}) => (
         {statusTitleText}
       </Heading>
       <div className={`
-        mb3 ttu tc pv2 ph3 br2 ba dib
+        mb3 ttu tc pv2 ph3 br2 ba b--dashed dib
         ${statusByLessonState[lesson.state].requiresUserAction ? 'blue b--blue' : 'yellow b--yellow'}
       `}>
         {lesson.state}
