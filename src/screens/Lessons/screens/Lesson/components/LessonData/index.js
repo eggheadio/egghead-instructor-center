@@ -18,9 +18,8 @@ import WistiaVideo from './components/WistiaVideo'
 export default ({instructor, lesson}) => {
 
   const isInstructorsOwnLesson = instructor.slug === lesson.instructor.slug
-
+  const hasVideo = lesson.wistia_id
   const temporaryLessonEditUrl = `${lesson.lesson_http_url}/edit`
-
   const items = [
     {
       title: titleTitleText,
@@ -60,35 +59,14 @@ export default ({instructor, lesson}) => {
     },
     {
       title: videoTitleText,
-      children: lesson.wistia_id
+      children: hasVideo
         ? <WistiaVideo wistiaId={lesson.wistia_id} />
-        : isInstructorsOwnLesson 
-          ? <Anchor url={temporaryLessonEditUrl}>
-              <Button type='primary'>
-                {uploadVideoTitleText}
-              </Button>
-            </Anchor>
-          : noVideoDescriptionText
+        : noVideoDescriptionText
     },
   ]
 
   return (
     <div>
-
-      {isInstructorsOwnLesson 
-        ? <div className='mb3'>
-            <Anchor url={temporaryLessonEditUrl}>
-              <Button 
-                type='warning'
-                size='small'
-                outline
-              >
-                {editLessonTitleText}
-              </Button>
-            </Anchor>
-          </div>
-        : null
-      }
 
       <div>
         {map(items, (item, index) => (
@@ -105,6 +83,17 @@ export default ({instructor, lesson}) => {
           </div>
         ))}
       </div>
+
+      {isInstructorsOwnLesson 
+        ? <div className='mb3'>
+            <Anchor url={temporaryLessonEditUrl}>
+              <Button type='primary'>
+                {hasVideo ? editLessonTitleText : `${editLessonTitleText} & ${uploadVideoTitleText}`}
+              </Button>
+            </Anchor>
+          </div>
+        : null
+      }
     </div>
   )
 }
