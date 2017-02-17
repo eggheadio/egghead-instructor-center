@@ -1,12 +1,12 @@
 import React from 'react'
 import {find, size} from 'lodash'
 import formatNumber from 'format-number'
+import {Heading} from 'egghead-ui'
 import {
   currentMonthRevenueTitleText,
   statsTitleText,
   noRevenueDescriptionText,
 } from 'utils/text'
-import {Heading} from 'egghead-ui'
 import currentMonthStart from './utils/currentMonthStart'
 import totalRevenue from './utils/totalRevenue'
 import IconLabel from './components/IconLabel'

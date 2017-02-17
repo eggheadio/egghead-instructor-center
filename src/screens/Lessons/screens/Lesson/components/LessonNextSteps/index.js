@@ -1,9 +1,9 @@
 import React from 'react'
 import {map, keys} from 'lodash'
+import {Button, Heading} from 'egghead-ui'
 import {statusTitleText} from 'utils/text'
 import {statusByLessonState, actionByLessonState} from 'utils/lessonStates'
 import Request from 'components/Request'
-import {Button, Heading} from 'egghead-ui'
 
 export default ({lesson}) => (
   <div>

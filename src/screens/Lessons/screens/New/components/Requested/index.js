@@ -1,10 +1,10 @@
 import React from 'react'
+import {Heading} from 'egghead-ui'
 import {
   requestedTitleText,
   requestedDescriptionText,
   requestedEmptyDescriptionText,
 } from 'utils/text'
-import {Heading} from 'egghead-ui'
 import LessonList from 'components/LessonList'
 
 export default () => (
