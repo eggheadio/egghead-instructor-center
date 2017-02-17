@@ -73,12 +73,12 @@ const App = () => {
                           action: '/lessons/new',
                         },
                         {
-                          text: instructorsTitleText,
-                          action: '/instructors',
-                        },
-                        {
                           text: queueTitleText,
                           action: temporaryQueueUrl,
+                        },
+                        {
+                          text: instructorsTitleText,
+                          action: '/instructors',
                         },
                         {
                           text: guideTitleText,
