@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button} from 'egghead-ui'
 import {getLoginUrl, guideUrl} from 'utils/urls'
-import {loginTitleText, guideTitleText} from 'utils/text'
+import {loginTitleText, instructorGuideTitleText} from 'utils/text'
 import {EggoIcon, InstructorBanner} from 'components/Logo'
 import Anchor from 'components/Anchor'
 import Cover from './components/Cover'
@@ -31,7 +31,7 @@ export default () => (
         url={guideUrl}
         type='prominent'
       >
-        {guideTitleText}
+        {instructorGuideTitleText}
       </Anchor>
     </div>
 

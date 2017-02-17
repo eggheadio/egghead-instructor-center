@@ -81,6 +81,8 @@ export const whatNowAnswerText = `Here're the steps you need to complete to publ
 
 export const missingInputDescriptionText = 'Missing required form input'
 
+export const instructorGuideTitleText = 'Instructor Guide'
+
 export const guideTitleText = 'Guide'
 export const guideDescriptionText = `We've put together a written Instructor Guide with step by step details on creating egghead lessons and courses. It is required reading for all instructors, and will help you make great lessons.`
 export const guideActionText = 'View the guide'
