@@ -19,6 +19,8 @@ export default ({instructor, lesson}) => {
 
   const isInstructorsOwnLesson = instructor.slug === lesson.instructor.slug
 
+  const temporaryLessonEditUrl = `${lesson.lesson_http_url}/edit`
+
   const items = [
     {
       title: titleTitleText,
@@ -61,7 +63,7 @@ export default ({instructor, lesson}) => {
       children: lesson.wistia_id
         ? <WistiaVideo wistiaId={lesson.wistia_id} />
         : isInstructorsOwnLesson 
-          ? <Anchor url={lesson.lesson_http_url}>
+          ? <Anchor url={temporaryLessonEditUrl}>
               <Button type='primary'>
                 {uploadVideoTitleText}
               </Button>
@@ -75,7 +77,7 @@ export default ({instructor, lesson}) => {
 
       {isInstructorsOwnLesson 
         ? <div className='mb3'>
-            <Anchor url={lesson.lesson_http_url}>
+            <Anchor url={temporaryLessonEditUrl}>
               <Button 
                 type='warning'
                 size='small'
