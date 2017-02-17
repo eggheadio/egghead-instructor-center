@@ -11,8 +11,9 @@ import {
   guideTitleText,
   chatTitleText,
   logOutTitleText,
+  queueTitleText,
 } from 'utils/text'
-import {guideUrl, chatUrl} from 'utils/urls'
+import {temporaryQueueUrl, guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
 import Request from 'components/Request'
 import Main from 'components/Main'
@@ -74,6 +75,10 @@ const App = () => {
                         {
                           text: instructorsTitleText,
                           action: '/instructors',
+                        },
+                        {
+                          text: queueTitleText,
+                          action: temporaryQueueUrl,
                         },
                         {
                           text: guideTitleText,

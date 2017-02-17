@@ -13,6 +13,8 @@ export const lessonsTitleText = 'Lessons'
 
 export const instructorsTitleText = 'Instructors'
 
+export const queueTitleText = 'Queue'
+
 export const lessonTitleText = 'Lesson'
 
 export const statusTitleText = 'Status'
