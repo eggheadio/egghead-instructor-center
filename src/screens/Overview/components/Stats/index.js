@@ -9,6 +9,7 @@ import {
 import {Heading} from 'egghead-ui'
 import currentMonthStart from './utils/currentMonthStart'
 import totalRevenue from './utils/totalRevenue'
+import removeCurrentMonth from './utils/removeCurrentMonth'
 import IconLabel from './components/IconLabel'
 import RevenuePeriod from './components/RevenuePeriod'
 
@@ -16,7 +17,7 @@ export default ({instructor}) => {
 
   const {revenue, published_courses, published_lessons} = instructor
   const currentMonthRevenue = find(revenue, ['month', currentMonthStart()])
-  const currentTotalRevenue = totalRevenue(revenue)
+  const currentTotalRevenue = totalRevenue(removeCurrentMonth(revenue, currentMonthStart()))
 
   return(
     <div>
