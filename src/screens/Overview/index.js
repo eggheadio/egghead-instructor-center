@@ -27,7 +27,7 @@ export default ({instructor}) => (
             {({data}) => (
               <Stats 
                 instructor={instructor}
-                revenue={data.revenue}
+                revenue={data}
               />
             )}
           </Request>
