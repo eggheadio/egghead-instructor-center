@@ -1,7 +1,7 @@
 import React from 'react'
 import {map, size} from 'lodash'
-import {noInstructorsDescriptionText} from 'utils/text'
 import {Heading} from 'egghead-ui'
+import {noInstructorsDescriptionText} from 'utils/text'
 import InstructorSummary from './components/InstructorSummary'
 
 export default ({title, instructors}) => (

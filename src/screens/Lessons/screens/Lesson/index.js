@@ -4,14 +4,17 @@ import Split from 'components/Split'
 import LessonNextSteps from './components/LessonNextSteps'
 import LessonData from './components/LessonData'
 
-export default ({lesson}) => (
+export default ({instructor, lesson}) => (
   <Split
     title={lessonTitleText}
     main={
       <LessonNextSteps lesson={lesson} />
     }
     aside={
-      <LessonData lesson={lesson} />
+      <LessonData 
+        instructor={instructor}
+        lesson={lesson} 
+      />
     }
   />
 )

@@ -6,12 +6,14 @@ export const instructorActionText = 'Switch to instructor view'
 
 export const overviewTitleText = 'Overview'
 
-export const newLessonsTitleText = 'New Lessons'
+export const newLessonsTitleText = 'New'
 export const newLessonsActionText = 'Create a new lesson'
 
 export const lessonsTitleText = 'Lessons'
 
 export const instructorsTitleText = 'Instructors'
+
+export const queueTitleText = 'Queue'
 
 export const lessonTitleText = 'Lesson'
 
@@ -26,6 +28,8 @@ export const technologyTitleText = 'Technology'
 export const summaryTitleText = 'Summary'
 
 export const videoTitleText = 'Video'
+
+export const noVideoDescriptionText = 'No video'
 
 export const inProgressTitleText = 'In progress'
 
@@ -59,6 +63,10 @@ export const requestedTitleText = 'Requested'
 export const requestedDescriptionText = `Here's some ideas for lessons that you can start recording today. If you claim one of these ideas, you'll have 2 weeks to record a draft and upload it. After that it goes back into the pool for others to claim.`
 export const requestedEmptyDescriptionText = 'There are no requested lessons, but you can create your own.'
 
+export const uploadVideoTitleText = 'Upload'
+
+export const editLessonTitleText = 'Edit'
+
 export const loginTitleText = 'Sign in via egghead'
 export const loginDescriptionText = `If you're an existing egghead.io instructor, please log in to access the instructor center.`
 
@@ -73,7 +81,9 @@ export const whatNowAnswerText = `Here're the steps you need to complete to publ
 
 export const missingInputDescriptionText = 'Missing required form input'
 
-export const guideTitleText = 'Instructor 101 Guide'
+export const instructorGuideTitleText = 'Instructor Guide'
+
+export const guideTitleText = 'Guide'
 export const guideDescriptionText = `We've put together a written Instructor Guide with step by step details on creating egghead lessons and courses. It is required reading for all instructors, and will help you make great lessons.`
 export const guideActionText = 'View the guide'
 

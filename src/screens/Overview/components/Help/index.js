@@ -1,4 +1,5 @@
 import React from 'react'
+import {Heading} from 'egghead-ui'
 import {
   helpTitleText,
   guideDescriptionText,
@@ -9,7 +10,6 @@ import {
   instructorsChatActionText,
 } from 'utils/text'
 import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
-import {Heading} from 'egghead-ui'
 import List from './components/List'
 
 export default () => (

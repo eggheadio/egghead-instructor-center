@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {map, size, every} from 'lodash'
+import {Error, Button, Heading} from 'egghead-ui'
 import {
   proposeActionText,
   missingInputDescriptionText,
@@ -9,7 +10,6 @@ import {
   lessonSummaryLabelText,
 } from 'utils/text'
 import Request from 'components/Request'
-import {Error, Button, Heading} from 'egghead-ui'
 
 const inputClassNames = 'input-reset pa2 br2 bg-dark-navy white ba b--light-navy w-100'
 

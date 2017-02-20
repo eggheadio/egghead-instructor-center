@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {startsWith} from 'lodash'
-import {logout} from 'utils/authentication'
 import {Request} from 'egghead-ui'
+import {logout} from 'utils/authentication'
 
 const statusCodes = {
   unauthorized: 401,
