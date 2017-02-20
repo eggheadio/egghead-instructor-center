@@ -1,4 +1,5 @@
 import React from 'react'
+import Request from 'components/Request'
 import {overviewTitleText} from 'utils/text'
 import Split from 'components/Split'
 import Hello from './components/Hello'
@@ -22,7 +23,14 @@ export default ({instructor}) => (
     aside={
       <div>
         <div className='mb4'>
-          <Stats instructor={instructor} />
+          <Request url={instructor.revenue_url}>
+            {({data}) => (
+              <Stats 
+                instructor={instructor}
+                revenue={data}
+              />
+            )}
+          </Request>
         </div>
         <Help />
       </div>

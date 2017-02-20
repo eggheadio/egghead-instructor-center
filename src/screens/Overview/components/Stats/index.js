@@ -12,9 +12,9 @@ import totalRevenue from './utils/totalRevenue'
 import IconLabel from './components/IconLabel'
 import RevenuePeriod from './components/RevenuePeriod'
 
-export default ({instructor}) => {
+export default ({instructor, revenue}) => {
 
-  const {revenue, published_courses, published_lessons} = instructor
+  const {published_courses, published_lessons} = instructor
   const currentMonthRevenue = find(revenue, ['month', currentMonthStart()])
   const currentTotalRevenue = totalRevenue(revenue)
 
@@ -46,7 +46,7 @@ export default ({instructor}) => {
               : null
             }
             <RevenuePeriod
-              title={`Previous ${size(revenue)} months`}
+              title={`Last ${size(revenue)} months`}
               revenue={currentTotalRevenue.revenue}
               subscriberMinutes={currentTotalRevenue.minutes_watched}
             />
