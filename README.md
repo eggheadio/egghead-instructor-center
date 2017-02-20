@@ -14,6 +14,7 @@ _An app for egghead instructors to do instructor things_
 - `yarn test` to run tests
 - `yarn dev` to run app
 - Open [localhost:3000](http://localhost:3000) to view app
+- Log in with your egghead instructor account and testing password
 
 ---
 
