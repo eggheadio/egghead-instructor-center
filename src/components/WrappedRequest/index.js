@@ -1,11 +1,7 @@
 import React, {Component} from 'react'
-import {startsWith} from 'lodash'
+import {startsWith, includes} from 'lodash'
 import {Request} from 'egghead-ui'
 import {logout} from 'utils/authentication'
-
-const statusCodes = {
-  unauthorized: 401,
-}
 
 export default class WrappedRequest extends Component {
 
@@ -20,7 +16,7 @@ export default class WrappedRequest extends Component {
   })
 
   handleError = (error) => {
-    if (error.status === statusCodes.unauthorized) {
+    if (includes([401, 403], error.response.status)) {
       logout()
     }
     if (this.props.onError) {
