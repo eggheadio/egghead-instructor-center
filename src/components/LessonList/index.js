@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import createLessonsUrl from 'utils/createLessonsUrl'
-import Request from 'components/Request'
+import InstructorCenterRequest from 'components/InstructorCenterRequest'
 import PaginatedLessonList from './components/PaginatedLessonList'
 
 export default class LessonList extends Component {
@@ -29,7 +29,7 @@ export default class LessonList extends Component {
     const {states, fallback, instructor, pageSize} = this.props
 
     return (
-      <Request
+      <InstructorCenterRequest
         url={createLessonsUrl({
           states,
           pageSize,
@@ -52,7 +52,7 @@ export default class LessonList extends Component {
             }}
           />
         )}
-      </Request>
+      </InstructorCenterRequest>
     )
   }
 }

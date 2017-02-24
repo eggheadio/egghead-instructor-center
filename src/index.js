@@ -15,7 +15,7 @@ import {
 } from 'utils/text'
 import {temporaryQueueUrl, guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
-import Request from 'components/Request'
+import InstructorCenterRequest from 'components/InstructorCenterRequest'
 import Main from 'components/Main'
 import Overview from './screens/Overview'
 import New from './screens/Lessons/screens/New'
@@ -39,7 +39,7 @@ const App = () => {
   }
 
   return (
-    <Request url={decodedToken.user_url}>
+    <InstructorCenterRequest url={decodedToken.user_url}>
       {({data}) => {
 
         const user = data
@@ -54,7 +54,7 @@ const App = () => {
 
         return (
           <BrowserRouter>
-            <Request url={data.instructor_url}>
+            <InstructorCenterRequest url={data.instructor_url}>
               {({data}) => {
 
                 const instructor = data
@@ -118,36 +118,36 @@ const App = () => {
                         <Route 
                           path={`/lessons/:slug`}
                           render={({match}) => (
-                            <Request url={`/api/v1/lessons/${match.params.slug}`}>
+                            <InstructorCenterRequest url={`/api/v1/lessons/${match.params.slug}`}>
                               {({data}) => (
                                 <Lesson 
                                   instructor={instructor}
                                   lesson={data} 
                                 />
                               )}
-                            </Request>
+                            </InstructorCenterRequest>
                           )}
                         />
 
                         <Route 
                           path={`/instructors/:slug`}
                           render={({match}) => (
-                            <Request url={`/api/v1/instructors/${match.params.slug}`}>
+                            <InstructorCenterRequest url={`/api/v1/instructors/${match.params.slug}`}>
                               {({data}) => (
                                 <Overview instructor={data} />
                               )}
-                            </Request>
+                            </InstructorCenterRequest>
                           )}
                         />
 
                         <Route
                           path='/instructors'
                           render={() => (
-                            <Request url='/api/v1/instructors'>
+                            <InstructorCenterRequest url='/api/v1/instructors'>
                               {({data}) => (
                                 <Instructors instructors={data} />
                               )}
-                            </Request>
+                            </InstructorCenterRequest>
                           )}
                         />
 
@@ -160,11 +160,11 @@ const App = () => {
                   </div>
                 )
               }}
-            </Request>
+            </InstructorCenterRequest>
           </BrowserRouter>
         )
       }}
-    </Request>
+    </InstructorCenterRequest>
   )
 }
 

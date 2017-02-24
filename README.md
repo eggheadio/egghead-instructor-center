@@ -91,7 +91,7 @@ The `.env` file is used to load environment variables. The base url of endpoint 
 
 ## Endpoints
 
-The [`Request` component](https://styleguide.egghead.io) is used with the `egghead-rails` rest APIs, based on the current environment set in `.env`. The endpoint data uses hypermedia (urls to make requests to for sub-data instead of placing all data inline). Response properties and hypermedia urls are only shown when the user has access to them, so all UI based on permissions can be combined without separate routes for "roles". There is no such thing as roles in this system, but what data a response has, based on the user. This means that you can do something like `lesson.approve_url ? <ApproveButton /> : null` to show a lesson approval button and it will work for all users, regardless of their permissions.
+The [`InstructorCenterRequest` component] extends the [`Request` component](https://styleguide.egghead.io); it is used with the `egghead-rails` rest APIs, based on the current environment set in `.env`. The endpoint data uses hypermedia (urls to make requests to for sub-data instead of placing all data inline). Response properties and hypermedia urls are only shown when the user has access to them, so all UI based on permissions can be combined without separate routes for "roles". There is no such thing as roles in this system, but what data a response has, based on the user. This means that you can do something like `lesson.approve_url ? <ApproveButton /> : null` to show a lesson approval button and it will work for all users, regardless of their permissions.
 
 ## Public folder
 
