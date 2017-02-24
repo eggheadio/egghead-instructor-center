@@ -11,8 +11,9 @@ import {
   guideTitleText,
   chatTitleText,
   logOutTitleText,
+  queueTitleText,
 } from 'utils/text'
-import {guideUrl, chatUrl} from 'utils/urls'
+import {temporaryQueueUrl, guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
 import Request from 'components/Request'
 import Main from 'components/Main'
@@ -41,117 +42,125 @@ const App = () => {
     <Request url={decodedToken.user_url}>
       {({data}) => {
 
-        if(data && !data.instructor_url) {
+        const user = data
+
+        if(user && !user.instructor_url) {
           return <InstructorsOnly />
         }
 
         if (process.env.NODE_ENV === 'production') {
-          initializeErrorTracking(data.id)
+          initializeErrorTracking(user.id)
         }
 
         return (
           <BrowserRouter>
-            <div>
+            <Request url={data.instructor_url}>
+              {({data}) => {
 
-              <Navigation
-                items={[
-                  {
-                    text: overviewTitleText,
-                    action: '/',
-                  },
-                  {
-                    text: newLessonsTitleText,
-                    action: '/lessons/new',
-                  },
-                  {
-                    text: instructorsTitleText,
-                    action: '/instructors',
-                  },
-                  {
-                    text: guideTitleText,
-                    action: guideUrl,
-                  },
-                  {
-                    text: chatTitleText,
-                    action: chatUrl,
-                  },
-                  {
-                    text: logOutTitleText,
-                    action: logout,
-                  },
-                ]}
-              />
+                const instructor = data
 
-              <Main>
+                return (
+                  <div>
 
-                <Switch>
+                    <Navigation
+                      items={[
+                        {
+                          text: overviewTitleText,
+                          action: '/',
+                        },
+                        {
+                          text: newLessonsTitleText,
+                          action: '/lessons/new',
+                        },
+                        {
+                          text: queueTitleText,
+                          action: temporaryQueueUrl,
+                        },
+                        {
+                          text: instructorsTitleText,
+                          action: '/instructors',
+                        },
+                        {
+                          text: guideTitleText,
+                          action: guideUrl,
+                        },
+                        {
+                          text: chatTitleText,
+                          action: chatUrl,
+                        },
+                        {
+                          text: logOutTitleText,
+                          action: logout,
+                        },
+                      ]}
+                    />
 
-                  <Route 
-                    exact
-                    path='/'
-                    render={() => (
-                      <Request url={data.instructor_url}>
-                        {({data}) => (
-                          <div>
-                            <Overview instructor={data} />
-                          </div>
-                        )}
-                      </Request>
-                    )}
-                  />
+                    <Main>
 
-                  <Route 
-                    exact
-                    path='/lessons/new'
-                    render={() => (
-                      <Request url={data.instructor_url}>
-                        {({data}) => (
-                          <New instructor={data} />
-                        )}
-                      </Request>
-                    )}
-                  />
+                      <Switch>
 
-                  <Route 
-                    path={`/lessons/:slug`}
-                    render={({match}) => (
-                      <Request url={`/api/v1/lessons/${match.params.slug}`}>
-                        {({data}) => (
-                          <Lesson lesson={data} />
-                        )}
-                      </Request>
-                    )}
-                  />
+                        <Route 
+                          exact
+                          path='/'
+                          render={() => (
+                            <Overview instructor={instructor} />
+                          )}
+                        />
 
-                  <Route 
-                    path={`/instructors/:slug`}
-                    render={({match}) => (
-                      <Request url={`/api/v1/instructors/${match.params.slug}`}>
-                        {({data}) => (
-                          <Overview instructor={data} />
-                        )}
-                      </Request>
-                    )}
-                  />
+                        <Route 
+                          exact
+                          path='/lessons/new'
+                          render={() => (
+                            <New instructor={instructor} />
+                          )}
+                        />
 
-                  <Route
-                    path='/instructors'
-                    render={() => (
-                      <Request url='/api/v1/instructors'>
-                        {({data}) => (
-                          <Instructors instructors={data} />
-                        )}
-                      </Request>
-                    )}
-                  />
+                        <Route 
+                          path={`/lessons/:slug`}
+                          render={({match}) => (
+                            <Request url={`/api/v1/lessons/${match.params.slug}`}>
+                              {({data}) => (
+                                <Lesson 
+                                  instructor={instructor}
+                                  lesson={data} 
+                                />
+                              )}
+                            </Request>
+                          )}
+                        />
 
-                  <Route component={RouteNotFound} />
+                        <Route 
+                          path={`/instructors/:slug`}
+                          render={({match}) => (
+                            <Request url={`/api/v1/instructors/${match.params.slug}`}>
+                              {({data}) => (
+                                <Overview instructor={data} />
+                              )}
+                            </Request>
+                          )}
+                        />
 
-                </Switch>
+                        <Route
+                          path='/instructors'
+                          render={() => (
+                            <Request url='/api/v1/instructors'>
+                              {({data}) => (
+                                <Instructors instructors={data} />
+                              )}
+                            </Request>
+                          )}
+                        />
 
-              </Main>
+                        <Route component={RouteNotFound} />
 
-            </div>
+                      </Switch>
+
+                    </Main>
+
+                  </div>
+                )
+              }}
+            </Request>
           </BrowserRouter>
         )
       }}

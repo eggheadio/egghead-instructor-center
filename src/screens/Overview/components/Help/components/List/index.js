@@ -1,7 +1,7 @@
 import React from 'react'
 import {map} from 'lodash'
-import Anchor from 'components/Anchor'
 import {Button} from 'egghead-ui'
+import Anchor from 'components/Anchor'
 
 export default ({items}) => (
   <div>

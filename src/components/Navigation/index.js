@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {NavLink} from 'react-router-dom'
-import {map, isFunction, startsWith} from 'lodash'
 import {Icon} from 'egghead-ui'
+import {map, isFunction, startsWith} from 'lodash'
 import Logo from 'components/Logo'
 
 const sharedLinkClassnames = `

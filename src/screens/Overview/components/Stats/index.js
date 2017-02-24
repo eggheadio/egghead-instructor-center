@@ -1,21 +1,21 @@
 import React from 'react'
 import {find, size} from 'lodash'
 import formatNumber from 'format-number'
+import {Heading} from 'egghead-ui'
 import {
   currentMonthRevenueTitleText,
   statsTitleText,
   noRevenueDescriptionText,
 } from 'utils/text'
-import {Heading} from 'egghead-ui'
 import currentMonthStart from './utils/currentMonthStart'
 import totalRevenue from './utils/totalRevenue'
 import removeCurrentMonth from './utils/removeCurrentMonth'
 import IconLabel from './components/IconLabel'
 import RevenuePeriod from './components/RevenuePeriod'
 
-export default ({instructor}) => {
+export default ({instructor, revenue}) => {
 
-  const {revenue, published_courses, published_lessons} = instructor
+  const {published_courses, published_lessons} = instructor
   const currentMonthRevenue = find(revenue, ['month', currentMonthStart()])
   const currentTotalRevenue = totalRevenue(removeCurrentMonth(revenue, currentMonthStart()))
 
@@ -47,7 +47,7 @@ export default ({instructor}) => {
               : null
             }
             <RevenuePeriod
-              title={`Previous ${size(revenue)} months`}
+              title={`Last ${size(revenue)} months`}
               revenue={currentTotalRevenue.revenue}
               subscriberMinutes={currentTotalRevenue.minutes_watched}
             />

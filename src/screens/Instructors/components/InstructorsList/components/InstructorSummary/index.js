@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {viewActionText} from 'utils/text'
 import {Heading} from 'egghead-ui'
+import {viewActionText} from 'utils/text'
 import Avatar from 'components/Avatar'
 
 const LessonCount = ({label, count}) => (

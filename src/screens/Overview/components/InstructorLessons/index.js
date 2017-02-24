@@ -1,4 +1,5 @@
 import React from 'react'
+import {Heading} from 'egghead-ui'
 import {
   newLessonsActionText,
   lessonsTitleText,
@@ -7,7 +8,6 @@ import {
   noPublishedLessonsDescriptionText,
 } from 'utils/text'
 import {inProgressLessonStates, publishedLessonStates} from 'utils/lessonStates'
-import {Heading} from 'egghead-ui'
 import LessonList from 'components/LessonList'
 import Prompt from './components/Prompt'
 import Tabs from './components/Tabs'

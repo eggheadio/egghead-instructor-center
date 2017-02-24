@@ -1,4 +1,5 @@
 import React from 'react'
+import {Heading} from 'egghead-ui'
 import {
   pageNotFoundTitleText,
   pageNotFoundDescriptionText,
@@ -6,7 +7,6 @@ import {
 } from 'utils/text'
 import Main from 'components/Main'
 import Split from 'components/Split'
-import {Heading} from 'egghead-ui'
 import crackedEggo from './crackedEggo.png'
 
 export default () => (

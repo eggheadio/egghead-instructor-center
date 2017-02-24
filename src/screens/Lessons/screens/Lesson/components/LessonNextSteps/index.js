@@ -1,9 +1,9 @@
 import React from 'react'
 import {map, keys} from 'lodash'
+import {Button, Heading} from 'egghead-ui'
 import {statusTitleText} from 'utils/text'
 import {statusByLessonState, actionByLessonState} from 'utils/lessonStates'
 import Request from 'components/Request'
-import {Button, Heading} from 'egghead-ui'
 
 export default ({lesson}) => (
   <div>
@@ -12,7 +12,7 @@ export default ({lesson}) => (
         {statusTitleText}
       </Heading>
       <div className={`
-        mb3 ttu tc pv2 ph3 br2 ba dib
+        mb3 ttu tc pv2 ph3 br2 ba b--dashed dib
         ${statusByLessonState[lesson.state].requiresUserAction ? 'blue b--blue' : 'yellow b--yellow'}
       `}>
         {lesson.state}
