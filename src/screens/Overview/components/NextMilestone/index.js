@@ -1,11 +1,11 @@
 import React from 'react'
 import createLessonsUrl from 'utils/createLessonsUrl'
-import InstructorCenterRequest from 'components/InstructorCenterRequest'
+import WrappedRequest from 'components/WrappedRequest'
 import GetPublished from './components/GetPublished'
 
 export default ({instructor}) => (
   instructor.published_lessons === 0
-    ? <InstructorCenterRequest 
+    ? <WrappedRequest 
         url={createLessonsUrl({
           lessons_url: instructor.lessons_url
         })}
@@ -16,6 +16,6 @@ export default ({instructor}) => (
             firstPageOfLessons={data}
           />
         )}
-      </InstructorCenterRequest>
+      </WrappedRequest>
     : null
 )

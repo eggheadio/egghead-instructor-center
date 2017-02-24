@@ -7,7 +7,7 @@ const statusCodes = {
   unauthorized: 401,
 }
 
-export default class InstructorCenterRequest extends Component {
+export default class WrappedRequest extends Component {
 
   getUrlWithBase = () => `${process.env.REACT_APP_EGGHEAD_BASE_URL}${this.props.url}`
 

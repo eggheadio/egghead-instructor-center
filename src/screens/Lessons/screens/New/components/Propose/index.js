@@ -9,7 +9,7 @@ import {
   lessonTechnologyLabelText,
   lessonSummaryLabelText,
 } from 'utils/text'
-import InstructorCenterRequest from 'components/InstructorCenterRequest'
+import WrappedRequest from 'components/WrappedRequest'
 
 const inputClassNames = 'input-reset pa2 br2 bg-dark-navy white ba b--light-navy w-100'
 
@@ -81,7 +81,7 @@ export default class Propose extends Component {
           />
         </div>
 
-        <InstructorCenterRequest url='/api/v1/technologies'>
+        <WrappedRequest url='/api/v1/technologies'>
           {({data}) => (
             <div className='mb3'>
               <div className='b'>
@@ -104,7 +104,7 @@ export default class Propose extends Component {
               </select>
             </div>
           )}
-        </InstructorCenterRequest>
+        </WrappedRequest>
 
         <div className='mb3'>
           <div className='b'>
@@ -128,7 +128,7 @@ export default class Propose extends Component {
           : null
         }
 
-        <InstructorCenterRequest
+        <WrappedRequest
           lazy
           method='post'
           url='/api/v1/lessons'
@@ -157,7 +157,7 @@ export default class Propose extends Component {
               {proposeActionText}
             </Button>
           )}
-        </InstructorCenterRequest>
+        </WrappedRequest>
 
       </div>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import InstructorCenterRequest from 'components/InstructorCenterRequest'
+import WrappedRequest from 'components/WrappedRequest'
 import {overviewTitleText} from 'utils/text'
 import Split from 'components/Split'
 import Hello from './components/Hello'
@@ -23,14 +23,14 @@ export default ({instructor}) => (
     aside={
       <div>
         <div className='mb4'>
-          <InstructorCenterRequest url={instructor.revenue_url}>
+          <WrappedRequest url={instructor.revenue_url}>
             {({data}) => (
               <Stats 
                 instructor={instructor}
                 revenue={data}
               />
             )}
-          </InstructorCenterRequest>
+          </WrappedRequest>
         </div>
         <Help />
       </div>

@@ -15,7 +15,7 @@ import {
 } from 'utils/text'
 import {temporaryQueueUrl, guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
-import InstructorCenterRequest from 'components/InstructorCenterRequest'
+import WrappedRequest from 'components/WrappedRequest'
 import Main from 'components/Main'
 import Overview from './screens/Overview'
 import New from './screens/Lessons/screens/New'
@@ -39,7 +39,7 @@ const App = () => {
   }
 
   return (
-    <InstructorCenterRequest url={decodedToken.user_url}>
+    <WrappedRequest url={decodedToken.user_url}>
       {({data}) => {
 
         const user = data
@@ -54,7 +54,7 @@ const App = () => {
 
         return (
           <BrowserRouter>
-            <InstructorCenterRequest url={data.instructor_url}>
+            <WrappedRequest url={data.instructor_url}>
               {({data}) => {
 
                 const instructor = data
@@ -118,36 +118,36 @@ const App = () => {
                         <Route 
                           path={`/lessons/:slug`}
                           render={({match}) => (
-                            <InstructorCenterRequest url={`/api/v1/lessons/${match.params.slug}`}>
+                            <WrappedRequest url={`/api/v1/lessons/${match.params.slug}`}>
                               {({data}) => (
                                 <Lesson 
                                   instructor={instructor}
                                   lesson={data} 
                                 />
                               )}
-                            </InstructorCenterRequest>
+                            </WrappedRequest>
                           )}
                         />
 
                         <Route 
                           path={`/instructors/:slug`}
                           render={({match}) => (
-                            <InstructorCenterRequest url={`/api/v1/instructors/${match.params.slug}`}>
+                            <WrappedRequest url={`/api/v1/instructors/${match.params.slug}`}>
                               {({data}) => (
                                 <Overview instructor={data} />
                               )}
-                            </InstructorCenterRequest>
+                            </WrappedRequest>
                           )}
                         />
 
                         <Route
                           path='/instructors'
                           render={() => (
-                            <InstructorCenterRequest url='/api/v1/instructors'>
+                            <WrappedRequest url='/api/v1/instructors'>
                               {({data}) => (
                                 <Instructors instructors={data} />
                               )}
-                            </InstructorCenterRequest>
+                            </WrappedRequest>
                           )}
                         />
 
@@ -160,11 +160,11 @@ const App = () => {
                   </div>
                 )
               }}
-            </InstructorCenterRequest>
+            </WrappedRequest>
           </BrowserRouter>
         )
       }}
-    </InstructorCenterRequest>
+    </WrappedRequest>
   )
 }
 
