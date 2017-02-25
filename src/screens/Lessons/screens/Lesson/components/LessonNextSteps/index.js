@@ -3,7 +3,7 @@ import {map, keys} from 'lodash'
 import {Button, Heading} from 'egghead-ui'
 import {statusTitleText} from 'utils/text'
 import {statusByLessonState, actionByLessonState} from 'utils/lessonStates'
-import Request from 'components/Request'
+import WrappedRequest from 'components/WrappedRequest'
 
 export default ({lesson}) => (
   <div>
@@ -25,7 +25,7 @@ export default ({lesson}) => (
         {map(keys(actionByLessonState), (state, index) => {
           const stateUrl = lesson[`${state}_url`]
           return stateUrl
-            ? <Request
+            ? <WrappedRequest
                 key={index}
                 lazy
                 method='post'
@@ -41,7 +41,7 @@ export default ({lesson}) => (
                     </Button>
                   </div>
                 )}
-              </Request>
+              </WrappedRequest>
             : null
         })}
       </div>
