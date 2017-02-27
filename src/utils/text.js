@@ -9,6 +9,9 @@ export const overviewTitleText = 'Overview'
 export const newLessonsTitleText = 'New'
 export const newLessonsActionText = 'Create a new lesson'
 
+export const newLessonsInstructionsDescriptionText = 'You can choose a requested topic below, or propose your own topic. Check out the guide portion on egghead lesson concepts for more details on proposing your own topics.'
+export const newLessonsInstructionsActionText = 'Learn about proposing topics'
+
 export const lessonsTitleText = 'Lessons'
 
 export const instructorsTitleText = 'Instructors'
@@ -51,7 +54,7 @@ export const revenueLabelText = 'dollars'
 
 export const subscriberMinutesLabelText = 'minutes watched'
 
-export const noRevenueDescriptionText = `There's no stats to report. Publishing lessons is the key.`
+export const noRevenueDescriptionText = `No stats to report. Publishing lessons is the key.`
 export const noRevenueActionText = `Create a new lesson`
 
 export const nextMilestoneTitleText = 'Next milestone'

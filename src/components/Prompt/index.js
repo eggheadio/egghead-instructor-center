@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {startsWith} from 'lodash'
 import {Button} from 'egghead-ui'
 
 export default ({
@@ -13,11 +14,18 @@ export default ({
     </div>
     {action
       ? <div className='mt3'>
-          <Link to={action}>
-            <Button type='primary'>
-              {actionText}
-            </Button>
-          </Link>
+          {startsWith(action, '/') 
+            ? <Link to={action}>
+                <Button type='primary'>
+                  {actionText}
+                </Button>
+              </Link>
+            : <a href={action}>
+                <Button type='primary'>
+                  {actionText}
+                </Button>
+              </a>
+          }
         </div>
       : null
     }
