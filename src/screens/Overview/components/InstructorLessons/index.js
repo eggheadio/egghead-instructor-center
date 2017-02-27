@@ -9,7 +9,7 @@ import {
 } from 'utils/text'
 import {inProgressLessonStates, publishedLessonStates} from 'utils/lessonStates'
 import LessonList from 'components/LessonList'
-import Prompt from './components/Prompt'
+import Prompt from 'components/Prompt'
 import Tabs from './components/Tabs'
 
 export default ({instructor}) => (
@@ -26,11 +26,13 @@ export default ({instructor}) => (
           <LessonList
             states={inProgressLessonStates}
             fallback={
-              <Prompt
-                description={noInProgressLessonsDescriptionText}
-                actionText={newLessonsActionText}
-                action={'/lessons/new'}
-              />
+              <div className='pa3'>
+                <Prompt
+                  description={noInProgressLessonsDescriptionText}
+                  actionText={newLessonsActionText}
+                  action={'/lessons/new'}
+                />
+              </div>
             }
             instructor={instructor}
           />
@@ -42,7 +44,9 @@ export default ({instructor}) => (
           <LessonList
             states={publishedLessonStates}
             fallback={
-              <Prompt description={noPublishedLessonsDescriptionText} />
+              <div className='pa3'>
+                <Prompt description={noPublishedLessonsDescriptionText} />
+              </div>
             }
             instructor={instructor}
           />

@@ -54,7 +54,8 @@ export const revenueLabelText = 'dollars'
 
 export const subscriberMinutesLabelText = 'minutes watched'
 
-export const noRevenueDescriptionText = `There's no revenue to report. Publishing lessons is the key.`
+export const noRevenueDescriptionText = `There's no stats to report. Publishing lessons is the key.`
+export const noRevenueActionText = `Create a new lesson`
 
 export const nextMilestoneTitleText = 'Next milestone'
 

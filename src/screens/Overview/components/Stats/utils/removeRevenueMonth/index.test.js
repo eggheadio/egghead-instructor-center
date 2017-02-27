@@ -1,4 +1,4 @@
-import removeCurrentMonth from '.'
+import removeRevenueMonth from '.'
 
 const revenueFixture = [
   {
@@ -18,8 +18,8 @@ const revenueFixture = [
   },
 ]
 
-test('total revenue', () => (
-  expect(removeCurrentMonth(revenueFixture, '2016-04-01')).toEqual([
+test('revenue without a month', () => (
+  expect(removeRevenueMonth(revenueFixture, '2016-04-01')).toEqual([
     {
       month: '2016-02-01',
       minutes_watched: 5,

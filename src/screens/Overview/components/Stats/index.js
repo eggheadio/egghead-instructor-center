@@ -1,23 +1,26 @@
 import React from 'react'
 import {find, size} from 'lodash'
-import formatNumber from 'format-number'
 import {Heading} from 'egghead-ui'
 import {
   currentMonthRevenueTitleText,
   statsTitleText,
   noRevenueDescriptionText,
+  noRevenueActionText,
 } from 'utils/text'
-import currentMonthStart from './utils/currentMonthStart'
+import Prompt from 'components/Prompt'
+import currentMonthStartDate from './utils/currentMonthStartDate'
 import totalRevenue from './utils/totalRevenue'
-import removeCurrentMonth from './utils/removeCurrentMonth'
+import removeRevenueMonth from './utils/removeRevenueMonth'
 import IconLabel from './components/IconLabel'
 import RevenuePeriod from './components/RevenuePeriod'
 
 export default ({instructor, revenue}) => {
 
   const {published_courses, published_lessons} = instructor
-  const currentMonthRevenue = find(revenue, ['month', currentMonthStart()])
-  const currentTotalRevenue = totalRevenue(removeCurrentMonth(revenue, currentMonthStart()))
+  const currentMonthRevenue = find(revenue, ['month', currentMonthStartDate()])
+  const currentTotalRevenue = totalRevenue(removeRevenueMonth(revenue, currentMonthStartDate()))
+  const hasCurrentRevenue = size(revenue) > 0
+    && ((currentMonthRevenue && currentMonthRevenue.revenue > 0) || (currentTotalRevenue && currentTotalRevenue.revenue > 0))
 
   return(
     <div>
@@ -26,15 +29,20 @@ export default ({instructor, revenue}) => {
         {statsTitleText}
       </Heading>
 
-      <IconLabel
-        iconType='course'
-        labelText={`${formatNumber({round: 2})(published_courses)} published courses`}
-      />
-      <IconLabel
-        iconType='lesson'
-        labelText={`${formatNumber({round: 2})(published_lessons)} published lessons`}
-      />
-      {size(revenue) > 0
+      {published_lessons > 0
+        ? <div>
+            <IconLabel
+              iconType='course'
+              labelText={`${published_courses} published courses`}
+            />
+            <IconLabel
+              iconType='lesson'
+              labelText={`${published_lessons} published lessons`}
+            />
+          </div>
+        : null
+      }
+      {hasCurrentRevenue
         ? <div className='mt3'>
             {currentMonthRevenue && currentMonthRevenue.revenue > 0
               ? <div className='mb3'>
@@ -46,15 +54,20 @@ export default ({instructor, revenue}) => {
                 </div>
               : null
             }
-            <RevenuePeriod
-              title={`Last ${size(revenue)} months`}
-              revenue={currentTotalRevenue.revenue}
-              subscriberMinutes={currentTotalRevenue.minutes_watched}
-            />
+            {currentTotalRevenue && currentTotalRevenue.revenue > 0
+              ? <RevenuePeriod
+                  title={`Last ${currentTotalRevenue.monthCount} months`}
+                  revenue={currentTotalRevenue.revenue}
+                  subscriberMinutes={currentTotalRevenue.minutes_watched}
+                />
+              : null
+            }
           </div>
-        : <div className='mt3 green'>
-            {noRevenueDescriptionText}
-          </div>
+        : <Prompt
+            description={noRevenueDescriptionText}
+            actionText={noRevenueActionText}
+            action={'/lessons/new'}
+          />
       }
         
     </div>
