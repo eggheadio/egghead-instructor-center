@@ -22,16 +22,19 @@ export default ({instructor}) => (
     }
     aside={
       <div>
-        <div className='mb4'>
-          <WrappedRequest url={instructor.revenue_url}>
-            {({data}) => (
-              <Stats 
-                instructor={instructor}
-                revenue={data}
-              />
-            )}
-          </WrappedRequest>
-        </div>
+        {instructor.revenue_url
+          ? <div className='mb4'>
+              <WrappedRequest url={instructor.revenue_url}>
+                {({data}) => (
+                  <Stats 
+                    instructor={instructor}
+                    revenue={data}
+                  />
+                )}
+              </WrappedRequest>
+            </div>
+          : null
+        }
         <Help />
       </div>
     }
