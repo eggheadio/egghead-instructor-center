@@ -7,7 +7,7 @@ export default ({
   actionText,
   action,
 }) => (
-  <div className='pa3'>
+  <div>
     <div className='i'>
       {description}
     </div>
