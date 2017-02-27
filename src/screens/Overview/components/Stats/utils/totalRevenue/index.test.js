@@ -22,5 +22,6 @@ test('total revenue', () => (
   expect(totalRevenue(revenueFixture)).toEqual({
     minutes_watched: 50,
     revenue: 10,
+    monthCount: 3,
   })
 ))
