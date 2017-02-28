@@ -109,7 +109,6 @@ const App = () => {
                         />
 
                         <Route 
-                          exact
                           path='/lessons/new'
                           render={() => (
                             <New instructor={instructor} />
@@ -131,7 +130,6 @@ const App = () => {
                         />
 
                         <Route 
-                          exact
                           path='/lessons'
                           render={() => (
                             <Lessons instructor={instructor} />
