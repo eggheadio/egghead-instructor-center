@@ -17,7 +17,7 @@ import {guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
 import WrappedRequest from 'components/WrappedRequest'
 import Main from 'components/Main'
-import Overview from './screens/Overview'
+import Instructor from './screens/Instructors/screens/Instructor'
 import Lessons from './screens/Lessons'
 import New from './screens/Lessons/screens/New'
 import Lesson from './screens/Lessons/screens/Lesson'
@@ -104,15 +104,7 @@ const App = () => {
                           exact
                           path='/'
                           render={() => (
-                            <Overview instructor={instructor} />
-                          )}
-                        />
-
-                        <Route 
-                          exact
-                          path='/lessons'
-                          render={() => (
-                            <Lessons instructor={instructor} />
+                            <Instructor instructor={instructor} />
                           )}
                         />
 
@@ -138,14 +130,11 @@ const App = () => {
                           )}
                         />
 
-                        <Route
-                          path='/instructors'
+                        <Route 
+                          exact
+                          path='/lessons'
                           render={() => (
-                            <WrappedRequest url='/api/v1/instructors'>
-                              {({data}) => (
-                                <Instructors instructors={data} />
-                              )}
-                            </WrappedRequest>
+                            <Lessons instructor={instructor} />
                           )}
                         />
 
@@ -154,7 +143,18 @@ const App = () => {
                           render={({match}) => (
                             <WrappedRequest url={`/api/v1/instructors/${match.params.slug}`}>
                               {({data}) => (
-                                <Overview instructor={data} />
+                                <Instructor instructor={data} />
+                              )}
+                            </WrappedRequest>
+                          )}
+                        />
+
+                        <Route
+                          path='/instructors'
+                          render={() => (
+                            <WrappedRequest url='/api/v1/instructors'>
+                              {({data}) => (
+                                <Instructors instructors={data} />
                               )}
                             </WrappedRequest>
                           )}
