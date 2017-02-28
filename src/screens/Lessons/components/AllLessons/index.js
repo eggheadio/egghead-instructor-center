@@ -1,8 +1,6 @@
 import React from 'react'
-import {Heading} from 'egghead-ui'
 import {
   newLessonsActionText,
-  lessonsTitleText,
   inProgressTitleText,
   publishedTitleText,
   noInProgressLessonsDescriptionText,
@@ -15,10 +13,6 @@ import Prompt from 'components/Prompt'
 
 export default ({instructor}) => (
   <div>
-
-    <Heading level='2'>
-      {lessonsTitleText}
-    </Heading>
 
     <Tabs groups={[
       {
@@ -35,7 +29,6 @@ export default ({instructor}) => (
                 />
               </div>
             }
-            instructor={instructor}
           />
         ),
       },
@@ -53,7 +46,6 @@ export default ({instructor}) => (
                 />
               </div>
             }
-            instructor={instructor}
           />
         ),
       },

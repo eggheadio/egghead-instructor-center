@@ -39,29 +39,31 @@ const PaginatedLessonList = ({
             </div>
 
             {hasMoreThanOnePage
-              ? <ReactPaginate
-                  pageNum={pageNum}
-                  pageRangeDisplayed={3}
-                  marginPagesDisplayed={1}
-                  initialSelected={currentPage - 1}
-                  previousLabel={previousLabelText}
-                  nextLabel={nextLabelText}
-                  clickCallback={(page) => {
-                    const {selected} = page
-                    if (currentPage !== selected + 1) {
-                      requestNextPage(selected + 1)
-                    }
-                  }}
-                  containerClassName='mb0 pa0 list mt4 flex items-center'
-                  previousClassName={linkClassNames.mobileHide}
-                  nextClassName={linkClassNames.mobileHide}
-                  disabledClassName='o-20'
-                  previousLinkClassName={linkClassNames.link}
-                  nextLinkClassName={linkClassNames.link}
-                  pageLinkClassName={linkClassNames.link}
-                  activeClassName='o-50'
-                  breakClassName='mr2'
-                />
+              ? <div className='pa3'>
+                  <ReactPaginate
+                    pageNum={pageNum}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={1}
+                    initialSelected={currentPage - 1}
+                    previousLabel={previousLabelText}
+                    nextLabel={nextLabelText}
+                    clickCallback={(page) => {
+                      const {selected} = page
+                      if (currentPage !== selected + 1) {
+                        requestNextPage(selected + 1)
+                      }
+                    }}
+                    containerClassName='mb0 pa0 list mt4 flex items-center'
+                    previousClassName={linkClassNames.mobileHide}
+                    nextClassName={linkClassNames.mobileHide}
+                    disabledClassName='o-20'
+                    previousLinkClassName={linkClassNames.link}
+                    nextLinkClassName={linkClassNames.link}
+                    pageLinkClassName={linkClassNames.link}
+                    activeClassName='o-50'
+                    breakClassName='mr2'
+                  />
+                </div>
               : null
             }
 

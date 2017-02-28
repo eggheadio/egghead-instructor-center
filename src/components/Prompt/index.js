@@ -12,22 +12,19 @@ export default ({
     <div className='i'>
       {description}
     </div>
-    {action
-      ? <div className='mt3'>
-          {startsWith(action, '/') 
-            ? <Link to={action}>
-                <Button type='primary'>
-                  {actionText}
-                </Button>
-              </Link>
-            : <a href={action}>
-                <Button type='primary'>
-                  {actionText}
-                </Button>
-              </a>
-          }
-        </div>
-      : null
-    }
+    <div className='mt3'>
+      {startsWith(action, '/') 
+        ? <Link to={action}>
+            <Button type='primary'>
+              {actionText}
+            </Button>
+          </Link>
+        : <a href={action}>
+            <Button type='primary'>
+              {actionText}
+            </Button>
+          </a>
+      }
+    </div>
   </div>
 )
