@@ -2,8 +2,10 @@ import React from 'react'
 import {
   newLessonsActionText,
   inProgressTitleText,
+  inQueueTitleText,
   publishedTitleText,
   noInProgressLessonsDescriptionText,
+  noInQueueLessonsDescriptionText,
   noPublishedLessonsDescriptionText,
 } from 'utils/text'
 import {inProgressLessonStates, publishedLessonStates} from 'utils/lessonStates'
@@ -22,6 +24,24 @@ export default ({instructor}) => (
             <div className='pa3'>
               <Prompt
                 description={noInProgressLessonsDescriptionText}
+                actionText={newLessonsActionText}
+                action={'/lessons/new'}
+              />
+            </div>
+          }
+          instructor={instructor}
+        />
+      ),
+    },
+    {
+      title: inQueueTitleText,
+      component: (
+        <LessonList
+          states={['approved']}
+          fallback={
+            <div className='pa3'>
+              <Prompt
+                description={noInQueueLessonsDescriptionText}
                 actionText={newLessonsActionText}
                 action={'/lessons/new'}
               />

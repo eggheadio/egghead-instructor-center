@@ -34,11 +34,15 @@ export const noVideoDescriptionText = 'No video'
 
 export const inProgressTitleText = 'In progress'
 
+export const inQueueTitleText = 'In queue'
+
 export const unpublishedTitleText = 'Unpublished'
 
 export const publishedTitleText = 'Published'
 
 export const noInProgressLessonsDescriptionText = `No lessons in progress.`
+
+export const noInQueueLessonsDescriptionText = `No lessons in publishing queue.`
 
 export const noInstructorsDescriptionText = 'No instructors to show'
 
