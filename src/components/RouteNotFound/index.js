@@ -6,12 +6,12 @@ import {
   crackedEggoAltText,
 } from 'utils/text'
 import Main from 'components/Main'
-import Split from 'components/Split'
+import Screen from 'components/Screen'
 import crackedEggo from './crackedEggo.png'
 
 export default () => (
   <Main>
-    <Split
+    <Screen
       title='404'
       main={
         <img

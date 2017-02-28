@@ -11,13 +11,14 @@ import {
   guideTitleText,
   chatTitleText,
   logOutTitleText,
-  queueTitleText,
+  lessonsTitleText,
 } from 'utils/text'
-import {temporaryQueueUrl, guideUrl, chatUrl} from 'utils/urls'
+import {guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
 import WrappedRequest from 'components/WrappedRequest'
 import Main from 'components/Main'
-import Overview from './screens/Overview'
+import Instructor from './screens/Instructors/screens/Instructor'
+import Lessons from './screens/Lessons'
 import New from './screens/Lessons/screens/New'
 import Lesson from './screens/Lessons/screens/Lesson'
 import Instructors from './screens/Instructors'
@@ -69,12 +70,12 @@ const App = () => {
                           action: '/',
                         },
                         {
-                          text: newLessonsTitleText,
-                          action: '/lessons/new',
+                          text: lessonsTitleText,
+                          action: '/lessons',
                         },
                         {
-                          text: queueTitleText,
-                          action: temporaryQueueUrl,
+                          text: newLessonsTitleText,
+                          action: '/lessons/new',
                         },
                         {
                           text: instructorsTitleText,
@@ -103,12 +104,11 @@ const App = () => {
                           exact
                           path='/'
                           render={() => (
-                            <Overview instructor={instructor} />
+                            <Instructor instructor={instructor} />
                           )}
                         />
 
                         <Route 
-                          exact
                           path='/lessons/new'
                           render={() => (
                             <New instructor={instructor} />
@@ -130,11 +130,18 @@ const App = () => {
                         />
 
                         <Route 
+                          path='/lessons'
+                          render={() => (
+                            <Lessons instructor={instructor} />
+                          )}
+                        />
+
+                        <Route 
                           path={`/instructors/:slug`}
                           render={({match}) => (
                             <WrappedRequest url={`/api/v1/instructors/${match.params.slug}`}>
                               {({data}) => (
-                                <Overview instructor={data} />
+                                <Instructor instructor={data} />
                               )}
                             </WrappedRequest>
                           )}

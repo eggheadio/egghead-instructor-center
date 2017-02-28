@@ -48,7 +48,7 @@ export default lessonStates
 export const inProgressLessonStates = without(slice(
   lessonStates,
   indexOf(lessonStates, 'proposed'),
-  indexOf(lessonStates, 'published')
+  indexOf(lessonStates, 'approved')
 ), 'cancelled')
 
 export const publishedLessonStates = slice(

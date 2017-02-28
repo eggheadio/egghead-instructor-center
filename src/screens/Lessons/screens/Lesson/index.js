@@ -1,20 +1,20 @@
 import React from 'react'
 import {lessonTitleText} from 'utils/text'
-import Split from 'components/Split'
+import Screen from 'components/Screen'
 import LessonNextSteps from './components/LessonNextSteps'
 import LessonData from './components/LessonData'
 
 export default ({instructor, lesson}) => (
-  <Split
+  <Screen
     title={lessonTitleText}
     main={
-      <LessonNextSteps lesson={lesson} />
-    }
-    aside={
       <LessonData 
         instructor={instructor}
         lesson={lesson} 
       />
+    }
+    aside={
+      <LessonNextSteps lesson={lesson} />
     }
   />
 )

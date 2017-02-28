@@ -17,13 +17,16 @@ const Split = ({
 
     <div className='flex-ns'>
 
-      <main className='mr4-ns w-50-ns'>
+      <main className={`mr4-ns ${aside ? 'w-70-ns' : 'w-100-ns'}`}>
         {main}
       </main>
 
-      <aside className='w-50-ns mt5 mt0-ns'>
-        {aside}
-      </aside>
+      {aside
+        ? <aside className='w-30-ns mt5 mt0-ns'>
+            {aside}
+          </aside>
+        : null
+      }
 
     </div>
 

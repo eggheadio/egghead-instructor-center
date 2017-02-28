@@ -14,11 +14,9 @@ export const newLessonsInstructionsActionText = 'Learn about proposing topics'
 
 export const lessonsTitleText = 'Lessons'
 
-export const instructorsTitleText = 'Instructors'
-
-export const queueTitleText = 'Queue'
-
 export const lessonTitleText = 'Lesson'
+
+export const instructorsTitleText = 'Instructors'
 
 export const statusTitleText = 'Status'
 
@@ -36,15 +34,19 @@ export const noVideoDescriptionText = 'No video'
 
 export const inProgressTitleText = 'In progress'
 
+export const inQueueTitleText = 'In queue'
+
 export const unpublishedTitleText = 'Unpublished'
 
 export const publishedTitleText = 'Published'
 
-export const noInProgressLessonsDescriptionText = `You have no lessons in progress.`
+export const noInProgressLessonsDescriptionText = `No lessons in progress.`
+
+export const noInQueueLessonsDescriptionText = `No lessons in publishing queue.`
 
 export const noInstructorsDescriptionText = 'No instructors to show'
 
-export const noPublishedLessonsDescriptionText = `Looks like you don't have any published lessons.`
+export const noPublishedLessonsDescriptionText = `No published lessons.`
 
 export const statsTitleText = 'Stats'
 

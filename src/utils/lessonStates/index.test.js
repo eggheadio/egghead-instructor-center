@@ -9,7 +9,6 @@ test('in progress', () => (
     'submitted',
     'rejected',
     'updated',
-    'approved',
   ])
 ))
 
