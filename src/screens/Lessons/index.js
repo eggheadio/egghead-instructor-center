@@ -9,8 +9,5 @@ export default () => (
     main={
       <LessonListsByStates />
     }
-    aside={
-      <div>hi</div>
-    }
   />
 )

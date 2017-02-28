@@ -8,13 +8,13 @@ export default ({instructor, lesson}) => (
   <Split
     title={lessonTitleText}
     main={
-      <LessonNextSteps lesson={lesson} />
-    }
-    aside={
       <LessonData 
         instructor={instructor}
         lesson={lesson} 
       />
+    }
+    aside={
+      <LessonNextSteps lesson={lesson} />
     }
   />
 )
