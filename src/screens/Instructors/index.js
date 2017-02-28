@@ -1,12 +1,12 @@
 import React from 'react'
 import {filter, reject} from 'lodash'
 import {instructorPulseTitleText, unpublishedTitleText, publishedTitleText} from 'utils/text'
-import Split from 'components/Split'
+import Screen from 'components/Screen'
 import sortBy from 'sort-by'
 import InstructorsList from './components/InstructorsList'
 
 export default ({instructors}) => (
-  <Split
+  <Screen
     title={instructorPulseTitleText}
     main={
       <InstructorsList

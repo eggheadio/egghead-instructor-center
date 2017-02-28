@@ -1,10 +1,10 @@
 import React from 'react'
 import {lessonsTitleText} from 'utils/text'
-import Split from 'components/Split'
+import Screen from 'components/Screen'
 import LessonListsByStates from 'components/LessonListsByStates'
 
 export default () => (
-  <Split
+  <Screen
     title={lessonsTitleText}
     main={
       <LessonListsByStates />

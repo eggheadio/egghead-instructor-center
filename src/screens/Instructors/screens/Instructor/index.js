@@ -2,7 +2,7 @@ import React from 'react'
 import {Heading} from 'egghead-ui'
 import WrappedRequest from 'components/WrappedRequest'
 import {overviewTitleText, lessonsTitleText} from 'utils/text'
-import Split from 'components/Split'
+import Screen from 'components/Screen'
 import LessonListsByStates from 'components/LessonListsByStates'
 import Hello from './components/Hello'
 import NextMilestone from './components/NextMilestone'
@@ -10,7 +10,7 @@ import Stats from './components/Stats'
 import Help from './components/Help'
 
 export default ({instructor}) => (
-  <Split
+  <Screen
     intro={
       <Hello instructor={instructor} />
     }

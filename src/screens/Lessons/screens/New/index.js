@@ -5,13 +5,13 @@ import {
   newLessonsInstructionsActionText,
 } from 'utils/text'
 import {newLessonsInfoUrl} from 'utils/urls'
-import Split from 'components/Split'
+import Screen from 'components/Screen'
 import Instructions from './components/Instructions'
 import Requested from './components/Requested'
 import Propose from './components/Propose'
 
 export default ({instructor}) => (
-  <Split
+  <Screen
     title={newLessonsTitleText}
     intro={
       instructor.published_lessons === 0 && instructor.pending_lessons === 0
