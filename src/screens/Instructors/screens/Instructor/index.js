@@ -1,10 +1,11 @@
 import React from 'react'
+import {Heading} from 'egghead-ui'
 import WrappedRequest from 'components/WrappedRequest'
-import {overviewTitleText} from 'utils/text'
+import {overviewTitleText, lessonsTitleText} from 'utils/text'
 import Split from 'components/Split'
+import LessonListsByStates from 'components/LessonListsByStates'
 import Hello from './components/Hello'
 import NextMilestone from './components/NextMilestone'
-import InstructorLessons from './components/InstructorLessons'
 import Stats from './components/Stats'
 import Help from './components/Help'
 
@@ -17,7 +18,10 @@ export default ({instructor}) => (
     main={
       <div>
         <NextMilestone instructor={instructor} />
-        <InstructorLessons instructor={instructor} />
+        <Heading level='2'>
+          {lessonsTitleText}
+        </Heading>
+        <LessonListsByStates instructor={instructor} />
       </div>
     }
     aside={
