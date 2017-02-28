@@ -3,7 +3,6 @@ import {filter, reject} from 'lodash'
 import {instructorPulseTitleText, unpublishedTitleText, publishedTitleText} from 'utils/text'
 import Split from 'components/Split'
 import sortBy from 'sort-by'
-
 import InstructorsList from './components/InstructorsList'
 
 export default ({instructors}) => (

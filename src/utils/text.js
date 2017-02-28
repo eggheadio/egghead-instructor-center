@@ -14,11 +14,9 @@ export const newLessonsInstructionsActionText = 'Learn about proposing topics'
 
 export const lessonsTitleText = 'Lessons'
 
-export const instructorsTitleText = 'Instructors'
-
-export const queueTitleText = 'Queue'
-
 export const lessonTitleText = 'Lesson'
+
+export const instructorsTitleText = 'Instructors'
 
 export const statusTitleText = 'Status'
 
