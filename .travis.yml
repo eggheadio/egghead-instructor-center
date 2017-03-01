@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- node
+cache: yarn
+script: yarn verify
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  bucket: instructor.egghead.io
+  region: us-east-1
+  skip_cleanup: true
+  local_dir: build
+  acl: public_read
+  on:
+    repo: eggheadio/egghead-instructor-center
+    branch: master
