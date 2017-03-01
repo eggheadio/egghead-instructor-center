@@ -105,7 +105,7 @@ Testing is provided by `react-scripts` (Jest). Files that could benefit from tes
 
 ## Continuous integration and deployment
 
-[Codeship](https://app.codeship.com/projects/183842) is used for continuous integration and deployment. It runs scripts to ensure builds pass before pull requests are merged into `master` and then deploys to Amazon S3 which updates [instructor.egghead.io](https://instructor.egghead.io).
+[Travis CI](https://travis-ci.org/eggheadio/egghead-instructor-center) is used for continuous integration and deployment. It runs scripts to ensure builds pass before pull requests are merged into `master` and then deploys to Amazon S3 which updates [instructor.egghead.io](https://instructor.egghead.io).
 
 ## Error tracking
 
