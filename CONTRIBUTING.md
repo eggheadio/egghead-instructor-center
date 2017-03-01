@@ -3,7 +3,7 @@
 - Create a feature branch off of `master`.
 - Follow the conventions in [README.md](README.md)
 - Submit a pull request to `master`.
-- [Continuous integration](https://app.codeship.com/projects/183842) runs automatically.
+- [Continuous integration](https://travis-ci.org/eggheadio/egghead-instructor-center) runs automatically.
 - Merge pull request once continuous integration passes and you have an approved review.
 - [Continuous deployment](https://app.codeship.com/projects/183842) pushes latest code to [prod](https://instructor.egghead.io) automatically.
 
