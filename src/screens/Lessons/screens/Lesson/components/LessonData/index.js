@@ -13,7 +13,7 @@ import {
 } from 'utils/text'
 import Anchor from 'components/Anchor'
 import Avatar from 'components/Avatar'
-import Markdown from 'components/Markdown'
+import {Markdown} from 'egghead-ui'
 import WistiaVideo from './components/WistiaVideo'
 
 export default ({instructor, lesson}) => {

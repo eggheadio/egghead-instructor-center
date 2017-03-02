@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "egghead-ui": "^2.22.0",
+    "egghead-ui": "^2.23.0",
     "font-awesome": "^4.6.3",
     "format-number": "^2.0.1",
     "honeybadger-js": "^0.4.3",
