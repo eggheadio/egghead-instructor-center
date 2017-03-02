@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "egghead-ui": "^2.22.0",
+    "egghead-ui": "^2.23.0",
     "font-awesome": "^4.6.3",
     "format-number": "^2.0.1",
     "honeybadger-js": "^0.4.3",
@@ -28,6 +28,7 @@
     "react": "^15.4.2",
     "react-addons-create-fragment": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-markdown": "^2.4.5",
     "react-paginate": "^2.2.3",
     "react-router-dom": "4.0.0-beta.5",
     "react-tabs": "^0.8.2",

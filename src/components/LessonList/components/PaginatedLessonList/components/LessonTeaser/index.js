@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {Button, Heading} from 'egghead-ui'
 import {viewActionText} from 'utils/text'
 import {statusByLessonState} from 'utils/lessonStates'
+import {Markdown} from 'egghead-ui'
 
 export default ({instructor, lesson}) => {
 
@@ -33,7 +34,9 @@ export default ({instructor, lesson}) => {
           wordBreak: 'break-word',
         }}>
           {lesson.summary
-            ? truncate(lesson.summary, {length: 144})
+            ? <Markdown>
+                {truncate(lesson.summary, {length: 144})}
+              </Markdown>
             : '...'
           }
         </div>
