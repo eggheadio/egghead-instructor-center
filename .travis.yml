@@ -15,3 +15,5 @@ deploy:
   on:
     repo: eggheadio/egghead-instructor-center
     branch: master
+notifications:
+  slack: $SLACK_INTEGRATION_TOKEN
