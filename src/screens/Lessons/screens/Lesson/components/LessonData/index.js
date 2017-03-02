@@ -13,6 +13,7 @@ import {
 } from 'utils/text'
 import Anchor from 'components/Anchor'
 import Avatar from 'components/Avatar'
+import Markdown from 'components/Markdown'
 import WistiaVideo from './components/WistiaVideo'
 
 export default ({instructor, lesson}) => {
@@ -55,7 +56,11 @@ export default ({instructor, lesson}) => {
     },
     {
       title: summaryTitleText,
-      children: lesson.summary,
+      children: (
+        <Markdown>
+          {lesson.summary}
+        </Markdown>
+      ),
     },
     {
       title: videoTitleText,
