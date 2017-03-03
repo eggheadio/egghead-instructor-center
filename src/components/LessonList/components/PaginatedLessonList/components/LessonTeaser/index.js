@@ -1,10 +1,9 @@
 import React from 'react'
 import {truncate} from 'lodash'
 import {Link} from 'react-router-dom'
-import {Button, Heading} from 'egghead-ui'
+import {Button, Heading, Markdown} from 'egghead-ui'
 import {viewActionText} from 'utils/text'
 import {statusByLessonState} from 'utils/lessonStates'
-import {Markdown} from 'egghead-ui'
 
 export default ({instructor, lesson}) => {
 

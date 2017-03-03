@@ -1,6 +1,6 @@
 import React from 'react'
 import {map, size} from 'lodash'
-import {Heading, Button} from 'egghead-ui'
+import {Heading, Button, Markdown} from 'egghead-ui'
 import {
   titleTitleText,
   instructorTitleText,
@@ -13,7 +13,6 @@ import {
 } from 'utils/text'
 import Anchor from 'components/Anchor'
 import Avatar from 'components/Avatar'
-import {Markdown} from 'egghead-ui'
 import WistiaVideo from './components/WistiaVideo'
 
 export default ({instructor, lesson}) => {
