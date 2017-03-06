@@ -21,13 +21,14 @@ const prefixByType = {
 const Anchor = ({
   url,
   children,
+  className = '',
   isSeparateTab = false,
   type = 'inline',
 }) => (
   <a
     href={url}
     target={isSeparateTab ? '_blank' : '_self'}
-    className={classNameByType[type]}
+    className={`${classNameByType[type]} ${className}`}
   >
     {prefixByType[type]}{children}
   </a>

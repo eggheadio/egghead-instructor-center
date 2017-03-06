@@ -34,7 +34,7 @@ export default ({lesson}) => (
                 {({request}) => (
                   <div className='pa1'>
                     <Button
-                      size='small'
+                      size='extra-small'
                       onClick={() => request()}
                     >
                       {actionByLessonState[state].title}

@@ -15,12 +15,12 @@ export default ({
     <div className='mt3'>
       {startsWith(action, '/') 
         ? <Link to={action}>
-            <Button type='primary'>
+            <Button color='blue' size="extra-small">
               {actionText}
             </Button>
           </Link>
         : <a href={action}>
-            <Button type='primary'>
+            <Button color='blue' size="extra-small">
               {actionText}
             </Button>
           </a>
