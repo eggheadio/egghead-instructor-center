@@ -1,5 +1,4 @@
 import React from 'react'
-import {lessonTitleText, noVideoDescriptionText} from 'utils/text'
 import Screen from 'components/Screen'
 import LessonNextSteps from './components/LessonNextSteps'
 import LessonData from './components/LessonData'

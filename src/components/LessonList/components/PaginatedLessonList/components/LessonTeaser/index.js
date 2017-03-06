@@ -1,5 +1,4 @@
 import React from 'react'
-import {truncate} from 'lodash'
 import {Link} from 'react-router-dom'
 import {Button, Heading} from 'egghead-ui'
 import {viewActionText} from 'utils/text'

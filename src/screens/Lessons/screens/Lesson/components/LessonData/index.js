@@ -1,11 +1,10 @@
 import React from 'react'
 import {map, size} from 'lodash'
-import {Heading, Button} from 'egghead-ui'
+import {Button} from 'egghead-ui'
 import {
   instructorTitleText,
   technologyTitleText,
   summaryTitleText,
-  videoTitleText,
   uploadVideoTitleText,
   editLessonTitleText,
   replaceVideoTitleText,
