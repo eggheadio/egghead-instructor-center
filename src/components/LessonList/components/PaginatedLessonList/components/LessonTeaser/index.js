@@ -1,5 +1,4 @@
 import React from 'react'
-import {truncate} from 'lodash'
 import {Link} from 'react-router-dom'
 import {Button, Heading} from 'egghead-ui'
 import {viewActionText} from 'utils/text'
@@ -35,14 +34,14 @@ export default ({instructor, lesson}) => {
         }}>
           {lesson.summary
             ? <Markdown>
-                {truncate(lesson.summary, {length: 144})}
+                {lesson.summary}
               </Markdown>
-            : '...'
+            : null
           }
         </div>
         <div className='mt2'>
           <Link to={`/lessons/${lesson.slug}`}>
-            <Button size='small'>
+            <Button size='extra-small'>
               {viewActionText}
             </Button>
           </Link>

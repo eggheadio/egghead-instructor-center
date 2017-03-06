@@ -37,7 +37,7 @@ Split.propTypes = {
   intro: PropTypes.node,
   title: PropTypes.string.isRequired,
   main: PropTypes.node.isRequired,
-  aside: PropTypes.node.isRequired,
+  aside: PropTypes.node,
 }
 
 export default Split

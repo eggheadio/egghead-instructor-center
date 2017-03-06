@@ -70,6 +70,7 @@ export const requestedDescriptionText = `Here's some ideas for lessons that you 
 export const requestedEmptyDescriptionText = 'There are no requested lessons, but you can create your own.'
 
 export const uploadVideoTitleText = 'Upload'
+export const replaceVideoTitleText = 'Replace'
 
 export const editLessonTitleText = 'Edit'
 
