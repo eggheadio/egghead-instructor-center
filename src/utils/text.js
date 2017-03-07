@@ -133,16 +133,16 @@ export const logOutTitleText = 'Log out'
 
 export const proposedStateDescriptionText = `This lesson is proposed. Waiting for approval.`
 export const cancelledStateDescriptionText = `This lesson has been cancelled.`
-export const acceptedStateDescriptionText = `This lesson has been accepted - it's just waiting to be claimed.`
-export const requestedStateDescriptionText = `This lesson has been requested - it's just waiting to be claimed.`
-export const claimedStateDescriptionText = `This lesson is claimed - it's just waiting for a a video to be submitted.`
-export const submittedStateDescriptionText = 'Sweet! This lesson has been submitted and is waiting for approval.'
-export const rejectedStateDescriptionText = 'This lesson needs updated based on feedback received.'
-export const updatedStateDescriptionText = 'Lesson updated! Waiting for approval.'
-export const approvedStateDescriptionText = 'This lesson has been approved and is in the publishing queue.'
-export const publishedStateDescriptionText = `This lesson has been published. What's next?`
+export const acceptedStateDescriptionText = `This lesson has been accepted - it can be claimed.`
+export const requestedStateDescriptionText = `This lesson has been requested - it can be claimed.`
+export const claimedStateDescriptionText = `This lesson is claimed. Now it needs a video to be added.`
+export const submittedStateDescriptionText = 'Sweet! This lesson is waiting for review.'
+export const rejectedStateDescriptionText = 'This lesson is waiting for an updated video.'
+export const updatedStateDescriptionText = 'Lesson updated! Waiting for review.'
+export const approvedStateDescriptionText = 'This lesson is approved and is in line for publication.'
+export const publishedStateDescriptionText = `This lesson has been published. `
 export const flaggedStateDescriptionText = `This lesson has been flagged - it needs some changes.`
-export const revisedStateDescriptionText = `This lesson has revised. Waiting for approval.`
+export const revisedStateDescriptionText = `This lesson has revised and is waiting for review.`
 export const retiredStateDescriptionText = `This lesson has been retired.`
 
 export const proposeActionText = `Propose`
