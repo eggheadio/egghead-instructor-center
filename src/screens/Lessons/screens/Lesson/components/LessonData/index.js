@@ -1,30 +1,22 @@
 import React from 'react'
 import {map, size} from 'lodash'
-import {Heading, Button, Markdown} from 'egghead-ui'
+import {Button, Markdown} from 'egghead-ui'
 import {
-  titleTitleText,
   instructorTitleText,
   technologyTitleText,
   summaryTitleText,
-  videoTitleText,
   uploadVideoTitleText,
-  noVideoDescriptionText,
   editLessonTitleText,
+  replaceVideoTitleText,
 } from 'utils/text'
 import Anchor from 'components/Anchor'
 import Avatar from 'components/Avatar'
-import WistiaVideo from './components/WistiaVideo'
 
 export default ({instructor, lesson}) => {
 
-  const isInstructorsOwnLesson = instructor.slug === lesson.instructor.slug
   const hasVideo = lesson.wistia_id
-  const temporaryLessonEditUrl = `${lesson.lesson_http_url}/edit`
+
   const items = [
-    {
-      title: titleTitleText,
-      children: lesson.title,
-    },
     {
       title: instructorTitleText,
       children: (
@@ -61,12 +53,6 @@ export default ({instructor, lesson}) => {
         </Markdown>
       ),
     },
-    {
-      title: videoTitleText,
-      children: hasVideo
-        ? <WistiaVideo wistiaId={lesson.wistia_id} />
-        : noVideoDescriptionText
-    },
   ]
 
   return (
@@ -78,9 +64,9 @@ export default ({instructor, lesson}) => {
             key={index}
             className={`${index < (size(items) - 1) ? 'bb' : ''} pb3 mb3 b--gray`}
           >
-            <Heading level='4'>
+            <h4 className='mt0 bold f4 mb2 white-70'>
               {item.title}
-            </Heading>
+            </h4>
             <div>
               {item.children}
             </div>
@@ -88,11 +74,16 @@ export default ({instructor, lesson}) => {
         ))}
       </div>
 
-      {isInstructorsOwnLesson 
+      {lesson.edit_lesson_http_url
         ? <div className='mb3'>
-            <Anchor url={temporaryLessonEditUrl}>
-              <Button type='primary'>
-                {hasVideo ? editLessonTitleText : `${editLessonTitleText} & ${uploadVideoTitleText}`}
+            <Anchor url={lesson.edit_lesson_http_url} className='ma1'>
+              <Button color='blue' size='extra-small'>
+                {hasVideo ? editLessonTitleText : `${editLessonTitleText}`}
+              </Button>
+            </Anchor>
+            <Anchor url={lesson.upload_lesson_http_url} className='ma1'>
+              <Button color='blue' size='extra-small'>
+                {hasVideo ? replaceVideoTitleText : uploadVideoTitleText} Video
               </Button>
             </Anchor>
           </div>

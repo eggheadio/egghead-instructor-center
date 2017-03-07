@@ -20,7 +20,7 @@ export default () => (
 
     <div className='mb5'>
       <Anchor url={getLoginUrl()}>
-        <Button type='primary'>
+        <Button color='blue'>
           {loginTitleText}
         </Button>
       </Anchor>

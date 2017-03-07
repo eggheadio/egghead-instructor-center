@@ -2173,9 +2173,15 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
+<<<<<<< HEAD
 egghead-ui@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-3.0.1.tgz#f02ba7e81f3f07e1ddc1b3c1099073fb3b291106"
+=======
+egghead-ui@^2.25.0:
+  version "2.25.0"
+  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-2.25.0.tgz#0e00c813fd29a7787e8af2ce76b585001dd82c0e"
+>>>>>>> 117c76f81f8d66e3e6cf6921b877b4915bbf3430
   dependencies:
     "@kadira/storybook" "^2.5.2"
     axios "^0.15.3"
@@ -2184,6 +2190,11 @@ egghead-ui@^3.0.1:
     babel-preset-latest "^6.22.0"
     babel-preset-react "^6.22.0"
     eslint "^3.16.1"
+<<<<<<< HEAD
+=======
+    eslint-config-keystone "^3.0.0"
+    font-awesome "^4.6.3"
+>>>>>>> 117c76f81f8d66e3e6cf6921b877b4915bbf3430
     lodash "^4.16.2"
     pre-commit "^1.2.2"
     react "^15.4.1"
@@ -2347,6 +2358,10 @@ escope@^3.6.0:
     es6-weak-map "^2.0.1"
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
+
+eslint-config-keystone@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-keystone/-/eslint-config-keystone-3.0.0.tgz#28d6323491a95cc738613c0ac2a7b73936eb5332"
 
 eslint-config-react-app@^0.5.0:
   version "0.5.0"
