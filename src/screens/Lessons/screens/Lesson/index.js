@@ -1,6 +1,6 @@
 import React from 'react'
 import Screen from 'components/Screen'
-import LessonNextSteps from './components/LessonNextSteps'
+import LessonNextSteps from 'components/LessonNextSteps'
 import LessonData from './components/LessonData'
 import WistiaVideo from './components/WistiaVideo'
 
