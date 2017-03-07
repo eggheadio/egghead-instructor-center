@@ -1,7 +1,6 @@
 import React from 'react'
 import {map, keys} from 'lodash'
-import {Button, Heading} from 'egghead-ui'
-import {statusTitleText} from 'utils/text'
+import {Button} from 'egghead-ui'
 import {statusByLessonState, actionByLessonState} from 'utils/lessonStates'
 import WrappedRequest from 'components/WrappedRequest'
 
