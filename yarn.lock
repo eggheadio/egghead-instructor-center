@@ -2189,9 +2189,9 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-egghead-ui@^2.23.0:
-  version "2.23.0"
-  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-2.23.0.tgz#c887bf1098a149f84b7596d639e9cf19f50af03d"
+egghead-ui@^2.25.0:
+  version "2.25.0"
+  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-2.25.0.tgz#0e00c813fd29a7787e8af2ce76b585001dd82c0e"
   dependencies:
     "@kadira/react-storybook-addon-info" "^3.3.0"
     "@kadira/storybook" "^2.5.2"
@@ -2201,6 +2201,7 @@ egghead-ui@^2.23.0:
     babel-preset-latest "^6.22.0"
     babel-preset-react "^6.22.0"
     eslint "^3.16.1"
+    eslint-config-keystone "^3.0.0"
     font-awesome "^4.6.3"
     lodash "^4.16.2"
     pre-commit "^1.2.2"
@@ -2363,6 +2364,10 @@ escope@^3.6.0:
     es6-weak-map "^2.0.1"
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
+
+eslint-config-keystone@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-keystone/-/eslint-config-keystone-3.0.0.tgz#28d6323491a95cc738613c0ac2a7b73936eb5332"
 
 eslint-config-react-app@^0.5.0:
   version "0.5.0"
