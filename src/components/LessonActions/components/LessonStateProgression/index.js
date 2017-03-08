@@ -1,28 +1,28 @@
 import React from 'react'
 import {map, keys} from 'lodash'
 import {Button} from 'egghead-ui'
-import {actionByLessonState, colorByLessonState, lessonStateVerbToPastTense} from 'utils/lessonStates'
+import {lessonStateVerbToPastTense, detailsByLessonState} from 'utils/lessonStates'
 import WrappedRequest from 'components/WrappedRequest'
 
 export default ({lesson}) => (
   <div className='flex flex-wrap'>
-    {map(keys(actionByLessonState), (state, index) => {
-      const stateUrl = lesson[`${state}_url`]
-      return stateUrl
+    {map(keys(lessonStateVerbToPastTense), (stateVerb, index) => {
+      const stateVerbUrl = lesson[`${stateVerb}_url`]
+      return stateVerbUrl
         ? <WrappedRequest
             key={index}
             lazy
             method='post'
-            url={stateUrl}
+            url={stateVerbUrl}
           >
             {({request}) => (
               <div className='pa1'>
                 <Button
                   size='extra-small'
                   onClick={() => request()}
-                  color={colorByLessonState[lessonStateVerbToPastTense[state]].color}
+                  color={detailsByLessonState[lessonStateVerbToPastTense[stateVerb]].color}
                 >
-                  {actionByLessonState[state].title}
+                  {detailsByLessonState[lessonStateVerbToPastTense[stateVerb]].action}
                 </Button>
               </div>
             )}

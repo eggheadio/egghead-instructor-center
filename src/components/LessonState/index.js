@@ -1,8 +1,8 @@
 import React from 'react'
-import {statusByLessonState, colorByLessonState} from 'utils/lessonStates'
+import {detailsByLessonState} from 'utils/lessonStates'
 
 export default ({lesson}) => {
-  const statusColor = colorByLessonState[lesson.state].color
+  const statusColor = detailsByLessonState[lesson.state].color
   return (
     <div>
       <div className={`
@@ -12,7 +12,7 @@ export default ({lesson}) => {
         {lesson.state}
       </div>
       <div className="white-50">
-        {statusByLessonState[lesson.state].description}
+        {detailsByLessonState[lesson.state].description}
       </div>
     </div>
   )
