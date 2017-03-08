@@ -9,7 +9,15 @@ export default ({instructor, lesson}) => (
     title={lesson.title}
     intro={
       lesson.wistia_id
-        ? <WistiaVideo wistiaId={lesson.wistia_id} />
+        ? <div
+            className='mb3 mw6 tc'
+            style={{
+              marginLeft: 'auto', 
+              marginRight: 'auto'
+            }}
+          >
+            <WistiaVideo wistiaId={lesson.wistia_id} />
+          </div>
         : null
     }
     main={

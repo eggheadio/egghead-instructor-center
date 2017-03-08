@@ -15,14 +15,12 @@ const Checklist = ({items, instructorId}) => (
         <div className='mr2'>
           {item.isComplete
             ? <Icon
-                type='step-complete'
-                size='2'
-                className='gray'
+                type='box-check'
+                color='light-gray'
               />
             : <Icon
-                type='step-incomplete'
-                size='2'
-                className='yellow'
+                type='box'
+                color='yellow'
               />
           }
         </div>
@@ -46,10 +44,7 @@ const Checklist = ({items, instructorId}) => (
                   to={item.action}
                   className='ml2'
                 >
-                  <Icon
-                    type='arrow-right'
-                    className='blue'
-                  />
+                  <Icon type='arrow-right' />
                 </Link>
               : null
             }

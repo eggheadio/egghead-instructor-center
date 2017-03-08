@@ -118,7 +118,7 @@ export default class Navigation extends Component {
             <Icon
               type={isOpen ? 'close' : 'menu'}
               size='3'
-              className='white'
+              color='white'
             />
           </div>
 

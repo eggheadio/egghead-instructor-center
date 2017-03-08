@@ -7,7 +7,7 @@ const MoreInfo = ({url}) => (
     url={url}
     isSeparateTab
   >
-    <Icon type='more-info' />
+    <Icon type='info' />
   </Anchor>
 )
 

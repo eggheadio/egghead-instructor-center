@@ -17,12 +17,12 @@ const Split = ({
 
     <div className='flex-ns'>
 
-      <main className={`mr4-ns ${aside ? 'w-70-ns' : 'w-100-ns'}`}>
+      <main className={`${aside ? 'w-70-ns mr4-ns' : 'w-100-ns'}`}>
         {main}
       </main>
 
       {aside
-        ? <aside className='w-30-ns mt5 mt0-ns'>
+        ? <aside className='w-30-ns mt4 mt0-ns'>
             {aside}
           </aside>
         : null

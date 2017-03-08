@@ -5,11 +5,12 @@ const classNameColor = 'green'
 
 export default ({iconType, labelText}) => (
   <div className='flex items-center mv1'>
-    <Icon
-      type={iconType}
-      size='2'
-      className={`w2 ${classNameColor}`}
-    />
+    <div className='w2'>
+      <Icon
+        type={iconType}
+        color={classNameColor}
+      />
+    </div>
     <span className={`f5 b ml1 ${classNameColor}`}>
       {labelText}
     </span>
