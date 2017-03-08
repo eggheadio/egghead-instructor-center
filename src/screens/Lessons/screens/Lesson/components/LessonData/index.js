@@ -1,13 +1,12 @@
 import React from 'react'
 import {map, size} from 'lodash'
+import {Markdown} from 'egghead-ui'
 import {
   instructorTitleText,
   technologyTitleText,
   summaryTitleText,
 } from 'utils/text'
-import LessonUploadEdit from 'components/LessonUploadEdit'
 import Avatar from 'components/Avatar'
-import {Markdown} from 'egghead-ui'
 
 export default ({instructor, lesson}) => {
 
@@ -68,7 +67,7 @@ export default ({instructor, lesson}) => {
           </div>
         ))}
       </div>
-      <LessonUploadEdit lesson={lesson} />
+
     </div>
   )
 }

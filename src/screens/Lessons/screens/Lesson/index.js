@@ -1,35 +1,39 @@
 import React from 'react'
 import Screen from 'components/Screen'
-import LessonNextSteps from 'components/LessonNextSteps'
-import LessonStatus from 'components/LessonStatus'
-import LessonData from './components/LessonData'
 import WistiaVideo from './components/WistiaVideo'
+import LessonData from './components/LessonData'
+import LessonState from 'components/LessonState'
+import LessonActions from 'components/LessonActions'
 
 export default ({instructor, lesson}) => (
-  <div>
-    {lesson.wistia_id
-      ? <WistiaVideo wistiaId={lesson.wistia_id}/>
-      : null}
-    <Screen
-      title={lesson.title}
-      main={
-        <div>
-          <LessonData
-            instructor={instructor}
-            lesson={lesson}
-          />
-        </div>
-
-      }
-      aside={
-        <div>
-          <LessonStatus lesson={lesson}/>
-          <div className="mt3">
-            <LessonNextSteps lesson={lesson}/>
+  <Screen
+    title={lesson.title}
+    intro={
+      lesson.wistia_id
+        ? <div
+            className='mb3 mw6 tc'
+            style={{
+              marginLeft: 'auto', 
+              marginRight: 'auto'
+            }}
+          >
+            <WistiaVideo wistiaId={lesson.wistia_id} />
           </div>
+        : null
+    }
+    main={
+      <LessonData
+        instructor={instructor}
+        lesson={lesson}
+      />
+    }
+    aside={
+      <div>
+        <LessonState lesson={lesson}/>
+        <div className='mt3'>
+          <LessonActions lesson={lesson} />
         </div>
-      }
-    />
-  </div>
-
+      </div>
+    }
+  />
 )

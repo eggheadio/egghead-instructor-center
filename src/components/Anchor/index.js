@@ -11,10 +11,9 @@ const classNameByType = {
 const prefixByType = {
   inline: null,
   prominent: (
-    <Icon
-      type='chevron-right'
-      className='blue mr2'
-    />
+    <span className='mr2'>
+      <Icon type='chevron-right' />
+    </span>
   ),
 }
 

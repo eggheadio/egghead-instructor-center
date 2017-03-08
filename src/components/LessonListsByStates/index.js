@@ -8,7 +8,7 @@ import {
   noInQueueLessonsDescriptionText,
   noPublishedLessonsDescriptionText,
 } from 'utils/text'
-import {inProgressLessonStates, publishedLessonStates} from 'utils/lessonStates'
+import {inProgressLessonStates, inQueueLessonStates, publishedLessonStates} from 'utils/lessonStates'
 import LessonList from 'components/LessonList'
 import Tabs from 'components/Tabs'
 import Prompt from 'components/Prompt'
@@ -37,7 +37,7 @@ export default ({instructor}) => (
       title: inQueueTitleText,
       component: (
         <LessonList
-          states={['approved']}
+          states={inQueueLessonStates}
           fallback={
             <div className='pa3'>
               <Prompt
