@@ -61,26 +61,21 @@ export const statusByLessonState = {
     description: proposedStateDescriptionText,
   },
   cancelled: {
-    requiresUserAction: true,
     description: cancelledStateDescriptionText,
   },
   accepted: {
-    requiresUserAction: true,
     description: acceptedStateDescriptionText,
   },
   requested: {
-    requiresUserAction: true,
     description: requestedStateDescriptionText,
   },
   claimed: {
-    requiresUserAction: true,
     description: claimedStateDescriptionText,
   },
   submitted: {
     description: submittedStateDescriptionText,
   },
   rejected: {
-    requiresUserAction: true,
     description: rejectedStateDescriptionText,
   },
   updated: {
@@ -93,7 +88,6 @@ export const statusByLessonState = {
     description: publishedStateDescriptionText,
   },
   flagged: {
-    requiresUserAction: true,
     description: flaggedStateDescriptionText,
   },
   revised: {
@@ -144,40 +138,59 @@ export const actionByLessonState = {
 }
 
 export const colorByLessonState = {
-  cancel: {
-    color: 'red',
-  },
-  accept: {
-    color: 'green',
-  },
-  request: {
+  proposed: {
     color: 'white',
   },
-  claim: {
-    color: 'green',
-  },
-  submit: {
-    color: 'green',
-  },
-  reject: {
-    color: 'orange',
-  },
-  apply_update: {
-    color: 'green',
-  },
-  approve: {
-    color: 'green',
-  },
-  publish: {
-    color: 'green',
-  },
-  flag: {
-    color: 'orange',
-  },
-  revise: {
-    color: 'green',
-  },
-  retire: {
+  cancelled: {
     color: 'red',
   },
+  accepted: {
+    color: 'green',
+  },
+  requested: {
+    color: 'white',
+  },
+  claimed: {
+    color: 'green',
+  },
+  submitted: {
+    color: 'green',
+  },
+  rejected: {
+    color: 'orange',
+  },
+  updated: {
+    color: 'green',
+  },
+  approved: {
+    color: 'green',
+  },
+  published: {
+    color: 'green',
+  },
+  flagged: {
+    color: 'orange',
+  },
+  revised: {
+    color: 'green',
+  },
+  retired: {
+    color: 'red',
+  },
+}
+
+export const lessonStateVerbToPastTense = {
+  propose: 'proposed',
+  cancel: 'cancelled',
+  accept: 'accepted',
+  request: 'requested',
+  claim: 'claimed',
+  submit: 'submitted',
+  reject: 'rejected',
+  apply_update: 'updated',
+  approve: 'approved',
+  publish: 'published',
+  flag: 'flagged',
+  revise: 'revised',
+  retire: 'retired',
 }

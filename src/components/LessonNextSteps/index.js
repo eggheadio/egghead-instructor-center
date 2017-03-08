@@ -1,9 +1,7 @@
 import React from 'react'
 import {map, keys} from 'lodash'
 import {Button} from 'egghead-ui'
-import {actionByLessonState, colorByLessonState} from 'utils/lessonStates'
-
-
+import {actionByLessonState, colorByLessonState, lessonStateVerbToPastTense} from 'utils/lessonStates'
 import WrappedRequest from 'components/WrappedRequest'
 
 export default ({lesson}) => (
@@ -23,7 +21,7 @@ export default ({lesson}) => (
                     <Button
                       size='extra-small'
                       onClick={() => request()}
-                      color={colorByLessonState[state].color}
+                      color={colorByLessonState[lessonStateVerbToPastTense[state]].color}
                     >
                       {actionByLessonState[state].title}
                     </Button>

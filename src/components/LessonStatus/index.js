@@ -1,12 +1,13 @@
 import React from 'react'
-import {statusByLessonState} from 'utils/lessonStates'
+import {statusByLessonState, colorByLessonState} from 'utils/lessonStates'
 
 export default function LessonStatus({lesson}) {
+  const statusColor = colorByLessonState[lesson.state].color
   return (
     <div>
       <div className={`
         mb3 ttu tc pv2 ph3 br2 ba b--dashed dib
-        ${statusByLessonState[lesson.state].requiresUserAction ? 'blue b--blue' : 'yellow b--yellow'}
+        ${statusColor} b--${statusColor}
       `}>
         {lesson.state}
       </div>
