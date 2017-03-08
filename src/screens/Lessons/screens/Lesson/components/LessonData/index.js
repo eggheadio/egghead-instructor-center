@@ -6,7 +6,6 @@ import {
   technologyTitleText,
   summaryTitleText,
 } from 'utils/text'
-import LessonUploadEdit from 'components/LessonUploadEdit'
 import Avatar from 'components/Avatar'
 
 export default ({instructor, lesson}) => {
@@ -68,7 +67,7 @@ export default ({instructor, lesson}) => {
           </div>
         ))}
       </div>
-      <LessonUploadEdit lesson={lesson} />
+
     </div>
   )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import Screen from 'components/Screen'
-import LessonNextSteps from 'components/LessonNextSteps'
-import LessonStatus from 'components/LessonStatus'
-import LessonData from './components/LessonData'
 import WistiaVideo from './components/WistiaVideo'
+import LessonData from './components/LessonData'
+import LessonState from 'components/LessonState'
+import LessonActions from 'components/LessonActions'
 
 export default ({instructor, lesson}) => (
   <Screen
@@ -29,9 +29,9 @@ export default ({instructor, lesson}) => (
     }
     aside={
       <div>
-        <LessonStatus lesson={lesson}/>
-        <div className="mt3">
-          <LessonNextSteps lesson={lesson}/>
+        <LessonState lesson={lesson}/>
+        <div className='mt3'>
+          <LessonActions lesson={lesson} />
         </div>
       </div>
     }

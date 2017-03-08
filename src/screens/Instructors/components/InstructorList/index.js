@@ -2,7 +2,7 @@ import React from 'react'
 import {map, size} from 'lodash'
 import {Heading} from 'egghead-ui'
 import {noInstructorsDescriptionText} from 'utils/text'
-import InstructorTeaser from './components/InstructorTeaser'
+import InstructorListItem from './components/InstructorListItem'
 
 export default ({title, instructors}) => (
   <div>
@@ -18,7 +18,7 @@ export default ({title, instructors}) => (
                   key={instructor.id}
                   className='bb b--navy pa3'
                 >
-                  <InstructorTeaser instructor={instructor} />
+                  <InstructorListItem instructor={instructor} />
                 </div>
               ))}
             </div>

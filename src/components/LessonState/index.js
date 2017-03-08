@@ -1,7 +1,7 @@
 import React from 'react'
 import {statusByLessonState, colorByLessonState} from 'utils/lessonStates'
 
-export default function LessonStatus({lesson}) {
+export default ({lesson}) => {
   const statusColor = colorByLessonState[lesson.state].color
   return (
     <div>

@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
 import {previousLabelText, nextLabelText} from 'utils/text'
 import sortLessonsByState from './utils/sortLessonsByState'
-import LessonTeaser from './components/LessonTeaser'
+import LessonListItem from './components/LessonListItem'
 
 const PaginatedLessonList = ({
   fallback,
@@ -33,7 +33,7 @@ const PaginatedLessonList = ({
                   key={index}
                   className='bb b--navy pa3'
                 >
-                  <LessonTeaser lesson={lesson} />
+                  <LessonListItem lesson={lesson} />
                 </div>
               ))}
             </div>
