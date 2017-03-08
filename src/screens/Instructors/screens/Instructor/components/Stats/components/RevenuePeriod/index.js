@@ -10,11 +10,11 @@ export default ({title, revenue, subscriberMinutes}) => (
       {title}
     </Heading>
     <IconLabel
-      iconType='revenue'
+      iconType='dollar'
       labelText={formatNumber({round: 2, prefix: '$', padRight: 2})(revenue)}
     />
     <IconLabel
-      iconType='subscriber-minutes'
+      iconType='clock'
       labelText={`${formatNumber({round: 2})(subscriberMinutes)} ${subscriberMinutesLabelText}`}
     />
   </div>
