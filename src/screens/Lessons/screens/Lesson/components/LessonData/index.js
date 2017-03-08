@@ -1,21 +1,15 @@
 import React from 'react'
 import {map, size} from 'lodash'
-import {Button} from 'egghead-ui'
 import {
   instructorTitleText,
   technologyTitleText,
   summaryTitleText,
-  uploadVideoTitleText,
-  editLessonTitleText,
-  replaceVideoTitleText,
 } from 'utils/text'
-import Anchor from 'components/Anchor'
+import LessonUploadEdit from 'components/LessonUploadEdit'
 import Avatar from 'components/Avatar'
 import {Markdown} from 'egghead-ui'
 
 export default ({instructor, lesson}) => {
-
-  const hasVideo = lesson.wistia_id
 
   const items = [
     {
@@ -74,22 +68,7 @@ export default ({instructor, lesson}) => {
           </div>
         ))}
       </div>
-
-      {lesson.edit_lesson_http_url
-        ? <div className='mb3'>
-            <Anchor url={lesson.edit_lesson_http_url} className='ma1'>
-              <Button color='blue' size='extra-small'>
-                {hasVideo ? editLessonTitleText : `${editLessonTitleText}`}
-              </Button>
-            </Anchor>
-            <Anchor url={lesson.upload_lesson_http_url} className='ma1'>
-              <Button color='blue' size='extra-small'>
-                {hasVideo ? replaceVideoTitleText : uploadVideoTitleText} Video
-              </Button>
-            </Anchor>
-          </div>
-        : null
-      }
+      <LessonUploadEdit lesson={lesson} />
     </div>
   )
 }
