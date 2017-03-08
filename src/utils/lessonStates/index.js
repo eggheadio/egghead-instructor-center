@@ -142,3 +142,42 @@ export const actionByLessonState = {
     title: retireActionText,
   },
 }
+
+export const colorByLessonState = {
+  cancel: {
+    color: 'red',
+  },
+  accept: {
+    color: 'green',
+  },
+  request: {
+    color: 'white',
+  },
+  claim: {
+    color: 'green',
+  },
+  submit: {
+    color: 'green',
+  },
+  reject: {
+    color: 'orange',
+  },
+  apply_update: {
+    color: 'green',
+  },
+  approve: {
+    color: 'green',
+  },
+  publish: {
+    color: 'green',
+  },
+  flag: {
+    color: 'orange',
+  },
+  revise: {
+    color: 'green',
+  },
+  retire: {
+    color: 'red',
+  },
+}

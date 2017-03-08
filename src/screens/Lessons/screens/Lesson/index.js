@@ -1,6 +1,7 @@
 import React from 'react'
 import Screen from 'components/Screen'
 import LessonNextSteps from 'components/LessonNextSteps'
+import LessonStatus from 'components/LessonStatus'
 import LessonData from './components/LessonData'
 import WistiaVideo from './components/WistiaVideo'
 
@@ -27,7 +28,12 @@ export default ({instructor, lesson}) => (
       />
     }
     aside={
-      <LessonNextSteps lesson={lesson}/>
+      <div>
+        <LessonStatus lesson={lesson}/>
+        <div className="mt3">
+          <LessonNextSteps lesson={lesson}/>
+        </div>
+      </div>
     }
   />
 )
