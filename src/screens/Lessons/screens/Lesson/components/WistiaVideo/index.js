@@ -1,8 +1,8 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import {noVideoDescriptionText} from 'utils/text'
 import {Paragraph} from 'egghead-ui'
 
-const WistiaVideo = ({title, wistiaId}) => wistiaId
+export default ({title, wistiaId}) => wistiaId
   ? <div className='aspect-ratio aspect-ratio--16x9'>
       <div className='aspect-ratio--object'>
         <iframe
@@ -23,9 +23,3 @@ const WistiaVideo = ({title, wistiaId}) => wistiaId
   : <Paragraph>
       {noVideoDescriptionText}
     </Paragraph>
-
-WistiaVideo.propTypes = {
-  wistiaId: PropTypes.string.isRequired,
-}
-
-export default WistiaVideo

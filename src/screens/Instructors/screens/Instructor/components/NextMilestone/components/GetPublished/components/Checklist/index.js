@@ -19,15 +19,15 @@ const Checklist = ({items}) => (
             />
           : <Icon
               type='box'
-              color='yellow'
+              color='dark-gray'
             />
         }
       </div>
       <div>
         <div>
           <span className={item.isComplete
-            ? 'strike gray'
-            : 'yellow'
+            ? 'strike light-gray'
+            : 'dark-gray'
           }>
             {item.description}
           </span>
