@@ -1,6 +1,8 @@
 import React from 'react'
+import {nextMilestoneTitleText} from 'utils/text'
 import createLessonsUrl from 'utils/createLessonsUrl'
 import WrappedRequest from 'components/WrappedRequest'
+import Widget from 'components/Widget'
 import GetPublished from './components/GetPublished'
 
 export default ({instructor}) => (
@@ -11,10 +13,12 @@ export default ({instructor}) => (
         })}
       >
         {({data}) => (
-          <GetPublished
-            instructor={instructor} 
-            firstPageOfLessons={data}
-          />
+          <Widget title={nextMilestoneTitleText}>
+            <GetPublished
+              instructor={instructor} 
+              firstPageOfLessons={data}
+            />
+          </Widget>
         )}
       </WrappedRequest>
     : null

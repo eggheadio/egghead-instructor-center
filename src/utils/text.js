@@ -4,7 +4,7 @@ export const instructorsOnlyDescriptionText = 'Only instructors can view the Ins
 
 export const instructorActionText = 'Switch to instructor view'
 
-export const overviewTitleText = 'Overview'
+export const overviewTitleText = 'Dashboard'
 
 export const newLessonsTitleText = 'New'
 export const newLessonsActionText = 'Create a new lesson'
@@ -105,7 +105,7 @@ export const instructorsChatActionText = 'View the channel'
 export const pageNotFoundTitleText = 'Page not found'
 export const pageNotFoundDescriptionText = 'Sorry, nothing can be found at this URL'
 
-export const helpTitleText = 'Got questions? Feeling stuck?'
+export const helpTitleText = 'Help'
 
 export const viewActionText = 'View'
 

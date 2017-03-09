@@ -3,7 +3,7 @@ import {greetingTitleText} from 'utils/text'
 import Avatar from 'components/Avatar'
 
 export default ({instructor}) => (
-  <div className='flex items-center'>
+  <div className='flex items-center mb4'>
     <div className='mr2'>
       <Avatar
         name={instructor.first_name}

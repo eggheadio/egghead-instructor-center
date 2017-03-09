@@ -14,7 +14,7 @@ export default ({items}) => (
           {item.description}
         </div>
         <Anchor url={item.url}>
-          <Button outline size='small'>
+          <Button color='blue' outline size='small'>
             {item.action}
           </Button>
         </Anchor>

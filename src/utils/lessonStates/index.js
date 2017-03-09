@@ -31,7 +31,7 @@ export const detailsByLessonState = {
   proposed: {
     action: cancelActionText,
     description: proposedStateDescriptionText,
-    color: 'white',
+    color: 'blue',
   },
   cancelled: {
     action: cancelActionText,
@@ -46,7 +46,7 @@ export const detailsByLessonState = {
   requested: {
     action: requestActionText,
     description: requestedStateDescriptionText,
-    color: 'white',
+    color: 'blue',
   },
   claimed: {
     action: claimActionText,
