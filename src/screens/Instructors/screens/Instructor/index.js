@@ -9,10 +9,10 @@ import Help from './components/Help'
 export default ({instructor}) => (
   <div>
     <Hello instructor={instructor} />
+    <Help instructor={instructor} />
     <NextMilestone instructor={instructor} />
     <Stats instructor={instructor} />
     <Revenue instructor={instructor} />
     <LessonListsByStates instructor={instructor} />
-    <Help />
   </div>
 )

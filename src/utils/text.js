@@ -22,6 +22,10 @@ export const statusTitleText = 'Status'
 
 export const titleTitleText = 'Title'
 
+export const lessonStateTitleText = 'State'
+
+export const lessonActionsTitleText = 'Actions'
+
 export const instructorTitleText = 'Instructor'
 
 export const technologyTitleText = 'Technology'

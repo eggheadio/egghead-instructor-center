@@ -1,5 +1,5 @@
 import React from 'react'
-import {Heading} from 'egghead-ui'
+import {Heading, Paragraph} from 'egghead-ui'
 import {
   requestedTitleText,
   requestedDescriptionText,
@@ -21,8 +21,10 @@ export default () => (
     <LessonList
       states={['requested']} 
       fallback={
-        <div className='mv3 pa3 br2 i gray'>
-          {requestedEmptyDescriptionText}
+        <div className='pa4'>
+          <Paragraph>
+            {requestedEmptyDescriptionText}
+          </Paragraph>
         </div>
       }
     />

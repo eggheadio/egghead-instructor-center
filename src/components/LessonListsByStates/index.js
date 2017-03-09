@@ -24,7 +24,7 @@ export default ({instructor}) => (
           <LessonList
             states={inProgressLessonStates}
             fallback={
-              <div className='pa3'>
+              <div className='pa4'>
                 <Prompt
                   description={noInProgressLessonsDescriptionText}
                   actionText={newLessonsActionText}
@@ -42,7 +42,7 @@ export default ({instructor}) => (
           <LessonList
             states={inQueueLessonStates}
             fallback={
-              <div className='pa3'>
+              <div className='pa4'>
                 <Prompt
                   description={noInQueueLessonsDescriptionText}
                   actionText={newLessonsActionText}
@@ -60,7 +60,7 @@ export default ({instructor}) => (
           <LessonList
             states={publishedLessonStates}
             fallback={
-              <div className='pa3'>
+              <div className='pa4'>
                 <Prompt
                   description={noPublishedLessonsDescriptionText}
                   actionText={newLessonsActionText}

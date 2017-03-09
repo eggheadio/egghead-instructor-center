@@ -33,19 +33,28 @@ const items=[
   },
 ]
 
-export default () => (
-  <Widget title={helpTitleText}>
-    <List items={map(items, (item, index) => (
-      <div key={index}>
-        <Paragraph>
-          {item.description}
-        </Paragraph>
-        <Anchor url={item.url}>
-          <Button color='blue' outline size='small'>
-            {item.action}
-          </Button>
-        </Anchor>
-      </div>
-    ))} />
-  </Widget>
-)
+export default ({instructor}) => {
+
+  const {published_lessons} = instructor
+
+  if(published_lessons === 0) {
+    return null
+  }
+
+  return (
+    <Widget title={helpTitleText}>
+      <List items={map(items, (item, index) => (
+        <div key={index}>
+          <Paragraph>
+            {item.description}
+          </Paragraph>
+          <Anchor url={item.url}>
+            <Button color='blue' outline size='small'>
+              {item.action}
+            </Button>
+          </Anchor>
+        </div>
+      ))} />
+    </Widget>
+  )
+}

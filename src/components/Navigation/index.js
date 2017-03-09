@@ -13,7 +13,7 @@ const sharedLinkClassnames = `
   gray
 `
 
-const activeLinkClassnames = 'bl bl-0-ns bb-ns bw2 bw1-ns b--yellow white'
+const activeLinkClassnames = 'bl bl-0-ns bb-ns bw2 bw1-ns b--orange orange'
 
 export default class Navigation extends Component {
   

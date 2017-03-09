@@ -9,7 +9,7 @@ export default ({title, instructors}) => (
     <Heading level='2'>
       {title}
     </Heading>
-    <div className='bg-light-navy'>
+    <div>
       {size(instructors) > 0
         ? <div>
             <div className='br2'>

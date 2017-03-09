@@ -50,6 +50,7 @@ export default ({instructor}) => {
           <Widget title={revenueTitleText}>
             <List items={map(items, (item, index) => (
               <RevenuePeriod
+                key={index}
                 title={item.title}
                 revenue={item.revenue}
                 subscriberMinutes={item.subscriberMinutes}
