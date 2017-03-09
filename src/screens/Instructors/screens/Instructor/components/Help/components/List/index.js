@@ -1,6 +1,6 @@
 import React from 'react'
 import {map} from 'lodash'
-import {Button} from 'egghead-ui'
+import {Button, Paragraph} from 'egghead-ui'
 import Anchor from 'components/Anchor'
 
 export default ({items}) => (
@@ -10,9 +10,9 @@ export default ({items}) => (
         key={index}
         className='mb3'
       >
-        <div className='mb2'>
+        <Paragraph>
           {item.description}
-        </div>
+        </Paragraph>
         <Anchor url={item.url}>
           <Button color='blue' outline size='small'>
             {item.action}

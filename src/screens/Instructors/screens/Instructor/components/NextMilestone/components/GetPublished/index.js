@@ -1,11 +1,8 @@
 import React from 'react'
 import {map, uniq, compact, isString} from 'lodash'
-import {Heading} from 'egghead-ui'
-import {getPublishedTitleText, getPublishedDescriptionText} from 'utils/text'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
-import DescriptionBlock from './components/DescriptionBlock'
 
 export default ({
   instructor,
@@ -56,19 +53,9 @@ export default ({
   ]
 
   return (
-    <div>
-      <Heading level='3'>
-        {getPublishedTitleText}
-      </Heading>
-      <DescriptionBlock>
-        {getPublishedDescriptionText}
-      </DescriptionBlock>
-      <div className='mt3'>
-        <Checklist 
-          items={steps} 
-          instructorId={instructor.id}
-        />
-      </div>
-    </div>
+    <Checklist 
+      items={steps} 
+      instructorId={instructor.id}
+    />
   )
 }
