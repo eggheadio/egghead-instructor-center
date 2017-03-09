@@ -7,7 +7,7 @@ import Logo from 'components/Logo'
 const sharedLinkClassnames = `
   pointer
   f6
-  pv3 ph4
+  pv3 pv4-ns ph4
   ttu
   no-underline
   gray
@@ -49,10 +49,10 @@ export default class Navigation extends Component {
     const {isOpen} = this.state
 
     return (
-      <header className='bg-light-navy'>
+      <header>
 
         <div className='
-          mw8 center relative
+          relative
           flex-ns items-center-ns flex-wrap-ns
         '>
 

@@ -1,8 +1,10 @@
 import React, {PropTypes} from 'react'
 
 const Main = ({children}) => (
-  <main className='pv5 ph4 mw8 center'>
-    {children}
+  <main className='bg-tag-gray h-100 dark-gray'>
+    <div className='mw8'>
+      {children}
+    </div>
   </main>
 )
 
