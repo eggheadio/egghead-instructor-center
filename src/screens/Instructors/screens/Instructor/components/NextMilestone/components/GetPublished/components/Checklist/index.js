@@ -5,7 +5,7 @@ import {Icon} from 'egghead-ui'
 import List from 'components/List'
 import MoreInfo from './components/MoreInfo'
 
-const Checklist = ({items, instructorId}) => (
+const Checklist = ({items}) => (
   <List items={map(items, (item, index) => (
     <div 
       key={index}

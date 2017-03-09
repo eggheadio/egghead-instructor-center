@@ -2,11 +2,11 @@ import React from 'react'
 import formatNumber from 'format-number'
 import {Heading} from 'egghead-ui'
 import {subscriberMinutesLabelText} from 'utils/text'
-import IconLabel from '../IconLabel'
+import IconLabel from 'components/IconLabel'
 
 export default ({title, revenue, subscriberMinutes}) => (
   <div>
-    <Heading level='4'>
+    <Heading level='5'>
       {title}
     </Heading>
     <IconLabel

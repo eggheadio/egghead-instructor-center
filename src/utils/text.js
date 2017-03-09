@@ -48,13 +48,15 @@ export const noInstructorsDescriptionText = 'No instructors to show'
 
 export const noPublishedLessonsDescriptionText = `No published lessons.`
 
+export const revenueTitleText = 'Revenue'
+
 export const statsTitleText = 'Stats'
 
 export const currentMonthRevenueTitleText = 'Estimated royalties'
 
 export const revenueLabelText = 'dollars'
 
-export const subscriberMinutesLabelText = 'minutes watched'
+export const subscriberMinutesLabelText = 'minutes'
 
 export const noRevenueDescriptionText = `No stats to report. Publishing lessons is the key.`
 export const noRevenueActionText = `Create a new lesson`

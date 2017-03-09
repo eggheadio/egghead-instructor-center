@@ -53,9 +53,6 @@ export default ({
   ]
 
   return (
-    <Checklist 
-      items={steps} 
-      instructorId={instructor.id}
-    />
+    <Checklist items={steps} />
   )
 }
