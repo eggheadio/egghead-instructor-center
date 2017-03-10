@@ -54,7 +54,7 @@ const App = () => {
 
         return (
           <BrowserRouter>
-            <div>
+            <div className='flex'>
 
               <Navigation
                 items={[

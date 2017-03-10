@@ -2,18 +2,25 @@ import React, {Component, PropTypes} from 'react'
 import {NavLink} from 'react-router-dom'
 import {Icon} from 'egghead-ui'
 import {map, isFunction, startsWith} from 'lodash'
+import {navigationWidth} from 'utils/specificSizes'
 import Logo from 'components/Logo'
 
 const sharedLinkClassnames = `
   pointer
   f6
-  pv3 pv4-ns ph4
+  pa3
   ttu
   no-underline
-  gray
+  light-gray
+  bl
+  b--transparent
 `
 
-const activeLinkClassnames = 'bl bl-0-ns bb-ns bw2 bw1-ns b--orange orange'
+const sharedLinkStyle = {
+  borderWidth: 3,
+}
+
+const activeLinkClassnames = 'b--orange orange'
 
 export default class Navigation extends Component {
   
@@ -49,24 +56,39 @@ export default class Navigation extends Component {
     const {isOpen} = this.state
 
     return (
-      <header className='
-        relative
-        bg-light-navy
-        flex-ns items-center-ns flex-wrap-ns
-      '>
+      <header 
+        className='bg-light-navy fixed vh-100 z-1'
+        style={{
+          width: navigationWidth,
+          willChange: 'transform',
+          transition: 'transform .3s',
+          left: 0,
+          transform: 'translateX(-100%)',
+        }}
+      >
 
-        <div className='ph4 pv3'>
+        <div className='ph3 pv3 bb b--white-10'>
           <Logo />
         </div>
 
+        <div
+          onClick={this.toggle.bind(this)}
+          className='dn-ns'
+        >
+          <Icon
+            type={isOpen ? 'close' : 'menu'}
+            size='3'
+            color='white'
+          />
+        </div>
+
         <nav className={`
-          pv2 pv0-ns
-          ml4-ns
+          pv2
           ${isOpen
-            ? 'flex'
+            ? 'flex flex-column'
             : 'dn'
           }
-          flex-ns flex-column flex-row-ns flex-wrap
+          flex-ns flex-column-ns
         `}>
           {map(items, (item, index) => {
 
@@ -75,6 +97,7 @@ export default class Navigation extends Component {
                 <a
                   key={index}
                   className={sharedLinkClassnames}
+                  style={sharedLinkStyle}
                   onClick={() => {
                     this.close()
                     item.action()
@@ -92,6 +115,7 @@ export default class Navigation extends Component {
                     key={index}
                     className={sharedLinkClassnames}
                     activeClassName={activeLinkClassnames}
+                    style={sharedLinkStyle}
                     onClick={this.close}
                     to={item.action}
                   >
@@ -100,6 +124,7 @@ export default class Navigation extends Component {
                 : <a
                     key={index}
                     className={sharedLinkClassnames}
+                    style={sharedLinkStyle}
                     onClick={this.close}
                     href={item.action}
                   >
@@ -109,17 +134,6 @@ export default class Navigation extends Component {
 
           })}
         </nav>
-
-        <div
-          onClick={this.toggle.bind(this)}
-          className='absolute top-1 right-2 mt1 dn-ns'
-        >
-          <Icon
-            type={isOpen ? 'close' : 'menu'}
-            size='3'
-            color='white'
-          />
-        </div>
 
       </header>
     )
