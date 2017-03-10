@@ -1,17 +1,17 @@
 import React from 'react'
 import LayoutColumns from 'components/LayoutColumns'
 import InstructorStatsWidget from 'components/InstructorStatsWidget'
-import InstructorRevenueWidget from 'components/InstructorRevenueWidget'
 import InstructorLessonsWidget from 'components/InstructorLessonsWidget'
+import InstructorInfoWidget from './components/InstructorInfoWidget'
 
 export default ({instructor}) => (
   <div>
     <LayoutColumns items={[
+      <InstructorInfoWidget instructor={instructor} />,
       <InstructorStatsWidget
         publishedLessons={instructor.published_lessons}
         publishedCourses={instructor.published_courses}
       />,
-      <InstructorRevenueWidget revenueUrl={instructor.revenueUrl} />,
     ]} />
     <InstructorLessonsWidget instructor={instructor} />
   </div>

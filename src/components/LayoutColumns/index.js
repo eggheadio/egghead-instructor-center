@@ -2,9 +2,12 @@ import React from 'react'
 import {map} from 'lodash'
 
 export default ({items}) => (
-  <div className='flex'>
+  <div className='flex-ns'>
     {map(items, (item, index) => (
-      <div className={`w-100 ${index < items.length - 1 ? 'mr4' : ''}`}>
+      <div
+        key={index}
+        className={`w-100-ns ${index < items.length - 1 ? 'mr4-ns' : ''}`}
+      >
         {item}
       </div>
     ))}

@@ -56,6 +56,7 @@ const App = () => {
             <div className='flex'>
 
               <Navigation
+                user={user}
                 items={[
                   {
                     text: overviewTitleText,
