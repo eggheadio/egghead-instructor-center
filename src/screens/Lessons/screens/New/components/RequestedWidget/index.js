@@ -1,23 +1,18 @@
 import React from 'react'
-import {Heading, Paragraph} from 'egghead-ui'
+import {Paragraph} from 'egghead-ui'
 import {
   requestedTitleText,
   requestedDescriptionText,
   requestedEmptyDescriptionText,
 } from 'utils/text'
+import Widget from 'components/Widget'
 import LessonList from 'components/LessonList'
 
 export default () => (
-  <div>
-
-    <Heading level='2'>
-      {requestedTitleText}
-    </Heading>
-
-    <div className='mb3'>
-      {requestedDescriptionText}
-    </div>
-
+  <Widget 
+    title={requestedTitleText}
+    description={requestedDescriptionText}
+  >
     <LessonList
       states={['requested']} 
       fallback={
@@ -28,6 +23,5 @@ export default () => (
         </div>
       }
     />
-
-  </div>
+  </Widget>
 )

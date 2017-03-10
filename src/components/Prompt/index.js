@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {startsWith} from 'lodash'
-import {Button} from 'egghead-ui'
+import {Button, Paragraph} from 'egghead-ui'
 
 export default ({
   description,
@@ -9,9 +9,9 @@ export default ({
   action,
 }) => (
   <div>
-    <div className='i'>
+    <Paragraph>
       {description}
-    </div>
+    </Paragraph>
     <div className='mt3'>
       {startsWith(action, '/') 
         ? <Link to={action}>

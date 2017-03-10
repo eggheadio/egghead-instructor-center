@@ -51,7 +51,7 @@ export const detailsByLessonState = {
   claimed: {
     action: claimActionText,
     description: claimedStateDescriptionText,
-    color: 'green',
+    color: 'turquoise',
   },
   submitted: {
     action: submitActionText,
