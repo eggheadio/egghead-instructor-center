@@ -56,20 +56,7 @@ export default class Navigation extends Component {
     const {isOpen} = this.state
 
     return (
-      <header 
-        className='bg-light-navy fixed vh-100 z-1'
-        style={{
-          width: navigationWidth,
-          willChange: 'transform',
-          transition: 'transform .3s',
-          left: 0,
-          transform: 'translateX(-100%)',
-        }}
-      >
-
-        <div className='ph3 pv3 bb b--white-10'>
-          <Logo />
-        </div>
+      <div>
 
         <div
           onClick={this.toggle.bind(this)}
@@ -78,64 +65,80 @@ export default class Navigation extends Component {
           <Icon
             type={isOpen ? 'close' : 'menu'}
             size='3'
-            color='white'
+            color='gray'
           />
         </div>
 
-        <nav className={`
-          pv2
-          ${isOpen
-            ? 'flex flex-column'
-            : 'dn'
-          }
-          flex-ns flex-column-ns
-        `}>
-          {map(items, (item, index) => {
+        <header 
+          className='bg-light-navy fixed vh-100 z-1'
+          style={{
+            width: navigationWidth,
+            willChange: 'transform',
+            transition: 'transform .3s',
+            left: 0,
+            transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
+          }}
+        >
 
-            if(isFunction(item.action)) {
-              return (
-                <a
-                  key={index}
-                  className={sharedLinkClassnames}
-                  style={sharedLinkStyle}
-                  onClick={() => {
-                    this.close()
-                    item.action()
-                  }}
-                >
-                  {item.text}
-                </a>
-              )
+          <div className='ph3 pv3 bb b--white-10'>
+            <Logo />
+          </div>
+
+          <nav className={`
+            pv2
+            ${isOpen
+              ? 'flex flex-column'
+              : 'dn'
             }
+            flex-ns flex-column-ns
+          `}>
+            {map(items, (item, index) => {
 
-            else {
-              return startsWith(item.action, '/')
-                ? <NavLink
-                    exact
-                    key={index}
-                    className={sharedLinkClassnames}
-                    activeClassName={activeLinkClassnames}
-                    style={sharedLinkStyle}
-                    onClick={this.close}
-                    to={item.action}
-                  >
-                    {item.text}
-                  </NavLink>
-                : <a
+              if(isFunction(item.action)) {
+                return (
+                  <a
                     key={index}
                     className={sharedLinkClassnames}
                     style={sharedLinkStyle}
-                    onClick={this.close}
-                    href={item.action}
+                    onClick={() => {
+                      this.close()
+                      item.action()
+                    }}
                   >
                     {item.text}
                   </a>
-            }
+                )
+              }
 
-          })}
-        </nav>
+              else {
+                return startsWith(item.action, '/')
+                  ? <NavLink
+                      exact
+                      key={index}
+                      className={sharedLinkClassnames}
+                      activeClassName={activeLinkClassnames}
+                      style={sharedLinkStyle}
+                      onClick={this.close}
+                      to={item.action}
+                    >
+                      {item.text}
+                    </NavLink>
+                  : <a
+                      key={index}
+                      className={sharedLinkClassnames}
+                      style={sharedLinkStyle}
+                      onClick={this.close}
+                      href={item.action}
+                    >
+                      {item.text}
+                    </a>
+              }
 
-      </header>
+            })}
+          </nav>
+
+        </header>
+      </div>
     )
   }
 }
