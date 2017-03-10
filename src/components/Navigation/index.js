@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react'
 import {NavLink} from 'react-router-dom'
 import {Icon} from 'egghead-ui'
 import {map, isFunction, startsWith} from 'lodash'
-import {navigationWidth} from 'utils/specificSizes'
 import Logo from 'components/Logo'
 
 const sharedLinkClassnames = `
@@ -21,6 +20,7 @@ const sharedLinkStyle = {
 }
 
 const activeLinkClassnames = 'b--orange orange'
+const mobileMediaQuerySize = 640
 
 export default class Navigation extends Component {
   
@@ -35,7 +35,27 @@ export default class Navigation extends Component {
   }
 
   state = {
-    isOpen: false,
+    isMobile: false,
+    isOpen: true,
+  }
+
+  componentDidMount = () => {
+    this.checkScreenSize()
+    window.onresize = this.checkScreenSize
+  }
+
+  checkScreenSize = () => {
+    if(window.screen.width < mobileMediaQuerySize) {
+      this.setState({
+        isMobile: true,
+        isOpen: false,
+      })
+    } else {
+      this.setState({
+        isMobile: false,
+        isOpen: true,
+      })
+    }
   }
 
   close = () => {
@@ -53,7 +73,7 @@ export default class Navigation extends Component {
   render() {
 
     const {items} = this.props
-    const {isOpen} = this.state
+    const {isMobile, isOpen} = this.state
 
     return (
       <div>
@@ -70,9 +90,8 @@ export default class Navigation extends Component {
         </div>
 
         <header 
-          className='bg-light-navy fixed vh-100 z-1'
+          className='bg-light-navy fixed vh-100 z-1 w5'
           style={{
-            width: navigationWidth,
             willChange: 'transform',
             transition: 'transform .3s',
             left: 0,
@@ -101,7 +120,9 @@ export default class Navigation extends Component {
                     className={sharedLinkClassnames}
                     style={sharedLinkStyle}
                     onClick={() => {
-                      this.close()
+                      if(isMobile) {
+                        this.close()
+                      }
                       item.action()
                     }}
                   >
@@ -118,7 +139,11 @@ export default class Navigation extends Component {
                       className={sharedLinkClassnames}
                       activeClassName={activeLinkClassnames}
                       style={sharedLinkStyle}
-                      onClick={this.close}
+                      onClick={() => {
+                        if(isMobile) {
+                          this.close()
+                        }
+                      }}
                       to={item.action}
                     >
                       {item.text}
@@ -127,7 +152,11 @@ export default class Navigation extends Component {
                       key={index}
                       className={sharedLinkClassnames}
                       style={sharedLinkStyle}
-                      onClick={this.close}
+                      onClick={() => {
+                        if(isMobile) {
+                          this.close()
+                        }
+                      }}
                       href={item.action}
                     >
                       {item.text}
