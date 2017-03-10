@@ -90,7 +90,7 @@ export default class Navigation extends Component {
 
           <div
             onClick={this.toggle.bind(this)}
-            className={`dn-ns fixed ml7 mt5 pa2 br2 br--right bg-light-navy ${isOpen ? '' : 'o-20'}`}
+            className={`dn-ns fixed ml7 pa2 br2 br--right br--bottom bg-light-navy ${isOpen ? '' : 'o-30'}`}
           >
             <Icon
               type={isOpen ? 'close' : 'menu'}
