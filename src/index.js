@@ -149,11 +149,7 @@ const App = () => {
                         <Route
                           path='/instructors'
                           render={() => (
-                            <WrappedRequest url='/api/v1/instructors'>
-                              {({data}) => (
-                                <Instructors instructors={data} />
-                              )}
-                            </WrappedRequest>
+                            <Instructors instructors={data} />
                           )}
                         />
 

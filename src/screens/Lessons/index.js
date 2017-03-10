@@ -2,5 +2,7 @@ import React from 'react'
 import LessonListsByStatesWidget from 'components/LessonListsByStatesWidget'
 
 export default () => (
-  <LessonListsByStatesWidget />
+  <div>
+    <LessonListsByStatesWidget />
+  </div>
 )
