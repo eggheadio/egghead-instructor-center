@@ -15,14 +15,15 @@ import {guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
 import WrappedRequest from 'components/WrappedRequest'
 import Main from 'components/Main'
-import Instructor from './screens/Instructors/screens/Instructor'
-import Lessons from './screens/Lessons'
-import Lesson from './screens/Lessons/screens/Lesson'
-import Instructors from './screens/Instructors'
-import Navigation from './components/Navigation'
-import InstructorsOnly from './components/InstructorsOnly'
 import LoggedOut from './components/LoggedOut'
+import InstructorsOnly from './components/InstructorsOnly'
 import RouteNotFound from './components/RouteNotFound'
+import Navigation from './components/Navigation'
+import Dashboard from './screens/Dashboard'
+import Lesson from './screens/Lessons/screens/Lesson'
+import Lessons from './screens/Lessons'
+import Instructor from './screens/Instructors/screens/Instructor'
+import Instructors from './screens/Instructors'
 
 const App = () => {
 
@@ -95,7 +96,7 @@ const App = () => {
                           exact
                           path='/'
                           render={() => (
-                            <Instructor instructor={instructor} />
+                            <Dashboard instructor={instructor} />
                           )}
                         />
 
