@@ -1,8 +1,8 @@
 import React from 'react'
-import LessonListsByStatesWidget from 'components/LessonListsByStatesWidget'
+import LessonsWidget from './components/LessonsWidget'
 
 export default () => (
   <div>
-    <LessonListsByStatesWidget />
+    <LessonsWidget />
   </div>
 )

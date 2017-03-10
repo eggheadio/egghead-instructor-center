@@ -114,6 +114,7 @@ export const pageNotFoundTitleText = 'Page not found'
 export const pageNotFoundDescriptionText = 'Sorry, nothing can be found at this URL'
 
 export const helpTitleText = 'Help'
+export const helpDescriptionText = 'Making screencasts is hard. The first few can be frustrating. But it gets easier and faster! There are many resources to help you as well.'
 
 export const viewActionText = 'View'
 

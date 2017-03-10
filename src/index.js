@@ -5,7 +5,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {initializeErrorTracking} from 'utils/errorTracking'
 import {
   overviewTitleText,
-  newLessonsTitleText,
   instructorsTitleText,
   guideTitleText,
   chatTitleText,
@@ -18,7 +17,6 @@ import WrappedRequest from 'components/WrappedRequest'
 import Main from 'components/Main'
 import Instructor from './screens/Instructors/screens/Instructor'
 import Lessons from './screens/Lessons'
-import New from './screens/Lessons/screens/New'
 import Lesson from './screens/Lessons/screens/Lesson'
 import Instructors from './screens/Instructors'
 import Navigation from './components/Navigation'
@@ -67,10 +65,6 @@ const App = () => {
                     action: '/lessons',
                   },
                   {
-                    text: newLessonsTitleText,
-                    action: '/lessons/new',
-                  },
-                  {
                     text: instructorsTitleText,
                     action: '/instructors',
                   },
@@ -102,13 +96,6 @@ const App = () => {
                           path='/'
                           render={() => (
                             <Instructor instructor={instructor} />
-                          )}
-                        />
-
-                        <Route 
-                          path='/lessons/new'
-                          render={() => (
-                            <New instructor={instructor} />
                           )}
                         />
 

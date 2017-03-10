@@ -3,6 +3,7 @@ import {map} from 'lodash'
 import {Button, Paragraph} from 'egghead-ui'
 import {
   helpTitleText,
+  helpDescriptionText,
   guideDescriptionText,
   guideActionText,
   adminsDescriptionText,
@@ -34,7 +35,10 @@ const items=[
 ]
 
 export default ({publishedLessons}) => publishedLessons === 0
-  ? <Widget title={helpTitleText}>
+  ? <Widget
+      title={helpTitleText}
+      description={helpDescriptionText}
+    >
       <List items={map(items, (item, index) => (
         <div key={index}>
           <Paragraph>
