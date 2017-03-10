@@ -54,49 +54,47 @@ const App = () => {
 
         return (
           <BrowserRouter>
-            <WrappedRequest url={data.instructor_url}>
-              {({data}) => {
+            <div>
 
-                const instructor = data
+              <Navigation
+                items={[
+                  {
+                    text: overviewTitleText,
+                    action: '/',
+                  },
+                  {
+                    text: lessonsTitleText,
+                    action: '/lessons',
+                  },
+                  {
+                    text: newLessonsTitleText,
+                    action: '/lessons/new',
+                  },
+                  {
+                    text: instructorsTitleText,
+                    action: '/instructors',
+                  },
+                  {
+                    text: guideTitleText,
+                    action: guideUrl,
+                  },
+                  {
+                    text: chatTitleText,
+                    action: chatUrl,
+                  },
+                  {
+                    text: logOutTitleText,
+                    action: logout,
+                  },
+                ]}
+              />
 
-                return (
-                  <div>
+              <Main>
 
-                    <Navigation
-                      items={[
-                        {
-                          text: overviewTitleText,
-                          action: '/',
-                        },
-                        {
-                          text: lessonsTitleText,
-                          action: '/lessons',
-                        },
-                        {
-                          text: newLessonsTitleText,
-                          action: '/lessons/new',
-                        },
-                        {
-                          text: instructorsTitleText,
-                          action: '/instructors',
-                        },
-                        {
-                          text: guideTitleText,
-                          action: guideUrl,
-                        },
-                        {
-                          text: chatTitleText,
-                          action: chatUrl,
-                        },
-                        {
-                          text: logOutTitleText,
-                          action: logout,
-                        },
-                      ]}
-                    />
-
-                    <Main>
-
+                <WrappedRequest url={data.instructor_url}>
+                  {({data}) => {
+                    const instructor = data
+                    return (
                       <Switch>
 
                         <Route 
@@ -157,12 +155,12 @@ const App = () => {
 
                       </Switch>
 
-                    </Main>
+                    )
+                  }}
+                </WrappedRequest>
+              </Main>
 
-                  </div>
-                )
-              }}
-            </WrappedRequest>
+            </div>
           </BrowserRouter>
         )
       }}
