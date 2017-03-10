@@ -78,19 +78,8 @@ export default class Navigation extends Component {
     return (
       <div>
 
-        <div
-          onClick={this.toggle.bind(this)}
-          className='dn-ns'
-        >
-          <Icon
-            type={isOpen ? 'close' : 'menu'}
-            size='3'
-            color='gray'
-          />
-        </div>
-
         <header 
-          className='bg-light-navy fixed vh-100 z-1 w5'
+          className='bg-light-navy fixed vh-100 z-1 w5 pt2-s'
           style={{
             willChange: 'transform',
             transition: 'transform .3s',
@@ -98,6 +87,17 @@ export default class Navigation extends Component {
             transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
           }}
         >
+
+          <div
+            onClick={this.toggle.bind(this)}
+            className={`dn-ns fixed ml7 mt5 pa2 br2 br--right bg-light-navy ${isOpen ? '' : 'o-20'}`}
+          >
+            <Icon
+              type={isOpen ? 'close' : 'menu'}
+              size='3'
+              color='white'
+            />
+          </div>
 
           <div className='ph3 pv3 bb b--white-10'>
             <Logo />
