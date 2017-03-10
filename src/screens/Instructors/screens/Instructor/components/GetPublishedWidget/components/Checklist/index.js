@@ -19,7 +19,7 @@ const Checklist = ({items}) => (
             />
           : <Icon
               type='box'
-              color='dark-gray'
+              color='gray'
             />
         }
       </div>

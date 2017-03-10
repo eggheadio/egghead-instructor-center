@@ -32,21 +32,21 @@ Each directory inside `src` is a **component**. A component is a directory organ
 
 ```
 SomeComponentName/
-    index.js (entry point)
-    components/ (optional sub-components)
-    utils/ (optional utility modules)
+  index.js (entry point)
+  components/ (optional sub-components)
+  utils/ (optional utility modules)
 ```
 
 ## Screens
 
-Some components are also **screens**. A screen is just a component that additionally corresponds with a route and is generally connected to endpoints. They are also known as "Smart", "Container", or "Connected" components. They look like this:
+Some components are also **screens**. A screen is just a component that additionally corresponds with a route; it is generally a collection of `Widget`s. They look like this:
 
 ```
 SomeScreenName/
-    index.js (entry point)
-    screens/ (optional sub-screens paired with sub-routes)
-    components/ (optional sub-components)
-    utils/ (optional utility modules)
+  index.js (entry point)
+  screens/ (optional sub-screens paired with sub-routes)
+  components/ (optional sub-components)
+  utils/ (optional utility modules)
 ```
 
 ## Routing
@@ -89,7 +89,9 @@ The `.env` file is used to load environment variables. The base url of endpoint 
 
 ## Endpoints
 
-The [`WrappedRequest` component] extends the [`Request` component](https://styleguide.egghead.io); it is used with the `egghead-rails` rest APIs, based on the current environment set in `.env`. The endpoint data uses hypermedia (urls to make requests to for sub-data instead of placing all data inline). Response properties and hypermedia urls are only shown when the user has access to them, so all UI based on permissions can be combined without separate routes for "roles". There is no such thing as roles in this system, but what data a response has, based on the user. This means that you can do something like `lesson.approve_url ? <ApproveButton /> : null` to show a lesson approval button and it will work for all users, regardless of their permissions.
+The [`WrappedRequest` component] extends the [`Request` component](https://styleguide.egghead.io); it is used with the `egghead-rails` rest APIs, based on the current environment set in `.env`.
+
+The endpoint data uses hypermedia (urls to make requests to for sub-data instead of placing all data inline). Response properties and hypermedia urls are only shown when the user has access to them, so all UI based on permissions can be combined without separate routes for "roles". There is no such thing as roles in this system, but what data a response has, based on the user. This means that you can do something like `lesson.approve_url ? <ApproveButton /> : null` to show a lesson approval button and it will work for all users, regardless of their permissions.
 
 ## Public folder
 

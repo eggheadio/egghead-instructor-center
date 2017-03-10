@@ -1,18 +1,19 @@
 import React from 'react'
-import Hello from './components/Hello'
-import NextMilestone from './components/NextMilestone'
-import Stats from './components/Stats'
-import Revenue from './components/Revenue'
-import LessonListsByStates from 'components/LessonListsByStates'
-import Help from './components/Help'
+import GetPublishedWidget from './components/GetPublishedWidget'
+import HelpWidget from './components/HelpWidget'
+import StatsWidget from './components/StatsWidget'
+import RevenueWidget from './components/RevenueWidget'
+import LessonListsByStatesWidget from 'components/LessonListsByStatesWidget'
 
 export default ({instructor}) => (
   <div>
-    <Hello instructor={instructor} />
-    <Help instructor={instructor} />
-    <NextMilestone instructor={instructor} />
-    <Stats instructor={instructor} />
-    <Revenue instructor={instructor} />
-    <LessonListsByStates instructor={instructor} />
+    <GetPublishedWidget instructor={instructor} />
+    <HelpWidget publishedLessons={instructor.published_lessons} />
+    <StatsWidget
+      publishedLessons={instructor.published_lessons}
+      publishedCourses={instructor.published_courses}
+    />
+    <RevenueWidget revenueUrl={instructor.revenueUrl} />
+    <LessonListsByStatesWidget instructor={instructor} />
   </div>
 )

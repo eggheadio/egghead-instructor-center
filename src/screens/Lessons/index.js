@@ -1,6 +1,6 @@
 import React from 'react'
-import LessonListsByStates from 'components/LessonListsByStates'
+import LessonListsByStatesWidget from 'components/LessonListsByStatesWidget'
 
 export default () => (
-  <LessonListsByStates />
+  <LessonListsByStatesWidget />
 )

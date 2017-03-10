@@ -12,21 +12,12 @@ import totalRevenue from './utils/totalRevenue'
 import removeRevenueMonth from './utils/removeRevenueMonth'
 import RevenuePeriod from './components/RevenuePeriod'
 
-export default ({instructor}) => {
-
-  if(!instructor.revenue_url) {
-    return null
-  }
-
-  return (
-    <WrappedRequest url={instructor.revenue_url}>
+export default ({revenueUrl}) => revenueUrl
+  ? <WrappedRequest url={revenueUrl}>
       {({data}) => {
-
-        const revenue = data
-
-        const currentMonthRevenue = find(revenue, ['month', currentMonthStartDate()])
-        const currentTotalRevenue = totalRevenue(removeRevenueMonth(revenue, currentMonthStartDate()))
-        const hasCurrentRevenue = size(revenue) > 0
+        const currentMonthRevenue = find(data, ['month', currentMonthStartDate()])
+        const currentTotalRevenue = totalRevenue(removeRevenueMonth(data, currentMonthStartDate()))
+        const hasCurrentRevenue = size(data) > 0
           && ((currentMonthRevenue && currentMonthRevenue.revenue > 0) || (currentTotalRevenue && currentTotalRevenue.revenue > 0))
 
         if(!hasCurrentRevenue) {
@@ -60,5 +51,4 @@ export default ({instructor}) => {
         )
       }}
     </WrappedRequest>
-  )
-}
+  : null

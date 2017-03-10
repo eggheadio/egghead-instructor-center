@@ -5,22 +5,20 @@ import Widget from 'components/Widget'
 import List from 'components/List'
 import IconLabel from 'components/IconLabel'
 
-export default ({instructor}) => {
-  
-  const {published_courses, published_lessons} = instructor
+export default ({publishedLessons, publishedCourses}) => {
 
-  if(published_lessons === 0) {
+  if(!publishedLessons) {
     return null
   }
 
   const items = [
     {
-      type: 'course',
-      text: `${published_courses} published courses`,
+      type: 'lesson',
+      text: `${publishedLessons} published lessons`,
     },
     {
-      type: 'lesson',
-      text: `${published_lessons} published lessons`,
+      type: 'course',
+      text: `${publishedCourses} published courses`,
     },
   ]
 
