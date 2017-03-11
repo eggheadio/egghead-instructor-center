@@ -4,13 +4,15 @@ export const instructorsOnlyDescriptionText = 'Only instructors can view the Ins
 
 export const instructorActionText = 'Switch to instructor view'
 
-export const overviewTitleText = 'Overview'
+export const overviewTitleText = 'Dashboard'
 
 export const newLessonsTitleText = 'New'
 export const newLessonsActionText = 'Create a new lesson'
 
 export const newLessonsInstructionsDescriptionText = 'You can choose a requested topic below, or propose your own topic. Check out the guide portion on egghead lesson concepts for more details on proposing your own topics.'
 export const newLessonsInstructionsActionText = 'Learn about proposing topics'
+
+export const instructionsTitleText = 'Instructions'
 
 export const lessonsTitleText = 'Lessons'
 
@@ -21,6 +23,10 @@ export const instructorsTitleText = 'Instructors'
 export const statusTitleText = 'Status'
 
 export const titleTitleText = 'Title'
+
+export const lessonStateTitleText = 'State'
+
+export const lessonActionsTitleText = 'Actions'
 
 export const instructorTitleText = 'Instructor'
 
@@ -48,13 +54,15 @@ export const noInstructorsDescriptionText = 'No instructors to show'
 
 export const noPublishedLessonsDescriptionText = `No published lessons.`
 
+export const revenueTitleText = 'Revenue'
+
 export const statsTitleText = 'Stats'
 
 export const currentMonthRevenueTitleText = 'Estimated royalties'
 
 export const revenueLabelText = 'dollars'
 
-export const subscriberMinutesLabelText = 'minutes watched'
+export const subscriberMinutesLabelText = 'minutes'
 
 export const noRevenueDescriptionText = `No stats to report. Publishing lessons is the key.`
 export const noRevenueActionText = `Create a new lesson`
@@ -105,7 +113,8 @@ export const instructorsChatActionText = 'View the channel'
 export const pageNotFoundTitleText = 'Page not found'
 export const pageNotFoundDescriptionText = 'Sorry, nothing can be found at this URL'
 
-export const helpTitleText = 'Got questions? Feeling stuck?'
+export const helpTitleText = 'Help'
+export const helpDescriptionText = 'Making screencasts is hard. The first few can be frustrating. But it gets easier and faster! There are many resources to help you as well.'
 
 export const viewActionText = 'View'
 

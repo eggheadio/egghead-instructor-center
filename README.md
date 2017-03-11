@@ -34,21 +34,21 @@ Each directory inside `src` is a **component**. A component is a directory organ
 
 ```
 SomeComponentName/
-    index.js (entry point)
-    components/ (optional sub-components)
-    utils/ (optional utility modules)
+  index.js (entry point)
+  components/ (optional sub-components)
+  utils/ (optional utility modules)
 ```
 
 ## Screens
 
-Some components are also **screens**. A screen is just a component that additionally corresponds with a route and is generally connected to endpoints. They are also known as "Smart", "Container", or "Connected" components. They look like this:
+Some components are also **screens**. A screen is just a component that additionally corresponds with a route; it is generally a collection of `Widget`s. They look like this:
 
 ```
 SomeScreenName/
-    index.js (entry point)
-    screens/ (optional sub-screens paired with sub-routes)
-    components/ (optional sub-components)
-    utils/ (optional utility modules)
+  index.js (entry point)
+  screens/ (optional sub-screens paired with sub-routes)
+  components/ (optional sub-components)
+  utils/ (optional utility modules)
 ```
 
 ## Routing

@@ -9,18 +9,14 @@
     "build": "REACT_APP_EGGHEAD_BASE_URL=https://egghead.io NODE_PATH=./src react-scripts build",
     "verify": "CI=true yarn test && yarn build"
   },
-  "pre-commit": [
-    "verify"
-  ],
   "eslintConfig": {
     "extends": "react-app"
   },
   "devDependencies": {
-    "pre-commit": "^1.2.2",
     "react-scripts": "^0.8.4"
   },
   "dependencies": {
-    "egghead-ui": "^3.0.1",
+    "egghead-ui": "^3.1.5",
     "format-number": "^2.0.1",
     "honeybadger-js": "^0.4.3",
     "jwt-simple": "^0.5.1",
@@ -33,7 +29,7 @@
     "react-tabs": "^0.8.2",
     "react-truncate": "^1.1.4",
     "sort-by": "^1.2.0",
-    "tachyons-egghead": "^2.0.0"
+    "tachyons-egghead": "^2.0.1"
   },
   "engines": {
     "node": ">=7.0.0"

@@ -5,7 +5,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {initializeErrorTracking} from 'utils/errorTracking'
 import {
   overviewTitleText,
-  newLessonsTitleText,
   instructorsTitleText,
   guideTitleText,
   chatTitleText,
@@ -16,15 +15,15 @@ import {guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
 import WrappedRequest from 'components/WrappedRequest'
 import Main from 'components/Main'
-import Instructor from './screens/Instructors/screens/Instructor'
-import Lessons from './screens/Lessons'
-import New from './screens/Lessons/screens/New'
-import Lesson from './screens/Lessons/screens/Lesson'
-import Instructors from './screens/Instructors'
-import Navigation from './components/Navigation'
-import InstructorsOnly from './components/InstructorsOnly'
 import LoggedOut from './components/LoggedOut'
+import InstructorsOnly from './components/InstructorsOnly'
 import RouteNotFound from './components/RouteNotFound'
+import Navigation from './components/Navigation'
+import Dashboard from './screens/Dashboard'
+import Lesson from './screens/Lessons/screens/Lesson'
+import Lessons from './screens/Lessons'
+import Instructor from './screens/Instructors/screens/Instructor'
+import Instructors from './screens/Instructors'
 
 const App = () => {
 
@@ -54,63 +53,51 @@ const App = () => {
 
         return (
           <BrowserRouter>
-            <WrappedRequest url={data.instructor_url}>
-              {({data}) => {
+            <div className='flex'>
 
-                const instructor = data
+              <Navigation
+                user={user}
+                items={[
+                  {
+                    text: overviewTitleText,
+                    action: '/',
+                  },
+                  {
+                    text: lessonsTitleText,
+                    action: '/lessons',
+                  },
+                  {
+                    text: instructorsTitleText,
+                    action: '/instructors',
+                  },
+                  {
+                    text: guideTitleText,
+                    action: guideUrl,
+                  },
+                  {
+                    text: chatTitleText,
+                    action: chatUrl,
+                  },
+                  {
+                    text: logOutTitleText,
+                    action: logout,
+                  },
+                ]}
+              />
 
-                return (
-                  <div>
+              <Main>
 
-                    <Navigation
-                      items={[
-                        {
-                          text: overviewTitleText,
-                          action: '/',
-                        },
-                        {
-                          text: lessonsTitleText,
-                          action: '/lessons',
-                        },
-                        {
-                          text: newLessonsTitleText,
-                          action: '/lessons/new',
-                        },
-                        {
-                          text: instructorsTitleText,
-                          action: '/instructors',
-                        },
-                        {
-                          text: guideTitleText,
-                          action: guideUrl,
-                        },
-                        {
-                          text: chatTitleText,
-                          action: chatUrl,
-                        },
-                        {
-                          text: logOutTitleText,
-                          action: logout,
-                        },
-                      ]}
-                    />
-
-                    <Main>
-
+                <WrappedRequest url={data.instructor_url}>
+                  {({data}) => {
+                    const instructor = data
+                    return (
                       <Switch>
 
                         <Route 
                           exact
                           path='/'
                           render={() => (
-                            <Instructor instructor={instructor} />
-                          )}
-                        />
-
-                        <Route 
-                          path='/lessons/new'
-                          render={() => (
-                            <New instructor={instructor} />
+                            <Dashboard instructor={instructor} />
                           )}
                         />
 
@@ -149,11 +136,7 @@ const App = () => {
                         <Route
                           path='/instructors'
                           render={() => (
-                            <WrappedRequest url='/api/v1/instructors'>
-                              {({data}) => (
-                                <Instructors instructors={data} />
-                              )}
-                            </WrappedRequest>
+                            <Instructors instructors={data} />
                           )}
                         />
 
@@ -161,12 +144,12 @@ const App = () => {
 
                       </Switch>
 
-                    </Main>
+                    )
+                  }}
+                </WrappedRequest>
+              </Main>
 
-                  </div>
-                )
-              }}
-            </WrappedRequest>
+            </div>
           </BrowserRouter>
         )
       }}

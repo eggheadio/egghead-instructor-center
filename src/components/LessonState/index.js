@@ -1,4 +1,5 @@
 import React from 'react'
+import {Paragraph} from 'egghead-ui'
 import {detailsByLessonState} from 'utils/lessonStates'
 
 export default ({lesson}) => {
@@ -11,9 +12,9 @@ export default ({lesson}) => {
       `}>
         {lesson.state}
       </div>
-      <div className="white-50">
+      <Paragraph>
         {detailsByLessonState[lesson.state].description}
-      </div>
+      </Paragraph>
     </div>
   )
 }

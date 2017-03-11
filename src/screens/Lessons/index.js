@@ -1,13 +1,8 @@
 import React from 'react'
-import {lessonsTitleText} from 'utils/text'
-import Screen from 'components/Screen'
-import LessonListsByStates from 'components/LessonListsByStates'
+import LessonsWidget from './components/LessonsWidget'
 
 export default () => (
-  <Screen
-    title={lessonsTitleText}
-    main={
-      <LessonListsByStates />
-    }
-  />
+  <div>
+    <LessonsWidget />
+  </div>
 )

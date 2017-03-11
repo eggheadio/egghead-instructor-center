@@ -24,7 +24,7 @@ export default ({instructor, lesson}) => {
         </Link>
 
         <div
-          className='mt4 white-80'
+          className='mt4'
           style={{
             wordBreak: 'break-word',
           }}

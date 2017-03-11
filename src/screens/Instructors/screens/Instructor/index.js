@@ -1,46 +1,18 @@
 import React from 'react'
-import {Heading} from 'egghead-ui'
-import WrappedRequest from 'components/WrappedRequest'
-import {overviewTitleText, lessonsTitleText} from 'utils/text'
-import Screen from 'components/Screen'
-import LessonListsByStates from 'components/LessonListsByStates'
-import Hello from './components/Hello'
-import NextMilestone from './components/NextMilestone'
-import Stats from './components/Stats'
-import Help from './components/Help'
+import LayoutColumns from 'components/LayoutColumns'
+import InstructorStatsWidget from 'components/InstructorStatsWidget'
+import InstructorLessonsWidget from 'components/InstructorLessonsWidget'
+import InstructorInfoWidget from './components/InstructorInfoWidget'
 
 export default ({instructor}) => (
-  <Screen
-    intro={
-      <Hello instructor={instructor} />
-    }
-    title={overviewTitleText}
-    main={
-      <div>
-        <NextMilestone instructor={instructor} />
-        <Heading level='2'>
-          {lessonsTitleText}
-        </Heading>
-        <LessonListsByStates instructor={instructor} />
-      </div>
-    }
-    aside={
-      <div>
-        {instructor.revenue_url
-          ? <div className='mb4'>
-              <WrappedRequest url={instructor.revenue_url}>
-                {({data}) => (
-                  <Stats 
-                    instructor={instructor}
-                    revenue={data}
-                  />
-                )}
-              </WrappedRequest>
-            </div>
-          : null
-        }
-        <Help />
-      </div>
-    }
-  />
+  <div>
+    <LayoutColumns items={[
+      <InstructorInfoWidget instructor={instructor} />,
+      <InstructorStatsWidget
+        publishedLessons={instructor.published_lessons}
+        publishedCourses={instructor.published_courses}
+      />,
+    ]} />
+    <InstructorLessonsWidget instructor={instructor} />
+  </div>
 )
