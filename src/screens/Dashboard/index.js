@@ -7,12 +7,12 @@ import {newLessonsInfoUrl} from 'utils/urls'
 import LayoutColumns from 'components/LayoutColumns'
 import InstructorStatsWidget from 'components/InstructorStatsWidget'
 import InstructorLessonsWidget from 'components/InstructorLessonsWidget'
+import RequestedWidget from 'components/RequestedWidget'
+import ProposeWidget from 'components/ProposeWidget'
 import GetPublishedWidget from './components/GetPublishedWidget'
 import HelpWidget from './components/HelpWidget'
 import InstructorRevenueWidget from './components/InstructorRevenueWidget'
 import InstructionsWidget from './components/InstructionsWidget'
-import RequestedWidget from './components/RequestedWidget'
-import ProposeWidget from './components/ProposeWidget'
 
 export default ({instructor}) => (
   <div>
@@ -25,7 +25,7 @@ export default ({instructor}) => (
         publishedLessons={instructor.published_lessons}
         publishedCourses={instructor.published_courses}
       />,
-      <InstructorRevenueWidget revenueUrl={instructor.revenueUrl} />,
+      <InstructorRevenueWidget revenueUrl={instructor.revenue_url} />,
     ]} />
     <InstructorLessonsWidget instructor={instructor} />
     <InstructionsWidget

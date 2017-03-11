@@ -20,6 +20,7 @@ import InstructorsOnly from './components/InstructorsOnly'
 import RouteNotFound from './components/RouteNotFound'
 import Navigation from './components/Navigation'
 import Dashboard from './screens/Dashboard'
+import New from './screens/Lessons/screens/New'
 import Lesson from './screens/Lessons/screens/Lesson'
 import Lessons from './screens/Lessons'
 import Instructor from './screens/Instructors/screens/Instructor'
@@ -98,6 +99,14 @@ const App = () => {
                           path='/'
                           render={() => (
                             <Dashboard instructor={instructor} />
+                          )}
+                        />
+
+                        <Route 
+                          exact
+                          path='/lessons/new'
+                          render={() => (
+                            <New instructor={instructor} />
                           )}
                         />
 
