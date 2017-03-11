@@ -25,7 +25,7 @@ export default ({instructor}) => (
         publishedLessons={instructor.published_lessons}
         publishedCourses={instructor.published_courses}
       />,
-      <InstructorRevenueWidget revenueUrl={instructor.revenueUrl} />,
+      <InstructorRevenueWidget revenueUrl={instructor.revenue_url} />,
     ]} />
     <InstructorLessonsWidget instructor={instructor} />
     <InstructionsWidget
