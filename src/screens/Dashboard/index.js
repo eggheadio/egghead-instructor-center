@@ -5,30 +5,30 @@ import {
 } from 'utils/text'
 import {newLessonsInfoUrl} from 'utils/urls'
 import LayoutColumns from 'components/LayoutColumns'
-import InstructorStatsWidget from 'components/InstructorStatsWidget'
-import InstructorLessonsWidget from 'components/InstructorLessonsWidget'
-import RequestedWidget from 'components/RequestedWidget'
-import ProposeWidget from 'components/ProposeWidget'
-import GetPublishedWidget from './components/GetPublishedWidget'
-import HelpWidget from './components/HelpWidget'
-import InstructorRevenueWidget from './components/InstructorRevenueWidget'
-import InstructionsWidget from './components/InstructionsWidget'
+import InstructorStatsCard from 'components/InstructorStatsCard'
+import InstructorLessonsCard from 'components/InstructorLessonsCard'
+import RequestedCard from 'components/RequestedCard'
+import ProposeCard from 'components/ProposeCard'
+import GetPublishedCard from './components/GetPublishedCard'
+import HelpCard from './components/HelpCard'
+import InstructorRevenueCard from './components/InstructorRevenueCard'
+import InstructionsCard from './components/InstructionsCard'
 
 export default ({instructor}) => (
   <div>
     <LayoutColumns items={[
-      <GetPublishedWidget instructor={instructor} />,
-      <HelpWidget publishedLessons={instructor.published_lessons} />,
+      <GetPublishedCard instructor={instructor} />,
+      <HelpCard publishedLessons={instructor.published_lessons} />,
     ]} />
     <LayoutColumns items={[
-      <InstructorStatsWidget
+      <InstructorStatsCard
         publishedLessons={instructor.published_lessons}
         publishedCourses={instructor.published_courses}
       />,
-      <InstructorRevenueWidget revenueUrl={instructor.revenue_url} />,
+      <InstructorRevenueCard revenueUrl={instructor.revenue_url} />,
     ]} />
-    <InstructorLessonsWidget instructor={instructor} />
-    <InstructionsWidget
+    <InstructorLessonsCard instructor={instructor} />
+    <InstructionsCard
       condition={instructor.published_lessons === 0 && instructor.pending_lessons === 0}
       instructor={instructor}
       description={newLessonsInstructionsDescriptionText}
@@ -36,8 +36,8 @@ export default ({instructor}) => (
       action={newLessonsInfoUrl}
     />
     <LayoutColumns items={[
-      <RequestedWidget instructor={instructor} />,
-      <ProposeWidget instructor={instructor} />,
+      <RequestedCard instructor={instructor} />,
+      <ProposeCard instructor={instructor} />,
     ]} />
   </div>
 )

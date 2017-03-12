@@ -41,7 +41,7 @@ SomeComponentName/
 
 ## Screens
 
-Some components are also **screens**. A screen is just a component that additionally corresponds with a route; it is generally a collection of `Widget`s. They look like this:
+Some components are also **screens**. A screen is just a component that additionally corresponds with a route; it is generally a collection of `Card`s. They look like this:
 
 ```
 SomeScreenName/

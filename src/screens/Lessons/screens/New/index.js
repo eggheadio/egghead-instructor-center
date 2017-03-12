@@ -1,13 +1,13 @@
 import React from 'react'
 import LayoutColumns from 'components/LayoutColumns'
-import RequestedWidget from 'components/RequestedWidget'
-import ProposeWidget from 'components/ProposeWidget'
+import RequestedCard from 'components/RequestedCard'
+import ProposeCard from 'components/ProposeCard'
 
 export default ({instructor}) => (
   <div>
     <LayoutColumns items={[
-      <RequestedWidget instructor={instructor} />,
-      <ProposeWidget instructor={instructor} />,
+      <RequestedCard instructor={instructor} />,
+      <ProposeCard instructor={instructor} />,
     ]} />
   </div>
 )
