@@ -1,18 +1,18 @@
 import React from 'react'
 import LayoutColumns from 'components/LayoutColumns'
-import InstructorStatsWidget from 'components/InstructorStatsWidget'
-import InstructorLessonsWidget from 'components/InstructorLessonsWidget'
-import InstructorInfoWidget from './components/InstructorInfoWidget'
+import InstructorStatsCard from 'components/InstructorStatsCard'
+import InstructorLessonsCard from 'components/InstructorLessonsCard'
+import InstructorInfoCard from './components/InstructorInfoCard'
 
 export default ({instructor}) => (
   <div>
     <LayoutColumns items={[
-      <InstructorInfoWidget instructor={instructor} />,
-      <InstructorStatsWidget
+      <InstructorInfoCard instructor={instructor} />,
+      <InstructorStatsCard
         publishedLessons={instructor.published_lessons}
         publishedCourses={instructor.published_courses}
       />,
     ]} />
-    <InstructorLessonsWidget instructor={instructor} />
+    <InstructorLessonsCard instructor={instructor} />
   </div>
 )

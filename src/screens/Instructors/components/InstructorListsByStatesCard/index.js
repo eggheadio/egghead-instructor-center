@@ -3,14 +3,14 @@ import {filter, reject} from 'lodash'
 import {instructorsTitleText, unpublishedTitleText, publishedTitleText} from 'utils/text'
 import sortBy from 'sort-by'
 import WrappedRequest from 'components/WrappedRequest'
-import Widget from 'components/Widget'
+import Card from 'components/Card'
 import Tabs from 'components/Tabs'
 import InstructorList from './components/InstructorList'
 
 export default ({instructors}) => (
   <WrappedRequest url='/api/v1/instructors'>
     {({data}) => (
-      <Widget title={instructorsTitleText}>
+      <Card title={instructorsTitleText}>
         <Tabs groups={[
           {
             title: unpublishedTitleText,
@@ -31,7 +31,7 @@ export default ({instructors}) => (
             ),
           },
         ]} />
-      </Widget>
+      </Card>
     )}
   </WrappedRequest>
 )

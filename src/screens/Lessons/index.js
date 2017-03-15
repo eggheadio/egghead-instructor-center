@@ -1,8 +1,8 @@
 import React from 'react'
-import LessonsWidget from './components/LessonsWidget'
+import LessonsCard from './components/LessonsCard'
 
 export default () => (
   <div>
-    <LessonsWidget />
+    <LessonsCard />
   </div>
 )

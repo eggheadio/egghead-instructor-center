@@ -1,6 +1,6 @@
 import React from 'react'
 import {map, compact} from 'lodash'
-import Widget from 'components/Widget'
+import Card from 'components/Card'
 import List from 'components/List'
 import Avatar from 'components/Avatar'
 import InfoBit from './components/InfoBit'
@@ -45,8 +45,8 @@ export default ({instructor}) => {
   ])
 
   return (
-    <Widget title={instructor.full_name}>
+    <Card title={instructor.full_name}>
       <List items={map(items, (item, index) => item)} />
-    </Widget>
+    </Card>
   )
 }

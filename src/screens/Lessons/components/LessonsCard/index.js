@@ -1,10 +1,10 @@
 import React from 'react'
 import {lessonsTitleText} from 'utils/text'
-import Widget from 'components/Widget'
+import Card from 'components/Card'
 import LessonListsByStates from 'components/LessonListsByStates'
 
 export default () => (
-  <Widget title={lessonsTitleText}>
+  <Card title={lessonsTitleText}>
     <LessonListsByStates />
-  </Widget>
+  </Card>
 )

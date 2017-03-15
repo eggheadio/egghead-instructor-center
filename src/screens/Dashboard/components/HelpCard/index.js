@@ -12,7 +12,7 @@ import {
   instructorsChatActionText,
 } from 'utils/text'
 import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
-import Widget from 'components/Widget'
+import Card from 'components/Card'
 import List from 'components/List'
 import Anchor from 'components/Anchor'
 
@@ -35,7 +35,7 @@ const items=[
 ]
 
 export default ({publishedLessons}) => publishedLessons === 0
-  ? <Widget
+  ? <Card
       title={helpTitleText}
       description={helpDescriptionText}
     >
@@ -51,5 +51,5 @@ export default ({publishedLessons}) => publishedLessons === 0
           </Anchor>
         </div>
       ))} />
-    </Widget>
+    </Card>
   : null

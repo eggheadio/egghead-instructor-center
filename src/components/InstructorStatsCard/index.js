@@ -1,7 +1,7 @@
 import React from 'react'
 import {map} from 'lodash'
 import {statsTitleText} from 'utils/text'
-import Widget from 'components/Widget'
+import Card from 'components/Card'
 import List from 'components/List'
 import IconLabel from 'components/IconLabel'
 
@@ -23,13 +23,13 @@ export default ({publishedLessons, publishedCourses}) => {
   ]
 
   return (
-    <Widget title={statsTitleText}>
+    <Card title={statsTitleText}>
       <List items={map(items, (item, index) => (
         <IconLabel
           iconType={item.type}
           labelText={item.text}
         />
       ))} />
-    </Widget>
+    </Card>
   )
 }

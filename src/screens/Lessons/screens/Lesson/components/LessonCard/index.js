@@ -9,7 +9,7 @@ import {
   technologyTitleText,
   summaryTitleText,
 } from 'utils/text'
-import Widget from 'components/Widget'
+import Card from 'components/Card'
 import List from 'components/List'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
@@ -79,7 +79,7 @@ export default ({instructor, lesson}) => {
   ]
 
   return (
-    <Widget title={lesson.title}>
+    <Card title={lesson.title}>
       <List items={map(items, (item, index) => (
         <div>
           <Heading level='5'>
@@ -90,6 +90,6 @@ export default ({instructor, lesson}) => {
           </div>
         </div>
       ))} />
-    </Widget>
+    </Card>
   )
 }

@@ -6,7 +6,7 @@ import {
 } from 'utils/text'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import createLessonsUrl from 'utils/createLessonsUrl'
-import Widget from 'components/Widget'
+import Card from 'components/Card'
 import WrappedRequest from 'components/WrappedRequest'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
@@ -18,7 +18,7 @@ export default ({instructor}) => instructor.published_lessons === 0
       {({data}) => {
         const instructorLessonStates = compact(uniq(map(data, 'state')))
         return (
-          <Widget
+          <Card
             title={getPublishedTitleText}
             description={getPublishedDescriptionText}
           >
@@ -62,7 +62,7 @@ export default ({instructor}) => instructor.published_lessons === 0
                 description: 'Publish lesson',
               },
             ]} />
-          </Widget>
+          </Card>
         )
       }}
     </WrappedRequest>

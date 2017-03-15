@@ -9,7 +9,7 @@ import {
   lessonTechnologyLabelText,
   lessonSummaryLabelText,
 } from 'utils/text'
-import Widget from 'components/Widget'
+import Card from 'components/Card'
 import WrappedRequest from 'components/WrappedRequest'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--light-gray w-100'
@@ -24,10 +24,6 @@ const clearedState = {
 export default class Propose extends Component {
 
   state = clearedState
-
-  handleClearInput = () => {
-    this.setState(clearedState)
-  }
 
   handleMissingInput = () => {
     this.setState({hasMissingInput: true})
@@ -51,6 +47,12 @@ export default class Propose extends Component {
     })
   }
 
+  handleResponse = (response) => {
+    if(!response) {
+      this.setState(clearedState)
+    }
+  }
+
   render() {
     const {
       title,
@@ -61,7 +63,7 @@ export default class Propose extends Component {
     const {instructor} = this.props
 
     return (
-      <Widget
+      <Card
         title={proposeActionText}
         description={newLessonSubmissionDescriptionText}
       >
@@ -138,6 +140,7 @@ export default class Propose extends Component {
                 instructor_id: instructor.id,
               }
             }}
+            onResponse={this.handleResponse}
           >
             {({request}) => (
               <Button
@@ -146,7 +149,6 @@ export default class Propose extends Component {
                 onClick={() => {
                   if(every([title, technologyId], (input) => size(input) > 0)) {
                     request()
-                    this.handleClearInput()
                   }
                   else {
                     this.handleMissingInput()
@@ -159,7 +161,7 @@ export default class Propose extends Component {
           </WrappedRequest>
 
         </div>
-      </Widget>
+      </Card>
     )
   }
 }
