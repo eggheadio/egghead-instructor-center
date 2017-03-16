@@ -20,7 +20,7 @@ export default ({lesson}) => {
 
   const items = compact([
     {
-      title: videoTitleText,
+      title: lesson.title,
       children: (
         <WistiaVideo 
           title={lesson.title}
@@ -79,7 +79,7 @@ export default ({lesson}) => {
   ])
 
   return (
-    <Card title={lesson.title}>
+    <Card>
       <List items={map(items, (item, index) => (
         <div>
           <Heading level='5'>
