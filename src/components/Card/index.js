@@ -3,9 +3,12 @@ import {Heading, Paragraph} from 'egghead-ui'
 
 export default ({children, title, description}) => (
   <section className='mb4'>
-    <Heading level='4'>
-      {title}
-    </Heading>
+    {title
+      ? <Heading level='4'>
+          {title}
+        </Heading>
+      : null
+    }
     {description
       ? <Paragraph type='small'>
           {description}
