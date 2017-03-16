@@ -13,7 +13,7 @@ export default class LessonList extends Component {
   }
 
   static defaultProps = {
-    pageSize: 15,
+    pageSize: 10,
   }
 
   state = {
@@ -38,6 +38,7 @@ export default class LessonList extends Component {
             ? instructor.lessons_url
             : false,
         })}
+        subscribe
       >
         {({request, data, response}) => (
           <PaginatedLessonList
@@ -50,6 +51,7 @@ export default class LessonList extends Component {
               this.handleCurrentPage(nextPage)
               request()
             }}
+            requestCurrentPage={request}
           />
         )}
       </WrappedRequest>

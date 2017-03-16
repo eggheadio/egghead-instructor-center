@@ -13,7 +13,10 @@ import removeRevenueMonth from './utils/removeRevenueMonth'
 import RevenuePeriod from './components/RevenuePeriod'
 
 export default ({revenueUrl}) => revenueUrl
-  ? <WrappedRequest url={revenueUrl}>
+  ? <WrappedRequest
+      url={revenueUrl}
+      subscribe
+    >
       {({data}) => {
         const currentMonthRevenue = find(data, ['month', currentMonthStartDate()])
         const currentTotalRevenue = totalRevenue(removeRevenueMonth(data, currentMonthStartDate()))

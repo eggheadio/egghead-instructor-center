@@ -4,7 +4,7 @@ import {Button} from 'egghead-ui'
 import {lessonStateVerbToPastTense, detailsByLessonState} from 'utils/lessonStates'
 import WrappedRequest from 'components/WrappedRequest'
 
-export default ({lesson}) => (
+export default ({lesson, onLessonStateChange}) => (
   <div className='flex flex-wrap'>
     {map(keys(lessonStateVerbToPastTense), (stateVerb, index) => {
       const stateVerbUrl = lesson[`${stateVerb}_url`]
@@ -14,6 +14,7 @@ export default ({lesson}) => (
             lazy
             method='post'
             url={stateVerbUrl}
+            onResponse={onLessonStateChange}
           >
             {({request}) => (
               <div className='pa1'>

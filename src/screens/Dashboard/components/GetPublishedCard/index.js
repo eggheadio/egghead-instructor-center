@@ -12,9 +12,12 @@ import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
 
 export default ({instructor}) => instructor.published_lessons === 0
-  ? <WrappedRequest url={createLessonsUrl({
-      lessons_url: instructor.lessons_url
-    })}>
+  ? <WrappedRequest
+      url={createLessonsUrl({
+        lessons_url: instructor.lessons_url
+      })}
+      subscribe
+    >
       {({data}) => {
         const instructorLessonStates = compact(uniq(map(data, 'state')))
         return (
