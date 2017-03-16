@@ -38,6 +38,7 @@ export default class LessonList extends Component {
             ? instructor.lessons_url
             : false,
         })}
+        subscribe
       >
         {({request, data, response}) => (
           <PaginatedLessonList

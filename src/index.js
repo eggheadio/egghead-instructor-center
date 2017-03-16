@@ -113,7 +113,10 @@ const App = () => {
                         <Route 
                           path={`/lessons/:slug`}
                           render={({match}) => (
-                            <WrappedRequest url={`/api/v1/lessons/${match.params.slug}`}>
+                            <WrappedRequest
+                              url={`/api/v1/lessons/${match.params.slug}`}
+                              subscribe
+                            >
                               {({data}) => (
                                 <Lesson 
                                   instructor={instructor}
