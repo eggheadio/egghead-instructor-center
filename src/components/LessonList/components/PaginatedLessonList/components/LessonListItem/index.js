@@ -26,7 +26,7 @@ export default ({lesson}) => {
 
         {stateIsRequested ? null :
           <Link to={`/instructors/${instructor.slug}`} className="no-underline">
-            <div className='mb43 flex items-center pt1'>
+            <div className='flex items-center pt1'>
               <img src={instructor.avatar_url} alt={instructor.full_name} className='w2 h2 br-pill mr3'/>
               <span className='f6 o-50 dark-gray ttc'>{instructor.full_name}</span>
             </div>
