@@ -26,9 +26,9 @@ const PaginatedLessonList = ({
   return total > 0
     ? <div>
 
-        <List items={map(sortLessonsByState(lessons), (lesson, index) => (
+        <List items={map(sortLessonsByState(lessons), (lesson) => (
           <LessonListItem 
-            key={index}
+            key={lesson.slug}
             lesson={lesson}
           />
         ))} />

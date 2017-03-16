@@ -1,5 +1,5 @@
 import React from 'react'
-import {map} from 'lodash'
+import {map, compact} from 'lodash'
 import {Markdown, Heading} from 'egghead-ui'
 import {
   videoTitleText,
@@ -16,9 +16,9 @@ import LessonActions from 'components/LessonActions'
 import Avatar from 'components/Avatar'
 import WistiaVideo from './components/WistiaVideo'
 
-export default ({instructor, lesson}) => {
+export default ({lesson}) => {
 
-  const items = [
+  const items = compact([
     {
       title: videoTitleText,
       children: (
@@ -40,7 +40,7 @@ export default ({instructor, lesson}) => {
         <LessonActions lesson={lesson} />
       ),
     },
-    {
+    lesson.state === 'requested' ? {
       title: instructorTitleText,
       children: (
         <div className='flex items-center'>
@@ -54,7 +54,7 @@ export default ({instructor, lesson}) => {
           {lesson.instructor.full_name}
         </div>
       ),
-    },
+    } : null,
     {
       title: technologyTitleText,
       children: (
@@ -76,7 +76,7 @@ export default ({instructor, lesson}) => {
         </Markdown>
       ),
     },
-  ]
+  ])
 
   return (
     <Card title={lesson.title}>

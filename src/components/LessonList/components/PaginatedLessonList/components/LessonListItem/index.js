@@ -4,8 +4,9 @@ import {Heading, Markdown} from 'egghead-ui'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
 
-export default ({instructor, lesson}) => {
-
+export default ({lesson}) => {
+  const {instructor} = lesson
+  const stateIsRequested = lesson.state === 'requested'
   return (
     <div className='flex items-start'>
 
@@ -23,8 +24,17 @@ export default ({instructor, lesson}) => {
           </Heading>
         </Link>
 
+        {stateIsRequested ? null :
+          <Link to={`/instructors/${instructor.slug}`} className="no-underline">
+            <div className='flex items-center pt1'>
+              <img src={instructor.avatar_url} alt={instructor.full_name} className='w2 h2 br-pill mr3'/>
+              <span className='f6 o-50 dark-gray ttc'>{instructor.full_name}</span>
+            </div>
+          </Link>
+        }
+
         <div
-          className='mt4'
+          className='mt2'
           style={{
             wordBreak: 'break-word',
           }}
