@@ -2,7 +2,6 @@ import React from 'react'
 import {map, compact} from 'lodash'
 import {Markdown, Heading} from 'egghead-ui'
 import {
-  videoTitleText,
   lessonStateTitleText,
   lessonActionsTitleText,
   instructorTitleText,
