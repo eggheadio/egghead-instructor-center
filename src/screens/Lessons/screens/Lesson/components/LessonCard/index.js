@@ -21,10 +21,7 @@ export default ({lesson}) => {
     {
       title: lesson.title,
       children: (
-        <WistiaVideo 
-          title={lesson.title}
-          wistiaId={lesson.wistia_id}
-        />
+        <WistiaVideo wistiaId={lesson.wistia_id} />
       ),
     },
     {
