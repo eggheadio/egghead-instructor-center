@@ -4,7 +4,7 @@ import {Heading, Markdown} from 'egghead-ui'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
 
-export default ({lesson}) => {
+export default ({lesson, requestCurrentPage}) => {
   const {instructor} = lesson
   const stateIsRequested = lesson.state === 'requested'
   return (
@@ -50,7 +50,10 @@ export default ({lesson}) => {
         <LessonState lesson={lesson}/>
 
         <div className="mt3">
-          <LessonActions lesson={lesson} />
+          <LessonActions 
+            lesson={lesson} 
+            requestCurrentPage={requestCurrentPage}
+          />
         </div>
 
       </div>

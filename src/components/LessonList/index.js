@@ -51,6 +51,7 @@ export default class LessonList extends Component {
               this.handleCurrentPage(nextPage)
               request()
             }}
+            requestCurrentPage={request}
           />
         )}
       </WrappedRequest>

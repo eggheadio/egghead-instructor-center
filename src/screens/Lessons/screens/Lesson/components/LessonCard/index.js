@@ -15,7 +15,7 @@ import LessonActions from 'components/LessonActions'
 import Avatar from 'components/Avatar'
 import WistiaVideo from './components/WistiaVideo'
 
-export default ({lesson}) => {
+export default ({lesson, requestLesson}) => {
 
   const items = compact([
     {
@@ -33,7 +33,10 @@ export default ({lesson}) => {
     {
       title: lessonActionsTitleText,
       children: (
-        <LessonActions lesson={lesson} />
+        <LessonActions 
+          lesson={lesson} 
+          requestLesson={requestLesson}
+        />
       ),
     },
     lesson.state === 'requested' ? {

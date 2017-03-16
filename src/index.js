@@ -117,10 +117,11 @@ const App = () => {
                               url={`/api/v1/lessons/${match.params.slug}`}
                               subscribe
                             >
-                              {({data}) => (
+                              {({request, data}) => (
                                 <Lesson 
                                   instructor={instructor}
                                   lesson={data} 
+                                  requestLesson={request}
                                 />
                               )}
                             </WrappedRequest>

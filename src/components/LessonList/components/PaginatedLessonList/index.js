@@ -13,6 +13,7 @@ const PaginatedLessonList = ({
   total,
   lessons,
   requestNextPage,
+  requestCurrentPage,
 }) => {
 
   const pageNum = Math.ceil(total / pageSize)
@@ -30,6 +31,7 @@ const PaginatedLessonList = ({
           <LessonListItem 
             key={lesson.slug}
             lesson={lesson}
+            requestCurrentPage={requestCurrentPage}
           />
         ))} />
 
