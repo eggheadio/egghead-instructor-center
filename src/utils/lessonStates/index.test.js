@@ -1,13 +1,22 @@
-import {inProgressLessonStates, inQueueLessonStates, publishedLessonStates} from '.'
+import {
+  inProgressLessonStates, 
+  inReviewLessonStates,
+  inQueueLessonStates, 
+  finishedLessonStates,
+} from '.'
 
 test('in progress', () => (
   expect(inProgressLessonStates).toEqual([
-    'proposed',
     'accepted',
-    'requested',
     'claimed',
-    'submitted',
     'rejected',
+  ])
+))
+
+test('in review', () => (
+  expect(inReviewLessonStates).toEqual([
+    'proposed',
+    'submitted',
     'updated',
   ])
 ))
@@ -18,11 +27,10 @@ test('in queue', () => (
   ])
 ))
 
-test('published', () => (
-  expect(publishedLessonStates).toEqual([
+test('finished', () => (
+  expect(finishedLessonStates).toEqual([
     'published',
     'flagged',
     'revised',
-    'retired',
   ])
 ))

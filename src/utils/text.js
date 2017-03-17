@@ -38,9 +38,12 @@ export const videoTitleText = 'Video'
 
 export const noVideoDescriptionText = 'No video'
 
+export const availableTitleText = 'Available'
 export const inProgressTitleText = 'In progress'
-
+export const inReviewTitleText = 'In review'
 export const inQueueTitleText = 'In queue'
+export const finishedTitleText = 'Finished'
+export const unusedTitleText = 'Unused'
 
 export const unpublishedTitleText = 'Unpublished'
 
@@ -50,9 +53,11 @@ export const noInProgressLessonsDescriptionText = `No lessons in progress.`
 
 export const noInQueueLessonsDescriptionText = `No lessons in publishing queue.`
 
-export const noInstructorsDescriptionText = 'No instructors to show'
+export const noInReviewLessonsDescriptionText = `No lessons in review.`
 
-export const noPublishedLessonsDescriptionText = `No published lessons.`
+export const noInstructorsDescriptionText = 'No instructors to show.'
+
+export const noFinishedLessonsDescriptionText = `No finished lessons.`
 
 export const revenueTitleText = 'Revenue'
 
@@ -139,6 +144,8 @@ export const instructorPulseTitleText = 'Instructor Pulse'
 export const newRequestedLessonsTitleText = 'New Requested Lessons'
 
 export const logOutTitleText = 'Log out'
+
+export const rejectedStateTitleText = 'Changes Needed'
 
 export const proposedStateDescriptionText = `This lesson is proposed. Waiting for approval.`
 export const cancelledStateDescriptionText = `This lesson has been cancelled.`
