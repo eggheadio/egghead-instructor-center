@@ -42,18 +42,16 @@ export const inProgressDescriptionText = 'These lessons are being worked on.'
 export const inReviewDescriptionText = 'These lessons are waiting for review to proceed.'
 export const selfReviewDescriptionText = 'Since you have 12+ lessons published, you can review your own lessons.'
 export const inQueueDescriptionText = 'These lessons are in the publishing queue. The queue automatically publishes them from top to bottom - unless they are a part of a course then they wait until the entire course is published.'
-export const finishedDescriptionText = 'These lessons are available publicly for students to view on egghead.io.'
+export const publishedDescriptionText = 'These lessons are available publicly for students to view on egghead.io.'
 
 export const availableTitleText = 'Available'
 export const inProgressTitleText = 'In progress'
 export const inReviewTitleText = 'In review'
 export const inQueueTitleText = 'In queue'
-export const finishedTitleText = 'Finished'
+export const publishedTitleText = 'Published'
 export const unusedTitleText = 'Unused'
 
 export const unpublishedTitleText = 'Unpublished'
-
-export const publishedTitleText = 'Published'
 
 export const noInProgressLessonsDescriptionText = `No lessons in progress.`
 
@@ -63,7 +61,7 @@ export const noInReviewLessonsDescriptionText = `No lessons in review.`
 
 export const noInstructorsDescriptionText = 'No instructors to show.'
 
-export const noFinishedLessonsDescriptionText = `No finished lessons.`
+export const noPublishedLessonsDescriptionText = `No published lessons.`
 
 export const revenueTitleText = 'Revenue'
 

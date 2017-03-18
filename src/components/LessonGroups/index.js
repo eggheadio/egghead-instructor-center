@@ -5,16 +5,16 @@ import {
   inProgressTitleText,
   inReviewTitleText,
   inQueueTitleText,
-  finishedTitleText,
+  publishedTitleText,
   inProgressDescriptionText,
   inReviewDescriptionText,
   selfReviewDescriptionText,
   inQueueDescriptionText,
-  finishedDescriptionText,
+  publishedDescriptionText,
   noInProgressLessonsDescriptionText,
   noInReviewLessonsDescriptionText,
   noInQueueLessonsDescriptionText,
-  noFinishedLessonsDescriptionText,
+  noPublishedLessonsDescriptionText,
 } from 'utils/text'
 import {hasUnlockedSelfReview} from 'utils/milestones'
 import LessonList from 'components/LessonList'
@@ -56,14 +56,14 @@ export default ({instructor}) => {
       fallbackDescription: noInQueueLessonsDescriptionText,
     },
     {
-      title: finishedTitleText,
-      description: finishedDescriptionText,
+      title: publishedTitleText,
+      description: publishedDescriptionText,
       states: [
         'published',
         'flagged',
         'revised',
       ],
-      fallbackDescription: noFinishedLessonsDescriptionText,
+      fallbackDescription: noPublishedLessonsDescriptionText,
     },
   ]
 
