@@ -5,14 +5,16 @@ import {
   getPublishedDescriptionText,
 } from 'utils/text'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
+import {hasUnlockedPublished} from 'utils/milestones'
 import createLessonsUrl from 'utils/createLessonsUrl'
 import Card from 'components/Card'
 import WrappedRequest from 'components/WrappedRequest'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
 
-export default ({instructor}) => instructor.published_lessons === 0
-  ? <WrappedRequest
+export default ({instructor}) => hasUnlockedPublished(instructor.published_lessons)
+  ? null
+  : <WrappedRequest
       url={createLessonsUrl({
         lessons_url: instructor.lessons_url
       })}
@@ -69,4 +71,3 @@ export default ({instructor}) => instructor.published_lessons === 0
         )
       }}
     </WrappedRequest>
-  : null

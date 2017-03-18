@@ -1,5 +1,6 @@
-import {slice, indexOf, without, keys} from 'lodash'
+import {keys} from 'lodash'
 import {
+  rejectedStateTitleText,
   proposedStateDescriptionText,
   cancelledStateDescriptionText,
   acceptedStateDescriptionText,
@@ -60,6 +61,7 @@ export const detailsByLessonState = {
   },
   rejected: {
     action: rejectActionText,
+    title: rejectedStateTitleText,
     description: rejectedStateDescriptionText,
     color: 'orange',
   },
@@ -96,19 +98,6 @@ export const detailsByLessonState = {
 }
 
 export const lessonStates = keys(detailsByLessonState)
-
-export const inProgressLessonStates = without(slice(
-  lessonStates,
-  indexOf(lessonStates, 'proposed'),
-  indexOf(lessonStates, 'approved')
-), 'cancelled')
-
-export const inQueueLessonStates = ['approved']
-
-export const publishedLessonStates = slice(
-  lessonStates,
-  indexOf(lessonStates, 'published')
-)
 
 export const lessonStateVerbToPastTense = {
   propose: 'proposed',

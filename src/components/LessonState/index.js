@@ -10,7 +10,7 @@ export default ({lesson}) => {
         mb3 ttu tc pv2 ph3 br2 ba b--dashed dib
         ${statusColor} b--${statusColor}
       `}>
-        {lesson.state === 'rejected' ? 'Changes Requested' : lesson.state}
+        {detailsByLessonState[lesson.state].title || lesson.state}
       </div>
       <Paragraph>
         {detailsByLessonState[lesson.state].description}

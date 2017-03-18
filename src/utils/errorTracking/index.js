@@ -1,5 +1,5 @@
 import Honeybadger from 'honeybadger-js'
-import {honeybadgerKey} from './keys'
+import {honeybadgerKey} from 'utils/keys'
 
 export const initializeErrorTracking = (userId) => {
   

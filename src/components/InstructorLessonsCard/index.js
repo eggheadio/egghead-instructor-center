@@ -1,9 +1,9 @@
 import React from 'react'
 import Card from 'components/Card'
-import LessonListsByStates from 'components/LessonListsByStates'
+import LessonGroups from 'components/LessonGroups'
 
 export default ({instructor}) => (
   <Card title={`${instructor.first_name}'s lessons`}>
-    <LessonListsByStates instructor={instructor} />
+    <LessonGroups instructor={instructor} />
   </Card>
 )

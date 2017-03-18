@@ -6,7 +6,6 @@ import LessonActions from 'components/LessonActions'
 
 export default ({lesson, requestCurrentPage}) => {
   const {instructor} = lesson
-  const stateIsRequested = lesson.state === 'requested'
   return (
     <div className='flex items-start'>
 
@@ -24,13 +23,14 @@ export default ({lesson, requestCurrentPage}) => {
           </Heading>
         </Link>
 
-        {stateIsRequested ? null :
-          <Link to={`/instructors/${instructor.slug}`} className="no-underline">
-            <div className='flex items-center pt1'>
-              <img src={instructor.avatar_url} alt={instructor.full_name} className='w2 h2 br-pill mr3'/>
-              <span className='f6 o-50 dark-gray ttc'>{instructor.full_name}</span>
-            </div>
-          </Link>
+        {lesson.state === 'requested' 
+          ? null
+          : <Link to={`/instructors/${instructor.slug}`} className="no-underline">
+              <div className='flex items-center pt1'>
+                <img src={instructor.avatar_url} alt={instructor.full_name} className='w2 h2 br-pill mr3'/>
+                <span className='f6 o-50 dark-gray ttc'>{instructor.full_name}</span>
+              </div>
+            </Link>
         }
 
         <div

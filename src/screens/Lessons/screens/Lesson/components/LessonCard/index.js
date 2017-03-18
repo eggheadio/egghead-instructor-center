@@ -39,21 +39,23 @@ export default ({lesson, requestLesson}) => {
         />
       ),
     },
-    lesson.state === 'requested' ? {
-      title: instructorTitleText,
-      children: (
-        <div className='flex items-center'>
-          <div className='mr2'>
-            <Avatar
-              name={lesson.instructor.first_name}
-              url={lesson.instructor.avatar_url}
-              size={2}
-            />
-          </div>
-          {lesson.instructor.full_name}
-        </div>
-      ),
-    } : null,
+    lesson.state === 'requested' 
+      ? null
+      : {
+          title: instructorTitleText,
+          children: (
+            <div className='flex items-center'>
+              <div className='mr2'>
+                <Avatar
+                  name={lesson.instructor.first_name}
+                  url={lesson.instructor.avatar_url}
+                  size={2}
+                />
+              </div>
+              {lesson.instructor.full_name}
+            </div>
+          ),
+      },
     {
       title: technologyTitleText,
       children: (
