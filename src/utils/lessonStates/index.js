@@ -99,28 +99,6 @@ export const detailsByLessonState = {
 
 export const lessonStates = keys(detailsByLessonState)
 
-export const inProgressLessonStates = [
-  'accepted',
-  'claimed',
-  'rejected',
-]
-
-export const inReviewLessonStates = [
-  'proposed',
-  'submitted',
-  'updated',
-]
-
-export const inQueueLessonStates = [
-  'approved'
-]
-
-export const finishedLessonStates = [
-  'published',
-  'flagged',
-  'revised',
-]
-
 export const lessonStateVerbToPastTense = {
   propose: 'proposed',
   cancel: 'cancelled',

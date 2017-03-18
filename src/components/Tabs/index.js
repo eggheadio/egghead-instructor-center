@@ -32,12 +32,15 @@ export default class extends Component {
                 ttu
                 pointer
                 b
-                bl bl-0-ns bb-ns bw2 bw1-ns
+                bb
                 ${this.state.selected === index
                   ? 'b--orange orange'
                   : 'b--transparent gray'
                 }
               `}
+              style={{
+                borderWidth: 3,
+              }}
             >
               {group.title}
             </Tab>
