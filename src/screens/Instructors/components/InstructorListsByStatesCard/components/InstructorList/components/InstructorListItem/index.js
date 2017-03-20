@@ -1,24 +1,26 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Heading} from 'egghead-ui'
+import {
+  inProgressTitleText,
+  inReviewTitleText,
+  inQueueTitleText,
+  publishedTitleText,
+} from 'utils/text'
 import Avatar from 'components/Avatar'
-
-const LessonCount = ({label, count}) => (
-  <dl className="fl fn-l dib-l w-auto-l lh-title mr3-l">
-    <dd className="f6 fw4 ml0">{label}</dd>
-    <dd className="f3 fw6 ml0">{count}</dd>
-  </dl>
-)
+import LessonGroupsStat from './components/LessonGroupsStat'
 
 export default ({instructor}) => (
-  <div className='flex items-center'>
-    <div className='mr3'>
-      <Avatar
-        name={instructor.first_name}
-        url={instructor.avatar_url}
-      />
-    </div>
-    <div>
+  <div>
+
+    <div className='flex items-center'>
+
+      <div className='mr3'>
+        <Avatar
+          name={instructor.first_name}
+          url={instructor.avatar_url}
+        />
+      </div>
 
       <Link to={`/instructors/${instructor.slug}`}>
         <Heading level='3'>
@@ -26,40 +28,46 @@ export default ({instructor}) => (
         </Heading>
       </Link>
 
-      <section className="flex pa1">
-        <div className="cf">
-          {instructor.claimed_lessons 
-            ? <LessonCount
-                label='Claimed'
-                count={instructor.claimed_lessons}
-              /> 
-            : null
-          }
-          {instructor.submitted_lessons
-            ? <LessonCount
-                label='Submitted'
-                count={instructor.submitted_lessons}
-              /> 
-            : null
-          }
-          {instructor.approved_lessons
-            ? <LessonCount
-                label='Approved'
-                count={instructor.approved_lessons}
-              /> 
-            : null
-          }
-          {instructor.published_lessons
-            ? <LessonCount
-                label='Published'
-                count={instructor.published_lessons}
-              /> 
-            : null
-          }
-        </div>
-
-      </section>
     </div>
+
+    <section className="flex flex-wrap">
+      {instructor.claimed_lessons 
+        ? <div className='mt3 mr3'>
+            <LessonGroupsStat
+              label={inProgressTitleText}
+              count={instructor.claimed_lessons}
+            /> 
+          </div>
+        : null
+      }
+      {instructor.submitted_lessons
+        ? <div className='mt3 mr3'>
+            <LessonGroupsStat
+              label={inReviewTitleText}
+              count={instructor.submitted_lessons}
+            /> 
+          </div>
+        : null
+      }
+      {instructor.approved_lessons
+        ? <div className='mt3 mr3'>
+            <LessonGroupsStat
+              label={inQueueTitleText}
+              count={instructor.approved_lessons}
+            /> 
+          </div>
+        : null
+      }
+      {instructor.published_lessons
+        ? <div className='mt3'>
+            <LessonGroupsStat
+              label={publishedTitleText}
+              count={instructor.published_lessons}
+            /> 
+          </div>
+        : null
+      }
+    </section>
 
   </div>
 )

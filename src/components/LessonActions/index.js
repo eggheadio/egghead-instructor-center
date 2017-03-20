@@ -1,6 +1,6 @@
 import React from 'react'
-import LessonStateProgression from './components/LessonStateProgression'
 import LessonEdit from './components/LessonEdit'
+import LessonStateProgression from './components/LessonStateProgression'
 
 export default ({lesson, requestLesson, requestCurrentPage}) => (
   <div>
