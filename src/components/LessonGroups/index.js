@@ -1,16 +1,14 @@
 import React from 'react'
-import {map} from 'lodash'
+import {map, compact} from 'lodash'
 import {
   newLessonsActionText,
   inProgressTitleText,
   inReviewTitleText,
   inQueueTitleText,
   publishedTitleText,
-  inProgressDescriptionText,
   inReviewDescriptionText,
   selfReviewDescriptionText,
   inQueueDescriptionText,
-  publishedDescriptionText,
   noInProgressLessonsDescriptionText,
   noInReviewLessonsDescriptionText,
   noInQueueLessonsDescriptionText,
@@ -23,10 +21,9 @@ import Prompt from 'components/Prompt'
 
 export default ({instructor}) => {
 
-  const items = [
+  const items = compact([
     {
       title: inProgressTitleText,
-      description: inProgressDescriptionText,
       states: [
         'accepted',
         'claimed',
@@ -55,26 +52,30 @@ export default ({instructor}) => {
       ],
       fallbackDescription: noInQueueLessonsDescriptionText,
     },
-    {
-      title: publishedTitleText,
-      description: publishedDescriptionText,
-      states: [
-        'published',
-        'flagged',
-        'revised',
-      ],
-      fallbackDescription: noPublishedLessonsDescriptionText,
-    },
-  ]
+    instructor
+      ? null
+      : {
+          title: publishedTitleText,
+          states: [
+            'published',
+            'flagged',
+            'revised',
+          ],
+          fallbackDescription: noPublishedLessonsDescriptionText,
+        },
+  ])
 
   return (
     <Tabs groups={map(items, (item) => ({
       title: item.title,
       component: (
         <div>
-          <div className='pv3 ph4 bg-black-10 f6'>
-            {item.description}
-          </div>
+          {item.description
+            ? <div className='pv3 ph4 bg-black-10 f6'>
+                {item.description}
+              </div>
+            : null
+          }
           <LessonList
             states={item.states}
             fallback={
