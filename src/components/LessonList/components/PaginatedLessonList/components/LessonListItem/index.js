@@ -7,7 +7,12 @@ import LessonActions from 'components/LessonActions'
 export default ({lesson, requestCurrentPage}) => {
   const {instructor} = lesson
   return (
-    <div className='flex items-start'>
+    <div
+      className='flex items-start'
+      style={{
+        wordBreak: 'break-word',
+      }}
+    >
 
       <img
         src={lesson.technology.logo_http_url}

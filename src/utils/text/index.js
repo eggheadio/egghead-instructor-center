@@ -43,9 +43,9 @@ export const selfReviewDescriptionText = 'Since you have 12+ lessons published, 
 export const inQueueDescriptionText = 'These lessons are in the publishing queue. The queue automatically publishes them from top to bottom - unless they are a part of a course then they wait until the entire course is published.'
 
 export const availableTitleText = 'Available'
-export const inProgressTitleText = 'In progress'
-export const inReviewTitleText = 'In review'
-export const inQueueTitleText = 'In queue'
+export const inProgressTitleText = 'In Progress'
+export const inReviewTitleText = 'In Review'
+export const inQueueTitleText = 'In Queue'
 export const publishedTitleText = 'Published'
 export const unusedTitleText = 'Unused'
 
