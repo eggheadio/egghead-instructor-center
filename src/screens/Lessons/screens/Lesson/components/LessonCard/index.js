@@ -1,6 +1,6 @@
 import React from 'react'
 import {map, compact} from 'lodash'
-import {Markdown, Heading} from 'egghead-ui'
+import {Card, Markdown, Heading} from 'egghead-ui'
 import {
   lessonStateTitleText,
   lessonActionsTitleText,
@@ -8,7 +8,6 @@ import {
   technologyTitleText,
   summaryTitleText,
 } from 'utils/text'
-import Card from 'components/Card'
 import List from 'components/List'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'

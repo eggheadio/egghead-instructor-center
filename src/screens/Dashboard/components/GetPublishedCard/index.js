@@ -7,7 +7,7 @@ import {
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/milestones'
 import createLessonsUrl from 'utils/createLessonsUrl'
-import Card from 'components/Card'
+import TitleCard from 'components/TitleCard'
 import WrappedRequest from 'components/WrappedRequest'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
@@ -23,7 +23,7 @@ export default ({instructor}) => hasUnlockedPublished(instructor.published_lesso
       {({data}) => {
         const instructorLessonStates = compact(uniq(map(data, 'state')))
         return (
-          <Card
+          <TitleCard
             title={getPublishedTitleText}
             description={getPublishedDescriptionText}
           >
@@ -67,7 +67,7 @@ export default ({instructor}) => hasUnlockedPublished(instructor.published_lesso
                 description: 'Publish lesson',
               },
             ]} />
-          </Card>
+          </TitleCard>
         )
       }}
     </WrappedRequest>

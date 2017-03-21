@@ -1,6 +1,6 @@
 import React from 'react'
 import {instructionsTitleText} from 'utils/text'
-import Card from 'components/Card'
+import TitleCard from 'components/TitleCard'
 import Prompt from 'components/Prompt'
 
 export default ({
@@ -10,7 +10,7 @@ export default ({
   actionText,
   action,
 }) => condition
-  ? <Card title={instructionsTitleText}>
+  ? <TitleCard title={instructionsTitleText}>
       <div className='pa4'>
         Hey {instructor.first_name},
         <Prompt
@@ -19,5 +19,5 @@ export default ({
           action={action}
         />
       </div>
-    </Card>
+    </TitleCard>
   : null

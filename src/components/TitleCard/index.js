@@ -1,5 +1,5 @@
 import React from 'react'
-import {Heading, Paragraph} from 'egghead-ui'
+import {Heading, Paragraph, Card} from 'egghead-ui'
 
 export default ({children, title, description}) => (
   <section className='mb4'>
@@ -15,8 +15,8 @@ export default ({children, title, description}) => (
         </Paragraph>
       : null
     }
-    <div className='bg-white shadow-1 br2'>
+    <Card>
       {children}
-    </div>
+    </Card>
   </section>
 )
