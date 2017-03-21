@@ -2,7 +2,7 @@ import createQueryString from './utils/createQueryString'
 
 export default ({
   states,
-  pageSize = 15,
+  pageSize = 10,
   page = 1,
   lessons_url, 
 }) => {
@@ -17,6 +17,7 @@ export default ({
       ? {state: states}
       : {}
     ),
+    'sort_by': ['state', 'row_order']
   }
   const queryString = createQueryString(params)
 
