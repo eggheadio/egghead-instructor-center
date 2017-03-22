@@ -5,7 +5,7 @@ import {
   revenueTitleText,
 } from 'utils/text'
 import WrappedRequest from 'components/WrappedRequest'
-import Card from 'components/Card'
+import TitleCard from 'components/TitleCard'
 import List from 'components/List'
 import currentMonthStartDate from './utils/currentMonthStartDate'
 import totalRevenue from './utils/totalRevenue'
@@ -41,7 +41,7 @@ export default ({revenueUrl}) => revenueUrl
         ]
 
         return (
-          <Card title={revenueTitleText}>
+          <TitleCard title={revenueTitleText}>
             <List items={map(items, (item, index) => (
               <RevenuePeriod
                 key={index}
@@ -50,7 +50,7 @@ export default ({revenueUrl}) => revenueUrl
                 subscriberMinutes={item.subscriberMinutes}
               />
             ))} />
-          </Card>
+          </TitleCard>
         )
       }}
     </WrappedRequest>

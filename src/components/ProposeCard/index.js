@@ -9,7 +9,7 @@ import {
   lessonTechnologyLabelText,
   lessonSummaryLabelText,
 } from 'utils/text'
-import Card from 'components/Card'
+import TitleCard from 'components/TitleCard'
 import WrappedRequest from 'components/WrappedRequest'
 
 const inputClassNames = 'input-reset pa2 br2 ba b--light-gray w-100'
@@ -63,7 +63,7 @@ export default class Propose extends Component {
     const {instructor} = this.props
 
     return (
-      <Card
+      <TitleCard
         title={proposeActionText}
         description={newLessonSubmissionDescriptionText}
       >
@@ -161,7 +161,7 @@ export default class Propose extends Component {
           </WrappedRequest>
 
         </div>
-      </Card>
+      </TitleCard>
     )
   }
 }
