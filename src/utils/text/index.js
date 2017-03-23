@@ -51,6 +51,9 @@ export const unusedTitleText = 'Unused'
 
 export const unpublishedTitleText = 'Unpublished'
 
+export const publishedDescriptionText = 'Published lessons and courses are available publicly for students to view on egghead.io.'
+export const publishedActionText = 'View published content'
+
 export const noInProgressLessonsDescriptionText = `No lessons in progress.`
 
 export const noInQueueLessonsDescriptionText = `No lessons in publishing queue.`

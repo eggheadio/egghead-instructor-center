@@ -9,11 +9,13 @@ import {
   inReviewDescriptionText,
   selfReviewDescriptionText,
   inQueueDescriptionText,
+  publishedDescriptionText,
+  publishedActionText,
   noInProgressLessonsDescriptionText,
   noInReviewLessonsDescriptionText,
   noInQueueLessonsDescriptionText,
-  noPublishedLessonsDescriptionText,
 } from 'utils/text'
+import {publicLessonsUrl} from 'utils/urls'
 import {hasUnlockedSelfReview} from 'utils/milestones'
 import LessonList from 'components/LessonList'
 import Tabs from 'components/Tabs'
@@ -55,47 +57,49 @@ export default ({instructor}) => {
       fallbackDescription: noInQueueLessonsDescriptionText,
       includeLessonsInCourses: false,
     },
-    instructor
-      ? null
-      : {
-          title: publishedTitleText,
-          states: [
-            'published',
-            'flagged',
-            'revised',
-          ],
-          fallbackDescription: noPublishedLessonsDescriptionText,
-          includeLessonsInCourses: false,
-        },
   ])
 
   return (
-    <Tabs groups={map(items, (item) => ({
-      title: item.title,
-      component: (
-        <div>
-          {item.description
-            ? <div className='pv3 ph4 bg-gray f6'>
-                {item.description}
-              </div>
-            : null
-          }
-          <LessonList
-            states={item.states}
-            fallback={
-              <div className='pa4'>
-                <Prompt
-                  description={item.fallbackDescription}
-                  actionText={newLessonsActionText}
-                  action={'/lessons/new'}
-                />
-              </div>
+    <Tabs groups={[
+      ...map(items, (item) => ({
+        title: item.title,
+        component: (
+          <div>
+            {item.description
+              ? <div className='pv3 ph4 bg-gray f6'>
+                  {item.description}
+                </div>
+              : null
             }
-            instructor={instructor}
-            includeLessonsInCourses={item.includeLessonsInCourses}
-          />
-        </div>
-      ),
-    }))} />
+            <LessonList
+              states={item.states}
+              fallback={
+                <div className='pa4'>
+                  <Prompt
+                    description={item.fallbackDescription}
+                    actionText={newLessonsActionText}
+                    action={'/lessons/new'}
+                  />
+                </div>
+              }
+              instructor={instructor}
+              includeLessonsInCourses={item.includeLessonsInCourses}
+            />
+          </div>
+        ),
+      })),
+      {
+        title: publishedTitleText,
+        component: (
+          <div className='pa4'>
+            <Prompt
+              description={publishedDescriptionText}
+              actionText={publishedActionText}
+              action={publicLessonsUrl}
+            />
+          </div>
+        ),
+      },
+    ]} />
   )
 }
