@@ -44,7 +44,7 @@ export default ({publishedLessons}) => publishedLessons === 0
             {item.description}
           </Paragraph>
           <Anchor url={item.url}>
-            <Button color='blue' outline size='small'>
+            <Button color='green' outline size='small'>
               {item.action}
             </Button>
           </Anchor>

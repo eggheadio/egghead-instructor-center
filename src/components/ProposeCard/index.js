@@ -12,7 +12,7 @@ import {
 import TitleCard from 'components/TitleCard'
 import WrappedRequest from 'components/WrappedRequest'
 
-const inputClassNames = 'input-reset pa2 br2 ba b--gray-secondary w-100'
+const inputClassNames = 'input-reset pa2 br2 ba b--gray-secondary dark-gray w-100'
 
 const clearedState = {
   title: '',
