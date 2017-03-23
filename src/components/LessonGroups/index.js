@@ -30,6 +30,7 @@ export default ({instructor}) => {
         'rejected',
       ],
       fallbackDescription: noInProgressLessonsDescriptionText,
+      includeLessonsInCourses: true,
     },
     {
       title: inReviewTitleText,
@@ -43,6 +44,7 @@ export default ({instructor}) => {
         'updated',
       ],
       fallbackDescription: noInReviewLessonsDescriptionText,
+      includeLessonsInCourses: true,
     },
     {
       title: inQueueTitleText,
@@ -51,6 +53,7 @@ export default ({instructor}) => {
         'approved'
       ],
       fallbackDescription: noInQueueLessonsDescriptionText,
+      includeLessonsInCourses: false,
     },
     instructor
       ? null
@@ -62,6 +65,7 @@ export default ({instructor}) => {
             'revised',
           ],
           fallbackDescription: noPublishedLessonsDescriptionText,
+          includeLessonsInCourses: false,
         },
   ])
 
@@ -71,7 +75,7 @@ export default ({instructor}) => {
       component: (
         <div>
           {item.description
-            ? <div className='pv3 ph4 bg-black-10 f6'>
+            ? <div className='pv3 ph4 bg-gray f6'>
                 {item.description}
               </div>
             : null
@@ -88,6 +92,7 @@ export default ({instructor}) => {
               </div>
             }
             instructor={instructor}
+            includeLessonsInCourses={item.includeLessonsInCourses}
           />
         </div>
       ),

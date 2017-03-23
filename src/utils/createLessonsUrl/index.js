@@ -5,6 +5,7 @@ export default ({
   pageSize = 20,
   page = 1,
   lessons_url, 
+  includeLessonsInCourses = true,
 }) => {
 
   const allLessonsUrl = `${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons`
@@ -12,12 +13,13 @@ export default ({
 
   const params = {
     'page': page,
-    'size': pageSize,
+    'per_page': pageSize,
     ...(states
       ? {state: states}
       : {}
     ),
-    'sort_by': ['state', 'row_order']
+    'sort_by': ['state', 'row_order'],
+    'without_course': !includeLessonsInCourses,
   }
   const queryString = createQueryString(params)
 
