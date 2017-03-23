@@ -1,8 +1,7 @@
 import React from 'react'
 import {map, size} from 'lodash'
+import {Paragraph, List} from 'egghead-ui'
 import {noInstructorsDescriptionText} from 'utils/text'
-import {Paragraph} from 'egghead-ui'
-import List from 'components/List'
 import InstructorListItem from './components/InstructorListItem'
 
 export default ({title, instructors}) => size(instructors) > 0

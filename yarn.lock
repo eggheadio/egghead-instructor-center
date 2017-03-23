@@ -2115,9 +2115,9 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-egghead-ui@^3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-3.3.1.tgz#2bc67f2c8710048c37c2f3b475903105c74eddab"
+egghead-ui@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-3.5.0.tgz#a9a2b528ee7e06c5c7d11a4b8f67f81de9b4fe1e"
   dependencies:
     "@kadira/storybook" "^2.5.2"
     axios "^0.15.3"

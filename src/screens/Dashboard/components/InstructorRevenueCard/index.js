@@ -1,12 +1,12 @@
 import React from 'react'
 import {find, size, map} from 'lodash'
+import {List} from 'egghead-ui'
 import {
   currentMonthRevenueTitleText,
   revenueTitleText,
 } from 'utils/text'
 import WrappedRequest from 'components/WrappedRequest'
 import TitleCard from 'components/TitleCard'
-import List from 'components/List'
 import currentMonthStartDate from './utils/currentMonthStartDate'
 import totalRevenue from './utils/totalRevenue'
 import removeRevenueMonth from './utils/removeRevenueMonth'

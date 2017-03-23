@@ -1,7 +1,7 @@
 import React from 'react'
 import {map, compact} from 'lodash'
+import {List} from 'egghead-ui'
 import TitleCard from 'components/TitleCard'
-import List from 'components/List'
 import Avatar from 'components/Avatar'
 import InfoBit from './components/InfoBit'
 
