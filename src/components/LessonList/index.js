@@ -13,7 +13,7 @@ export default class LessonList extends Component {
   }
 
   static defaultProps = {
-    pageSize: 10,
+    pageSize: 20,
   }
 
   state = {
