@@ -11,13 +11,14 @@ const sharedLinkClassnames = `
   pa3
   ttu
   no-underline
-  light-gray
+  dark-gray
   bl
+  b
   b--transparent
 `
 
 const sharedLinkStyle = {
-  borderWidth: 3,
+  borderWidth: 5,
 }
 
 const activeLinkClassnames = 'b--orange orange'
@@ -79,7 +80,7 @@ export default class Navigation extends Component {
 
     return (
       <aside
-        className='bg-light-navy fixed vh-100 z-1 w5 pt2-s'
+        className='bg-base fixed vh-100 z-1 w5 pt2-s'
         style={{
           willChange: 'transform',
           transition: 'transform .3s',
@@ -90,7 +91,7 @@ export default class Navigation extends Component {
 
         <div
           onClick={this.toggle.bind(this)}
-          className={`dn-ns fixed ml7 pa2 br2 br--right br--bottom bg-light-navy ${isOpen ? '' : 'o-30'}`}
+          className={`dn-ns fixed ml7 pa2 br2 br--right br--bottom bg-base ${isOpen ? '' : 'o-30'}`}
         >
           <Icon
             type={isOpen ? 'close' : 'menu'}
@@ -99,7 +100,7 @@ export default class Navigation extends Component {
           />
         </div>
 
-        <div className='pa3 bb b--white-10'>
+        <div className='pa3 bb b--dark-blue'>
           <Logo />
         </div>
 
@@ -108,7 +109,7 @@ export default class Navigation extends Component {
             name={user.name}
             url={user.avatar_url}
           />
-          <div className='mt2'>
+          <div className='mt2 white'>
             {user.name}
           </div>
         </div>

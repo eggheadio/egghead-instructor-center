@@ -15,10 +15,12 @@ export default ({publishedLessons, publishedCourses}) => {
     {
       type: 'lesson',
       text: `${publishedLessons} published lessons`,
+      color: 'green',
     },
     {
       type: 'course',
       text: `${publishedCourses} published courses`,
+      color: 'orange',
     },
   ]
 
@@ -28,6 +30,7 @@ export default ({publishedLessons, publishedCourses}) => {
         <IconLabel
           iconType={item.type}
           labelText={item.text}
+          color={item.color}
         />
       ))} />
     </TitleCard>

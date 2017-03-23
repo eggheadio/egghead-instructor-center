@@ -9,7 +9,7 @@ const sizes = {
 
 const Avatar = ({name, url, size = 3}) => (
   <div className={`dib v-top br-100 overflow-hidden ${sizes[size]}`}>
-    <div className='br-100 h-100 ba b--gray overflow-hidden relative'>
+    <div className='br-100 h-100 overflow-hidden relative'>
       <img
         alt={name}
         src={url}

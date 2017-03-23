@@ -1,17 +1,15 @@
 import React from 'react'
 import {Icon} from 'egghead-ui'
 
-const classNameColor = 'gray'
-
-export default ({iconType, labelText}) => (
+export default ({iconType, labelText, color = 'dark-gray'}) => (
   <div className='flex items-center'>
     <div className='w2'>
       <Icon
         type={iconType}
-        color={classNameColor}
+        color={color}
       />
     </div>
-    <span className={`f5 b ml1 ${classNameColor}`}>
+    <span className={`f5 b ml1 ${color}`}>
       {labelText}
     </span>
   </div>

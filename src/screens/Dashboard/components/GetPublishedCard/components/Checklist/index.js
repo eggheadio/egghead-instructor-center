@@ -4,6 +4,8 @@ import {map} from 'lodash'
 import {Icon, List} from 'egghead-ui'
 import MoreInfo from './components/MoreInfo'
 
+const completedColor = 'dark-gray-secondary'
+
 const Checklist = ({items}) => (
   <List items={map(items, (item, index) => (
     <div 
@@ -14,19 +16,16 @@ const Checklist = ({items}) => (
         {item.isComplete
           ? <Icon
               type='box-check'
-              color='light-gray'
+              color={completedColor}
             />
-          : <Icon
-              type='box'
-              color='gray'
-            />
+          : <Icon type='box' />
         }
       </div>
       <div>
         <div>
           <span className={item.isComplete
-            ? 'strike light-gray'
-            : 'dark-gray'
+            ? `strike ${completedColor}`
+            : ''
           }>
             {item.description}
           </span>
