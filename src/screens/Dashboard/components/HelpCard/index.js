@@ -1,6 +1,6 @@
 import React from 'react'
 import {map} from 'lodash'
-import {Button, Paragraph} from 'egghead-ui'
+import {Button, Paragraph, List} from 'egghead-ui'
 import {
   helpTitleText,
   helpDescriptionText,
@@ -13,7 +13,6 @@ import {
 } from 'utils/text'
 import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
 import TitleCard from 'components/TitleCard'
-import List from 'components/List'
 import Anchor from 'components/Anchor'
 
 const items=[

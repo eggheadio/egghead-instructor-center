@@ -1,8 +1,8 @@
 import React from 'react'
 import {map} from 'lodash'
+import {List} from 'egghead-ui'
 import {statsTitleText} from 'utils/text'
 import TitleCard from 'components/TitleCard'
-import List from 'components/List'
 import IconLabel from 'components/IconLabel'
 
 export default ({publishedLessons, publishedCourses}) => {

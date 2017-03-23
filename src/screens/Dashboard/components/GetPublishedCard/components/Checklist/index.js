@@ -1,8 +1,7 @@
 import React, {PropTypes} from 'react'
 import {Link} from 'react-router-dom'
 import {map} from 'lodash'
-import {Icon} from 'egghead-ui'
-import List from 'components/List'
+import {Icon, List} from 'egghead-ui'
 import MoreInfo from './components/MoreInfo'
 
 const Checklist = ({items}) => (

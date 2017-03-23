@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react'
 import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
+import {List} from 'egghead-ui'
 import {previousLabelText, nextLabelText} from 'utils/text'
-import List from 'components/List'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonListItem from './components/LessonListItem'
 
