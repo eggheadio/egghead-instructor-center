@@ -1,7 +1,7 @@
 import React from 'react'
 import {map, compact} from 'lodash'
-import Card from 'components/Card'
-import List from 'components/List'
+import {List} from 'egghead-ui'
+import TitleCard from 'components/TitleCard'
 import Avatar from 'components/Avatar'
 import InfoBit from './components/InfoBit'
 
@@ -45,8 +45,8 @@ export default ({instructor}) => {
   ])
 
   return (
-    <Card title={instructor.full_name}>
+    <TitleCard title={instructor.full_name}>
       <List items={map(items, (item, index) => item)} />
-    </Card>
+    </TitleCard>
   )
 }

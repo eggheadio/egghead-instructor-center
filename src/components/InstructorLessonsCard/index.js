@@ -1,9 +1,9 @@
 import React from 'react'
-import Card from 'components/Card'
+import TitleCard from 'components/TitleCard'
 import LessonGroups from 'components/LessonGroups'
 
 export default ({instructor}) => (
-  <Card title={`${instructor.first_name}'s lessons`}>
+  <TitleCard title={`${instructor.first_name}'s lessons`}>
     <LessonGroups instructor={instructor} />
-  </Card>
+  </TitleCard>
 )

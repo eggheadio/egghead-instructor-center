@@ -5,11 +5,11 @@ import {
   requestedDescriptionText,
   requestedEmptyDescriptionText,
 } from 'utils/text'
-import Card from 'components/Card'
+import TitleCard from 'components/TitleCard'
 import LessonList from 'components/LessonList'
 
 export default () => (
-  <Card 
+  <TitleCard 
     title={requestedTitleText}
     description={requestedDescriptionText}
   >
@@ -23,5 +23,5 @@ export default () => (
         </div>
       }
     />
-  </Card>
+  </TitleCard>
 )

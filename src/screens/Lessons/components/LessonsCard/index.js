@@ -1,10 +1,10 @@
 import React from 'react'
 import {lessonsTitleText} from 'utils/text'
-import Card from 'components/Card'
+import TitleCard from 'components/TitleCard'
 import LessonGroups from 'components/LessonGroups'
 
 export default () => (
-  <Card title={lessonsTitleText}>
+  <TitleCard title={lessonsTitleText}>
     <LessonGroups />
-  </Card>
+  </TitleCard>
 )

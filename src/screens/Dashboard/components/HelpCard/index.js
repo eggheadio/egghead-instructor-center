@@ -1,6 +1,6 @@
 import React from 'react'
 import {map} from 'lodash'
-import {Button, Paragraph} from 'egghead-ui'
+import {Button, Paragraph, List} from 'egghead-ui'
 import {
   helpTitleText,
   helpDescriptionText,
@@ -12,8 +12,7 @@ import {
   instructorsChatActionText,
 } from 'utils/text'
 import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
-import Card from 'components/Card'
-import List from 'components/List'
+import TitleCard from 'components/TitleCard'
 import Anchor from 'components/Anchor'
 
 const items=[
@@ -35,7 +34,7 @@ const items=[
 ]
 
 export default ({publishedLessons}) => publishedLessons === 0
-  ? <Card
+  ? <TitleCard
       title={helpTitleText}
       description={helpDescriptionText}
     >
@@ -51,5 +50,5 @@ export default ({publishedLessons}) => publishedLessons === 0
           </Anchor>
         </div>
       ))} />
-    </Card>
+    </TitleCard>
   : null
