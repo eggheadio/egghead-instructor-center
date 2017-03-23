@@ -37,7 +37,7 @@ export const detailsByLessonState = {
   cancelled: {
     action: cancelActionText,
     description: cancelledStateDescriptionText,
-    color: 'red',
+    color: 'orange',
   },
   accepted: {
     action: acceptActionText,
@@ -52,7 +52,7 @@ export const detailsByLessonState = {
   claimed: {
     action: claimActionText,
     description: claimedStateDescriptionText,
-    color: 'turquoise',
+    color: 'green',
   },
   submitted: {
     action: submitActionText,
@@ -93,7 +93,7 @@ export const detailsByLessonState = {
   retired: {
     action: retireActionText,
     description: retiredStateDescriptionText,
-    color: 'red',
+    color: 'orange',
   },
 }
 

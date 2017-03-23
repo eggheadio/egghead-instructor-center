@@ -10,10 +10,12 @@ export default class LessonList extends Component {
     fallback: PropTypes.node.isRequired,
     instructor: PropTypes.object,
     pageSize: PropTypes.number,
+    includeLessonsInCourses: PropTypes.bool,
   }
 
   static defaultProps = {
-    pageSize: 10,
+    pageSize: 20,
+    includeLessonsInCourses: true,
   }
 
   state = {
@@ -26,7 +28,13 @@ export default class LessonList extends Component {
 
   render() {
     const {currentPage} = this.state
-    const {states, fallback, instructor, pageSize} = this.props
+    const {
+      states,
+      fallback,
+      instructor,
+      pageSize,
+      includeLessonsInCourses,
+    } = this.props
 
     return (
       <WrappedRequest
@@ -37,6 +45,7 @@ export default class LessonList extends Component {
           lessons_url: instructor
             ? instructor.lessons_url
             : false,
+          includeLessonsInCourses,
         })}
         subscribe
       >
