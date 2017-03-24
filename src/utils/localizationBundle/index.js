@@ -1,3 +1,4 @@
+import {selfReviewThreshold} from 'utils/milestones' 
 export default {
 
   login: 'Sign in via egghead',
@@ -159,7 +160,7 @@ export default {
     inReview: {
       title: 'In Review',
       description: 'These lessons are waiting for review to proceed.',
-      selfApproval: 'Since you have 12+ lessons published, you can review your own lessons.',
+      selfApproval: `Since you have ${selfReviewThreshold}+ lessons published, you can review your own lessons.`,
     },
     inQueue: {
       title: 'In Queue',
