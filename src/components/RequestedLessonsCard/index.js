@@ -6,15 +6,15 @@ import LessonList from 'components/LessonList'
 
 export default () => (
   <TitleCard 
-    title={<Text message='requested.title' />}
-    description={<Text message='requested.description' />}
+    title={<Text message='requestedLessons.title' />}
+    description={<Text message='requestedLessons.description' />}
   >
     <LessonList
-      states={['requested']} 
+      states={['requestedLessons']} 
       fallback={
         <div className='pa4'>
           <Paragraph>
-            <Text message='requested.fallback' />
+            <Text message='requestedLessons.fallback' />
           </Paragraph>
         </div>
       }

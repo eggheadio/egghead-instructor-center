@@ -57,14 +57,14 @@ export default class Propose extends Component {
 
     return (
       <TitleCard
-        title={<Text message='propose.title' />}
-        description={<Text message='propose.description' />}
+        title={<Text message='proposeLesson.title' />}
+        description={<Text message='proposeLesson.description' />}
       >
         <div className='pa4'>
 
           <div className='mb3'>
             <div className='b'>
-              <Text message='propose.lessonTitle' />
+              <Text message='proposeLesson.lessonTitle' />
             </div>
             <input
               type='text'
@@ -78,7 +78,7 @@ export default class Propose extends Component {
             {({data}) => (
               <div className='mb3'>
                 <div className='b'>
-                  <Text message='propose.lessonTechnology' />
+                  <Text message='proposeLesson.lessonTechnology' />
                 </div>
                 <select
                   value={technologyId}
@@ -101,7 +101,7 @@ export default class Propose extends Component {
 
           <div className='mb3'>
             <div className='b'>
-              <Text message='propose.lessonSummary' />
+              <Text message='proposeLesson.lessonSummary' />
             </div>
             <textarea
               type='text'
@@ -115,7 +115,7 @@ export default class Propose extends Component {
           {hasMissingInput
             ? <div className='mb3'>
                 <Error>
-                  <Text message='propose.missingInputError' />
+                  <Text message='proposeLesson.missingInputError' />
                 </Error>
               </div>
             : null
@@ -147,7 +147,7 @@ export default class Propose extends Component {
                   }
                 }}
               >
-                <Text message='propose.action' />
+                <Text message='proposeLesson.action' />
               </Button>
             )}
           </WrappedRequest>

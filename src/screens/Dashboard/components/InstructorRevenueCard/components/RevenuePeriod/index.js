@@ -15,7 +15,10 @@ export default ({title, revenue, subscriberMinutes}) => (
     />
     <IconLabel
       iconType='clock'
-      labelText={`${formatNumber({round: 2})(subscriberMinutes)} minutes`}
+      labelText={<Text 
+        message='instructorRevenue.subscriberMinutes'
+        values={[formatNumber({round: 2})(subscriberMinutes)]} 
+      />}
     />
   </div>
 )

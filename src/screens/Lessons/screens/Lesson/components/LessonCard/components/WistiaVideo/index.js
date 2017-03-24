@@ -29,7 +29,7 @@ export default class extends Component {
           </div>
         </div>
       : <Paragraph>
-          {noVideoDescriptionText}
+          <Text message='lesson.video.fallback' />
         </Paragraph>
   }
 }

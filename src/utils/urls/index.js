@@ -9,7 +9,6 @@ export const instructorsChatUrl = 'https://eggheadio.slack.com/messages/egghead-
 
 export const chatInfoUrl = 'https://instructor.egghead.io/guide/01-invited/invited.html'
 export const roughDraftInfoUrl = 'https://instructor.egghead.io/guide/01-invited/first-lesson.html'
-export const newLessonsInfoUrl = 'https://instructor.egghead.io/guide/02-creating-lessons/ideas.html'
 export const gearSetupInfoUrl = 'https://instructor.egghead.io/guide/02-creating-lessons/recording-gear.html'
 
 export const publicLessonsUrl = 'https://egghead.io/lessons'

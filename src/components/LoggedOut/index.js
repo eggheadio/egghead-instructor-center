@@ -31,7 +31,7 @@ export default () => (
         url={guideUrl}
         type='prominent'
       >
-        {instructorGuideTitleText}
+        <Text message='instructorGuide' />
       </Anchor>
     </div>
 

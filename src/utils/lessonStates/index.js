@@ -1,71 +1,72 @@
+import React from 'react'
 import {keys} from 'lodash'
 import {Text} from 'react-localize'
 
 export const detailsByLessonState = {
   proposed: {
-    action: cancelActionText,
-    description: proposedStateDescriptionText,
+    action: <Text message='lessonStates.proposed.action' />,
+    description: <Text message='lessonStates.proposed.description' />,
     color: 'blue',
   },
   cancelled: {
-    action: cancelActionText,
-    description: cancelledStateDescriptionText,
+    action: <Text message='lessonStates.cancelled.action' />,
+    description: <Text message='lessonStates.cancelled.description' />,
     color: 'orange',
   },
   accepted: {
-    action: acceptActionText,
-    description: acceptedStateDescriptionText,
+    action: <Text message='lessonStates.accepted.action' />,
+    description: <Text message='lessonStates.accepted.description' />,
     color: 'green',
   },
   requested: {
-    action: requestActionText,
-    description: requestedStateDescriptionText,
+    action: <Text message='lessonStates.requested.action' />,
+    description: <Text message='lessonStates.requested.description' />,
     color: 'blue',
   },
   claimed: {
-    action: claimActionText,
-    description: claimedStateDescriptionText,
+    action: <Text message='lessonStates.claimed.action' />,
+    description: <Text message='lessonStates.claimed.description' />,
     color: 'green',
   },
   submitted: {
-    action: submitActionText,
-    description: submittedStateDescriptionText,
+    action: <Text message='lessonStates.submitted.action' />,
+    description: <Text message='lessonStates.submitted.description' />,
     color: 'green',
   },
   rejected: {
-    action: rejectActionText,
-    title: rejectedStateTitleText,
-    description: rejectedStateDescriptionText,
+    action: <Text message='lessonStates.rejected.action' />,
+    description: <Text message='lessonStates.rejected.description' />,
+    title: <Text message='lessonStates.rejected.title' />,
     color: 'orange',
   },
   updated: {
-    action: applyUpdateActionText,
-    description: updatedStateDescriptionText,
+    action: <Text message='lessonStates.updated.action' />,
+    description: <Text message='lessonStates.updated.description' />,
     color: 'green',
   },
   approved: {
-    action: approveActionText,
-    description: approvedStateDescriptionText,
+    action: <Text message='lessonStates.approved.action' />,
+    description: <Text message='lessonStates.approved.description' />,
     color: 'green',
   },
   published: {
-    action: publishActionText,
-    description: publishedStateDescriptionText,
+    action: <Text message='lessonStates.proposed.action' />,
+    description: <Text message='lessonStates.proposed.description' />,
     color: 'green',
   },
   flagged: {
-    action: flagActionText,
-    description: flaggedStateDescriptionText,
+    action: <Text message='lessonStates.flagged.action' />,
+    description: <Text message='lessonStates.flagged.description' />,
     color: 'orange',
   },
   revised: {
-    action: reviseActionText,
-    description: revisedStateDescriptionText,
+    action: <Text message='lessonStates.revised.action' />,
+    description: <Text message='lessonStates.revised.description' />,
     color: 'green',
   },
   retired: {
-    action: retireActionText,
-    description: retiredStateDescriptionText,
+    action: <Text message='lessonStates.retired.action' />,
+    description: <Text message='lessonStates.retired.description' />,
     color: 'orange',
   },
 }

@@ -7,10 +7,10 @@ export default ({lesson}) => (
   <div className='flex'>
     {
       lesson.edit_lesson_http_url
-        ? <div className='pa1'>
+        ? <div className='pr2 pb2'>
             <Anchor url={lesson.edit_lesson_http_url}>
               <Button size='extra-small'>
-                <Text message='lessonActions.edit' />
+                <Text message='lessonEdit.edit' />
               </Button>
             </Anchor>
           </div>
@@ -18,10 +18,13 @@ export default ({lesson}) => (
     }
     {
       lesson.upload_lesson_http_url 
-        ? <div className='pa1'>
+        ? <div className='pb2'>
             <Anchor url={lesson.upload_lesson_http_url}>
               <Button size='extra-small'>
-                {`${lesson.wistia_id ? replaceVideoTitleText : uploadVideoTitleText} Video`}
+                {lesson.wistia_id
+                  ? <Text message='lessonEdit.replaceVideo' />
+                  : <Text message='lessonEdit.uploadVideo' />
+                }
               </Button>
             </Anchor>
           </div>

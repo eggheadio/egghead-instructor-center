@@ -1,8 +1,8 @@
 import React from 'react'
-import InstructorListsByStatesCard from './components/InstructorListsByStatesCard'
+import InstructorGroupsCard from './components/InstructorGroupsCard'
 
 export default ({instructors}) => (
   <div>
-    <InstructorListsByStatesCard />
+    <InstructorGroupsCard />
   </div>
 )

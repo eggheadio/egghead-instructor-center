@@ -27,7 +27,7 @@ const items=[
 export default ({publishedLessons}) => publishedLessons === 0
   ? <TitleCard
       title={<Text message='help.title' />}
-      description={<Text message='help.title' />}
+      description={<Text message='help.description' />}
     >
       <List items={map(items, (item, index) => (
         <div key={index}>

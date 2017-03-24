@@ -14,12 +14,18 @@ export default ({publishedLessons, publishedCourses}) => {
   const items = [
     {
       type: 'lesson',
-      text: `${publishedLessons} published lessons`,
+      text: <Text 
+        message='instructorStats.lessons'
+        values={[publishedLessons]} 
+      />,
       color: 'green',
     },
     {
       type: 'course',
-      text: `${publishedCourses} published courses`,
+      text: <Text 
+        message='instructorStats.courses'
+        values={[publishedCourses]} 
+      />,
       color: 'orange',
     },
   ]

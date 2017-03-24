@@ -42,8 +42,8 @@ const PaginatedLessonList = ({
                 pageRangeDisplayed={3}
                 marginPagesDisplayed={1}
                 initialSelected={currentPage - 1}
-                previousLabel={<Text message='previous' />}
-                nextLabel={<Text message='next' />}
+                previousLabel={<Text message='pagination.previous' />}
+                nextLabel={<Text message='pagination.next' />}
                 clickCallback={(page) => {
                   const {selected} = page
                   if (currentPage !== selected + 1) {

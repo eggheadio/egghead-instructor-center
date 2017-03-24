@@ -25,7 +25,11 @@ const App = () => {
   const decodedToken = login()
 
   if(!decodedToken) {
-    return <LoggedOut />
+    return (
+      <Localization messages={localizationBundle}>
+        <LoggedOut />
+      </Localization>
+    )
   }
 
   if(decodedToken && !decodedToken.user_url) {
@@ -39,7 +43,11 @@ const App = () => {
         const user = data
 
         if(user && !user.instructor_url) {
-          return <InstructorsOnly />
+          return (
+            <Localization messages={localizationBundle}>
+              <InstructorsOnly />
+            </Localization>
+          )
         }
 
         if (process.env.NODE_ENV === 'production') {

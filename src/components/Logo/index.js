@@ -1,5 +1,4 @@
 import React from 'react'
-import {Text} from 'react-localize'
 import eggoIcon from './eggoIcon.svg'
 import eggoInstructorBanner from './eggoInstructorBanner.svg'
 import instructorBanner from './instructorBanner.svg'

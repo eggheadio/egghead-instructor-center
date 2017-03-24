@@ -25,7 +25,10 @@ export default ({instructor}) => {
         <span>
           <Text message='lessonGroups.inReview.description' />
           {instructor && hasUnlockedSelfReview(instructor.published_lessons)
-            ? <Text message='lessonGroups.inReview.selfApproval' />
+            ? <span>
+                <span>{` `}</span>
+                <Text message='lessonGroups.inReview.selfApproval' />
+              </span>
             : null
           }
         </span>

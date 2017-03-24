@@ -18,7 +18,7 @@ export default ({
       ? {state: states}
       : {}
     ),
-    'sort_by': ['state', 'row_order'],
+    'sort': ['state', 'row_order'],
     'without_course': !includeLessonsInCourses,
   }
   const queryString = createQueryString(params)
