@@ -43,14 +43,14 @@ export default ({lesson, requestLesson}) => {
           title: instructorTitleText,
           children: (
             <div className='flex items-center'>
-              <div className='mr2'>
-                <Avatar
-                  name={lesson.instructor.first_name}
-                  url={lesson.instructor.avatar_url}
-                  size={2}
-                />
+              <Avatar
+                name={lesson.instructor.first_name}
+                url={lesson.instructor.avatar_url}
+                size={3}
+              />
+              <div className='ml3'>
+                {lesson.instructor.full_name}
               </div>
-              {lesson.instructor.full_name}
             </div>
           ),
       },
@@ -61,7 +61,7 @@ export default ({lesson, requestLesson}) => {
           <img
             src={lesson.technology.logo_http_url}
             alt={lesson.technology.label}
-            className='mw2 mr2'
+            className='mw3 mr3'
           />
           {lesson.technology.label}
         </div>
@@ -81,7 +81,7 @@ export default ({lesson, requestLesson}) => {
     <Card>
       <List items={map(items, (item, index) => (
         <div>
-          <Heading level='5'>
+          <Heading level='3'>
             {item.title}
           </Heading>
           <div>
