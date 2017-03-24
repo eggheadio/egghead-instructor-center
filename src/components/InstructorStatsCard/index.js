@@ -14,18 +14,22 @@ export default ({publishedLessons, publishedCourses}) => {
   const items = [
     {
       type: 'lesson',
-      text: <Text 
-        message='instructorStats.lessons'
-        values={[publishedLessons]} 
-      />,
+      text: publishedLessons === 1
+        ? <Text message='instructorStats.lessonsSingular' />
+        : <Text 
+            message='instructorStats.lessons'
+            values={[publishedLessons]} 
+          />,
       color: 'green',
     },
     {
       type: 'course',
-      text: <Text 
-        message='instructorStats.courses'
-        values={[publishedCourses]} 
-      />,
+      text: publishedCourses === 1
+        ? <Text message='instructorStats.coursesSingular' />
+        : <Text 
+            message='instructorStats.courses'
+            values={[publishedCourses]} 
+          />,
       color: 'orange',
     },
   ]

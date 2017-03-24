@@ -54,17 +54,19 @@ export default {
   instructorStats: {
     title: 'Instructor Stats',
     lessons: '%s published lessons',
+    lessonsSingular: '1 published lesson',
     courses: '%s published courses',
+    coursesSingular: '1 published course',
   },
 
   instructorRevenue: {
     title: 'Instructor Revenue',
-    subscriberMinuts: '%s minutes',
+    subscriberMinutes: '%s minutes',
     currentMonth: {
-      title: 'Estimated royalties',
+      title: 'This Month So Far',
     },
     previousMonths: {
-      title: 'Last %s months',
+      title: 'Last %s Months',
     },
   },
 
