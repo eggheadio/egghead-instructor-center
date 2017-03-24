@@ -54,10 +54,8 @@ export default {
 
   instructorStats: {
     title: 'Instructor Stats',
-    lessons: '%s published lessons',
-    lessonsSingular: '1 published lesson',
-    courses: '%s published courses',
-    coursesSingular: '1 published course',
+    lessons: '%s published',
+    courses: '%s published',
   },
 
   instructorRevenue: {

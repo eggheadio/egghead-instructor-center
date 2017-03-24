@@ -2,6 +2,7 @@ import React from 'react'
 import {map} from 'lodash'
 import {List} from 'egghead-ui'
 import {Text} from 'react-localize'
+import pluralize from 'pluralize'
 import TitleCard from 'components/TitleCard'
 import IconLabel from 'components/IconLabel'
 
@@ -14,22 +15,28 @@ export default ({publishedLessons, publishedCourses}) => {
   const items = [
     {
       type: 'lesson',
-      text: publishedLessons === 1
-        ? <Text message='instructorStats.lessonsSingular' />
-        : <Text 
+      text: (
+        <span>
+          <Text 
             message='instructorStats.lessons'
             values={[publishedLessons]} 
-          />,
+          />
+          <span>{` ${pluralize('lesson', publishedLessons)}`}</span>
+        </span>
+      ),
       color: 'green',
     },
     {
       type: 'course',
-      text: publishedCourses === 1
-        ? <Text message='instructorStats.coursesSingular' />
-        : <Text 
+      text: (
+        <span>
+          <Text 
             message='instructorStats.courses'
             values={[publishedCourses]} 
-          />,
+          />
+          <span>{` ${pluralize('course', publishedCourses)}`}</span>
+        </span>
+      ),
       color: 'orange',
     },
   ]
