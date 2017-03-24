@@ -144,7 +144,6 @@ export default class Propose extends Component {
           >
             {({request}) => (
               <Button
-                color='blue'
                 size='extra-small'
                 onClick={() => {
                   if(every([title, technologyId], (input) => size(input) > 0)) {
