@@ -1,4 +1,5 @@
 import React from 'react'
+import {Text} from 'react-localize'
 import TitleCard from 'components/TitleCard'
 import LessonGroups from 'components/LessonGroups'
 
