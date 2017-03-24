@@ -50,8 +50,8 @@ export const detailsByLessonState = {
     color: 'green',
   },
   published: {
-    action: <Text message='lessonStates.proposed.action' />,
-    description: <Text message='lessonStates.proposed.description' />,
+    action: <Text message='lessonStates.published.action' />,
+    description: <Text message='lessonStates.published.description' />,
     color: 'green',
   },
   flagged: {
