@@ -21,7 +21,7 @@ const PaginatedLessonList = ({
 
   const linkClassNames = {
     mobileHide: 'dn db-ns',
-    link: 'db dim bg-blue white mr2 pa2 ph3-ns br2',
+    link: 'db dim bg-orange white mr2 pa2 ph3-ns br2',
   }
 
   return total > 0

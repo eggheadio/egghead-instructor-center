@@ -13,7 +13,7 @@ export default ({lesson}) => (
       lesson.edit_lesson_http_url
         ? <div className='pa1'>
             <Anchor url={lesson.edit_lesson_http_url}>
-              <Button color='blue' size='extra-small'>
+              <Button size='extra-small'>
                 {editLessonTitleText}
               </Button>
             </Anchor>
@@ -24,7 +24,7 @@ export default ({lesson}) => (
       lesson.upload_lesson_http_url 
         ? <div className='pa1'>
             <Anchor url={lesson.upload_lesson_http_url}>
-              <Button color='blue' size='extra-small'>
+              <Button size='extra-small'>
                 {`${lesson.wistia_id ? replaceVideoTitleText : uploadVideoTitleText} Video`}
               </Button>
             </Anchor>

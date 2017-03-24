@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Heading, Markdown} from 'egghead-ui'
+import Avatar from 'components/Avatar'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
 
@@ -30,12 +31,20 @@ export default ({lesson, requestCurrentPage}) => {
 
         {lesson.state === 'requested' 
           ? null
-          : <Link to={`/instructors/${instructor.slug}`} className="no-underline">
-              <div className='flex items-center pt1'>
-                <img src={instructor.avatar_url} alt={instructor.full_name} className='w2 h2 br-pill mr2'/>
-                <span className='f6 ttc'>{instructor.full_name}</span>
-              </div>
-            </Link>
+          : <div className='mt3'>
+              <Link to={`/instructors/${instructor.slug}`}>
+                <div className='flex items-center'>
+                  <Avatar
+                    name={instructor.full_name}
+                    url={instructor.avatar_url}
+                    size={2}
+                  />
+                  <div className='ml3'>
+                    {instructor.full_name}
+                  </div>
+                </div>
+              </Link>
+            </div>
         }
 
         <div

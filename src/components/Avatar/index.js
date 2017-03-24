@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 
 const sizes = {
   1: 'w1 h1',
@@ -7,31 +7,13 @@ const sizes = {
   4: 'w4 h4',
 }
 
-const Avatar = ({name, url, size = 3}) => (
-  <div className={`dib v-top br-100 overflow-hidden ${sizes[size]}`}>
-    <div className='br-100 h-100 overflow-hidden relative'>
-      <img
-        alt={name}
-        src={url}
-        className='db'
-        style={{
-          minWidth: '100%',
-          minHeight: '100%',
-          margin: 'auto',
-          position: 'absolute',
-          top: '-100%',
-          right: '-100%',
-          bottom: '-100%',
-          left: '-100%',
-        }}
-      />
-    </div>
-  </div>
+export default ({name, url, size = 3}) => (
+  <div
+    className={`bg-gray dib br-100 ${sizes[size]}`}
+    style={{
+      background: `url(${url}) center center / cover no-repeat`,
+    }}
+    role='img'
+    aria-label={`Avatar for ${name}`}
+  />
 )
-
-Avatar.propTypes = {
-  name: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-}
-
-export default Avatar
