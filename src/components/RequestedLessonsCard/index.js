@@ -10,7 +10,7 @@ export default () => (
     description={<Text message='requestedLessons.description' />}
   >
     <LessonList
-      states={['requestedLessons']} 
+      states={['requested']} 
       fallback={
         <div className='pa4'>
           <Paragraph>
