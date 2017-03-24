@@ -13,7 +13,7 @@
     "extends": "react-app"
   },
   "devDependencies": {
-    "react-localize": "github:eggheadio/react-localize#f877b5a",
+    "react-localize": "github:eggheadio/react-localize#2.0.2",
     "react-scripts": "^0.8.4"
   },
   "dependencies": {

@@ -5125,9 +5125,9 @@ react-komposer@^2.0.0:
     react-stubber "^1.0.0"
     shallowequal "^0.2.2"
 
-"react-localize@github:eggheadio/react-localize#f877b5a":
-  version "2.0.0"
-  resolved "https://codeload.github.com/eggheadio/react-localize/tar.gz/f877b5a"
+"react-localize@github:eggheadio/react-localize#2.0.2":
+  version "2.0.2"
+  resolved "https://codeload.github.com/eggheadio/react-localize/tar.gz/dfe66b47e668eecab01f52b4597fc7579fd7f644"
   dependencies:
     in-publish "2.0.0"
     lodash.get "4.0.0"
