@@ -1,24 +1,20 @@
 import React from 'react'
 import {Paragraph} from 'egghead-ui'
-import {
-  requestedTitleText,
-  requestedDescriptionText,
-  requestedEmptyDescriptionText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 import TitleCard from 'components/TitleCard'
 import LessonList from 'components/LessonList'
 
 export default () => (
   <TitleCard 
-    title={requestedTitleText}
-    description={requestedDescriptionText}
+    title={<Text message='requestedLessons.title' />}
+    description={<Text message='requestedLessons.description' />}
   >
     <LessonList
       states={['requested']} 
       fallback={
         <div className='pa4'>
           <Paragraph>
-            {requestedEmptyDescriptionText}
+            <Text message='requestedLessons.fallback' />
           </Paragraph>
         </div>
       }

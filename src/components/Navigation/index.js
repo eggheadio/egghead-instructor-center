@@ -29,7 +29,7 @@ export default class Navigation extends Component {
   static propTypes = {
     user: PropTypes.object.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
-      text: PropTypes.string.isRequired,
+      text: PropTypes.node.isRequired,
       action: PropTypes.oneOfType([
         React.PropTypes.string,
         React.PropTypes.func,

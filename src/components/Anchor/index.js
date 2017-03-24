@@ -12,7 +12,10 @@ const prefixByType = {
   inline: null,
   prominent: (
     <span className='mr2'>
-      <Icon type='chevron-right' />
+      <Icon 
+        type='chevron-right' 
+        color='orange'
+      />
     </span>
   ),
 }

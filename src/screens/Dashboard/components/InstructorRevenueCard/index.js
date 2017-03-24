@@ -1,10 +1,7 @@
 import React from 'react'
 import {find, size, map} from 'lodash'
 import {List} from 'egghead-ui'
-import {
-  currentMonthRevenueTitleText,
-  revenueTitleText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 import WrappedRequest from 'components/WrappedRequest'
 import TitleCard from 'components/TitleCard'
 import currentMonthStartDate from './utils/currentMonthStartDate'
@@ -29,19 +26,22 @@ export default ({revenueUrl}) => revenueUrl
 
         const items = [
           {
-            title: currentMonthRevenueTitleText,
+            title: <Text message='instructorRevenue.currentMonth.title' />,
             revenue: currentMonthRevenue.revenue,
             subscriberMinutes: currentMonthRevenue.minutes_watched,
           },
           {
-            title: `Last ${currentTotalRevenue.monthCount} months`,
+            title: <Text 
+              message='instructorRevenue.previousMonths.title' 
+              values={[currentTotalRevenue.monthCount]} 
+            />,
             revenue: currentTotalRevenue.revenue,
             subscriberMinutes: currentTotalRevenue.minutes_watched,
           },
         ]
 
         return (
-          <TitleCard title={revenueTitleText}>
+          <TitleCard title={<Text message='instructorRevenue.title' />}>
             <List items={map(items, (item, index) => (
               <RevenuePeriod
                 key={index}

@@ -1,12 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Heading} from 'egghead-ui'
-import {
-  inProgressTitleText,
-  inReviewTitleText,
-  inQueueTitleText,
-  publishedTitleText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 import Avatar from 'components/Avatar'
 import LessonGroupsStat from './components/LessonGroupsStat'
 
@@ -34,7 +29,7 @@ export default ({instructor}) => (
       {instructor.claimed_lessons 
         ? <div className='mt3 mr3'>
             <LessonGroupsStat
-              label={inProgressTitleText}
+              label={<Text message='lessonGroups.inProgress.title' />}
               count={instructor.claimed_lessons}
             /> 
           </div>
@@ -43,7 +38,7 @@ export default ({instructor}) => (
       {instructor.submitted_lessons
         ? <div className='mt3 mr3'>
             <LessonGroupsStat
-              label={inReviewTitleText}
+              label={<Text message='lessonGroups.inReview.title' />}
               count={instructor.submitted_lessons}
             /> 
           </div>
@@ -52,7 +47,7 @@ export default ({instructor}) => (
       {instructor.approved_lessons
         ? <div className='mt3 mr3'>
             <LessonGroupsStat
-              label={inQueueTitleText}
+              label={<Text message='lessonGroups.inQueue.title' />}
               count={instructor.approved_lessons}
             /> 
           </div>
@@ -61,7 +56,7 @@ export default ({instructor}) => (
       {instructor.published_lessons
         ? <div className='mt3'>
             <LessonGroupsStat
-              label={publishedTitleText}
+              label={<Text message='lessonGroups.published.title' />}
               count={instructor.published_lessons}
             /> 
           </div>

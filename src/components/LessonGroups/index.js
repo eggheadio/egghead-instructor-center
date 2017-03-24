@@ -1,20 +1,6 @@
 import React from 'react'
 import {map, compact} from 'lodash'
-import {
-  newLessonsActionText,
-  inProgressTitleText,
-  inReviewTitleText,
-  inQueueTitleText,
-  publishedTitleText,
-  inReviewDescriptionText,
-  selfReviewDescriptionText,
-  inQueueDescriptionText,
-  publishedDescriptionText,
-  publishedActionText,
-  noInProgressLessonsDescriptionText,
-  noInReviewLessonsDescriptionText,
-  noInQueueLessonsDescriptionText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 import {publicLessonsUrl} from 'utils/urls'
 import {hasUnlockedSelfReview} from 'utils/milestones'
 import LessonList from 'components/LessonList'
@@ -25,36 +11,41 @@ export default ({instructor}) => {
 
   const items = compact([
     {
-      title: inProgressTitleText,
+      title: <Text message='lessonGroups.inProgress.title' />,
       states: [
         'accepted',
         'claimed',
         'rejected',
       ],
-      fallbackDescription: noInProgressLessonsDescriptionText,
       includeLessonsInCourses: true,
     },
     {
-      title: inReviewTitleText,
-      description: inReviewDescriptionText
-        + (instructor && hasUnlockedSelfReview(instructor.published_lessons)
-          ? ` ${selfReviewDescriptionText}`
-          : ''),
+      title: <Text message='lessonGroups.inReview.title' />,
+      description: (
+        <span>
+          <Text message='lessonGroups.inReview.description' />
+          {instructor && hasUnlockedSelfReview(instructor.published_lessons)
+            ? <span>
+                <span>{` `}</span>
+                <Text message='lessonGroups.inReview.selfApproval' />
+              </span>
+            : null
+          }
+        </span>
+      ),
       states: [
         'proposed',
         'submitted',
         'updated',
       ],
-      fallbackDescription: noInReviewLessonsDescriptionText,
       includeLessonsInCourses: true,
     },
     {
-      title: inQueueTitleText,
-      description: inQueueDescriptionText,
+      title: <Text message='lessonGroups.inQueue.title' />,
+      description: <Text message='lessonGroups.inQueue.description' />,
       states: [
         'approved'
       ],
-      fallbackDescription: noInQueueLessonsDescriptionText,
       includeLessonsInCourses: false,
     },
   ])
@@ -76,8 +67,8 @@ export default ({instructor}) => {
               fallback={
                 <div className='pa4'>
                   <Prompt
-                    description={item.fallbackDescription}
-                    actionText={newLessonsActionText}
+                    description={<Text message='lessonGroups.fallback' />}
+                    actionText={<Text message='lessonGroups.action' />}
                     action={'/lessons/new'}
                   />
                 </div>
@@ -89,12 +80,12 @@ export default ({instructor}) => {
         ),
       })),
       {
-        title: publishedTitleText,
+        title: <Text message='lessonGroups.published.title' />,
         component: (
           <div className='pa4'>
             <Prompt
-              description={publishedDescriptionText}
-              actionText={publishedActionText}
+              description={<Text message='lessonGroups.published.description' />}
+              actionText={<Text message='lessonGroups.published.action' />}
               action={publicLessonsUrl}
             />
           </div>

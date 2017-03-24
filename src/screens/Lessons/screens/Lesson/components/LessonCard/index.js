@@ -1,13 +1,8 @@
 import React from 'react'
 import {map, compact} from 'lodash'
-import {Card, Markdown, Heading, List} from 'egghead-ui'
-import {
-  lessonStateTitleText,
-  lessonActionsTitleText,
-  instructorTitleText,
-  technologyTitleText,
-  summaryTitleText,
-} from 'utils/text'
+import {Markdown, Heading, List} from 'egghead-ui'
+import {Text} from 'react-localize'
+import TitleCard from 'components/TitleCard'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
 import Avatar from 'components/Avatar'
@@ -17,19 +12,19 @@ export default ({lesson, requestLesson}) => {
 
   const items = compact([
     {
-      title: lesson.title,
+      title: <Text message='lesson.video.title' />,
       children: (
         <WistiaVideo wistiaId={lesson.wistia_id} />
       ),
     },
     {
-      title: lessonStateTitleText,
+      title: <Text message='lesson.state' />,
       children: (
         <LessonState lesson={lesson} />
       ),
     },
     {
-      title: lessonActionsTitleText,
+      title: <Text message='lesson.actions' />,
       children: (
         <LessonActions 
           lesson={lesson} 
@@ -40,7 +35,7 @@ export default ({lesson, requestLesson}) => {
     lesson.state === 'requested' 
       ? null
       : {
-          title: instructorTitleText,
+          title: <Text message='lesson.instructor' />,
           children: (
             <div className='flex items-center'>
               <Avatar
@@ -55,7 +50,7 @@ export default ({lesson, requestLesson}) => {
           ),
       },
     {
-      title: technologyTitleText,
+      title: <Text message='lesson.technology' />,
       children: (
         <div className='flex items-center'>
           <img
@@ -68,7 +63,7 @@ export default ({lesson, requestLesson}) => {
       ),
     },
     {
-      title: summaryTitleText,
+      title: <Text message='lesson.summary' />,
       children: (
         <Markdown>
           {lesson.summary}
@@ -78,10 +73,10 @@ export default ({lesson, requestLesson}) => {
   ])
 
   return (
-    <Card>
+    <TitleCard title={lesson.title}>
       <List items={map(items, (item, index) => (
         <div>
-          <Heading level='3'>
+          <Heading level='4'>
             {item.title}
           </Heading>
           <div>
@@ -89,6 +84,6 @@ export default ({lesson, requestLesson}) => {
           </div>
         </div>
       ))} />
-    </Card>
+    </TitleCard>
   )
 }
