@@ -385,7 +385,7 @@ babel-code-frame@^6.11.0, babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-babel-core@6.17.0, babel-core@^6.0.0:
+babel-core@6.17.0, babel-core@^6.11.4:
   version "6.17.0"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.17.0.tgz#6c4576447df479e241e58c807e4bc7da4db7f425"
   dependencies:
@@ -411,7 +411,7 @@ babel-core@6.17.0, babel-core@^6.0.0:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-core@^6.11.4, babel-core@^6.23.0:
+babel-core@^6.0.0, babel-core@^6.23.0:
   version "6.23.1"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.23.1.tgz#c143cb621bb2f621710c220c5d579d15b8a442df"
   dependencies:
@@ -3117,7 +3117,7 @@ imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
 
-in-publish@^2.0.0:
+in-publish@2.0.0, in-publish@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/in-publish/-/in-publish-2.0.0.tgz#e20ff5e3a2afc2690320b6dc552682a9c7fadf51"
 
@@ -3933,6 +3933,10 @@ lodash.clonedeep@^3.0.0:
 lodash.cond@^4.3.0:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/lodash.cond/-/lodash.cond-4.5.2.tgz#f471a1da486be60f6ab955d17115523dd1d255d5"
+
+lodash.get@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.0.0.tgz#faa56272dfdca33553066b5039592cc11b43941a"
 
 lodash.isarguments@^3.0.0:
   version "3.1.0"
@@ -5121,6 +5125,14 @@ react-komposer@^2.0.0:
     react-stubber "^1.0.0"
     shallowequal "^0.2.2"
 
+react-localize@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-localize/-/react-localize-2.0.0.tgz#1e16a93aa911b146968dcc5099d8b9553ed0ab8c"
+  dependencies:
+    in-publish "2.0.0"
+    lodash.get "4.0.0"
+    util "0.10.3"
+
 react-markdown@^2.4.5:
   version "2.4.5"
   resolved "https://registry.yarnpkg.com/react-markdown/-/react-markdown-2.4.5.tgz#e8fd1b7d90a7c616fc66fd66d85c678ebb1120f6"
@@ -5962,11 +5974,11 @@ tachyons-background-size@^5.0.4:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/tachyons-background-size/-/tachyons-background-size-5.0.5.tgz#445fbe008125308ebe750262649e3f3f7c9de56f"
 
-"tachyons-base@github:eggheadio/tachyons-base#20454fc":
+tachyons-base@eggheadio/tachyons-base#20454fc:
   version "1.4.1"
   resolved "https://codeload.github.com/eggheadio/tachyons-base/tar.gz/20454fc"
 
-"tachyons-border-colors@github:eggheadio/tachyons-border-colors#d3e31f2":
+tachyons-border-colors@eggheadio/tachyons-border-colors#d3e31f2:
   version "4.2.3"
   resolved "https://codeload.github.com/eggheadio/tachyons-border-colors/tar.gz/d3e31f2"
 
@@ -5986,7 +5998,7 @@ tachyons-borders@^3.0.3:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/tachyons-borders/-/tachyons-borders-3.0.4.tgz#4d52c19ad3bcb7817a5c1078a2eb9dfb0b3dc40f"
 
-"tachyons-box-shadow@github:eggheadio/tachyons-box-shadow#cb5fb6e":
+tachyons-box-shadow@eggheadio/tachyons-box-shadow#cb5fb6e:
   version "2.1.0"
   resolved "https://codeload.github.com/eggheadio/tachyons-box-shadow/tar.gz/cb5fb6e"
 
@@ -6002,7 +6014,7 @@ tachyons-code@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/tachyons-code/-/tachyons-code-1.0.0.tgz#5c3defc4b9250c64227dcf95b961fc5c1d8fcb28"
 
-"tachyons-colors@github:eggheadio/tachyons-colors#28fd66a":
+tachyons-colors@eggheadio/tachyons-colors#28fd66a:
   version "5.3.2"
   resolved "https://codeload.github.com/eggheadio/tachyons-colors/tar.gz/28fd66a"
 
@@ -6072,7 +6084,7 @@ tachyons-egghead@^2.3.1:
     tachyons-word-break "^3.0.3"
     tachyons-z-index "^1.0.7"
 
-"tachyons-flexbox@github:eggheadio/tachyons-flexbox#6e8ddff":
+tachyons-flexbox@eggheadio/tachyons-flexbox#6e8ddff:
   version "2.0.3"
   resolved "https://codeload.github.com/eggheadio/tachyons-flexbox/tar.gz/6e8ddff"
 
@@ -6152,11 +6164,11 @@ tachyons-rotations@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/tachyons-rotations/-/tachyons-rotations-1.0.2.tgz#19bb7cc29aceaea56dc02b650241dafa32f0de62"
 
-"tachyons-skins-pseudo@github:eggheadio/tachyons-skins-pseudo#06f4d9f":
+tachyons-skins-pseudo@eggheadio/tachyons-skins-pseudo#06f4d9f:
   version "1.0.3"
   resolved "https://codeload.github.com/eggheadio/tachyons-skins-pseudo/tar.gz/06f4d9f"
 
-"tachyons-skins@github:eggheadio/tachyons-skins#d40295c":
+tachyons-skins@eggheadio/tachyons-skins#d40295c:
   version "4.0.2"
   resolved "https://codeload.github.com/eggheadio/tachyons-skins/tar.gz/d40295c"
 

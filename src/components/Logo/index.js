@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  eggoAltText,
-  instructorBannerAltText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 import eggoIcon from './eggoIcon.svg'
 import eggoInstructorBanner from './eggoInstructorBanner.svg'
 import instructorBanner from './instructorBanner.svg'
@@ -10,7 +7,7 @@ import instructorBanner from './instructorBanner.svg'
 export const EggoIcon = ({className}) => (
   <img
     src={eggoIcon}
-    alt={eggoAltText}
+    alt='egghead.io instructors logo, eggo only'
     className={className}
   />
 )
@@ -18,7 +15,7 @@ export const EggoIcon = ({className}) => (
 export const EggoInstructorBanner = ({className}) => (
   <img
     src={eggoInstructorBanner}
-    alt={instructorBannerAltText}
+    alt='egghead.io instructors logo'
     className={className}
   />
 )
@@ -26,7 +23,7 @@ export const EggoInstructorBanner = ({className}) => (
 export const InstructorBanner = ({className}) => (
   <img
     src={instructorBanner}
-    alt={instructorBannerAltText}
+    alt='egghead.io instructors logo'
     className={className}
   />
 )

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {noVideoDescriptionText} from 'utils/text'
+import {Text} from 'react-localize'
 import {Paragraph} from 'egghead-ui'
 
 export default class extends Component {

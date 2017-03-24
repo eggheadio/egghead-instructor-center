@@ -1,14 +1,7 @@
 import React, {Component} from 'react'
 import {map, size, every} from 'lodash'
 import {Error, Button} from 'egghead-ui'
-import {
-  proposeActionText,
-  missingInputDescriptionText,
-  newLessonSubmissionDescriptionText,
-  lessonTitleLabelText,
-  lessonTechnologyLabelText,
-  lessonSummaryLabelText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 import TitleCard from 'components/TitleCard'
 import WrappedRequest from 'components/WrappedRequest'
 
@@ -64,14 +57,14 @@ export default class Propose extends Component {
 
     return (
       <TitleCard
-        title={proposeActionText}
-        description={newLessonSubmissionDescriptionText}
+        title={<Text message='propose.title' />}
+        description={<Text message='propose.description' />}
       >
         <div className='pa4'>
 
           <div className='mb3'>
             <div className='b'>
-              {lessonTitleLabelText}
+              <Text message='propose.lessonTitle' />
             </div>
             <input
               type='text'
@@ -85,7 +78,7 @@ export default class Propose extends Component {
             {({data}) => (
               <div className='mb3'>
                 <div className='b'>
-                  {lessonTechnologyLabelText}
+                  <Text message='propose.lessonTechnology' />
                 </div>
                 <select
                   value={technologyId}
@@ -108,7 +101,7 @@ export default class Propose extends Component {
 
           <div className='mb3'>
             <div className='b'>
-              {lessonSummaryLabelText}
+              <Text message='propose.lessonSummary' />
             </div>
             <textarea
               type='text'
@@ -122,7 +115,7 @@ export default class Propose extends Component {
           {hasMissingInput
             ? <div className='mb3'>
                 <Error>
-                  {missingInputDescriptionText}
+                  <Text message='propose.missingInputError' />
                 </Error>
               </div>
             : null
@@ -154,7 +147,7 @@ export default class Propose extends Component {
                   }
                 }}
               >
-                {proposeActionText}
+                <Text message='propose.action' />
               </Button>
             )}
           </WrappedRequest>

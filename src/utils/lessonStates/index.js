@@ -1,32 +1,5 @@
 import {keys} from 'lodash'
-import {
-  rejectedStateTitleText,
-  proposedStateDescriptionText,
-  cancelledStateDescriptionText,
-  acceptedStateDescriptionText,
-  requestedStateDescriptionText,
-  claimedStateDescriptionText,
-  submittedStateDescriptionText,
-  rejectedStateDescriptionText,
-  updatedStateDescriptionText,
-  approvedStateDescriptionText,
-  publishedStateDescriptionText,
-  flaggedStateDescriptionText,
-  revisedStateDescriptionText,
-  retiredStateDescriptionText,
-  cancelActionText,
-  acceptActionText,
-  requestActionText,
-  claimActionText,
-  submitActionText,
-  rejectActionText,
-  applyUpdateActionText,
-  approveActionText,
-  publishActionText,
-  flagActionText,
-  reviseActionText,
-  retireActionText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 
 export const detailsByLessonState = {
   proposed: {

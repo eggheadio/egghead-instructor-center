@@ -1,10 +1,6 @@
 import React from 'react'
 import {Button} from 'egghead-ui'
-import {
-  uploadVideoTitleText,
-  editLessonTitleText,
-  replaceVideoTitleText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 import Anchor from 'components/Anchor'
 
 export default ({lesson}) => (
@@ -14,7 +10,7 @@ export default ({lesson}) => (
         ? <div className='pa1'>
             <Anchor url={lesson.edit_lesson_http_url}>
               <Button size='extra-small'>
-                {editLessonTitleText}
+                <Text message='lessonActions.edit' />
               </Button>
             </Anchor>
           </div>

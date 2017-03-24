@@ -100,6 +100,10 @@ Linting is currently provided by `react-scripts` (ESLint).
 
 Testing is currently provided by `react-scripts` (Jest). Files that could benefit from tests have an `index.test.js` file next to them. These are generally simple unit or snapshot tests where they provide value.
 
+### Localization
+
+Hard-coded strings are currently implemented with [react-localize](https://www.npmjs.com/package/react-localize) with the bundle in `src/utils/localizationBundle`.
+
 ### Continuous integration and deployment
 
 [Travis CI](https://travis-ci.org/eggheadio/egghead-instructor-center) is currently used for continuous integration and deployment. It runs scripts to ensure builds pass before pull requests are merged into `master` and then deploys to Amazon S3 which updates [instructor.egghead.io](https://instructor.egghead.io).

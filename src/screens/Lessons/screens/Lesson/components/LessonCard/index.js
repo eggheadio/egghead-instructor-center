@@ -1,13 +1,7 @@
 import React from 'react'
 import {map, compact} from 'lodash'
 import {Card, Markdown, Heading, List} from 'egghead-ui'
-import {
-  lessonStateTitleText,
-  lessonActionsTitleText,
-  instructorTitleText,
-  technologyTitleText,
-  summaryTitleText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
 import Avatar from 'components/Avatar'

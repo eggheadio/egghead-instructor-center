@@ -1,12 +1,12 @@
 import React from 'react'
+import {Text} from 'react-localize'
 import {Error} from 'egghead-ui'
-import {instructorsOnlyDescriptionText} from 'utils/text'
 import Main from 'components/Main'
 
 export default () => (
   <Main>
     <Error>
-      {instructorsOnlyDescriptionText}
+      <Text message='instructorsOnly' />
     </Error>
   </Main>
 )

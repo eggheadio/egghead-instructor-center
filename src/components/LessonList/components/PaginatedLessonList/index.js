@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
 import {List} from 'egghead-ui'
-import {previousLabelText, nextLabelText} from 'utils/text'
+import {Text} from 'react-localize'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonListItem from './components/LessonListItem'
 
@@ -42,8 +42,8 @@ const PaginatedLessonList = ({
                 pageRangeDisplayed={3}
                 marginPagesDisplayed={1}
                 initialSelected={currentPage - 1}
-                previousLabel={previousLabelText}
-                nextLabel={nextLabelText}
+                previousLabel={<Text message='previous' />}
+                nextLabel={<Text message='next' />}
                 clickCallback={(page) => {
                   const {selected} = page
                   if (currentPage !== selected + 1) {

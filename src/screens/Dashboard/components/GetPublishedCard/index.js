@@ -1,9 +1,6 @@
 import React from 'react'
 import {map, uniq, compact, isString} from 'lodash'
-import {
-  getPublishedTitleText,
-  getPublishedDescriptionText,
-} from 'utils/text'
+import {Text} from 'react-localize'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/milestones'
 import createLessonsUrl from 'utils/createLessonsUrl'
@@ -24,8 +21,8 @@ export default ({instructor}) => hasUnlockedPublished(instructor.published_lesso
         const instructorLessonStates = compact(uniq(map(data, 'state')))
         return (
           <TitleCard
-            title={getPublishedTitleText}
-            description={getPublishedDescriptionText}
+            title={<Text message='getPublished.title' />}
+            description={<Text message='getPublished.description' />}
           >
             <Checklist items={[
               {

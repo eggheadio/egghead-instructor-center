@@ -1,7 +1,7 @@
 import React from 'react'
 import formatNumber from 'format-number'
 import {Heading} from 'egghead-ui'
-import {subscriberMinutesLabelText} from 'utils/text'
+import {Text} from 'react-localize'
 import IconLabel from 'components/IconLabel'
 
 export default ({title, revenue, subscriberMinutes}) => (
@@ -15,7 +15,7 @@ export default ({title, revenue, subscriberMinutes}) => (
     />
     <IconLabel
       iconType='clock'
-      labelText={`${formatNumber({round: 2})(subscriberMinutes)} ${subscriberMinutesLabelText}`}
+      labelText={`${formatNumber({round: 2})(subscriberMinutes)} minutes`}
     />
   </div>
 )

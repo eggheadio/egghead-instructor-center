@@ -1,7 +1,7 @@
 import React from 'react'
 import {map, size} from 'lodash'
 import {Paragraph, List} from 'egghead-ui'
-import {noInstructorsDescriptionText} from 'utils/text'
+import {Text} from 'react-localize'
 import InstructorListItem from './components/InstructorListItem'
 
 export default ({title, instructors}) => size(instructors) > 0
@@ -12,5 +12,5 @@ export default ({title, instructors}) => size(instructors) > 0
       />
     ))} />
   : <Paragraph>
-      {noInstructorsDescriptionText}
+      <Text message='instructorGroups.fallback' />
     </Paragraph>

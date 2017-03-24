@@ -1,16 +1,10 @@
 import 'tachyons-egghead'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Localization, {Text} from 'react-localize'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {initializeErrorTracking} from 'utils/errorTracking'
-import {
-  overviewTitleText,
-  instructorsTitleText,
-  guideTitleText,
-  chatTitleText,
-  logOutTitleText,
-  lessonsTitleText,
-} from 'utils/text'
+import localizationBundle from 'utils/localizationBundle'
 import {guideUrl, chatUrl} from 'utils/urls'
 import {login, logout} from 'utils/authentication'
 import WrappedRequest from 'components/WrappedRequest'
@@ -54,115 +48,119 @@ const App = () => {
 
         return (
           <BrowserRouter>
-            <div className='flex'>
+            <Localization messages={localizationBundle}>
 
-              <Navigation
-                user={user}
-                items={[
-                  {
-                    text: overviewTitleText,
-                    action: '/',
-                  },
-                  {
-                    text: lessonsTitleText,
-                    action: '/lessons',
-                  },
-                  {
-                    text: instructorsTitleText,
-                    action: '/instructors',
-                  },
-                  {
-                    text: guideTitleText,
-                    action: guideUrl,
-                  },
-                  {
-                    text: chatTitleText,
-                    action: chatUrl,
-                  },
-                  {
-                    text: logOutTitleText,
-                    action: logout,
-                  },
-                ]}
-              />
+              <div className='flex'>
 
-              <Main>
+                <Navigation
+                  user={user}
+                  items={[
+                    {
+                      text: <Text message='navigation.dashboard' />,
+                      action: '/',
+                    },
+                    {
+                      text: <Text message='navigation.lessons' />,
+                      action: '/lessons',
+                    },
+                    {
+                      text: <Text message='navigation.instructors' />,
+                      action: '/instructors',
+                    },
+                    {
+                      text: <Text message='navigation.guide' />,
+                      action: guideUrl,
+                    },
+                    {
+                      text: <Text message='navigation.chat' />,
+                      action: chatUrl,
+                    },
+                    {
+                      text: <Text message='navigation.logout' />,
+                      action: logout,
+                    },
+                  ]}
+                />
 
-                <WrappedRequest url={data.instructor_url}>
-                  {({data}) => {
-                    const instructor = data
-                    return (
-                      <Switch>
+                <Main>
 
-                        <Route 
-                          exact
-                          path='/'
-                          render={() => (
-                            <Dashboard instructor={instructor} />
-                          )}
-                        />
+                  <WrappedRequest url={data.instructor_url}>
+                    {({data}) => {
+                      const instructor = data
+                      return (
+                        <Switch>
 
-                        <Route 
-                          exact
-                          path='/lessons/new'
-                          render={() => (
-                            <New instructor={instructor} />
-                          )}
-                        />
+                          <Route 
+                            exact
+                            path='/'
+                            render={() => (
+                              <Dashboard instructor={instructor} />
+                            )}
+                          />
 
-                        <Route 
-                          path={`/lessons/:slug`}
-                          render={({match}) => (
-                            <WrappedRequest
-                              url={`/api/v1/lessons/${match.params.slug}`}
-                              subscribe
-                            >
-                              {({request, data}) => (
-                                <Lesson 
-                                  instructor={instructor}
-                                  lesson={data} 
-                                  requestLesson={request}
-                                />
-                              )}
-                            </WrappedRequest>
-                          )}
-                        />
+                          <Route 
+                            exact
+                            path='/lessons/new'
+                            render={() => (
+                              <New instructor={instructor} />
+                            )}
+                          />
 
-                        <Route 
-                          path='/lessons'
-                          render={() => (
-                            <Lessons instructor={instructor} />
-                          )}
-                        />
+                          <Route 
+                            path={`/lessons/:slug`}
+                            render={({match}) => (
+                              <WrappedRequest
+                                url={`/api/v1/lessons/${match.params.slug}`}
+                                subscribe
+                              >
+                                {({request, data}) => (
+                                  <Lesson 
+                                    instructor={instructor}
+                                    lesson={data} 
+                                    requestLesson={request}
+                                  />
+                                )}
+                              </WrappedRequest>
+                            )}
+                          />
 
-                        <Route 
-                          path={`/instructors/:slug`}
-                          render={({match}) => (
-                            <WrappedRequest url={`/api/v1/instructors/${match.params.slug}`}>
-                              {({data}) => (
-                                <Instructor instructor={data} />
-                              )}
-                            </WrappedRequest>
-                          )}
-                        />
+                          <Route 
+                            path='/lessons'
+                            render={() => (
+                              <Lessons instructor={instructor} />
+                            )}
+                          />
 
-                        <Route
-                          path='/instructors'
-                          render={() => (
-                            <Instructors instructors={data} />
-                          )}
-                        />
+                          <Route 
+                            path={`/instructors/:slug`}
+                            render={({match}) => (
+                              <WrappedRequest url={`/api/v1/instructors/${match.params.slug}`}>
+                                {({data}) => (
+                                  <Instructor instructor={data} />
+                                )}
+                              </WrappedRequest>
+                            )}
+                          />
 
-                        <Route component={RouteNotFound} />
+                          <Route
+                            path='/instructors'
+                            render={() => (
+                              <Instructors instructors={data} />
+                            )}
+                          />
 
-                      </Switch>
+                          <Route component={RouteNotFound} />
 
-                    )
-                  }}
-                </WrappedRequest>
-              </Main>
+                        </Switch>
 
-            </div>
+                      )
+                    }}
+                  </WrappedRequest>
+                </Main>
+
+              </div>
+
+            </Localization>
           </BrowserRouter>
         )
       }}

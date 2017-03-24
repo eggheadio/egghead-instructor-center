@@ -1,10 +1,5 @@
 import React from 'react'
 import {Heading, Paragraph} from 'egghead-ui'
-import {
-  pageNotFoundTitleText,
-  pageNotFoundDescriptionText,
-  crackedEggoAltText,
-} from 'utils/text'
 import Main from 'components/Main'
 import crackedEggo from './crackedEggo.png'
 
@@ -15,7 +10,7 @@ export default () => (
     </Heading>
     <img
       src={crackedEggo}
-      alt={crackedEggoAltText}
+      alt='Cracked eggo logo'
     />
     <Heading level='3'>
       {pageNotFoundTitleText}

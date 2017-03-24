@@ -1,6 +1,6 @@
 import React from 'react'
 import {filter, reject} from 'lodash'
-import {instructorsTitleText, unpublishedTitleText, publishedTitleText} from 'utils/text'
+import {Text} from 'react-localize'
 import sortBy from 'sort-by'
 import WrappedRequest from 'components/WrappedRequest'
 import TitleCard from 'components/TitleCard'
