@@ -41,7 +41,6 @@ export default ({lesson, requestLesson}) => {
               <Avatar
                 name={lesson.instructor.first_name}
                 url={lesson.instructor.avatar_url}
-                size={3}
               />
               <div className='ml3'>
                 {lesson.instructor.full_name}

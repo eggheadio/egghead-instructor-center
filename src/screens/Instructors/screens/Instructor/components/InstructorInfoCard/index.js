@@ -12,7 +12,7 @@ export default ({instructor}) => {
       <Avatar
         name={instructor.full_name}
         url={instructor.avatar_url}
-        size={5}
+        size={4}
       />
     </div>,
     instructor.bio || instructor.bio_short
