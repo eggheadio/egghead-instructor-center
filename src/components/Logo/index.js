@@ -26,10 +26,3 @@ export const InstructorBanner = ({className}) => (
     className={className}
   />
 )
-
-export default () => (
-  <div>
-    <EggoIcon className='mw2 db dn-ns' />
-    <EggoInstructorBanner className='w-100 dn db-ns' />
-  </div>
-)

@@ -61,7 +61,9 @@ export default ({lesson, requestCurrentPage}) => {
           }
         </div>
 
-        <LessonState lesson={lesson}/>
+        <div className='mt3'>
+          <LessonState lesson={lesson}/>
+        </div>
 
         <div className="mt3">
           <LessonActions 

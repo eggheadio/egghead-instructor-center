@@ -27,7 +27,8 @@ export default {
     instructors: 'Instructors',
     guide: 'Guide',
     chat: 'Chat',
-    logout: 'Log Out'
+    logout: 'Log Out',
+    action: 'New lesson',
   },
   
   getPublished: {
