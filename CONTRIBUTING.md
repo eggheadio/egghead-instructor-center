@@ -60,6 +60,8 @@ SomeScreenName/
 ```
 /lessons
 /lessons/new
+/lessons/{id}
+/lessons/{id}/edit
 ```
 
 Routes correspond to screen components. For example, `src/screens/Lessons` is used for `/lessons` and `src/screens/Lessons/screens/new` is used for `/lessons/new`.
