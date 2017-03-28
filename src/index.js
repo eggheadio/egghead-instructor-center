@@ -15,7 +15,6 @@ import RouteNotFound from './components/RouteNotFound'
 import Navigation from './components/Navigation'
 import Dashboard from './screens/Dashboard'
 import New from './screens/Lessons/screens/New'
-import Lesson from './screens/Lessons/screens/Lesson'
 import Lessons from './screens/Lessons'
 import Instructor from './screens/Instructors/screens/Instructor'
 import Instructors from './screens/Instructors'
@@ -111,24 +110,6 @@ const App = () => {
                             path='/lessons/new'
                             render={() => (
                               <New instructor={instructor} />
-                            )}
-                          />
-
-                          <Route 
-                            path={`/lessons/:slug`}
-                            render={({match}) => (
-                              <WrappedRequest
-                                url={`/api/v1/lessons/${match.params.slug}`}
-                                subscribe
-                              >
-                                {({request, data}) => (
-                                  <Lesson 
-                                    instructor={instructor}
-                                    lesson={data} 
-                                    requestLesson={request}
-                                  />
-                                )}
-                              </WrappedRequest>
                             )}
                           />
 

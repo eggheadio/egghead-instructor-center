@@ -23,7 +23,7 @@ export default ({lesson, requestCurrentPage}) => {
 
       <div>
 
-        <Link to={`/lessons/${lesson.slug}`}>
+        <Link to={lesson.lesson_http_url}>
           <Heading level='3'>
             {lesson.title}
           </Heading>
