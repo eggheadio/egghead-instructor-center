@@ -9,7 +9,7 @@ export default ({iconType, labelText, color = 'dark-gray'}) => (
         color={color}
       />
     </div>
-    <span className={`f5 b ml1 ${color}`}>
+    <span className={`f5 ml1 ${color}`}>
       {labelText}
     </span>
   </div>

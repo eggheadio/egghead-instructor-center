@@ -13,7 +13,6 @@ export default class extends Component {
   }
 
   handleWidthChange = () => {
-    console.log('parent')
     const {onWidthChange} = this.props
     if(onWidthChange) {
       onWidthChange()

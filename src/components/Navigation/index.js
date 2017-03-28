@@ -7,6 +7,7 @@ import {mobileMediaQuerySize, navigationWidth} from 'utils/hardCodedSizes'
 import DeviceWidth from 'components/DeviceWidth'
 import Avatar from 'components/Avatar'
 import {EggoInstructorBanner} from 'components/Logo'
+import IconLabel from 'components/IconLabel'
 
 const sharedLinkClassnames = `
   pointer
@@ -58,7 +59,6 @@ export default class Navigation extends Component {
   }
 
   handleWidthChange = () => {
-    console.log('child')
     if(window.screen.width < mobileMediaQuerySize) {
       this.setState({
         isOpen: false,
@@ -127,6 +127,14 @@ export default class Navigation extends Component {
             `}>
               {map(items, (item, index) => {
 
+                const NavigationLinkContents = () => (
+                  <IconLabel
+                    iconType={item.iconType}
+                    labelText={item.text}
+                    color='white'
+                  />
+                )
+
                 if(isFunction(item.action)) {
                   return (
                     <a
@@ -140,7 +148,7 @@ export default class Navigation extends Component {
                         item.action()
                       }}
                     >
-                      {item.text}
+                      <NavigationLinkContents />
                     </a>
                   )
                 }
@@ -161,7 +169,7 @@ export default class Navigation extends Component {
                         }}
                         to={item.action}
                       >
-                        {item.text}
+                        <NavigationLinkContents />
                       </NavLink>
                     : <a
                         key={index}
@@ -174,7 +182,7 @@ export default class Navigation extends Component {
                         }}
                         href={item.action}
                       >
-                        {item.text}
+                        <NavigationLinkContents />
                       </a>
                 }
 

@@ -385,7 +385,7 @@ babel-code-frame@^6.11.0, babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-babel-core@6.17.0, babel-core@^6.11.4:
+babel-core@6.17.0, babel-core@^6.0.0:
   version "6.17.0"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.17.0.tgz#6c4576447df479e241e58c807e4bc7da4db7f425"
   dependencies:
@@ -411,7 +411,7 @@ babel-core@6.17.0, babel-core@^6.11.4:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-core@^6.0.0, babel-core@^6.23.0:
+babel-core@^6.11.4, babel-core@^6.23.0:
   version "6.23.1"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.23.1.tgz#c143cb621bb2f621710c220c5d579d15b8a442df"
   dependencies:
@@ -2115,9 +2115,9 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-egghead-ui@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-4.3.1.tgz#6c4b5716393362763ec1047e6414961fadb8b665"
+egghead-ui@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-4.4.0.tgz#2f8d3028fd2f2375c8f79f56c4c286d03439cbb8"
   dependencies:
     "@kadira/storybook" "^2.5.2"
     axios "^0.15.3"
