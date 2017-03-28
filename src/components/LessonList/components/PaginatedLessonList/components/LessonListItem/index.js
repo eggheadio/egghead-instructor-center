@@ -25,7 +25,7 @@ export default ({lesson, requestCurrentPage}) => {
       <div>
 
         <Anchor url={lesson.lesson_http_url}>
-          <Heading level='3'>
+          <Heading level='4'>
             {lesson.title}
           </Heading>
         </Anchor>

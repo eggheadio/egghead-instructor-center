@@ -1,12 +1,19 @@
 import React from 'react'
 import {map} from 'lodash'
 
-export default ({items}) => (
-  <div className='flex-ns'>
+export default ({items, relativeSizes}) => (
+  <div className='flex-l'>
     {map(items, (item, index) => (
       <div
         key={index}
-        className={`w-100-ns ${index < items.length - 1 ? 'mr4-ns' : ''}`}
+        className={`
+          ${index < items.length - 1 ? 'mr4-l' : ''}
+        `}
+        style={{
+          flex: relativeSizes
+            ? relativeSizes[index]
+            : 1
+        }}
       >
         {item}
       </div>

@@ -80,7 +80,7 @@ ES2015 modules are used for sharing code between files. `NODE_PATH` is set to `s
 
 ### Styles
 
-[`egghead-ui`](https://styleguide.egghead.io) components are used wherever possible. Styling is largely taken care of by these components. When app specific styles are needed beyond that, `tachyons-egghead` classes are used where possible. Styles are added to work on mobile first, then `*-ns` (not small) classes are appended to override/extend styles for large screen sizes.
+[`egghead-ui`](https://styleguide.egghead.io) components are used wherever possible. Styling is largely taken care of by these components. When app specific styles are needed beyond that, `tachyons-egghead` classes are used where possible. Styles are added to work on mobile first, the `*-ns` (not small) and `*-l` (large only) classes are appended to override/extend styles for large screen sizes.
 
 ### Endpoints
 
