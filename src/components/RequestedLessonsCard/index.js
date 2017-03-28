@@ -10,7 +10,7 @@ export default ({instructor}) => (
     title={<Text message='requestedLessons.title' />}
     description={<Text message='requestedLessons.description' />}
   >
-    <div className='bb b--gray-secondary'>
+    <div className='bb b--gray-secondary pa4'>
       <ProposeLesson instructor={instructor} />
     </div>
     <LessonList

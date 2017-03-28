@@ -69,20 +69,19 @@ export default {
     },
   },
 
-  proposeLesson: {
-    title: 'Propose a Lesson',
-    description: 'Have an idea for an egghead lesson? Fill out this information and get started. Feel free to submit as many ideas as you like.',
-    lessonTitle: 'Title *',
-    lessonTechnology: 'Technology *',
-    lessonSummary: 'Summary',
-    missingInputError: 'Missing required form input',
-    action: 'Submit',
-  },
-
   requestedLessons: {
     title: 'Requested Lessons',
     description: `Here's some ideas for lessons that you can start recording today. If you claim one of these ideas, you'll have 2 weeks to record a draft and upload it. After that it goes back into the pool for others to claim.`,
     fallback: 'There are no requested lessons, but you can create your own.',
+    proposeLesson: { title: 'Propose a Lesson',
+      description: 'Have an idea for an egghead lesson? Fill out this information and get started. Feel free to submit as many ideas as you like.',
+      lessonTitle: 'Title *',
+      lessonTechnology: 'Technology *',
+      lessonSummary: 'Summary',
+      missingInputError: 'Missing required form input',
+      action: 'Propose a new lesson',
+      submit: 'Submit',
+    },
   },
 
   lessonEdit: {

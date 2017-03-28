@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
+import {Icon} from 'egghead-ui'
 import {Text} from 'react-localize'
-import IconLabel from 'components/IconLabel'
 import ProposeLessonForm from './components/ProposeLessonForm'
 
 export default class extends Component {
@@ -21,14 +21,14 @@ export default class extends Component {
     return isOpen
       ? <ProposeLessonForm instructor={instructor} />
       : <div 
+          className='blue'
           onClick={this.handleClick}
-          className='ttu'
         >
-          <IconLabel
-            iconType='add'
-            labelText={<Text message='requestedLessons.proposeLesson.action' />}
+          <Icon
+            type='add'
             color='blue'
           />
+          <Text message='requestedLessons.proposeLesson.action' />
         </div>
   }
 }
