@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Heading, Markdown} from 'egghead-ui'
+import Anchor from 'components/Anchor'
 import Avatar from 'components/Avatar'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
@@ -23,11 +24,11 @@ export default ({lesson, requestCurrentPage}) => {
 
       <div>
 
-        <Link to={lesson.lesson_http_url}>
+        <Anchor url={lesson.lesson_http_url}>
           <Heading level='3'>
             {lesson.title}
           </Heading>
-        </Link>
+        </Anchor>
 
         {lesson.state === 'requested' 
           ? null
