@@ -16,6 +16,7 @@
     "react-scripts": "^0.8.4"
   },
   "dependencies": {
+    "chart.js": "^2.5.0",
     "egghead-ui": "^4.4.0",
     "format-number": "^2.0.1",
     "honeybadger-js": "^0.4.3",
@@ -24,6 +25,7 @@
     "pluralize": "^4.0.0",
     "react": "^15.4.2",
     "react-addons-create-fragment": "^15.4.2",
+    "react-chartjs-2": "^2.0.5",
     "react-dom": "^15.4.2",
     "react-localize": "github:eggheadio/react-localize#2.0.2",
     "react-paginate": "^2.2.3",
