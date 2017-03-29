@@ -1,9 +1,13 @@
 import React, {Component, PropTypes} from 'react'
-import {NavLink} from 'react-router-dom'
-import {Icon} from 'egghead-ui'
+import {NavLink, Link} from 'react-router-dom'
+import {Icon, Button} from 'egghead-ui'
+import {Text} from 'react-localize'
 import {map, isFunction, startsWith} from 'lodash'
+import {mobileMediaQuerySize, navigationWidth} from 'utils/hardCodedSizes'
+import DeviceWidth from 'components/DeviceWidth'
 import Avatar from 'components/Avatar'
-import Logo from 'components/Logo'
+import {EggoInstructorBanner} from 'components/Logo'
+import IconLabel from 'components/IconLabel'
 
 const sharedLinkClassnames = `
   pointer
@@ -11,18 +15,19 @@ const sharedLinkClassnames = `
   pa3
   ttu
   no-underline
-  dark-gray
+  white
+  o-70
   bl
-  b
   b--transparent
 `
-
 const sharedLinkStyle = {
-  borderWidth: 5,
+  borderWidth: 3,
 }
 
-const activeLinkClassnames = 'b--orange orange'
-const mobileMediaQuerySize = 640
+const activeLinkClassnames = 'b--blue white bg-base-secondary b'
+const activeLinkStyle = {
+  opacity: 1,
+}
 
 export default class Navigation extends Component {
   
@@ -38,27 +43,7 @@ export default class Navigation extends Component {
   }
 
   state = {
-    isMobile: false,
     isOpen: true,
-  }
-
-  componentDidMount = () => {
-    this.checkScreenSize()
-    window.onresize = this.checkScreenSize
-  }
-
-  checkScreenSize = () => {
-    if(window.screen.width < mobileMediaQuerySize) {
-      this.setState({
-        isMobile: true,
-        isOpen: false,
-      })
-    } else {
-      this.setState({
-        isMobile: false,
-        isOpen: true,
-      })
-    }
   }
 
   close = () => {
@@ -73,111 +58,151 @@ export default class Navigation extends Component {
     })
   }
 
+  handleWidthChange = () => {
+    if(window.screen.width < mobileMediaQuerySize) {
+      this.setState({
+        isOpen: false,
+      })
+    } else {
+      this.setState({
+        isOpen: true,
+      })
+    }
+  }
+
   render() {
 
     const {user, items} = this.props
-    const {isMobile, isOpen} = this.state
+    const {isOpen} = this.state
 
     return (
-      <aside
-        className='bg-base fixed vh-100 z-1 w5 pt2-s'
-        style={{
-          willChange: 'transform',
-          transition: 'transform .3s',
-          left: 0,
-          transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
-        }}
-      >
+      <DeviceWidth onWidthChange={this.handleWidthChange}>
+        {(isMobile) => (
+          <aside
+            className='bg-base fixed vh-100 z-1 pt2-s'
+            style={{
+              width: navigationWidth,
+              willChange: 'transform',
+              transition: 'transform .3s',
+              left: 0,
+              transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
+            }}
+          >
 
-        <div
-          onClick={this.toggle.bind(this)}
-          className={`dn-ns fixed ml7 pa2 br2 br--right br--bottom bg-base ${isOpen ? '' : 'o-30'}`}
-        >
-          <Icon
-            type={isOpen ? 'close' : 'menu'}
-            size='3'
-            color='white'
-          />
-        </div>
+            <div
+              onClick={this.toggle.bind(this)}
+              className={`dn-ns fixed pa2 br2 br--right br--bottom bg-base ${isOpen ? '' : 'o-30'}`}
+              style={{
+                marginLeft: navigationWidth,
+              }}
+            >
+              <Icon
+                type={isOpen ? 'close' : 'menu'}
+                size='3'
+                color='white'
+              />
+            </div>
 
-        <div className='pa3 bb b--dark-blue'>
-          <Logo />
-        </div>
+            <div className='pa3 bb tc b--dark-blue'>
+              <EggoInstructorBanner />
+            </div>
 
-        <div className='tc ph3 pt4 pb3'>
-          <Avatar
-            name={user.name}
-            url={user.avatar_url}
-          />
-          <div className='mt2 white'>
-            {user.name}
-          </div>
-        </div>
+            <div className='tc ph3 pt4 pb3'>
+              <Avatar
+                name={user.name}
+                url={user.avatar_url}
+              />
+              <div className='mt2 white'>
+                {user.name}
+              </div>
+            </div>
 
-        <nav className={`
-          pv2
-          ${isOpen
-            ? 'flex flex-column'
-            : 'dn'
-          }
-          flex-ns flex-column-ns
-        `}>
-          {map(items, (item, index) => {
+            <nav className={`
+              pv2
+              ${isOpen
+                ? 'flex flex-column'
+                : 'dn'
+              }
+              flex-ns flex-column-ns
+            `}>
+              {map(items, (item, index) => {
 
-            if(isFunction(item.action)) {
-              return (
-                <a
-                  key={index}
-                  className={sharedLinkClassnames}
-                  style={sharedLinkStyle}
-                  onClick={() => {
-                    if(isMobile) {
-                      this.close()
-                    }
-                    item.action()
-                  }}
+                const NavigationLinkContents = () => (
+                  <IconLabel
+                    iconType={item.iconType}
+                    labelText={item.text}
+                    color='white'
+                  />
+                )
+
+                if(isFunction(item.action)) {
+                  return (
+                    <a
+                      key={index}
+                      className={sharedLinkClassnames}
+                      style={sharedLinkStyle}
+                      onClick={() => {
+                        if(isMobile) {
+                          this.close()
+                        }
+                        item.action()
+                      }}
+                    >
+                      <NavigationLinkContents />
+                    </a>
+                  )
+                }
+
+                else {
+                  return startsWith(item.action, '/')
+                    ? <NavLink
+                        exact
+                        key={index}
+                        className={sharedLinkClassnames}
+                        activeClassName={activeLinkClassnames}
+                        activeStyle={activeLinkStyle}
+                        style={sharedLinkStyle}
+                        onClick={() => {
+                          if(isMobile) {
+                            this.close()
+                          }
+                        }}
+                        to={item.action}
+                      >
+                        <NavigationLinkContents />
+                      </NavLink>
+                    : <a
+                        key={index}
+                        className={sharedLinkClassnames}
+                        style={sharedLinkStyle}
+                        onClick={() => {
+                          if(isMobile) {
+                            this.close()
+                          }
+                        }}
+                        href={item.action}
+                      >
+                        <NavigationLinkContents />
+                      </a>
+                }
+
+              })}
+            </nav>
+
+            <div className='mt4 tc'>
+              <Link to={'/lessons/new'}>
+                <Button 
+                  size='extra-small'
+                  color='green'
                 >
-                  {item.text}
-                </a>
-              )
-            }
+                  <Text message='navigation.action' />
+                </Button>
+              </Link>
+            </div>
 
-            else {
-              return startsWith(item.action, '/')
-                ? <NavLink
-                    exact
-                    key={index}
-                    className={sharedLinkClassnames}
-                    activeClassName={activeLinkClassnames}
-                    style={sharedLinkStyle}
-                    onClick={() => {
-                      if(isMobile) {
-                        this.close()
-                      }
-                    }}
-                    to={item.action}
-                  >
-                    {item.text}
-                  </NavLink>
-                : <a
-                    key={index}
-                    className={sharedLinkClassnames}
-                    style={sharedLinkStyle}
-                    onClick={() => {
-                      if(isMobile) {
-                        this.close()
-                      }
-                    }}
-                    href={item.action}
-                  >
-                    {item.text}
-                  </a>
-            }
-
-          })}
-        </nav>
-
-      </aside>
+          </aside>
+        )}
+      </DeviceWidth>
     )
   }
 }

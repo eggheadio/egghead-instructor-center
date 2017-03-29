@@ -1,11 +1,29 @@
 import React, {PropTypes} from 'react'
+import {navigationWidth} from 'utils/hardCodedSizes'
+import DeviceWidth from 'components/DeviceWidth'
 
 const Main = ({children}) => (
-  <main className='bg-white-secondary h-100 w-100 ml7-ns mt4 mt0-ns'>
-    <div className='mw8 pv4 ph3 ph4-ns'>
-      {children}
-    </div>
-  </main>
+  <DeviceWidth>
+    {(isMobile) => (
+      <main 
+        className='h-100 w-100 mt4 mt0-ns'
+        style={{
+          marginLeft: isMobile
+            ? 0
+            : navigationWidth
+        }}
+      >
+        <div 
+          className='pv4 ph3 ph4-ns'
+          style={{
+            maxWidth: 1200,
+          }}
+        >
+          {children}
+        </div>
+      </main>
+    )}
+  </DeviceWidth>
 )
 
 Main.propTypes = {

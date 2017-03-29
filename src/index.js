@@ -66,26 +66,32 @@ const App = () => {
                     {
                       text: <Text message='navigation.dashboard' />,
                       action: '/',
+                      iconType: 'home',
                     },
                     {
                       text: <Text message='navigation.lessons' />,
                       action: '/lessons',
+                      iconType: 'list-ul',
                     },
                     {
                       text: <Text message='navigation.instructors' />,
                       action: '/instructors',
+                      iconType: 'user',
                     },
                     {
                       text: <Text message='navigation.guide' />,
                       action: guideUrl,
+                      iconType: 'question',
                     },
                     {
                       text: <Text message='navigation.chat' />,
                       action: chatUrl,
+                      iconType: 'slack',
                     },
                     {
                       text: <Text message='navigation.logout' />,
                       action: logout,
+                      iconType: 'sign-out',
                     },
                   ]}
                 />
