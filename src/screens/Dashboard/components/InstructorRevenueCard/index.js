@@ -1,9 +1,8 @@
 import React from 'react'
 import {find, size, map} from 'lodash'
-import {List} from 'egghead-ui'
+import {Card} from 'egghead-ui'
 import {Text} from 'react-localize'
 import WrappedRequest from 'components/WrappedRequest'
-import TitleCard from 'components/TitleCard'
 import currentMonthStartDate from './utils/currentMonthStartDate'
 import totalRevenue from './utils/totalRevenue'
 import removeRevenueMonth from './utils/removeRevenueMonth'
@@ -24,33 +23,31 @@ export default ({revenueUrl}) => revenueUrl
           return null
         }
 
-        const items = [
-          {
-            title: <Text message='instructorRevenue.currentMonth.title' />,
-            revenue: currentMonthRevenue.revenue,
-            subscriberMinutes: currentMonthRevenue.minutes_watched,
-          },
-          {
-            title: <Text 
-              message='instructorRevenue.previousMonths.title' 
-              values={[currentTotalRevenue.monthCount]} 
-            />,
-            revenue: currentTotalRevenue.revenue,
-            subscriberMinutes: currentTotalRevenue.minutes_watched,
-          },
-        ]
-
         return (
-          <TitleCard title={<Text message='instructorRevenue.title' />}>
-            <List items={map(items, (item, index) => (
-              <RevenuePeriod
-                key={index}
-                title={item.title}
-                revenue={item.revenue}
-                subscriberMinutes={item.subscriberMinutes}
-              />
-            ))} />
-          </TitleCard>
+          <Card>
+            <div className='flex-ns'>
+              <div className='pa5'>
+                <div className='pb4'>
+                  <RevenuePeriod
+                    title={<Text message='instructorRevenue.currentMonth.title' />}
+                    revenue={currentMonthRevenue.revenue}
+                    subscriberMinutes={currentMonthRevenue.minutes_watched}
+                  />
+                </div>
+                <RevenuePeriod
+                  title={<Text 
+                    message='instructorRevenue.previousMonths.title' 
+                    values={[currentTotalRevenue.monthCount]} 
+                  />}
+                  revenue={currentTotalRevenue.revenue}
+                  subscriberMinutes={currentTotalRevenue.minutes_watched}
+                />
+              </div>
+              <div>
+                Chart here
+              </div>
+            </div>
+          </Card>
         )
       }}
     </WrappedRequest>

@@ -7,6 +7,7 @@ export default ({items, relativeSizes}) => (
       <div
         key={index}
         className={`
+          mb4
           ${index < items.length - 1 ? 'mr4-l' : ''}
         `}
         style={{
