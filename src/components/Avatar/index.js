@@ -35,7 +35,7 @@ export default class extends Component {
             background: `url(${url}) center center / cover no-repeat`,
           }}
           role='img'
-          aria-label={`Avatar for ${name}`}
+          aria-label={alt}
         />
       )
     }
