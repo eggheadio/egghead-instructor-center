@@ -2,6 +2,7 @@ import React from 'react'
 import {map, compact} from 'lodash'
 import {Markdown, Heading, List} from 'egghead-ui'
 import {Text} from 'react-localize'
+import Image from 'components/Image'
 import TitleCard from 'components/TitleCard'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
@@ -52,7 +53,7 @@ export default ({lesson, requestLesson}) => {
       title: <Text message='lesson.technology' />,
       children: (
         <div className='flex items-center'>
-          <img
+          <Image
             src={lesson.technology.logo_http_url}
             alt={lesson.technology.label}
             className='mw3 mr3'
