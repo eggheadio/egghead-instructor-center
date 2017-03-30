@@ -1,7 +1,7 @@
 import React from 'react'
-import formatNumber from 'format-number'
 import {Heading} from 'egghead-ui'
 import {Text} from 'react-localize'
+import numberFormattingByType from 'utils/numberFormattingByType'
 
 export default ({title, revenue, subscriberMinutes}) => (
   <div>
@@ -9,12 +9,14 @@ export default ({title, revenue, subscriberMinutes}) => (
       {title}
     </Heading>
     <div className='blue b mv3'>
-      {formatNumber({round: 2, prefix: '$', padRight: 2})(revenue)}
+      {numberFormattingByType.money(revenue)}
     </div>
     <div className='base-secondary b'>
       <Text 
         message='instructorRevenue.subscriberMinutes'
-        values={[formatNumber({round: 2})(subscriberMinutes)]} 
+        values={[
+          numberFormattingByType.general(subscriberMinutes),
+        ]} 
       />
     </div>
   </div>

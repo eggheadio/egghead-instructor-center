@@ -55,19 +55,31 @@ export default ({revenueUrl}) => revenueUrl
               </div>
 
               <div className='pa4 bg-white-secondary br2 br--bottom'>
-                <LineChart
-                  xAxis={currentMonthDates}
-                  yAxis={[
-                    {
-                      color: revenueColor,
-                      points: currentRevenuePoints,
-                    },
-                    {
-                      color: minutesColor,
-                      points: currentMinutesPoints,
-                    },
-                  ]}
-                />
+
+                <div>
+                  <LineChart
+                    xAxis={currentMonthDates}
+                    yAxis={[
+                      {
+                        color: revenueColor,
+                        points: currentRevenuePoints,
+                      },
+                    ]}
+                  />
+                </div>
+
+                <div>
+                  <LineChart
+                    xAxis={currentMonthDates}
+                    yAxis={[
+                      {
+                        color: minutesColor,
+                        points: currentMinutesPoints,
+                      },
+                    ]}
+                  />
+                </div>
+
               </div>
 
             </div>
