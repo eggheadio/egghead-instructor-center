@@ -12,7 +12,7 @@ import IconLabel from 'components/IconLabel'
 const sharedLinkClassnames = `
   pointer
   f6
-  pa3
+  ph3 pv2 pv3-ns
   ttu
   no-underline
   white
@@ -79,7 +79,7 @@ export default class Navigation extends Component {
       <DeviceWidth onWidthChange={this.handleWidthChange}>
         {(isMobile) => (
           <aside
-            className='bg-base fixed vh-100 z-1 pt2-s overflow-y-scroll'
+            className='bg-base fixed vh-100 z-1 pt2-s'
             style={{
               width: navigationWidth,
               willChange: 'transform',
@@ -103,11 +103,11 @@ export default class Navigation extends Component {
               />
             </div>
 
-            <div className='pa3 bb tc b--dark-blue'>
+            <div className='pa2 pa3-ns bb tc b--dark-blue'>
               <EggoInstructorBanner />
             </div>
 
-            <div className='tc ph3 pt4 pb3'>
+            <div className='tc ph3 pt4 pb3 dn db-ns'>
               <Avatar
                 name={user.name}
                 url={user.avatar_url}
@@ -189,7 +189,7 @@ export default class Navigation extends Component {
               })}
             </nav>
 
-            <div className='mv4 tc'>
+            <div className='mv2 mv4-ns tc'>
               <Link to={'/lessons/new'}>
                 <Button 
                   size='extra-small'
