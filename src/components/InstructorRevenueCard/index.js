@@ -1,6 +1,6 @@
 import React from 'react'
 import {find, size, map} from 'lodash'
-import {Card, Button} from 'egghead-ui'
+import {Card, Button, Heading} from 'egghead-ui'
 import {Text} from 'react-localize'
 import WrappedRequest from 'components/WrappedRequest'
 import OpenToggle from 'components/OpenToggle'
@@ -55,7 +55,7 @@ export default ({revenueUrl}) => revenueUrl
                           subscriberMinutes={currentTotalRevenue.minutes_watched}
                         />
 
-                        <div className='mb4'>
+                        <div className='mt4'>
                           <Button 
                             onClick={handleOpenToggleClick}
                             size='extra-small'
@@ -68,30 +68,49 @@ export default ({revenueUrl}) => revenueUrl
                   }
 
                   {isOpen
-                    ? <LineChart
-                        xAxis={currentMonthDates}
-                        yAxis={[
-                          {
-                            color: revenueColor,
-                            points: currentRevenuePoints,
-                          },
-                          {
-                            color: minutesColor,
-                            points: currentMinutesPoints,
-                          },
-                        ]}
-                        type='detail'
-                      />
+                    ? <div className='pa4 w-100'>
+
+                        <Heading level='4'>
+                          <Text message='instructorRevenue.revenue' />
+                        </Heading>
+                        <LineChart
+                          xAxis={currentMonthDates}
+                          yAxis={[
+                            {
+                              color: revenueColor,
+                              points: currentRevenuePoints,
+                            },
+                          ]}
+                          type='detail'
+                        />
+
+                        <div className='mt4'>
+                          <Heading level='4'>
+                            <Text message='instructorRevenue.minutesWatched' />
+                          </Heading>
+                        </div>
+                        <LineChart
+                          xAxis={currentMonthDates}
+                          yAxis={[
+                            {
+                              color: minutesColor,
+                              points: currentMinutesPoints,
+                            },
+                          ]}
+                          type='detail'
+                        />
+
+                      </div>
                     : <LineChart
-                        xAxis={currentMonthDates}
-                        yAxis={[
-                          {
-                            color: revenueColor,
-                            points: currentRevenuePoints,
-                          },
-                        ]}
-                        className='bg-white-secondary br2 br--bottom'
-                      />
+                      xAxis={currentMonthDates}
+                      yAxis={[
+                        {
+                          color: revenueColor,
+                          points: currentRevenuePoints,
+                        },
+                      ]}
+                      className='bg-white-secondary br2 br--bottom'
+                    />
                   }
 
                 </div>

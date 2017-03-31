@@ -76,7 +76,7 @@ export default ({
   xAxis,
   yAxis,
   type = 'simple',
-  className,
+  className = '',
 }) => (
   <div className={`w-100 ${className}`}>
     <Line 
@@ -88,7 +88,7 @@ export default ({
         labels: xAxis,
         datasets: map(yAxis, set => ({
           ...sharedData(set.color),
-          ...dataByType[type],
+        ...dataByType[type],
           data: set.points,
         }))
       }}
