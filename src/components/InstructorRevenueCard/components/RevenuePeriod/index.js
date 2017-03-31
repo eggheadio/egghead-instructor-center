@@ -1,14 +1,13 @@
 import React from 'react'
-import {Heading} from 'egghead-ui'
 import {Text} from 'react-localize'
 import numberFormattingByType from 'utils/numberFormattingByType'
 
 export default ({title, revenue, subscriberMinutes}) => (
   <div>
-    <Heading level='4'>
+    <div className='f5 mb3'>
       {title}
-    </Heading>
-    <div className='blue b mv3'>
+    </div>
+    <div className='blue b mb1'>
       {numberFormattingByType.money(revenue)}
     </div>
     <div className='base-secondary b'>

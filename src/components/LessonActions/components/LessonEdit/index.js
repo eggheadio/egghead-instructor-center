@@ -4,7 +4,7 @@ import {Text} from 'react-localize'
 import Anchor from 'components/Anchor'
 
 export default ({lesson}) => (
-  <div className='flex'>
+  <div className='flex flex-wrap'>
     {
       lesson.edit_lesson_http_url
         ? <div className='pr2 pb2'>

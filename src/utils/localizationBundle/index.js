@@ -68,6 +68,7 @@ export default {
     previousMonths: {
       title: 'Last %s Months',
     },
+    action: 'View Details',
   },
 
   requestedLessons: {
