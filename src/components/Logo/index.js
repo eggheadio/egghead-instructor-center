@@ -1,10 +1,11 @@
 import React from 'react'
+import Image from 'components/Image'
 import eggoIcon from './eggoIcon.svg'
 import eggoInstructorBanner from './eggoInstructorBanner.svg'
 import instructorBanner from './instructorBanner.svg'
 
 export const EggoIcon = ({className}) => (
-  <img
+  <Image 
     src={eggoIcon}
     alt='egghead.io instructors logo, eggo only'
     className={className}
@@ -12,7 +13,7 @@ export const EggoIcon = ({className}) => (
 )
 
 export const EggoInstructorBanner = ({className}) => (
-  <img
+  <Image
     src={eggoInstructorBanner}
     alt='egghead.io instructors logo'
     className={className}
@@ -20,7 +21,7 @@ export const EggoInstructorBanner = ({className}) => (
 )
 
 export const InstructorBanner = ({className}) => (
-  <img
+  <Image
     src={instructorBanner}
     alt='egghead.io instructors logo'
     className={className}

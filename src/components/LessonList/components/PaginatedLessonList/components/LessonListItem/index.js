@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {Heading, Markdown} from 'egghead-ui'
+import Image from 'components/Image'
 import Avatar from 'components/Avatar'
 import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
@@ -15,10 +16,10 @@ export default ({lesson, requestCurrentPage}) => {
       }}
     >
 
-      <img
+      <Image 
         src={lesson.technology.logo_http_url}
         alt={lesson.technology.label}
-        className='mw2 mr3'
+        className='w2 h2 mr3'
       />
 
       <div>
