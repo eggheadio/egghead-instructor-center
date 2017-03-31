@@ -68,6 +68,9 @@ export default {
     previousMonths: {
       title: 'Last %s Months',
     },
+    revenue: 'Revenue',
+    minutesWatched: 'Member Minutes Watched',
+    action: 'View Details',
   },
 
   requestedLessons: {

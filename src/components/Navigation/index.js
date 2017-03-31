@@ -79,7 +79,7 @@ export default class Navigation extends Component {
       <DeviceWidth onWidthChange={this.handleWidthChange}>
         {(isMobile) => (
           <aside
-            className='bg-base fixed vh-100 z-1 pt2-s'
+            className='bg-base fixed vh-100 z-1 pt2-s overflow-y-scroll'
             style={{
               width: navigationWidth,
               willChange: 'transform',
@@ -189,7 +189,7 @@ export default class Navigation extends Component {
               })}
             </nav>
 
-            <div className='mt4 tc'>
+            <div className='mv4 tc'>
               <Link to={'/lessons/new'}>
                 <Button 
                   size='extra-small'

@@ -1,27 +1,15 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Text} from 'react-localize'
+import OpenToggle from 'components/OpenToggle'
 import IconLabel from 'components/IconLabel'
 import ProposeLessonForm from './components/ProposeLessonForm'
 
-export default class extends Component {
-
-  state = {
-    isOpen: false,
-  }
-
-  handleClick = () => (
-    this.setState({
-      isOpen: true,
-    })
-  )
-
-  render() {
-    const {isOpen} = this.state
-    const {instructor} = this.props
-    return isOpen
+export default ({instructor}) => (
+  <OpenToggle>
+    {({isOpen, handleOpenToggleClick}) => isOpen 
       ? <ProposeLessonForm instructor={instructor} />
       : <div 
-          onClick={this.handleClick}
+          onClick={handleOpenToggleClick}
           className='ttu'
         >
           <IconLabel
@@ -30,5 +18,6 @@ export default class extends Component {
             color='blue'
           />
         </div>
-  }
-}
+    }
+  </OpenToggle>
+)

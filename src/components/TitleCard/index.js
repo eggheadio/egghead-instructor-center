@@ -2,7 +2,7 @@ import React from 'react'
 import {Heading, Paragraph, Card} from 'egghead-ui'
 
 export default ({children, title, description}) => (
-  <section className='mb4 br2 bg-white-secondary shadow-1'>
+  <section className='br2 bg-white-secondary shadow-1'>
     <div className='pa4'>
       <Heading level='5'>
         {title}

@@ -1,12 +1,12 @@
 import React from 'react'
 import {hasUnlockedPublished} from 'utils/milestones'
 import LayoutColumns from 'components/LayoutColumns'
+import InstructorRevenueCard from 'components/InstructorRevenueCard'
 import InstructorStatsCard from 'components/InstructorStatsCard'
 import InstructorLessonsCard from 'components/InstructorLessonsCard'
 import RequestedLessonsCard from 'components/RequestedLessonsCard'
 import GetPublishedCard from './components/GetPublishedCard'
 import HelpCard from './components/HelpCard'
-import InstructorRevenueCard from './components/InstructorRevenueCard'
 
 export default ({instructor}) => hasUnlockedPublished(instructor.published_lessons)
   ? <div>
