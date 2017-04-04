@@ -22,7 +22,7 @@ export default ({count, label, graphics}) => (
           <Image 
             src={graphic.logo_http_url}
             alt={graphic.label}
-            className='w2 mr3 mb3'
+            className='w2 mr3 mb3 grow-large'
           />
         </Anchor>
       ))}
