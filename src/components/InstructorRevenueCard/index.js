@@ -1,6 +1,6 @@
 import React from 'react'
 import {find, size, map} from 'lodash'
-import {Card, Button, Heading} from 'egghead-ui'
+import {Card, Button, Heading, Maybe} from 'egghead-ui'
 import {Text} from 'react-localize'
 import WrappedRequest from 'components/WrappedRequest'
 import OpenToggle from 'components/OpenToggle'
@@ -10,8 +10,9 @@ import removeRevenueMonth from './utils/removeRevenueMonth'
 import RevenuePeriod from './components/RevenuePeriod'
 import LineChart from './components/LineChart'
 
-export default ({revenueUrl}) => revenueUrl
-  ? <WrappedRequest url={revenueUrl}>
+export default ({revenueUrl}) => (
+  <Maybe condition={Boolean(revenueUrl)}>
+    <WrappedRequest url={revenueUrl}>
       {({data}) => {
         const currentMonthRevenue = find(data, ['month', currentMonthStartDate()])
         const currentTotalRevenue = totalRevenue(removeRevenueMonth(data, currentMonthStartDate()))
@@ -34,9 +35,8 @@ export default ({revenueUrl}) => revenueUrl
               <Card>
                 <div className='flex-l justify-between-l'>
 
-                  {isOpen
-                    ? null
-                    : <div className='pa5 nowrap-l'>
+                  <Maybe condition={!isOpen}>
+                    <div className='pa5 nowrap-l'>
 
                         <div className='mb4'>
                           <RevenuePeriod
@@ -65,7 +65,7 @@ export default ({revenueUrl}) => revenueUrl
                         </div>
 
                       </div>
-                  }
+                  </Maybe>
 
                   {isOpen
                     ? <div className='pa4 w-100'>
@@ -120,4 +120,5 @@ export default ({revenueUrl}) => revenueUrl
         )
       }}
     </WrappedRequest>
-  : null
+  </Maybe>
+)

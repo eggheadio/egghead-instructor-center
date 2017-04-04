@@ -1,6 +1,6 @@
 import React from 'react'
 import {map, keys} from 'lodash'
-import {Button} from 'egghead-ui'
+import {Maybe, Button} from 'egghead-ui'
 import {lessonStateVerbToPastTense, detailsByLessonState} from 'utils/lessonStates'
 import WrappedRequest from 'components/WrappedRequest'
 
@@ -10,9 +10,12 @@ export default ({lesson, onLessonStateChange}) => (
   <div className='flex flex-wrap'>
     {map(stateVerbs, (stateVerb, index) => {
       const stateVerbUrl = lesson[`${stateVerb}_url`]
-      return stateVerbUrl
-        ? <WrappedRequest
-            key={stateVerb}
+      return (
+        <Maybe 
+          key={stateVerb}
+          condition={Boolean(stateVerbUrl)}
+        >
+          <WrappedRequest
             lazy
             method='post'
             url={stateVerbUrl}
@@ -30,7 +33,8 @@ export default ({lesson, onLessonStateChange}) => (
               </div>
             )}
           </WrappedRequest>
-        : null
+        </Maybe>
+      )
     })}
   </div>
 )

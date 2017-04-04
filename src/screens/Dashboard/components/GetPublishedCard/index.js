@@ -1,6 +1,7 @@
 import React from 'react'
 import {map, uniq, compact, isString} from 'lodash'
 import {Text} from 'react-localize'
+import {Maybe} from 'egghead-ui'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/milestones'
 import createLessonsUrl from 'utils/createLessonsUrl'
@@ -9,9 +10,9 @@ import WrappedRequest from 'components/WrappedRequest'
 import isStepComplete from './utils/isStepComplete'
 import Checklist from './components/Checklist'
 
-export default ({instructor}) => hasUnlockedPublished(instructor.published_lessons)
-  ? null
-  : <WrappedRequest
+export default ({instructor}) => (
+  <Maybe condition={!hasUnlockedPublished(instructor.published_lessons)}>
+    <WrappedRequest
       url={createLessonsUrl({
         lessons_url: instructor.lessons_url
       })}
@@ -68,3 +69,5 @@ export default ({instructor}) => hasUnlockedPublished(instructor.published_lesso
         )
       }}
     </WrappedRequest>
+  </Maybe>
+)

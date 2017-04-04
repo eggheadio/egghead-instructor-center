@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import {Link} from 'react-router-dom'
 import {map} from 'lodash'
-import {Icon, List} from 'egghead-ui'
+import {Maybe, Icon, List} from 'egghead-ui'
 import MoreInfo from './components/MoreInfo'
 
 const completedOpacity = 'o-30'
@@ -37,21 +37,19 @@ const Checklist = ({items}) => (
         ? completedOpacity
         : ''
       }>
-        {item.moreInfoUrl
-          ? <span className='ml2'>
-              <MoreInfo url={item.moreInfoUrl} />
-            </span>
-          : null
-        }
-        {item.action
-          ? <Link 
-              to={item.action}
-              className='ml2'
-            >
-              <Icon type='arrow-right' />
-            </Link>
-          : null
-        }
+        <Maybe condition={Boolean(item.moreInfoUrl)}>
+          <span className='ml2'>
+            <MoreInfo url={item.moreInfoUrl} />
+          </span>
+        </Maybe>
+        <Maybe condition={Boolean(item.action)}>
+          <Link 
+            to={item.action}
+            className='ml2'
+          >
+            <Icon type='arrow-right' />
+          </Link>
+        </Maybe>
       </div>
 
     </div>

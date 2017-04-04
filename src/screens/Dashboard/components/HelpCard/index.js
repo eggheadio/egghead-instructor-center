@@ -1,8 +1,9 @@
 import React from 'react'
 import {map} from 'lodash'
-import {Button, Paragraph, List} from 'egghead-ui'
+import {Maybe, Button, Paragraph, List} from 'egghead-ui'
 import {Text} from 'react-localize'
 import {guideUrl, chatUrl, instructorsChatUrl} from 'utils/urls'
+import {hasUnlockedPublished} from 'utils/milestones'
 import TitleCard from 'components/TitleCard'
 import Anchor from 'components/Anchor'
 
@@ -24,8 +25,9 @@ const items=[
   },
 ]
 
-export default ({publishedLessons}) => publishedLessons === 0
-  ? <TitleCard
+export default ({publishedLessons}) => (
+  <Maybe condition={!hasUnlockedPublished(publishedLessons)}>
+    <TitleCard
       title={<Text message='help.title' />}
       description={<Text message='help.description' />}
     >
@@ -42,4 +44,5 @@ export default ({publishedLessons}) => publishedLessons === 0
         </div>
       ))} />
     </TitleCard>
-  : null
+  </Maybe>
+)

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {map, size, every} from 'lodash'
-import {Error, Button, Paragraph} from 'egghead-ui'
+import {Maybe, Error, Button, Paragraph} from 'egghead-ui'
 import {Text} from 'react-localize'
 import WrappedRequest from 'components/WrappedRequest'
 
@@ -111,14 +111,13 @@ export default class extends Component {
           />
         </div>
 
-        {hasMissingInput
-          ? <div className='mb3'>
-              <Error>
-                <Text message='requestedLessons.proposeLesson.missingInputError' />
-              </Error>
-            </div>
-          : null
-        }
+        <Maybe condition={hasMissingInput}>
+          <div className='mb3'>
+            <Error>
+              <Text message='requestedLessons.proposeLesson.missingInputError' />
+            </Error>
+          </div>
+        </Maybe>
 
         <WrappedRequest
           lazy
