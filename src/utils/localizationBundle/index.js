@@ -36,7 +36,7 @@ export default {
   },
   
   getPublished: {
-    title: 'Get Published',
+    title: 'To Do',
     description: 'Work with your mentor to complete these items so you can get published.',
     createInstructorAccount: 'Create instructor account',
     joinSlack: 'Join egghead Slack',
