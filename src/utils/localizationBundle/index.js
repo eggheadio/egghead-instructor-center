@@ -65,12 +65,6 @@ export default {
     },
   },
 
-  instructorStats: {
-    title: 'Instructor Stats',
-    lessons: '%s published',
-    courses: '%s published',
-  },
-
   instructorRevenue: {
     title: 'Instructor Revenue',
     subscriberMinutes: '%s minutes',

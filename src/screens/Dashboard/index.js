@@ -13,10 +13,7 @@ export default ({instructor}) => hasUnlockedPublished(instructor.published_lesso
       <LayoutColumns 
         items={[
           <InstructorRevenueCard revenueUrl={instructor.revenue_url} />,
-          <InstructorStatsCard
-            publishedLessons={instructor.published_lessons}
-            publishedCourses={instructor.published_courses}
-          />,
+          <InstructorStatsCard instructor={instructor} />,
         ]}
         relativeSizes={[2, 1]}
       />
