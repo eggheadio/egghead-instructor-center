@@ -25,41 +25,41 @@ export default ({instructor}) => (
         const checklistItems = [
           {
             isComplete: true,
-            description: 'Create instructor account',
+            description: <Text message='getPublished.createInstructorAccount' />,
           },
           {
             isComplete: isString(instructor.slack_id),
-            description: 'Join egghead Slack',
+            description: <Text message='getPublished.joinSlack' />,
             moreInfoUrl: chatInfoUrl,
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'claimed'),
-            description: 'Claim new lesson',
+            description: <Text message='getPublished.claimLesson' />,
             action: '/lessons/new',
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'submitted'),
-            description: 'Submit rough draft',
+            description: <Text message='getPublished.submitRoughDraft' />,
             moreInfoUrl: roughDraftInfoUrl,
           },
           {
             isComplete: isString(instructor.gear_tracking_id),
-            description: 'Get gear',
+            description: <Text message='getPublished.getGear' />,
             moreInfoUrl: gearSetupInfoUrl,
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'updated'),
-            description: 'Re-record with gear',
+            description: <Text message='getPublished.recordWithGear' />,
             moreInfoUrl: roughDraftInfoUrl,
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'approved'),
-            description: 'Iterate until approved',
+            description: <Text message='getPublished.iterate' />,
             moreInfoUrl: roughDraftInfoUrl,
           },
           {
             isComplete: isStepComplete(instructorLessonStates, 'published'),
-            description: 'Publish lesson',
+            description: <Text message='getPublished.publish' />,
           },
         ]
 

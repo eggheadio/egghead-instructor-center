@@ -8,7 +8,10 @@ export default ({url}) => (
       url={url}
       isSeparateTab
     >
-      <Icon type='info' />
+      <Icon 
+        type='info' 
+        size='4'
+      />
     </Anchor>
   </Maybe>
 )

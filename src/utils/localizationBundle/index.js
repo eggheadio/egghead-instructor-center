@@ -38,6 +38,14 @@ export default {
   getPublished: {
     title: 'Get Published',
     description: 'Work with your mentor to complete these items so you can get published.',
+    createInstructorAccount: 'Create instructor account',
+    joinSlack: 'Join egghead Slack',
+    claimLesson: 'Claim new lesson' ,
+    submitRoughDraft: 'Submit rough draft',
+    getGear: 'Get gear',
+    recordWithGear: 'Re-record with gear',
+    iterate: 'Iterate until approved',
+    publish: 'Publish lesson',
   },
 
   help: {

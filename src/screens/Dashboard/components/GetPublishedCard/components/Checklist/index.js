@@ -4,55 +4,54 @@ import {map} from 'lodash'
 import {Icon, List} from 'egghead-ui'
 import MoreInfo from './components/MoreInfo'
 
-const completedOpacity = 'o-30'
-
 export default ({items}) => (
   <List items={map(items, (item, index) => (
     <div 
       key={index}
-      className='flex items-center justify-between b'
+      className='flex items-center justify-between'
     >
 
       <div className='flex items-center'>
 
-        <div className='mr2'>
-          {item.isComplete
-            ? <div className={completedOpacity}>
-                <Icon type='box-check' />
-              </div>
-            : <Icon type='box' />
-          }
+        <div className='mr3'>
+          {index + 1}
         </div>
 
         <span className={item.isComplete
-          ? `strike ${completedOpacity}`
-          : ''
+          ? `strike gray-secondary`
+          : 'base'
         }>
           {item.description}
         </span>
 
       </div>
 
-      <div className={item.isComplete
-        ? completedOpacity
-        : ''
-      }>
-        {item.moreInfoUrl
-          ? <span className='ml2'>
-              <MoreInfo url={item.moreInfoUrl} />
-            </span>
-          : null
-        }
-        {item.action
-          ? <Link 
-              to={item.action}
-              className='ml2'
-            >
-              <Icon type='arrow-right' />
-            </Link>
-          : null
-        }
-      </div>
+      {item.isComplete
+        ? <Icon 
+            type='check' 
+            color='green'
+          />
+        : <div>
+            {item.moreInfoUrl
+              ? <span className='ml2'>
+                  <MoreInfo url={item.moreInfoUrl} />
+                </span>
+              : null
+            }
+            {item.action
+              ? <Link 
+                  to={item.action}
+                  className='ml2'
+                >
+                  <Icon 
+                    type='chevron-right' 
+                    size='4'
+                  />
+                </Link>
+              : null
+            }
+          </div>
+      }
 
     </div>
   ))} />
