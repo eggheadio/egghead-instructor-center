@@ -21,6 +21,10 @@ export default {
     next: 'Next',
   },
 
+  progress: {
+    completed: 'completed',
+  },
+
   navigation: {
     dashboard: 'Dashboard',
     lessons: 'Lessons',

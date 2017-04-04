@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import {map} from 'lodash'
 import {Maybe, Icon, List} from 'egghead-ui'
@@ -6,7 +6,7 @@ import MoreInfo from './components/MoreInfo'
 
 const completedOpacity = 'o-30'
 
-const Checklist = ({items}) => (
+export default ({items}) => (
   <List items={map(items, (item, index) => (
     <div 
       key={index}
@@ -55,14 +55,3 @@ const Checklist = ({items}) => (
     </div>
   ))} />
 )
-
-Checklist.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
-    isComplete: PropTypes.bool.isRequired,
-    description: PropTypes.string.isRequired,
-    actionUrl: PropTypes.string,
-    moreInfoUrl: PropTypes.string,
-  })).isRequired,
-}
-
-export default Checklist
