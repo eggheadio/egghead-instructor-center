@@ -4,13 +4,13 @@ import numberFormattingByType from 'utils/numberFormattingByType'
 
 export default ({title, revenue, subscriberMinutes}) => (
   <div>
-    <div className='f5 mb3'>
+    <div className='f6 ttu mb2 dark-gray-secondary'>
       {title}
     </div>
-    <div className='blue b mb1'>
+    <div className='green b f3 mb2'>
       {numberFormattingByType.money(revenue)}
     </div>
-    <div className='base-secondary b'>
+    <div className='b'>
       <Text 
         message='instructorRevenue.subscriberMinutes'
         values={[

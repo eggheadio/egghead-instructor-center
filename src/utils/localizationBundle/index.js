@@ -69,14 +69,13 @@ export default {
     title: 'Instructor Revenue',
     subscriberMinutes: '%s minutes',
     currentMonth: {
-      title: 'This Month So Far',
+      title: 'This Month',
     },
     previousMonths: {
       title: 'Last %s Months',
     },
     revenue: 'Revenue',
-    minutesWatched: 'Member Minutes Watched',
-    action: 'View Details',
+    minutes: 'Minutes',
   },
 
   requestedLessons: {

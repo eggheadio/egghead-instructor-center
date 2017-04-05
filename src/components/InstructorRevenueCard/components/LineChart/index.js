@@ -10,32 +10,24 @@ const sharedOptions = {
   legend: {
     display: false,
   },
-}
-
-const optionsByType = {
-  simple: {
-    showScale: false,
-    scales: {
-      yAxes: [{
-        display: false,
-      }],
-      xAxes: [{
+  showScale: false,
+  scales: {
+    yAxes: [{
+      display: false,
+    }],
+    xAxes: [{
+      gridLines: {
         display: false
-      }],
-    },
-    tooltips: {
-      enabled: false,
-    },
-  },
-  detail: {
-    tooltips: {
-      enabled: true,
-      mode: 'single',
-      callbacks: {
-        label: (tooltipItems) => (
-          numberFormattingByType.general(tooltipItems.yLabel)
-        ),
       },
+    }],
+  },
+  tooltips: {
+    enabled: true,
+    mode: 'single',
+    callbacks: {
+      label: (tooltipItems) => (
+        numberFormattingByType.general(tooltipItems.yLabel)
+      ),
     },
   },
 }
@@ -53,42 +45,21 @@ const sharedData = (color) => ({
   borderDashOffset: 0.0,
   borderJoinStyle: 'miter',
   pointBackgroundColor: '#fff',
+  pointBorderWidth: 3,
+  pointHoverBorderWidth: 3,
+  pointRadius: 3,
+  pointHoverRadius: 5,
+  pointHitRadius: 5,
 })
 
-const dataByType = {
-  simple: {
-    pointBorderWidth: 0,
-    pointHoverRadius: 0,
-    pointHoverBorderWidth: 0,
-    pointRadius: 0,
-    pointHitRadius: 0,
-  }, 
-  detail: {
-    pointBorderWidth: 1,
-    pointHoverRadius: 5,
-    pointHoverBorderWidth: 2,
-    pointRadius: 3,
-    pointHitRadius: 10,
-  },
-}
-
-export default ({
-  xAxis,
-  yAxis,
-  type = 'simple',
-  className = '',
-}) => (
-  <div className={`w-100 ${className}`}>
+export default ({xAxis, yAxis}) => (
+  <div className='w-100 h-100'>
     <Line 
-      options={{
-        ...sharedOptions,
-        ...optionsByType[type],
-      }}
+      options={sharedOptions}
       data={{
         labels: xAxis,
         datasets: map(yAxis, set => ({
           ...sharedData(set.color),
-        ...dataByType[type],
           data: set.points,
         }))
       }}
