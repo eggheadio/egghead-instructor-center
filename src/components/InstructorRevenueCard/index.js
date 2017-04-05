@@ -12,7 +12,7 @@ import RevenuePeriod from './components/RevenuePeriod'
 import LineChart from './components/LineChart'
 
 const revenueColor = '#59cd90' // # blue
-const minutesColor = '#171e27' // # base-secondary
+const minutesColor = '#B0B6BE' // # dark-gray-secondary
 const activeLabelClassName = 'dark-gray b'
 
 export default ({revenueUrl}) => (
@@ -99,6 +99,7 @@ export default ({revenueUrl}) => (
                               points: currentRevenuePoints,
                             },
                           ]}
+                          currency
                         />
                     }
                   </div>

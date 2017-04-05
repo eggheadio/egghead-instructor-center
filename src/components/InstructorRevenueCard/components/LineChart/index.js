@@ -4,7 +4,9 @@ import hexToRgba from 'hex-rgba'
 import {Line} from 'react-chartjs-2'
 import numberFormattingByType from 'utils/numberFormattingByType'
 
-const sharedOptions = {
+const tooltipColor = '#63768d' // # dark-gray
+
+const sharedOptions = (currency) => ({
   responsive: true,
   maintainAspectRatio: false,
   legend: {
@@ -24,13 +26,18 @@ const sharedOptions = {
   tooltips: {
     enabled: true,
     mode: 'single',
+    displayColors: false,
     callbacks: {
-      label: (tooltipItems) => (
-        numberFormattingByType.general(tooltipItems.yLabel)
-      ),
+      label: (tooltipItems) => currency
+        ? numberFormattingByType.money(tooltipItems.yLabel)
+        : numberFormattingByType.general(tooltipItems.yLabel),
     },
+    titleFontSize: 0,
+    backgroundColor: 'transparent',
+    bodyFontColor: tooltipColor,
+    bodyFontStyle: 'bold',
   },
-}
+})
 
 const sharedData = (color) => ({
   borderColor: color,
@@ -48,14 +55,14 @@ const sharedData = (color) => ({
   pointBorderWidth: 3,
   pointHoverBorderWidth: 3,
   pointRadius: 3,
-  pointHoverRadius: 5,
-  pointHitRadius: 5,
+  pointHoverRadius: 3,
+  pointHitRadius: 3,
 })
 
-export default ({xAxis, yAxis}) => (
+export default ({xAxis, yAxis, currency = false}) => (
   <div className='w-100 h-100'>
     <Line 
-      options={sharedOptions}
+      options={sharedOptions(currency)}
       data={{
         labels: xAxis,
         datasets: map(yAxis, set => ({
