@@ -1,17 +1,19 @@
 import React from 'react'
-import {map, uniq, compact, isString} from 'lodash'
+import {map, uniq, compact, isString, size, filter} from 'lodash'
 import {Text} from 'react-localize'
+import {Maybe} from 'egghead-ui'
 import {chatInfoUrl, roughDraftInfoUrl, gearSetupInfoUrl} from 'utils/urls'
 import {hasUnlockedPublished} from 'utils/milestones'
 import createLessonsUrl from 'utils/createLessonsUrl'
 import TitleCard from 'components/TitleCard'
 import WrappedRequest from 'components/WrappedRequest'
 import isStepComplete from './utils/isStepComplete'
+import Progress from './components/Progress'
 import Checklist from './components/Checklist'
 
-export default ({instructor}) => hasUnlockedPublished(instructor.published_lessons)
-  ? null
-  : <WrappedRequest
+export default ({instructor}) => (
+  <Maybe condition={!hasUnlockedPublished(instructor.published_lessons)}>
+    <WrappedRequest
       url={createLessonsUrl({
         lessons_url: instructor.lessons_url
       })}
@@ -19,52 +21,63 @@ export default ({instructor}) => hasUnlockedPublished(instructor.published_lesso
     >
       {({data}) => {
         const instructorLessonStates = compact(uniq(map(data, 'state')))
+
+        const checklistItems = [
+          {
+            isComplete: true,
+            description: <Text message='getPublished.createInstructorAccount' />,
+          },
+          {
+            isComplete: isString(instructor.slack_id),
+            description: <Text message='getPublished.joinSlack' />,
+            moreInfoUrl: chatInfoUrl,
+          },
+          {
+            isComplete: isStepComplete(instructorLessonStates, 'claimed'),
+            description: <Text message='getPublished.claimLesson' />,
+            action: '/lessons/new',
+          },
+          {
+            isComplete: isStepComplete(instructorLessonStates, 'submitted'),
+            description: <Text message='getPublished.submitRoughDraft' />,
+            moreInfoUrl: roughDraftInfoUrl,
+          },
+          {
+            isComplete: isString(instructor.gear_tracking_id),
+            description: <Text message='getPublished.getGear' />,
+            moreInfoUrl: gearSetupInfoUrl,
+          },
+          {
+            isComplete: isStepComplete(instructorLessonStates, 'updated'),
+            description: <Text message='getPublished.recordWithGear' />,
+            moreInfoUrl: roughDraftInfoUrl,
+          },
+          {
+            isComplete: isStepComplete(instructorLessonStates, 'approved'),
+            description: <Text message='getPublished.iterate' />,
+            moreInfoUrl: roughDraftInfoUrl,
+          },
+          {
+            isComplete: isStepComplete(instructorLessonStates, 'published'),
+            description: <Text message='getPublished.publish' />,
+          },
+        ]
+
         return (
           <TitleCard
             title={<Text message='getPublished.title' />}
             description={<Text message='getPublished.description' />}
+            intro={
+              <Progress 
+                total={size(checklistItems)}
+                complete={size(filter(checklistItems, 'isComplete'))}
+              />
+            }
           >
-            <Checklist items={[
-              {
-                isComplete: true,
-                description: 'Create instructor account',
-              },
-              {
-                isComplete: isString(instructor.slack_id),
-                description: 'Join egghead Slack',
-                moreInfoUrl: chatInfoUrl,
-              },
-              {
-                isComplete: isStepComplete(instructorLessonStates, 'claimed'),
-                description: 'Claim new lesson',
-                action: '/lessons/new',
-              },
-              {
-                isComplete: isStepComplete(instructorLessonStates, 'submitted'),
-                description: 'Submit rough draft',
-                moreInfoUrl: roughDraftInfoUrl,
-              },
-              {
-                isComplete: isString(instructor.gear_tracking_id),
-                description: 'Get gear',
-                moreInfoUrl: gearSetupInfoUrl,
-              },
-              {
-                isComplete: isStepComplete(instructorLessonStates, 'updated'),
-                description: 'Re-record with gear',
-                moreInfoUrl: roughDraftInfoUrl,
-              },
-              {
-                isComplete: isStepComplete(instructorLessonStates, 'approved'),
-                description: 'Iterate until approved',
-                moreInfoUrl: roughDraftInfoUrl,
-              },
-              {
-                isComplete: isStepComplete(instructorLessonStates, 'published'),
-                description: 'Publish lesson',
-              },
-            ]} />
+            <Checklist items={checklistItems} />
           </TitleCard>
         )
       }}
     </WrappedRequest>
+  </Maybe>
+)

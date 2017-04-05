@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Heading, Markdown} from 'egghead-ui'
+import {Maybe, Heading, Markdown} from 'egghead-ui'
 import Image from 'components/Image'
 import Avatar from 'components/Avatar'
 import LessonState from 'components/LessonState'
@@ -30,23 +30,22 @@ export default ({lesson, requestCurrentPage}) => {
           </Heading>
         </Link>
 
-        {lesson.state === 'requested' 
-          ? null
-          : <div className='mt3'>
-              <Link to={`/instructors/${instructor.slug}`}>
-                <div className='flex items-center'>
-                  <Avatar
-                    name={instructor.full_name}
-                    url={instructor.avatar_url}
-                    size={2}
-                  />
-                  <div className='ml3'>
-                    {instructor.full_name}
-                  </div>
+        <Maybe condition={lesson.state !== 'requested'}>
+          <div className='mt3'>
+            <Link to={`/instructors/${instructor.slug}`}>
+              <div className='flex items-center'>
+                <Avatar
+                  name={instructor.full_name}
+                  url={instructor.avatar_url}
+                  size={2}
+                />
+                <div className='ml3'>
+                  {instructor.full_name}
                 </div>
-              </Link>
-            </div>
-        }
+              </div>
+            </Link>
+          </div>
+        </Maybe>
 
         <div
           className='mt2'
@@ -54,12 +53,11 @@ export default ({lesson, requestCurrentPage}) => {
             wordBreak: 'break-word',
           }}
         >
-          {lesson.summary
-            ? <Markdown>
-                {lesson.summary}
-              </Markdown>
-            : null
-          }
+          <Maybe condition={Boolean(lesson.summary)}>
+            <Markdown>
+              {lesson.summary}
+            </Markdown>
+          </Maybe>
         </div>
 
         <div className='mt3'>

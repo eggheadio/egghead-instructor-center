@@ -49,9 +49,8 @@ const App = () => {
             </Localization>
           )
         }
-
         if (process.env.NODE_ENV === 'production') {
-          initializeErrorTracking(user.id)
+          initializeErrorTracking(user)
         }
 
         return (

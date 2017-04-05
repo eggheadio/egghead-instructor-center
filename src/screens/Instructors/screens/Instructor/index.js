@@ -18,10 +18,7 @@ export default ({instructor}) => (
     />
     <LayoutColumns
       items={[
-        <InstructorStatsCard
-          publishedLessons={instructor.published_lessons}
-          publishedCourses={instructor.published_courses}
-        />,
+        <InstructorStatsCard instructor={instructor} />,
         <InstructorRevenueCard revenueUrl={instructor.revenue_url} />,
       ]}
       relativeSizes={[1, 2]}

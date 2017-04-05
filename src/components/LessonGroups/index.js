@@ -1,6 +1,7 @@
 import React from 'react'
 import {map, compact} from 'lodash'
 import {Text} from 'react-localize'
+import {Maybe} from 'egghead-ui'
 import {publicLessonsUrl} from 'utils/urls'
 import {hasUnlockedSelfReview} from 'utils/milestones'
 import LessonList from 'components/LessonList'
@@ -24,13 +25,12 @@ export default ({instructor}) => {
       description: (
         <span>
           <Text message='lessonGroups.inReview.description' />
-          {instructor && hasUnlockedSelfReview(instructor.published_lessons)
-            ? <span>
-                <span>{` `}</span>
-                <Text message='lessonGroups.inReview.selfApproval' />
-              </span>
-            : null
-          }
+          <Maybe condition={Boolean(instructor && hasUnlockedSelfReview(instructor.published_lessons))}>
+            <span>
+              <span>{` `}</span>
+              <Text message='lessonGroups.inReview.selfApproval' />
+            </span>
+          </Maybe>
         </span>
       ),
       states: [
@@ -56,12 +56,11 @@ export default ({instructor}) => {
         title: item.title,
         component: (
           <div>
-            {item.description
-              ? <div className='pv3 ph4 bg-gray f6'>
-                  {item.description}
-                </div>
-              : null
-            }
+            <Maybe condition={Boolean(item.description)}>
+              <div className='pv3 ph4 bg-gray f6'>
+                {item.description}
+              </div>
+            </Maybe>
             <LessonList
               states={item.states}
               fallback={

@@ -21,6 +21,10 @@ export default {
     next: 'Next',
   },
 
+  progress: {
+    completed: 'completed',
+  },
+
   navigation: {
     dashboard: 'Dashboard',
     lessons: 'Lessons',
@@ -32,8 +36,16 @@ export default {
   },
   
   getPublished: {
-    title: 'Get Published',
+    title: 'To Do',
     description: 'Work with your mentor to complete these items so you can get published.',
+    createInstructorAccount: 'Create instructor account',
+    joinSlack: 'Join egghead Slack',
+    claimLesson: 'Claim new lesson' ,
+    submitRoughDraft: 'Submit rough draft',
+    getGear: 'Get gear',
+    recordWithGear: 'Re-record with gear',
+    iterate: 'Iterate until approved',
+    publish: 'Publish lesson',
   },
 
   help: {
@@ -51,12 +63,6 @@ export default {
       description: `The egghead-instructors Slack channel is available for instructors to chat and see each other's progress.`,
       action: 'View the channel',
     },
-  },
-
-  instructorStats: {
-    title: 'Instructor Stats',
-    lessons: '%s published',
-    courses: '%s published',
   },
 
   instructorRevenue: {

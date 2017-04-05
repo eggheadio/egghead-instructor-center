@@ -1,55 +1,49 @@
 import React from 'react'
-import {map} from 'lodash'
-import {List} from 'egghead-ui'
-import {Text} from 'react-localize'
 import pluralize from 'pluralize'
-import TitleCard from 'components/TitleCard'
-import IconLabel from 'components/IconLabel'
+import {map, uniqBy} from 'lodash'
+import {Card} from 'egghead-ui'
+import {hasUnlockedPublished} from 'utils/milestones'
+import createLessonsUrl from 'utils/createLessonsUrl'
+import WrappedRequest from 'components/WrappedRequest'
+import InstructorStat from './components/InstructorStat'
 
-export default ({publishedLessons, publishedCourses}) => {
+export default ({instructor}) => {
 
-  if(!publishedLessons) {
+  if(!hasUnlockedPublished(instructor.published_lessons)) {
     return null
   }
 
-  const items = [
-    {
-      type: 'lesson',
-      text: (
-        <span>
-          <Text 
-            message='instructorStats.lessons'
-            values={[publishedLessons]} 
-          />
-          <span>{` ${pluralize('lesson', publishedLessons)}`}</span>
-        </span>
-      ),
-      color: 'green',
-    },
-    {
-      type: 'course',
-      text: (
-        <span>
-          <Text 
-            message='instructorStats.courses'
-            values={[publishedCourses]} 
-          />
-          <span>{` ${pluralize('course', publishedCourses)}`}</span>
-        </span>
-      ),
-      color: 'orange',
-    },
-  ]
-
   return (
-    <TitleCard title={<Text message='instructorStats.title' />}>
-      <List items={map(items, (item, index) => (
-        <IconLabel
-          iconType={item.type}
-          labelText={item.text}
-          color={item.color}
-        />
-      ))} />
-    </TitleCard>
+    <Card>
+      <div className='pa5'>
+        <WrappedRequest
+          url={createLessonsUrl({
+            lessons_url: instructor.lessons_url
+          })}
+        >
+          {({data}) => (
+            <InstructorStat
+              count={instructor.published_lessons}
+              label={pluralize('Lesson', instructor.published_lessons)}
+              graphics={uniqBy(map(data, lesson => ({
+                ...lesson.technology,
+              })), technology => technology.name)}
+            />
+          )}
+        </WrappedRequest>
+        {/* 
+        <div className='mt5'>
+          <WrappedRequest url={`/api/v1/series?instructor_id=${instructor.id}`}>
+            {({data}) => console.log('data', data) || (
+              <InstructorStat
+                count={instructor.published_courses}
+                label={pluralize('Course', instructor.published_courses)}
+              />
+            )}
+          </WrappedRequest>
+        </div>
+        */}
+      </div>
+    </Card>
   )
 }
