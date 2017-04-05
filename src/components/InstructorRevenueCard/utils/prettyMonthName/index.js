@@ -1,6 +1,6 @@
 import {split} from 'lodash'
 
-const monthAbbreviationByMonthNumber = {
+const abbreviationByMonthNumber = {
   '01': 'Jan',
   '02': 'Feb',
   '03': 'Mar',
@@ -15,6 +15,6 @@ const monthAbbreviationByMonthNumber = {
   '12': 'Dec',
 }
 
-export default (monthDate) => (
-  monthAbbreviationByMonthNumber[split(monthDate, '-')[1]]
+export default (dateString) => (
+  abbreviationByMonthNumber[split(dateString, '-')[1]]
 )
