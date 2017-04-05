@@ -1,14 +1,19 @@
 import React from 'react'
 import {find, size, map} from 'lodash'
-import {Card, Button, Heading, Maybe} from 'egghead-ui'
+import {Card, Maybe} from 'egghead-ui'
 import {Text} from 'react-localize'
 import WrappedRequest from 'components/WrappedRequest'
 import OpenToggle from 'components/OpenToggle'
 import currentMonthStartDate from './utils/currentMonthStartDate'
 import totalRevenue from './utils/totalRevenue'
 import removeRevenueMonth from './utils/removeRevenueMonth'
+import prettyMonthName from './utils/prettyMonthName'
 import RevenuePeriod from './components/RevenuePeriod'
 import LineChart from './components/LineChart'
+
+const revenueColor = '#59cd90' // # blue
+const minutesColor = '#B0B6BE' // # dark-gray-secondary
+const activeLabelClassName = 'dark-gray b'
 
 export default ({revenueUrl}) => (
   <Maybe condition={Boolean(revenueUrl)}>
@@ -23,11 +28,9 @@ export default ({revenueUrl}) => (
           return null
         }
 
-        const currentMonthDates = map(data, month => month.month)
+        const currentMonthNames = map(data, month => prettyMonthName(month.month))
         const currentRevenuePoints = map(data, month => month.revenue)
         const currentMinutesPoints = map(data, month => month.minutes_watched)
-        const revenueColor = '#4786ff' // # blue
-        const minutesColor = '#171e27' // # base-secondary
 
         return (
           <OpenToggle>
@@ -35,83 +38,71 @@ export default ({revenueUrl}) => (
               <Card>
                 <div className='flex-l justify-between-l'>
 
-                  <Maybe condition={!isOpen}>
-                    <div className='pa5 nowrap-l'>
+                  <div 
+                    className='pa5 nowrap-l'
+                    style={{
+                      boxShadow: '10px 0px 10px -10px rgba(0, 0, 0, 0.1)',
+                    }}
+                  >
 
-                        <div className='mb4'>
-                          <RevenuePeriod
-                            title={<Text message='instructorRevenue.currentMonth.title' />}
-                            revenue={currentMonthRevenue.revenue}
-                            subscriberMinutes={currentMonthRevenue.minutes_watched}
-                          />
-                        </div>
+                    <div className='mb4'>
+                      <RevenuePeriod
+                        title={<Text message='instructorRevenue.currentMonth.title' />}
+                        revenue={currentMonthRevenue.revenue}
+                        subscriberMinutes={currentMonthRevenue.minutes_watched}
+                      />
+                    </div>
 
-                        <RevenuePeriod
-                          title={<Text 
-                            message='instructorRevenue.previousMonths.title' 
-                            values={[currentTotalRevenue.monthCount]} 
-                          />}
-                          revenue={currentTotalRevenue.revenue}
-                          subscriberMinutes={currentTotalRevenue.minutes_watched}
-                        />
+                    <RevenuePeriod
+                      title={<Text 
+                        message='instructorRevenue.previousMonths.title' 
+                        values={[currentTotalRevenue.monthCount]} 
+                      />}
+                      revenue={currentTotalRevenue.revenue}
+                      subscriberMinutes={currentTotalRevenue.minutes_watched}
+                    />
 
-                        <div className='mt4'>
-                          <Button 
-                            onClick={handleOpenToggleClick}
-                            size='extra-small'
-                          >
-                            <Text message='instructorRevenue.action' />
-                          </Button>
-                        </div>
+                  </div>
 
-                      </div>
-                  </Maybe>
-
-                  {isOpen
-                    ? <div className='pa4 w-100'>
-
-                        <Heading level='4'>
-                          <Text message='instructorRevenue.revenue' />
-                        </Heading>
-                        <LineChart
-                          xAxis={currentMonthDates}
-                          yAxis={[
-                            {
-                              color: revenueColor,
-                              points: currentRevenuePoints,
-                            },
-                          ]}
-                          type='detail'
-                        />
-
-                        <div className='mt4'>
-                          <Heading level='4'>
-                            <Text message='instructorRevenue.minutesWatched' />
-                          </Heading>
-                        </div>
-                        <LineChart
-                          xAxis={currentMonthDates}
+                  <div className='w-100 pt5 pr3 pb3 pl3 relative'>
+                    <div 
+                      onClick={handleOpenToggleClick}
+                      className='absolute top-2 right-2 dark-gray-secondary ttl f6'
+                    >
+                      <span className={`${isOpen ? '' : activeLabelClassName} mr2`}>
+                        <Text message='instructorRevenue.revenue' />
+                      </span>
+                      <span className='mr2'>
+                        /
+                      </span>
+                      <span className={isOpen ? activeLabelClassName : ''}>
+                        <Text message='instructorRevenue.minutes' />
+                      </span>
+                    </div>
+                    {isOpen
+                      ? <LineChart
+                          key='minutes'
+                          xAxis={currentMonthNames}
                           yAxis={[
                             {
                               color: minutesColor,
                               points: currentMinutesPoints,
                             },
                           ]}
-                          type='detail'
                         />
-
-                      </div>
-                    : <LineChart
-                      xAxis={currentMonthDates}
-                      yAxis={[
-                        {
-                          color: revenueColor,
-                          points: currentRevenuePoints,
-                        },
-                      ]}
-                      className='bg-white-secondary br2 br--bottom'
-                    />
-                  }
+                      : <LineChart
+                          key='revenue'
+                          xAxis={currentMonthNames}
+                          yAxis={[
+                            {
+                              color: revenueColor,
+                              points: currentRevenuePoints,
+                            },
+                          ]}
+                          currency
+                        />
+                    }
+                  </div>
 
                 </div>
               </Card>

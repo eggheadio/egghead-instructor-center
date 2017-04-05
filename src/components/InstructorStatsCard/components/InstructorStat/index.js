@@ -17,11 +17,11 @@ export default ({count, label, graphics}) => (
       {map(graphics, graphic => (
         <Anchor 
           key={graphic.name}
-          url={graphic.http_url}
+          url={graphic.httpUrl}
         >
           <Image 
-            src={graphic.logo_http_url}
-            alt={graphic.label}
+            src={graphic.graphicUrl}
+            alt={graphic.name}
             className='w2 mr3 mb3 grow-large'
           />
         </Anchor>
