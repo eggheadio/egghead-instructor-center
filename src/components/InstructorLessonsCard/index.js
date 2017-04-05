@@ -5,7 +5,7 @@ import TitleCard from 'components/TitleCard'
 import LessonGroups from 'components/LessonGroups'
 
 export default ({instructor}) => (
-  <Maybe condition={instructor}>
+  <Maybe condition={Boolean(instructor)}>
     <TitleCard title={<Text
       message='lessonGroups.instructorTitle'
       values={[instructor.first_name]}
