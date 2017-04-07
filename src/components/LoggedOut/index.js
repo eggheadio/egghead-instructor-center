@@ -26,10 +26,11 @@ export default () => (
       </Anchor>
     </div>
 
-    <div>
+    <div className='flex justify-center'>
       <Anchor
         url={guideUrl}
         type='prominent'
+        color='white'
       >
         <Text message='instructorGuide' />
       </Anchor>
