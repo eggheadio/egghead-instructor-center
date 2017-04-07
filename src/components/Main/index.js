@@ -4,11 +4,11 @@ import DeviceWidth from 'components/DeviceWidth'
 
 const Main = ({children}) => (
   <DeviceWidth>
-    {(isMobile) => (
+    {(screenSize) => (
       <main 
         className='h-100 w-100 mt4 mt0-ns'
         style={{
-          marginLeft: isMobile
+          marginLeft: screenSize === 'small'
             ? 0
             : navigationWidth
         }}
