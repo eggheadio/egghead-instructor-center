@@ -1,11 +1,10 @@
 import React from 'react'
 import {map, compact} from 'lodash'
 import {Text} from 'react-localize'
-import {Maybe} from 'egghead-ui'
+import {Maybe, Tabs} from 'egghead-ui'
 import {publicLessonsUrl} from 'utils/urls'
 import {hasUnlockedSelfReview} from 'utils/milestones'
 import LessonOverviews from 'components/LessonOverviews'
-import Tabs from 'components/Tabs'
 import Prompt from 'components/Prompt'
 
 export default ({instructor}) => {

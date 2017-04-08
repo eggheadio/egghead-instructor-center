@@ -1,9 +1,9 @@
 import React from 'react'
 import {filter, reject} from 'lodash'
 import {Text} from 'react-localize'
+import {Tabs} from 'egghead-ui'
 import sortBy from 'sort-by'
 import WrappedRequest from 'components/WrappedRequest'
-import Tabs from 'components/Tabs'
 import InstructorOverviews from './components/InstructorOverviews'
 
 export default ({instructors}) => (
