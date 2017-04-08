@@ -1,13 +1,12 @@
 import React, {PropTypes} from 'react'
 import ReactPaginate from 'react-paginate'
 import {map} from 'lodash'
-import {Maybe, List} from 'egghead-ui'
+import {Maybe, Card} from 'egghead-ui'
 import {Text} from 'react-localize'
 import sortLessonsByState from './utils/sortLessonsByState'
 import LessonOverview from './components/LessonOverview'
 
-const PaginatedLessonOverviews = ({
-  fallback,
+const PaginatedLessonOverviews = ({ fallback,
   pageSize,
   currentPage,
   total,
@@ -27,13 +26,21 @@ const PaginatedLessonOverviews = ({
   return total > 0
     ? <div>
 
-        <List items={map(sortLessonsByState(lessons), (lesson) => (
-          <LessonOverview 
-            key={lesson.slug}
-            lesson={lesson}
-            requestCurrentPage={requestCurrentPage}
-          />
-        ))} />
+        {map(sortLessonsByState(lessons), (lesson, index) => (
+          <div 
+            key={lesson.id}
+            className={index < lessons.length - 1 ? 'mb3' : ''}
+          >
+            <Card>
+              <div className='pa4'>
+                <LessonOverview 
+                  lesson={lesson}
+                  requestCurrentPage={requestCurrentPage}
+                />
+              </div>
+            </Card>
+          </div>
+        ))}
 
         <Maybe condition={hasMoreThanOnePage}>
           <div className='pa3'>

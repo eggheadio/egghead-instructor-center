@@ -1,10 +1,13 @@
 import React from 'react'
 import {Text} from 'react-localize'
-import TitleCard from 'components/TitleCard'
+import {Heading} from 'egghead-ui'
 import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
 
 export default () => (
-  <TitleCard title={<Text message='lessonOverviewsByGroup.allTitle' />}>
+  <div>
+    <Heading level='5'>
+      <Text message='lessonOverviewsByGroup.allTitle' />
+    </Heading>
     <LessonOverviewsByGroup />
-  </TitleCard>
+  </div>
 )

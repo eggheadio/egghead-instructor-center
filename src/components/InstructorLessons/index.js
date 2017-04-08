@@ -1,16 +1,18 @@
 import React from 'react'
 import {Text} from 'react-localize'
-import {Maybe} from 'egghead-ui'
-import TitleCard from 'components/TitleCard'
+import {Maybe, Heading} from 'egghead-ui'
 import LessonOverviewsByGroup from 'components/LessonOverviewsByGroup'
 
 export default ({instructor}) => (
   <Maybe condition={Boolean(instructor)}>
-    <TitleCard title={<Text
-      message='lessonOverviewsByGroup.instructorTitle'
-      values={[instructor.first_name]}
-    />}>
+    <div>
+      <Heading level='5'>
+        <Text
+          message='lessonOverviewsByGroup.instructorTitle'
+          values={[instructor.first_name]}
+        />
+      </Heading>
       <LessonOverviewsByGroup instructor={instructor} />
-    </TitleCard>
+    </div>
   </Maybe>
 )

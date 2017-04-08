@@ -1,27 +1,36 @@
 import React from 'react'
-import {Paragraph} from 'egghead-ui'
+import {Paragraph, Heading, Card} from 'egghead-ui'
 import {Text} from 'react-localize'
-import TitleCard from 'components/TitleCard'
 import LessonOverviews from 'components/LessonOverviews'
 import ProposeLesson from './components/ProposeLesson'
 
 export default ({instructor}) => (
-  <TitleCard 
-    title={<Text message='requestedLessons.title' />}
-    description={<Text message='requestedLessons.description' />}
-  >
-    <div className='bb b--gray-secondary pa4'>
-      <ProposeLesson instructor={instructor} />
+  <div>
+
+    <Heading level='5'>
+      <Text message='requestedLessons.title' />
+    </Heading>
+
+    <Paragraph type='small'>
+      <Text message='requestedLessons.description' />
+    </Paragraph>
+
+    <div className='mb3'>
+      <Card>
+        <div className='pa4'>
+          <ProposeLesson instructor={instructor} />
+        </div>
+      </Card>
     </div>
+
     <LessonOverviews
       states={['requested']} 
       fallback={
-        <div className='pa4'>
-          <Paragraph>
-            <Text message='requestedLessons.fallback' />
-          </Paragraph>
-        </div>
+        <Paragraph>
+          <Text message='requestedLessons.fallback' />
+        </Paragraph>
       }
     />
-  </TitleCard>
+
+  </div>
 )

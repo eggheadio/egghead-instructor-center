@@ -57,31 +57,31 @@ export default ({instructor}) => {
         component: (
           <div>
             <Maybe condition={Boolean(item.description)}>
-              <div className='pv3 ph4 bg-gray f6'>
+              <div className='pv3 f6'>
                 {item.description}
               </div>
             </Maybe>
-            <LessonOverviews
-              states={item.states}
-              fallback={
-                <div className='pa4'>
+            <div className='mt3'>
+              <LessonOverviews
+                states={item.states}
+                fallback={
                   <Prompt
                     description={<Text message='lessonOverviewsByGroup.fallback' />}
                     actionText={<Text message='lessonOverviewsByGroup.action' />}
                     action={'/lessons/new'}
                   />
-                </div>
-              }
-              instructor={instructor}
-              includeLessonsInCourses={item.includeLessonsInCourses}
-            />
+                }
+                instructor={instructor}
+                includeLessonsInCourses={item.includeLessonsInCourses}
+              />
+            </div>
           </div>
         ),
       })),
       {
         title: <Text message='lessonOverviewsByGroup.published.title' />,
         component: (
-          <div className='pa4'>
+          <div className='mt3'>
             <Prompt
               description={<Text message='lessonOverviewsByGroup.published.description' />}
               actionText={<Text message='lessonOverviewsByGroup.published.action' />}
