@@ -13,7 +13,7 @@ export default ({lesson, requestCurrentPage}) => (
     <div 
       className='pa4 flex'
       style={{
-        flex: `1 0 ${minimumScreenWidth}`,
+        flex: `1 0 ${minimumScreenWidth}px`,
       }}
     >
 
@@ -43,14 +43,17 @@ export default ({lesson, requestCurrentPage}) => (
 
         <Maybe condition={lesson.state !== 'requested'}>
           <div className='mt3'>
-            <Link to={`/instructors/${lesson.instructor.slug}`}>
+            <Link 
+              to={`/instructors/${lesson.instructor.slug}`}
+              className='no-underline dark-gray-secondary'
+            >
               <div className='flex items-center'>
                 <Avatar
                   name={lesson.instructor.full_name}
                   url={lesson.instructor.avatar_url}
                   size={2}
                 />
-                <div className='ml3'>
+                <div className='ml2'>
                   {lesson.instructor.full_name}
                 </div>
               </div>
@@ -63,7 +66,7 @@ export default ({lesson, requestCurrentPage}) => (
     </div>
 
     <div style={{
-      flex: `1 0 ${minimumScreenWidth}`,
+      flex: `1 0 ${minimumScreenWidth}px`,
     }}>
       <LessonActions 
         lesson={lesson} 
