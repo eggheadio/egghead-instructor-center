@@ -1,9 +1,9 @@
 import React from 'react'
-import LessonCard from './components/LessonCard'
+import LessonDetails from './components/LessonDetails'
 
 export default ({instructor, lesson, requestLesson}) => (
   <div>
-    <LessonCard
+    <LessonDetails
       lesson={lesson}
       requestLesson={requestLesson}
     />

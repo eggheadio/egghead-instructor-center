@@ -1,9 +1,9 @@
 import React, {Component, PropTypes} from 'react'
 import createLessonsUrl from 'utils/createLessonsUrl'
 import WrappedRequest from 'components/WrappedRequest'
-import PaginatedLessonList from './components/PaginatedLessonList'
+import PaginatedLessonOverviews from './components/PaginatedLessonOverviews'
 
-export default class LessonList extends Component {
+export default class LessonOverviews extends Component {
   
   static propTypes = {
     states: PropTypes.array.isRequired,
@@ -50,7 +50,7 @@ export default class LessonList extends Component {
         subscribe
       >
         {({request, data, response}) => (
-          <PaginatedLessonList
+          <PaginatedLessonOverviews
             fallback={fallback}
             pageSize={pageSize}
             currentPage={currentPage}

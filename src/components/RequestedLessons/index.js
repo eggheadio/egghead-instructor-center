@@ -2,7 +2,7 @@ import React from 'react'
 import {Paragraph} from 'egghead-ui'
 import {Text} from 'react-localize'
 import TitleCard from 'components/TitleCard'
-import LessonList from 'components/LessonList'
+import LessonOverviews from 'components/LessonOverviews'
 import ProposeLesson from './components/ProposeLesson'
 
 export default ({instructor}) => (
@@ -13,7 +13,7 @@ export default ({instructor}) => (
     <div className='bb b--gray-secondary pa4'>
       <ProposeLesson instructor={instructor} />
     </div>
-    <LessonList
+    <LessonOverviews
       states={['requested']} 
       fallback={
         <div className='pa4'>

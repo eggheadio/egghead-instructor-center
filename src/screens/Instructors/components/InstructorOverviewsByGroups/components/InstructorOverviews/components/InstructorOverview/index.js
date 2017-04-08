@@ -8,21 +8,21 @@ import LessonGroupsStat from './components/LessonGroupsStat'
 
 export default ({instructor}) => {
 
-  const lessonGroupsStats = [
+  const lessonOverviewsByGroupStats = [
     {
-      message: 'lessonGroups.inProgress.title' ,
+      message: 'lessonOverviewsByGroup.inProgress.title' ,
       count: instructor.claimed_lessons,
     },
     {
-      message: 'lessonGroups.inReview.title',
+      message: 'lessonOverviewsByGroup.inReview.title',
       count: instructor.submitted_lessons,
     },
     {
-      message: 'lessonGroups.inQueue.title' ,
+      message: 'lessonOverviewsByGroup.inQueue.title' ,
       count: instructor.approved_lessons,
     },
     {
-      message: 'lessonGroups.published.title' ,
+      message: 'lessonOverviewsByGroup.published.title' ,
       count: instructor.published_lessons,
     },
   ]
@@ -48,7 +48,7 @@ export default ({instructor}) => {
       </div>
 
       <section className='flex flex-wrap'>
-        {map(lessonGroupsStats, group => (
+        {map(lessonOverviewsByGroupStats, group => (
           <Maybe 
             key={group.message}
             condition={Boolean(group.count)}

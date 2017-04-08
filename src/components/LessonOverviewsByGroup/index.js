@@ -4,7 +4,7 @@ import {Text} from 'react-localize'
 import {Maybe} from 'egghead-ui'
 import {publicLessonsUrl} from 'utils/urls'
 import {hasUnlockedSelfReview} from 'utils/milestones'
-import LessonList from 'components/LessonList'
+import LessonOverviews from 'components/LessonOverviews'
 import Tabs from 'components/Tabs'
 import Prompt from 'components/Prompt'
 
@@ -12,7 +12,7 @@ export default ({instructor}) => {
 
   const items = compact([
     {
-      title: <Text message='lessonGroups.inProgress.title' />,
+      title: <Text message='lessonOverviewsByGroup.inProgress.title' />,
       states: [
         'accepted',
         'claimed',
@@ -21,14 +21,14 @@ export default ({instructor}) => {
       includeLessonsInCourses: true,
     },
     {
-      title: <Text message='lessonGroups.inReview.title' />,
+      title: <Text message='lessonOverviewsByGroup.inReview.title' />,
       description: (
         <span>
-          <Text message='lessonGroups.inReview.description' />
+          <Text message='lessonOverviewsByGroup.inReview.description' />
           <Maybe condition={Boolean(instructor && hasUnlockedSelfReview(instructor.published_lessons))}>
             <span>
               <span>{` `}</span>
-              <Text message='lessonGroups.inReview.selfApproval' />
+              <Text message='lessonOverviewsByGroup.inReview.selfApproval' />
             </span>
           </Maybe>
         </span>
@@ -41,8 +41,8 @@ export default ({instructor}) => {
       includeLessonsInCourses: true,
     },
     {
-      title: <Text message='lessonGroups.inQueue.title' />,
-      description: <Text message='lessonGroups.inQueue.description' />,
+      title: <Text message='lessonOverviewsByGroup.inQueue.title' />,
+      description: <Text message='lessonOverviewsByGroup.inQueue.description' />,
       states: [
         'approved'
       ],
@@ -61,13 +61,13 @@ export default ({instructor}) => {
                 {item.description}
               </div>
             </Maybe>
-            <LessonList
+            <LessonOverviews
               states={item.states}
               fallback={
                 <div className='pa4'>
                   <Prompt
-                    description={<Text message='lessonGroups.fallback' />}
-                    actionText={<Text message='lessonGroups.action' />}
+                    description={<Text message='lessonOverviewsByGroup.fallback' />}
+                    actionText={<Text message='lessonOverviewsByGroup.action' />}
                     action={'/lessons/new'}
                   />
                 </div>
@@ -79,12 +79,12 @@ export default ({instructor}) => {
         ),
       })),
       {
-        title: <Text message='lessonGroups.published.title' />,
+        title: <Text message='lessonOverviewsByGroup.published.title' />,
         component: (
           <div className='pa4'>
             <Prompt
-              description={<Text message='lessonGroups.published.description' />}
-              actionText={<Text message='lessonGroups.published.action' />}
+              description={<Text message='lessonOverviewsByGroup.published.description' />}
+              actionText={<Text message='lessonOverviewsByGroup.published.action' />}
               action={publicLessonsUrl}
             />
           </div>

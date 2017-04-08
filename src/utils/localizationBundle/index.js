@@ -158,7 +158,7 @@ export default {
     },
   },
 
-  lessonGroups: {
+  lessonOverviewsByGroup: {
     instructorTitle: `%s's Lessons`,
     allTitle: 'All Lessons',
     fallback: 'No lessons to show',
@@ -194,7 +194,7 @@ export default {
     summary: 'Summary',
   },
 
-  instructorGroups: {
+  instructorOverviewsByGroup: {
     title: 'Instructors',
     fallback: 'No instructors to show',
     unpublished: {

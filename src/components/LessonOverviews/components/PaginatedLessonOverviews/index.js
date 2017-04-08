@@ -4,9 +4,9 @@ import {map} from 'lodash'
 import {Maybe, List} from 'egghead-ui'
 import {Text} from 'react-localize'
 import sortLessonsByState from './utils/sortLessonsByState'
-import LessonListItem from './components/LessonListItem'
+import LessonOverview from './components/LessonOverview'
 
-const PaginatedLessonList = ({
+const PaginatedLessonOverviews = ({
   fallback,
   pageSize,
   currentPage,
@@ -28,7 +28,7 @@ const PaginatedLessonList = ({
     ? <div>
 
         <List items={map(sortLessonsByState(lessons), (lesson) => (
-          <LessonListItem 
+          <LessonOverview 
             key={lesson.slug}
             lesson={lesson}
             requestCurrentPage={requestCurrentPage}
@@ -67,7 +67,7 @@ const PaginatedLessonList = ({
     : fallback
 }
 
-PaginatedLessonList.propTypes = {
+PaginatedLessonOverviews.propTypes = {
   fallback: PropTypes.node.isRequired,
   pageSize: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,
@@ -76,4 +76,4 @@ PaginatedLessonList.propTypes = {
   requestNextPage: PropTypes.func.isRequired,
 }
 
-export default PaginatedLessonList
+export default PaginatedLessonOverviews

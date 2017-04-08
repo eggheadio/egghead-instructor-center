@@ -1,8 +1,8 @@
 import React from 'react'
-import RequestedLessonsCard from 'components/RequestedLessonsCard'
+import RequestedLessons from 'components/RequestedLessons'
 
 export default ({instructor}) => (
   <div>
-    <RequestedLessonsCard instructor={instructor} />
+    <RequestedLessons instructor={instructor} />
   </div>
 )
