@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {smallMediaQuerySize, largeMediaQuerySize} from 'utils/hardCodedSizes'
+import {smallScreenWidth, largeScreenWidth} from 'utils/hardCodedSizes'
 
 export default class extends Component {
   
@@ -17,12 +17,12 @@ export default class extends Component {
     if(onWidthChange) {
       onWidthChange()
     }
-    if(window.screen.width > largeMediaQuerySize) {
+    if(window.screen.width > largeScreenWidth) {
       this.setState({
         screenSize: 'large',
       })
     }
-    else if (window.screen.width > smallMediaQuerySize) {
+    else if (window.screen.width > smallScreenWidth) {
       this.setState({
         screenSize: 'medium',
       })

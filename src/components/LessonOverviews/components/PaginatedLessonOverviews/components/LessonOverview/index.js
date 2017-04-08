@@ -1,18 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {Maybe, Heading, Markdown} from 'egghead-ui'
+import {Maybe, Heading} from 'egghead-ui'
+import {detailsByLessonState} from 'utils/lessonStates'
+import {minimumScreenWidth} from 'utils/hardCodedSizes'
 import Image from 'components/Image'
 import Avatar from 'components/Avatar'
-import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
 
-export default ({lesson, requestCurrentPage}) => {
-  const {instructor} = lesson
-  return (
-    <div
-      className='flex items-start'
+export default ({lesson, requestCurrentPage}) => (
+  <div className='flex flex-wrap justify-between'>
+
+    <div 
+      className='pa4 flex'
       style={{
-        wordBreak: 'break-word',
+        flex: `1 0 ${minimumScreenWidth}`,
       }}
     >
 
@@ -24,55 +25,51 @@ export default ({lesson, requestCurrentPage}) => {
 
       <div>
 
-        <Link to={`/lessons/${lesson.slug}`}>
-          <Heading level='4'>
+        <div className='mb3 ttu b'>
+          {detailsByLessonState[lesson.state].title || lesson.state}
+        </div>
+
+        <Link 
+          to={`/lessons/${lesson.slug}`}
+          className='no-underline base'
+          style={{
+            wordBreak: 'break-word',
+          }}
+        >
+          <Heading level='3'>
             {lesson.title}
           </Heading>
         </Link>
 
         <Maybe condition={lesson.state !== 'requested'}>
           <div className='mt3'>
-            <Link to={`/instructors/${instructor.slug}`}>
+            <Link to={`/instructors/${lesson.instructor.slug}`}>
               <div className='flex items-center'>
                 <Avatar
-                  name={instructor.full_name}
-                  url={instructor.avatar_url}
+                  name={lesson.instructor.full_name}
+                  url={lesson.instructor.avatar_url}
                   size={2}
                 />
                 <div className='ml3'>
-                  {instructor.full_name}
+                  {lesson.instructor.full_name}
                 </div>
               </div>
             </Link>
           </div>
         </Maybe>
 
-        <div
-          className='mt2'
-          style={{
-            wordBreak: 'break-word',
-          }}
-        >
-          <Maybe condition={Boolean(lesson.summary)}>
-            <Markdown>
-              {lesson.summary}
-            </Markdown>
-          </Maybe>
-        </div>
-
-        <div className='mt3'>
-          <LessonState lesson={lesson}/>
-        </div>
-
-        <div className="mt3">
-          <LessonActions 
-            lesson={lesson} 
-            requestCurrentPage={requestCurrentPage}
-          />
-        </div>
-
       </div>
 
     </div>
-  )
-}
+
+    <div style={{
+      flex: `1 0 ${minimumScreenWidth}`,
+    }}>
+      <LessonActions 
+        lesson={lesson} 
+        requestCurrentPage={requestCurrentPage}
+      />
+    </div>
+
+  </div>
+)

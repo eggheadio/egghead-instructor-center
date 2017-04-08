@@ -4,9 +4,9 @@ import {Markdown, Heading, List} from 'egghead-ui'
 import {Text} from 'react-localize'
 import Image from 'components/Image'
 import TitleCard from 'components/TitleCard'
-import LessonState from 'components/LessonState'
 import LessonActions from 'components/LessonActions'
 import Avatar from 'components/Avatar'
+import LessonState from './components/LessonState'
 import WistiaVideo from './components/WistiaVideo'
 
 export default ({lesson, requestLesson}) => {

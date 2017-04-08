@@ -32,12 +32,10 @@ const PaginatedLessonOverviews = ({ fallback,
             className={index < lessons.length - 1 ? 'mb3' : ''}
           >
             <Card>
-              <div className='pa4'>
-                <LessonOverview 
-                  lesson={lesson}
-                  requestCurrentPage={requestCurrentPage}
-                />
-              </div>
+              <LessonOverview 
+                lesson={lesson}
+                requestCurrentPage={requestCurrentPage}
+              />
             </Card>
           </div>
         ))}
