@@ -11,10 +11,7 @@ export default ({
   <a
     href={url}
     onClick={onClick}
-    className='flex flex-column tc items-center justify-center dark-gray no-underline'
-    style={{
-      flex: 1,
-    }}
+    className='flex flex-column tc items-center dark-gray no-underline'
   >
     <Icon
       type={iconType}
