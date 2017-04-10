@@ -3,38 +3,43 @@ import {Icon} from 'egghead-ui'
 
 const types = ['inline', 'prominent']
 
-const classNameByType = {
-  inline: 'blue',
-  prominent: 'white no-underline flex justify-center items-center',
-}
-
-const prefixByType = {
-  inline: null,
-  prominent: (
-    <span className='mr2'>
-      <Icon 
-        type='chevron-right' 
-        color='orange'
-      />
-    </span>
-  ),
-}
-
 const Anchor = ({
   url,
   children,
   className = '',
   isSeparateTab = false,
   type = 'inline',
-}) => (
-  <a
-    href={url}
-    target={isSeparateTab ? '_blank' : '_self'}
-    className={`${classNameByType[type]} ${className}`}
-  >
-    {prefixByType[type]}{children}
-  </a>
-)
+  color = 'blue',
+}) => {
+
+  const classNameByType = {
+    inline: color,
+    prominent: `${color} ttu no-underline flex items-center`,
+  }
+
+  const prefixByType = {
+    inline: null,
+    prominent: (
+      <span className='mr1'>
+        <Icon 
+          type='chevron-right' 
+          color={color}
+          size='4'
+        />
+      </span>
+    ),
+  }
+
+  return (
+    <a
+      href={url}
+      target={isSeparateTab ? '_blank' : '_self'}
+      className={`${classNameByType[type]} ${className}`}
+    >
+      {prefixByType[type]}{children}
+    </a>
+  )
+}
 
 Anchor.propTypes = {
   url: PropTypes.string.isRequired,

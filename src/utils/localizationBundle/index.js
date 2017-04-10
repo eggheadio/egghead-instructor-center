@@ -49,17 +49,20 @@ export default {
   },
 
   help: {
-    title: 'Help',
+    title: 'Got questions? Feeling stuck?',
     description: 'Making screencasts is hard. The first few can be frustrating. But it gets easier and faster! There are many resources to help you as well.',
     guide: {
+      title: 'Instructor 101 Guide',
       description: `We've put together a written Instructor Guide with step by step details on creating egghead lessons and courses. It is required reading for all instructors, and will help you make great lessons.`,
       action: 'View the guide',
     },
     admins: {
-      description: 'Joel and Trevor can help with anything related to egghead.io.',
+      title: 'Mentors',
+      description: 'Joel, Trevor, and Zac can help with anything related to egghead.io.',
       action: 'Reach out in Slack',
     },
     chat: {
+      title: 'Slack',
       description: `The egghead-instructors Slack channel is available for instructors to chat and see each other's progress.`,
       action: 'View the channel',
     },
@@ -155,7 +158,7 @@ export default {
     },
   },
 
-  lessonGroups: {
+  lessonOverviewsByGroup: {
     instructorTitle: `%s's Lessons`,
     allTitle: 'All Lessons',
     fallback: 'No lessons to show',
@@ -191,7 +194,7 @@ export default {
     summary: 'Summary',
   },
 
-  instructorGroups: {
+  instructorOverviewsByGroup: {
     title: 'Instructors',
     fallback: 'No instructors to show',
     unpublished: {

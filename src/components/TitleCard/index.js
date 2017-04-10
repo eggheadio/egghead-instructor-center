@@ -6,8 +6,9 @@ export default ({
   title, 
   description = false, 
   intro = false,
+  subtle = false,
 }) => (
-  <section className='br2 bg-white-secondary shadow-1'>
+  <section className={`br2 ${subtle ? 'ba b--gray-secondary' : 'bg-white-secondary shadow-1'}`}>
     <div className='pa4'>
       <Heading level='5'>
         {title}
@@ -21,8 +22,13 @@ export default ({
         {intro}
       </Maybe>
     </div>
-    <Card>
-      {children}
-    </Card>
+    {subtle
+      ? <div className='bt b--gray-secondary'>
+          {children}
+        </div>
+      : <Card>
+          {children}
+        </Card>
+    }
   </section>
 )

@@ -3,7 +3,7 @@ import {NavLink, Link} from 'react-router-dom'
 import {Icon, Button} from 'egghead-ui'
 import {Text} from 'react-localize'
 import {map, isFunction, startsWith} from 'lodash'
-import {mobileMediaQuerySize, navigationWidth} from 'utils/hardCodedSizes'
+import {smallScreenWidth, navigationWidth} from 'utils/hardCodedSizes'
 import DeviceWidth from 'components/DeviceWidth'
 import Avatar from 'components/Avatar'
 import {EggoInstructorBanner} from 'components/Logo'
@@ -32,7 +32,7 @@ const activeLinkStyle = {
 export default class Navigation extends Component {
   
   static propTypes = {
-    user: PropTypes.object.isRequired,
+    instructor: PropTypes.object.isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
       text: PropTypes.node.isRequired,
       action: PropTypes.oneOfType([
@@ -59,7 +59,7 @@ export default class Navigation extends Component {
   }
 
   handleWidthChange = () => {
-    if(window.screen.width < mobileMediaQuerySize) {
+    if(window.screen.width < smallScreenWidth) {
       this.setState({
         isOpen: false,
       })
@@ -72,12 +72,12 @@ export default class Navigation extends Component {
 
   render() {
 
-    const {user, items} = this.props
+    const {instructor, items} = this.props
     const {isOpen} = this.state
 
     return (
       <DeviceWidth onWidthChange={this.handleWidthChange}>
-        {(isMobile) => (
+        {(screenSize) => (
           <aside
             className='bg-base fixed vh-100 z-1 pt2-s'
             style={{
@@ -109,11 +109,11 @@ export default class Navigation extends Component {
 
             <div className='tc ph3 pt4 pb3 dn db-ns'>
               <Avatar
-                name={user.name}
-                url={user.avatar_url}
+                name={instructor.full_name}
+                url={instructor.avatar_url}
               />
               <div className='mt2 white'>
-                {user.name}
+                {instructor.first_name}
               </div>
             </div>
 
@@ -142,7 +142,7 @@ export default class Navigation extends Component {
                       className={sharedLinkClassnames}
                       style={sharedLinkStyle}
                       onClick={() => {
-                        if(isMobile) {
+                        if(screenSize === 'small') {
                           this.close()
                         }
                         item.action()
@@ -163,7 +163,7 @@ export default class Navigation extends Component {
                         activeStyle={activeLinkStyle}
                         style={sharedLinkStyle}
                         onClick={() => {
-                          if(isMobile) {
+                          if(screenSize === 'small') {
                             this.close()
                           }
                         }}
@@ -176,7 +176,7 @@ export default class Navigation extends Component {
                         className={sharedLinkClassnames}
                         style={sharedLinkStyle}
                         onClick={() => {
-                          if(isMobile) {
+                          if(screenSize === 'small') {
                             this.close()
                           }
                         }}

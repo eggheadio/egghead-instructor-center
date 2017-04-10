@@ -1,10 +1,10 @@
 import {Component} from 'react'
-import {mobileMediaQuerySize} from 'utils/hardCodedSizes'
+import {smallScreenWidth, largeScreenWidth} from 'utils/hardCodedSizes'
 
 export default class extends Component {
   
   state = {
-    isMobile: false,
+    screenSize: 'small',
   }
 
   componentDidMount = () => {
@@ -17,20 +17,26 @@ export default class extends Component {
     if(onWidthChange) {
       onWidthChange()
     }
-    if(window.screen.width < mobileMediaQuerySize) {
+    if(window.screen.width > largeScreenWidth) {
       this.setState({
-        isMobile: true,
+        screenSize: 'large',
       })
-    } else {
+    }
+    else if (window.screen.width > smallScreenWidth) {
       this.setState({
-        isMobile: false,
+        screenSize: 'medium',
+      })
+    }
+    else {
+      this.setState({
+        screenSize: 'small',
       })
     }
   }
 
   render() {
-    const {isMobile} = this.state
+    const {screenSize} = this.state
     const {children} = this.props
-    return children(isMobile)
+    return children(screenSize)
   }
 }

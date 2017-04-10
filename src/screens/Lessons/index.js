@@ -1,8 +1,8 @@
 import React from 'react'
-import LessonsCard from './components/LessonsCard'
+import AllLessons from './components/AllLessons'
 
 export default () => (
   <div>
-    <LessonsCard />
+    <AllLessons />
   </div>
 )

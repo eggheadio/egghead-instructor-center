@@ -56,51 +56,51 @@ const App = () => {
         return (
           <BrowserRouter>
             <Localization messages={localizationBundle}>
+              <WrappedRequest url={data.instructor_url}>
+                {({data}) => {
+                  const instructor = data
+                  return (
 
-              <div className='flex'>
+                    <div className='flex'>
 
-                <Navigation
-                  user={user}
-                  items={[
-                    {
-                      text: <Text message='navigation.dashboard' />,
-                      action: '/',
-                      iconType: 'home',
-                    },
-                    {
-                      text: <Text message='navigation.lessons' />,
-                      action: '/lessons',
-                      iconType: 'list-ul',
-                    },
-                    {
-                      text: <Text message='navigation.instructors' />,
-                      action: '/instructors',
-                      iconType: 'user',
-                    },
-                    {
-                      text: <Text message='navigation.guide' />,
-                      action: guideUrl,
-                      iconType: 'question',
-                    },
-                    {
-                      text: <Text message='navigation.chat' />,
-                      action: chatUrl,
-                      iconType: 'slack',
-                    },
-                    {
-                      text: <Text message='navigation.logout' />,
-                      action: logout,
-                      iconType: 'sign-out',
-                    },
-                  ]}
-                />
+                      <Navigation
+                        instructor={instructor}
+                        items={[
+                          {
+                            text: <Text message='navigation.dashboard' />,
+                            action: '/',
+                            iconType: 'home',
+                          },
+                          {
+                            text: <Text message='navigation.lessons' />,
+                            action: '/lessons',
+                            iconType: 'list-ul',
+                          },
+                          {
+                            text: <Text message='navigation.instructors' />,
+                            action: '/instructors',
+                            iconType: 'user',
+                          },
+                          {
+                            text: <Text message='navigation.guide' />,
+                            action: guideUrl,
+                            iconType: 'question',
+                          },
+                          {
+                            text: <Text message='navigation.chat' />,
+                            action: chatUrl,
+                            iconType: 'slack',
+                          },
+                          {
+                            text: <Text message='navigation.logout' />,
+                            action: logout,
+                            iconType: 'sign-out',
+                          },
+                        ]}
+                      />
 
-                <Main>
+                      <Main>
 
-                  <WrappedRequest url={data.instructor_url}>
-                    {({data}) => {
-                      const instructor = data
-                      return (
                         <Switch>
 
                           <Route 
@@ -166,13 +166,13 @@ const App = () => {
 
                         </Switch>
 
-                      )
-                    }}
-                  </WrappedRequest>
-                </Main>
+                      </Main>
 
-              </div>
+                    </div>
 
+                  )
+                }}
+              </WrappedRequest>
             </Localization>
           </BrowserRouter>
         )

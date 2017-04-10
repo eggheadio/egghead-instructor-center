@@ -1,35 +1,35 @@
 import React from 'react'
 import {hasUnlockedPublished} from 'utils/milestones'
 import LayoutColumns from 'components/LayoutColumns'
-import InstructorRevenueCard from 'components/InstructorRevenueCard'
-import InstructorStatsCard from 'components/InstructorStatsCard'
-import InstructorLessonsCard from 'components/InstructorLessonsCard'
-import RequestedLessonsCard from 'components/RequestedLessonsCard'
-import GetPublishedCard from './components/GetPublishedCard'
-import HelpCard from './components/HelpCard'
+import InstructorRevenue from 'components/InstructorRevenue'
+import InstructorStats from 'components/InstructorStats'
+import InstructorLessons from 'components/InstructorLessons'
+import RequestedLessons from 'components/RequestedLessons'
+import GetPublished from './components/GetPublished'
+import Help from './components/Help'
 
 export default ({instructor}) => hasUnlockedPublished(instructor.published_lessons)
   ? <div>
       <LayoutColumns 
         items={[
-          <InstructorRevenueCard revenueUrl={instructor.revenue_url} />,
-          <InstructorStatsCard instructor={instructor} />,
+          <InstructorRevenue revenueUrl={instructor.revenue_url} />,
+          <InstructorStats instructor={instructor} />,
         ]}
         relativeSizes={[2, 1]}
       />
       <LayoutColumns 
         items={[
-          <InstructorLessonsCard instructor={instructor} />,
-          <RequestedLessonsCard instructor={instructor} />,
+          <InstructorLessons instructor={instructor} />,
+          <RequestedLessons instructor={instructor} />,
         ]}
         relativeSizes={[2, 1]}
       />
     </div>
   : <div>
       <LayoutColumns items={[
-        <GetPublishedCard instructor={instructor} />,
-        <RequestedLessonsCard instructor={instructor} />,
-        <HelpCard publishedLessons={instructor.published_lessons} />,
+        <GetPublished instructor={instructor} />,
+        <RequestedLessons instructor={instructor} />,
+        <Help publishedLessons={instructor.published_lessons} />,
       ]} />
-      <InstructorLessonsCard instructor={instructor} />
+      <InstructorLessons instructor={instructor} />
     </div>
