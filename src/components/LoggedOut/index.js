@@ -1,9 +1,8 @@
 import React from 'react'
-import {Button} from 'egghead-ui'
+import {Button, Anchor} from 'egghead-ui'
 import {getLoginUrl, guideUrl} from 'utils/urls'
 import {Text} from 'react-localize'
 import {EggoIcon, InstructorBanner} from 'components/Logo'
-import Anchor from 'components/Anchor'
 import Cover from './components/Cover'
 import background from './background.jpg'
 

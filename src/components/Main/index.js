@@ -1,6 +1,5 @@
 import React, {PropTypes} from 'react'
-import {navigationWidth} from 'utils/hardCodedSizes'
-import DeviceWidth from 'components/DeviceWidth'
+import {hardCodedSizes, DeviceWidth} from 'egghead-ui'
 
 const Main = ({children}) => (
   <DeviceWidth>

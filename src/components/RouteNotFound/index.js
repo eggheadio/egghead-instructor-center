@@ -1,8 +1,7 @@
 import React from 'react'
-import {Heading, Paragraph} from 'egghead-ui'
+import {Heading, Paragraph, Image} from 'egghead-ui'
 import {Text} from 'react-localize'
 import Main from 'components/Main'
-import Image from 'components/Image'
 import crackedEggo from './crackedEggo.png'
 
 export default () => (

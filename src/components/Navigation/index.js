@@ -1,13 +1,16 @@
 import React, {Component, PropTypes} from 'react'
 import {NavLink, Link} from 'react-router-dom'
-import {Icon, Button} from 'egghead-ui'
+import {
+  hardCodedSizes, 
+  Icon, 
+  Button, 
+  DeviceWidth, 
+  Avatar, 
+  IconLabel,
+} from 'egghead-ui'
 import {Text} from 'react-localize'
 import {map, isFunction, startsWith} from 'lodash'
-import {smallScreenWidth, navigationWidth} from 'utils/hardCodedSizes'
-import DeviceWidth from 'components/DeviceWidth'
-import Avatar from 'components/Avatar'
 import {EggoInstructorBanner} from 'components/Logo'
-import IconLabel from 'components/IconLabel'
 
 const sharedLinkClassnames = `
   pointer

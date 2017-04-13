@@ -3,22 +3,24 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Localization, {Text} from 'react-localize'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import {initializeErrorTracking} from 'utils/errorTracking'
-import localizationBundle from 'utils/localizationBundle'
-import {guideUrl, chatUrl} from 'utils/urls'
-import {login, logout} from 'utils/authentication'
-import WrappedRequest from 'components/WrappedRequest'
-import Main from 'components/Main'
+import {
+  InstructorDashboard,
+  NewLesson,
+  LessonDetails,
+  LessonsDirectory,
+  InstructorDetails,
+  InstructorsDirectory,
+} from 'egghead-ui
+import {initializeErrorTracking} from './utils/errorTracking'
+import localizationBundle from './utils/localizationBundle'
+import {guideUrl, chatUrl} from './utils/urls'
+import {login, logout} from './utils/authentication'
+import WrappedRequest from './components/WrappedRequest'
+import Main from './components/Main'
 import LoggedOut from './components/LoggedOut'
 import InstructorsOnly from './components/InstructorsOnly'
 import RouteNotFound from './components/RouteNotFound'
 import Navigation from './components/Navigation'
-import Dashboard from './screens/Dashboard'
-import New from './screens/Lessons/screens/New'
-import Lesson from './screens/Lessons/screens/Lesson'
-import Lessons from './screens/Lessons'
-import Instructor from './screens/Instructors/screens/Instructor'
-import Instructors from './screens/Instructors'
 
 const App = () => {
 
@@ -107,7 +109,7 @@ const App = () => {
                             exact
                             path='/'
                             render={() => (
-                              <Dashboard instructor={instructor} />
+                              <InstructorDashboard instructor={instructor} />
                             )}
                           />
 
@@ -115,7 +117,7 @@ const App = () => {
                             exact
                             path='/lessons/new'
                             render={() => (
-                              <New instructor={instructor} />
+                              <NewLesson instructor={instructor} />
                             )}
                           />
 
@@ -127,7 +129,7 @@ const App = () => {
                                 subscribe
                               >
                                 {({request, data}) => (
-                                  <Lesson 
+                                  <LessonDetails
                                     instructor={instructor}
                                     lesson={data} 
                                     requestLesson={request}
@@ -140,7 +142,7 @@ const App = () => {
                           <Route 
                             path='/lessons'
                             render={() => (
-                              <Lessons instructor={instructor} />
+                              <LessonsDirectory instructor={instructor} />
                             )}
                           />
 
@@ -149,7 +151,7 @@ const App = () => {
                             render={({match}) => (
                               <WrappedRequest url={`/api/v1/instructors/${match.params.slug}`}>
                                 {({data}) => (
-                                  <Instructor instructor={data} />
+                                  <InstructorDetails instructor={data} />
                                 )}
                               </WrappedRequest>
                             )}
@@ -158,7 +160,7 @@ const App = () => {
                           <Route
                             path='/instructors'
                             render={() => (
-                              <Instructors instructors={data} />
+                              <InstructorsDirectory instructors={data} />
                             )}
                           />
 
