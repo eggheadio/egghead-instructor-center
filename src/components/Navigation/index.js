@@ -1,15 +1,15 @@
 import React, {Component, PropTypes} from 'react'
 import {NavLink, Link} from 'react-router-dom'
 import {
-  hardCodedSizes, 
   Icon, 
   Button, 
-  DeviceWidth, 
+  ContainerWidth, 
   Avatar, 
   IconLabel,
 } from 'egghead-ui'
 import {Text} from 'react-localize'
 import {map, isFunction, startsWith} from 'lodash'
+import {navigationWidth, smallContainerWidth} from 'utils/hardCodedSizes'
 import {EggoInstructorBanner} from 'components/Logo'
 
 const sharedLinkClassnames = `
@@ -62,7 +62,7 @@ export default class Navigation extends Component {
   }
 
   handleWidthChange = () => {
-    if(window.screen.width < smallScreenWidth) {
+    if(window.screen.width < smallContainerWidth) {
       this.setState({
         isOpen: false,
       })
@@ -79,7 +79,7 @@ export default class Navigation extends Component {
     const {isOpen} = this.state
 
     return (
-      <DeviceWidth onWidthChange={this.handleWidthChange}>
+      <ContainerWidth onWidthChange={this.handleWidthChange}>
         {(screenSize) => (
           <aside
             className='bg-base fixed vh-100 z-1 pt2-s'
@@ -205,7 +205,7 @@ export default class Navigation extends Component {
 
           </aside>
         )}
-      </DeviceWidth>
+      </ContainerWidth>
     )
   }
 }

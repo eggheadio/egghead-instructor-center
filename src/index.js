@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom'
 import Localization, {Text} from 'react-localize'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {
-  authentication,
+  login,
+  logout,
+  Request,
   InstructorDashboard,
   NewLesson,
   LessonDetails,
@@ -15,7 +17,6 @@ import {
 import {initializeErrorTracking} from './utils/errorTracking'
 import localizationBundle from './utils/localizationBundle'
 import {guideUrl, chatUrl} from './utils/urls'
-import WrappedRequest from './components/WrappedRequest'
 import Main from './components/Main'
 import LoggedOut from './components/LoggedOut'
 import InstructorsOnly from './components/InstructorsOnly'
@@ -24,7 +25,7 @@ import Navigation from './components/Navigation'
 
 const App = () => {
 
-  const decodedToken = authentication.login()
+  const decodedToken = login()
 
   if(!decodedToken) {
     return (
@@ -35,11 +36,11 @@ const App = () => {
   }
 
   if(decodedToken && !decodedToken.user_url) {
-    authentication.logout()
+    logout()
   }
 
   return (
-    <WrappedRequest url={decodedToken.user_url}>
+    <Request url={decodedToken.user_url}>
       {({data}) => {
 
         const user = data
@@ -58,7 +59,7 @@ const App = () => {
         return (
           <BrowserRouter>
             <Localization messages={localizationBundle}>
-              <WrappedRequest url={user.instructor_url}>
+              <Request url={user.instructor_url}>
                 {({data}) => {
                   const instructor = data
                   return (
@@ -124,7 +125,7 @@ const App = () => {
                           <Route 
                             path={`/lessons/:slug`}
                             render={({match}) => (
-                              <WrappedRequest
+                              <Request
                                 url={`/api/v1/lessons/${match.params.slug}`}
                                 subscribe
                               >
@@ -135,7 +136,7 @@ const App = () => {
                                     requestLesson={request}
                                   />
                                 )}
-                              </WrappedRequest>
+                              </Request>
                             )}
                           />
 
@@ -149,11 +150,11 @@ const App = () => {
                           <Route 
                             path={`/instructors/:slug`}
                             render={({match}) => (
-                              <WrappedRequest url={`/api/v1/instructors/${match.params.slug}`}>
+                              <Request url={`/api/v1/instructors/${match.params.slug}`}>
                                 {({data}) => (
                                   <InstructorDetails instructor={data} />
                                 )}
-                              </WrappedRequest>
+                              </Request>
                             )}
                           />
 
@@ -174,12 +175,12 @@ const App = () => {
 
                   )
                 }}
-              </WrappedRequest>
+              </Request>
             </Localization>
           </BrowserRouter>
         )
       }}
-    </WrappedRequest>
+    </Request>
   )
 }
 

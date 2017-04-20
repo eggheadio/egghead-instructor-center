@@ -1,8 +1,9 @@
 import React, {PropTypes} from 'react'
-import {hardCodedSizes, DeviceWidth} from 'egghead-ui'
+import {ContainerWidth} from 'egghead-ui'
+import {navigationWidth} from 'utils/hardCodedSizes'
 
 const Main = ({children}) => (
-  <DeviceWidth>
+  <ContainerWidth>
     {(screenSize) => (
       <main 
         className='h-100 w-100 mt4 mt0-ns'
@@ -22,7 +23,7 @@ const Main = ({children}) => (
         </div>
       </main>
     )}
-  </DeviceWidth>
+  </ContainerWidth>
 )
 
 Main.propTypes = {
