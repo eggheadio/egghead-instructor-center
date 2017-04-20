@@ -4,17 +4,17 @@ import ReactDOM from 'react-dom'
 import Localization, {Text} from 'react-localize'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import {
+  authentication,
   InstructorDashboard,
   NewLesson,
   LessonDetails,
   LessonsDirectory,
   InstructorDetails,
   InstructorsDirectory,
-} from 'egghead-ui
+} from 'egghead-ui'
 import {initializeErrorTracking} from './utils/errorTracking'
 import localizationBundle from './utils/localizationBundle'
 import {guideUrl, chatUrl} from './utils/urls'
-import {login, logout} from './utils/authentication'
 import WrappedRequest from './components/WrappedRequest'
 import Main from './components/Main'
 import LoggedOut from './components/LoggedOut'
@@ -24,7 +24,7 @@ import Navigation from './components/Navigation'
 
 const App = () => {
 
-  const decodedToken = login()
+  const decodedToken = authentication.login()
 
   if(!decodedToken) {
     return (
@@ -35,7 +35,7 @@ const App = () => {
   }
 
   if(decodedToken && !decodedToken.user_url) {
-    logout()
+    authentication.logout()
   }
 
   return (
@@ -58,7 +58,7 @@ const App = () => {
         return (
           <BrowserRouter>
             <Localization messages={localizationBundle}>
-              <WrappedRequest url={data.instructor_url}>
+              <WrappedRequest url={user.instructor_url}>
                 {({data}) => {
                   const instructor = data
                   return (
@@ -160,7 +160,7 @@ const App = () => {
                           <Route
                             path='/instructors'
                             render={() => (
-                              <InstructorsDirectory instructors={data} />
+                              <InstructorsDirectory />
                             )}
                           />
 
