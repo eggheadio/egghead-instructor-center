@@ -16,12 +16,12 @@ import {
 } from 'egghead-ui'
 import {initializeErrorTracking} from './utils/errorTracking'
 import localizationBundle from './utils/localizationBundle'
-import {guideUrl, chatUrl} from './utils/urls'
+// import {guideUrl, chatUrl} from './utils/urls'
 import Main from './components/Main'
 import LoggedOut from './components/LoggedOut'
 import InstructorsOnly from './components/InstructorsOnly'
 import RouteNotFound from './components/RouteNotFound'
-import Navigation from './components/Navigation'
+// import Navigation from './components/Navigation'
 
 const App = () => {
 
@@ -57,127 +57,150 @@ const App = () => {
         }
 
         return (
-          <BrowserRouter>
-            <Localization messages={localizationBundle}>
-              <Request url={user.instructor_url}>
-                {({data}) => {
-                  const instructor = data
-                  return (
+          <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1`}>
+            {({data}) => {
+              const rootData = data
 
-                    <div className='flex'>
+              return (
+                <BrowserRouter>
 
-                      <Navigation
-                        instructor={instructor}
-                        items={[
-                          {
-                            text: <Text message='navigation.dashboard' />,
-                            action: '/',
-                            iconType: 'home',
-                          },
-                          {
-                            text: <Text message='navigation.lessons' />,
-                            action: '/lessons',
-                            iconType: 'list-ul',
-                          },
-                          {
-                            text: <Text message='navigation.instructors' />,
-                            action: '/instructors',
-                            iconType: 'user',
-                          },
-                          {
-                            text: <Text message='navigation.guide' />,
-                            action: guideUrl,
-                            iconType: 'question',
-                          },
-                          {
-                            text: <Text message='navigation.chat' />,
-                            action: chatUrl,
-                            iconType: 'slack',
-                          },
-                          {
-                            text: <Text message='navigation.logout' />,
-                            action: logout,
-                            iconType: 'sign-out',
-                          },
-                        ]}
-                      />
+                  <Localization messages={localizationBundle}>
 
-                      <Main>
+                    <Request url={user.instructor_url}>
+                      {({data}) => {
+                        const instructor = data
 
-                        <Switch>
+                        return (
 
-                          <Route 
-                            exact
-                            path='/'
-                            render={() => (
-                              <InstructorDashboard instructor={instructor} />
-                            )}
-                          />
+                          <div className='flex'>
 
-                          <Route 
-                            exact
-                            path='/lessons/new'
-                            render={() => (
-                              <NewLesson instructor={instructor} />
-                            )}
-                          />
+                            {/*
+                            <Navigation
+                              instructor={instructor}
+                              items={[
+                                {
+                                  text: <Text message='navigation.dashboard' />,
+                                  action: '/',
+                                  iconType: 'home',
+                                },
+                                {
+                                  text: <Text message='navigation.lessons' />,
+                                  action: '/lessons',
+                                  iconType: 'list-ul',
+                                },
+                                {
+                                  text: <Text message='navigation.instructors' />,
+                                  action: '/instructors',
+                                  iconType: 'user',
+                                },
+                                {
+                                  text: <Text message='navigation.guide' />,
+                                  action: guideUrl,
+                                  iconType: 'question',
+                                },
+                                {
+                                  text: <Text message='navigation.chat' />,
+                                  action: chatUrl,
+                                  iconType: 'slack',
+                                },
+                                {
+                                  text: <Text message='navigation.logout' />,
+                                  action: logout,
+                                  iconType: 'sign-out',
+                                },
+                              ]}
+                            />
+                            */}
 
-                          <Route 
-                            path={`/lessons/:slug`}
-                            render={({match}) => (
-                              <Request
-                                url={`/api/v1/lessons/${match.params.slug}`}
-                                subscribe
-                              >
-                                {({request, data}) => (
-                                  <LessonDetails
-                                    instructor={instructor}
-                                    lesson={data} 
-                                    requestLesson={request}
-                                  />
-                                )}
-                              </Request>
-                            )}
-                          />
+                            <Main>
 
-                          <Route 
-                            path='/lessons'
-                            render={() => (
-                              <LessonsDirectory instructor={instructor} />
-                            )}
-                          />
+                              <Switch>
 
-                          <Route 
-                            path={`/instructors/:slug`}
-                            render={({match}) => (
-                              <Request url={`/api/v1/instructors/${match.params.slug}`}>
-                                {({data}) => (
-                                  <InstructorDetails instructor={data} />
-                                )}
-                              </Request>
-                            )}
-                          />
+                                <Route 
+                                  exact
+                                  path='/'
+                                  render={() => (
+                                    <InstructorDashboard 
+                                      instructor={instructor} 
+                                      lessonsUrl={rootData.lessons_url}
+                                      technologiesUrl={rootData.technologies_url}
+                                    />
+                                  )}
+                                />
 
-                          <Route
-                            path='/instructors'
-                            render={() => (
-                              <InstructorsDirectory />
-                            )}
-                          />
+                                <Route 
+                                  exact
+                                  path='/lessons/new'
+                                  render={() => (
+                                    <NewLesson 
+                                      instructor={instructor} 
+                                      lessonsUrl={rootData.lessons_url}
+                                      technologiesUrl={rootData.technologies_url}
+                                    />
+                                  )}
+                                />
 
-                          <Route component={RouteNotFound} />
+                                <Route 
+                                  path={`/lessons/:slug`}
+                                  render={({match}) => (
+                                    <Request
+                                      url={`/api/v1/lessons/${match.params.slug}`}
+                                      subscribe
+                                    >
+                                      {({request, data}) => (
+                                        <LessonDetails
+                                          instructor={instructor}
+                                          lesson={data} 
+                                          requestLesson={request}
+                                        />
+                                      )}
+                                    </Request>
+                                  )}
+                                />
 
-                        </Switch>
+                                <Route 
+                                  path='/lessons'
+                                  render={() => (
+                                    <LessonsDirectory lessonsUrl={rootData.lessons_url} />
+                                  )}
+                                />
 
-                      </Main>
+                                <Route 
+                                  path={`/instructors/:slug`}
+                                  render={({match}) => (
+                                    <Request url={`/api/v1/instructors/${match.params.slug}`}>
+                                      {({data}) => (
+                                        <InstructorDetails instructor={data} />
+                                      )}
+                                    </Request>
+                                  )}
+                                />
 
-                    </div>
+                                <Route
+                                  path='/instructors'
+                                  render={() => (
+                                    <InstructorsDirectory instructorsUrl={rootData.instructors_url} />
+                                  )}
+                                />
 
-                  )
-                }}
-              </Request>
-            </Localization>
-          </BrowserRouter>
+                                <Route component={RouteNotFound} />
+
+                              </Switch>
+
+                            </Main>
+
+                          </div>
+
+                        )
+                      }}
+                    </Request>
+
+                  </Localization>
+
+                </BrowserRouter>
+              )
+            }}
+          </Request>
         )
       }}
     </Request>
