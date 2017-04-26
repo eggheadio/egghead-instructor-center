@@ -8,7 +8,7 @@ import {
   IconLabel,
 } from 'egghead-ui'
 import {map, isFunction, startsWith} from 'lodash'
-import {navigationWidth, smallContainerWidth} from 'utils/hardCodedSizes'
+import {navigationWidth, mediumContainerWidth} from 'utils/hardCodedSizes'
 import {EggoInstructorBanner} from 'components/Logo'
 
 const sharedLinkClassnames = `
@@ -61,7 +61,7 @@ export default class Navigation extends Component {
   }
 
   handleWidthChange = () => {
-    if(window.screen.width < smallContainerWidth) {
+    if(window.screen.width < mediumContainerWidth) {
       this.setState({
         isOpen: false,
       })

@@ -1,2 +1,2 @@
 export const navigationWidth = 200
-export const smallContainerWidth = 320
+export const mediumContainerWidth = 640
