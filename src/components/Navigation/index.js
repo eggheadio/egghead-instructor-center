@@ -81,7 +81,7 @@ export default class Navigation extends Component {
       <ContainerWidth onWidthChange={this.handleWidthChange}>
         {(screenSize) => (
           <aside
-            className='bg-base fixed vh-100 z-1 pt2-s'
+            className='bg-base fixed min-vh-100 h-100 z-1 pt2-s'
             style={{
               width: navigationWidth,
               willChange: 'transform',
