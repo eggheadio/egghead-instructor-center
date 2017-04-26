@@ -1,13 +1,15 @@
 import React, {Component, PropTypes} from 'react'
 import {NavLink, Link} from 'react-router-dom'
-import {Icon, Button} from 'egghead-ui'
-import {Text} from 'react-localize'
+import {
+  Icon, 
+  Button, 
+  ContainerWidth, 
+  Avatar, 
+  IconLabel,
+} from 'egghead-ui'
 import {map, isFunction, startsWith} from 'lodash'
-import {smallScreenWidth, navigationWidth} from 'utils/hardCodedSizes'
-import DeviceWidth from 'components/DeviceWidth'
-import Avatar from 'components/Avatar'
+import {navigationWidth, mediumContainerWidth} from 'utils/hardCodedSizes'
 import {EggoInstructorBanner} from 'components/Logo'
-import IconLabel from 'components/IconLabel'
 
 const sharedLinkClassnames = `
   pointer
@@ -59,7 +61,7 @@ export default class Navigation extends Component {
   }
 
   handleWidthChange = () => {
-    if(window.screen.width < smallScreenWidth) {
+    if(window.screen.width < mediumContainerWidth) {
       this.setState({
         isOpen: false,
       })
@@ -76,10 +78,10 @@ export default class Navigation extends Component {
     const {isOpen} = this.state
 
     return (
-      <DeviceWidth onWidthChange={this.handleWidthChange}>
+      <ContainerWidth onWidthChange={this.handleWidthChange}>
         {(screenSize) => (
           <aside
-            className='bg-base fixed vh-100 z-1 pt2-s'
+            className='bg-base fixed min-vh-100 h-100 z-1 pt2-s'
             style={{
               width: navigationWidth,
               willChange: 'transform',
@@ -195,14 +197,14 @@ export default class Navigation extends Component {
                   size='extra-small'
                   color='green'
                 >
-                  <Text message='navigation.action' />
+                  New lesson
                 </Button>
               </Link>
             </div>
 
           </aside>
         )}
-      </DeviceWidth>
+      </ContainerWidth>
     )
   }
 }

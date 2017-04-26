@@ -1,9 +1,7 @@
 import React from 'react'
-import {Button} from 'egghead-ui'
+import {Button, Anchor} from 'egghead-ui'
 import {getLoginUrl, guideUrl} from 'utils/urls'
-import {Text} from 'react-localize'
 import {EggoIcon, InstructorBanner} from 'components/Logo'
-import Anchor from 'components/Anchor'
 import Cover from './components/Cover'
 import background from './background.jpg'
 
@@ -21,7 +19,7 @@ export default () => (
     <div className='mb5'>
       <Anchor url={getLoginUrl()}>
         <Button>
-          <Text message='login' />
+          Sign in via egghead
         </Button>
       </Anchor>
     </div>
@@ -32,7 +30,7 @@ export default () => (
         type='prominent'
         color='white'
       >
-        <Text message='instructorGuide' />
+        Instructor Guide
       </Anchor>
     </div>
 

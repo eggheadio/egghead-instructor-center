@@ -1,24 +1,25 @@
 import 'tachyons-egghead'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Localization, {Text} from 'react-localize'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import {initializeErrorTracking} from 'utils/errorTracking'
-import localizationBundle from 'utils/localizationBundle'
-import {guideUrl, chatUrl} from 'utils/urls'
-import {login, logout} from 'utils/authentication'
-import WrappedRequest from 'components/WrappedRequest'
-import Main from 'components/Main'
+import {
+  login,
+  logout,
+  Request,
+  InstructorDashboard,
+  NewLesson,
+  LessonDetails,
+  LessonsDirectory,
+  InstructorDetails,
+  InstructorsDirectory,
+} from 'egghead-ui'
+import {initializeErrorTracking} from './utils/errorTracking'
+import {guideUrl, chatUrl} from './utils/urls'
+import Main from './components/Main'
 import LoggedOut from './components/LoggedOut'
 import InstructorsOnly from './components/InstructorsOnly'
 import RouteNotFound from './components/RouteNotFound'
 import Navigation from './components/Navigation'
-import Dashboard from './screens/Dashboard'
-import New from './screens/Lessons/screens/New'
-import Lesson from './screens/Lessons/screens/Lesson'
-import Lessons from './screens/Lessons'
-import Instructor from './screens/Instructors/screens/Instructor'
-import Instructors from './screens/Instructors'
 
 const App = () => {
 
@@ -26,9 +27,7 @@ const App = () => {
 
   if(!decodedToken) {
     return (
-      <Localization messages={localizationBundle}>
-        <LoggedOut />
-      </Localization>
+      <LoggedOut />
     )
   }
 
@@ -37,16 +36,14 @@ const App = () => {
   }
 
   return (
-    <WrappedRequest url={decodedToken.user_url}>
+    <Request url={decodedToken.user_url}>
       {({data}) => {
 
         const user = data
 
         if(user && !user.instructor_url) {
           return (
-            <Localization messages={localizationBundle}>
-              <InstructorsOnly />
-            </Localization>
+            <InstructorsOnly />
           )
         }
         if (process.env.NODE_ENV === 'production') {
@@ -54,130 +51,147 @@ const App = () => {
         }
 
         return (
-          <BrowserRouter>
-            <Localization messages={localizationBundle}>
-              <WrappedRequest url={data.instructor_url}>
-                {({data}) => {
-                  const instructor = data
-                  return (
+          <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1`}>
+            {({data}) => {
+              const rootData = data
 
-                    <div className='flex'>
+              return (
+                <BrowserRouter>
 
-                      <Navigation
-                        instructor={instructor}
-                        items={[
-                          {
-                            text: <Text message='navigation.dashboard' />,
-                            action: '/',
-                            iconType: 'home',
-                          },
-                          {
-                            text: <Text message='navigation.lessons' />,
-                            action: '/lessons',
-                            iconType: 'list-ul',
-                          },
-                          {
-                            text: <Text message='navigation.instructors' />,
-                            action: '/instructors',
-                            iconType: 'user',
-                          },
-                          {
-                            text: <Text message='navigation.guide' />,
-                            action: guideUrl,
-                            iconType: 'question',
-                          },
-                          {
-                            text: <Text message='navigation.chat' />,
-                            action: chatUrl,
-                            iconType: 'slack',
-                          },
-                          {
-                            text: <Text message='navigation.logout' />,
-                            action: logout,
-                            iconType: 'sign-out',
-                          },
-                        ]}
-                      />
+                  <Request url={user.instructor_url}>
+                    {({data}) => {
+                      const instructor = data
 
-                      <Main>
+                      return (
 
-                        <Switch>
+                        <div className='flex'>
 
-                          <Route 
-                            exact
-                            path='/'
-                            render={() => (
-                              <Dashboard instructor={instructor} />
-                            )}
+                          <Navigation
+                            instructor={instructor}
+                            items={[
+                              {
+                                text: 'Dashboard',
+                                action: '/',
+                                iconType: 'home',
+                              },
+                              {
+                                text: 'Lessons',
+                                action: '/lessons',
+                                iconType: 'list-ul',
+                              },
+                              {
+                                text: 'Instructors',
+                                action: '/instructors',
+                                iconType: 'user',
+                              },
+                              {
+                                text: 'Guide',
+                                action: guideUrl,
+                                iconType: 'question',
+                              },
+                              {
+                                text: 'Chat',
+                                action: chatUrl,
+                                iconType: 'slack',
+                              },
+                              {
+                                text: 'Log Out',
+                                action: logout,
+                                iconType: 'sign-out',
+                              },
+                            ]}
                           />
 
-                          <Route 
-                            exact
-                            path='/lessons/new'
-                            render={() => (
-                              <New instructor={instructor} />
-                            )}
-                          />
+                          <Main>
 
-                          <Route 
-                            path={`/lessons/:slug`}
-                            render={({match}) => (
-                              <WrappedRequest
-                                url={`/api/v1/lessons/${match.params.slug}`}
-                                subscribe
-                              >
-                                {({request, data}) => (
-                                  <Lesson 
-                                    instructor={instructor}
-                                    lesson={data} 
-                                    requestLesson={request}
+                            <Switch>
+
+                              <Route 
+                                exact
+                                path='/'
+                                render={() => (
+                                  <InstructorDashboard 
+                                    instructor={instructor} 
+                                    lessonsUrl={rootData.lessons_url}
+                                    technologiesUrl={rootData.technologies_url}
                                   />
                                 )}
-                              </WrappedRequest>
-                            )}
-                          />
+                              />
 
-                          <Route 
-                            path='/lessons'
-                            render={() => (
-                              <Lessons instructor={instructor} />
-                            )}
-                          />
-
-                          <Route 
-                            path={`/instructors/:slug`}
-                            render={({match}) => (
-                              <WrappedRequest url={`/api/v1/instructors/${match.params.slug}`}>
-                                {({data}) => (
-                                  <Instructor instructor={data} />
+                              <Route 
+                                exact
+                                path='/lessons/new'
+                                render={() => (
+                                  <NewLesson 
+                                    instructor={instructor} 
+                                    lessonsUrl={rootData.lessons_url}
+                                    technologiesUrl={rootData.technologies_url}
+                                  />
                                 )}
-                              </WrappedRequest>
-                            )}
-                          />
+                              />
 
-                          <Route
-                            path='/instructors'
-                            render={() => (
-                              <Instructors instructors={data} />
-                            )}
-                          />
+                              <Route 
+                                path={`/lessons/:slug`}
+                                render={({match}) => (
+                                  <Request
+                                    url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons/${match.params.slug}`}
+                                    subscribe
+                                  >
+                                    {({request, data}) => (
+                                      <LessonDetails
+                                        instructor={instructor}
+                                        lesson={data} 
+                                        requestLesson={request}
+                                      />
+                                    )}
+                                  </Request>
+                                )}
+                              />
 
-                          <Route component={RouteNotFound} />
+                              <Route 
+                                path='/lessons'
+                                render={() => (
+                                  <LessonsDirectory lessonsUrl={rootData.lessons_url} />
+                                )}
+                              />
 
-                        </Switch>
+                              <Route 
+                                path={`/instructors/:slug`}
+                                render={({match}) => (
+                                  <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/instructors/${match.params.slug}`}>
+                                    {({data}) => (
+                                      <InstructorDetails instructor={data} />
+                                    )}
+                                  </Request>
+                                )}
+                              />
 
-                      </Main>
+                              <Route
+                                path='/instructors'
+                                render={() => (
+                                  <InstructorsDirectory instructorsUrl={rootData.instructors_url} />
+                                )}
+                              />
 
-                    </div>
+                              <Route component={RouteNotFound} />
 
-                  )
-                }}
-              </WrappedRequest>
-            </Localization>
-          </BrowserRouter>
+                            </Switch>
+
+                          </Main>
+
+                        </div>
+
+                      )
+                    }}
+                  </Request>
+
+                </BrowserRouter>
+              )
+            }}
+          </Request>
         )
       }}
-    </WrappedRequest>
+    </Request>
   )
 }
 

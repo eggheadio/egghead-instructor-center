@@ -16,24 +16,14 @@
     "react-scripts": "^0.8.4"
   },
   "dependencies": {
-    "chart.js": "^2.5.0",
-    "egghead-ui": "^4.7.1",
-    "format-number": "^2.0.1",
-    "hex-rgba": "^1.0.1",
+    "egghead-ui": "^5.1.2",
     "honeybadger-js": "^0.4.3",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.16.2",
-    "pluralize": "^4.0.0",
     "react": "^15.4.2",
-    "react-addons-create-fragment": "^15.4.2",
-    "react-chartjs-2": "^2.0.5",
     "react-dom": "^15.4.2",
-    "react-localize": "github:eggheadio/react-localize#2.0.2",
-    "react-paginate": "^2.2.3",
-    "react-router-dom": "4.0.0-beta.7",
-    "react-tabs": "^0.8.2",
-    "react-truncate": "^1.1.4",
-    "sort-by": "^1.2.0",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "tachyons-egghead": "^2.3.1"
   },
   "engines": {
