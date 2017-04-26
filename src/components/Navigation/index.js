@@ -7,7 +7,6 @@ import {
   Avatar, 
   IconLabel,
 } from 'egghead-ui'
-import {Text} from 'react-localize'
 import {map, isFunction, startsWith} from 'lodash'
 import {navigationWidth, smallContainerWidth} from 'utils/hardCodedSizes'
 import {EggoInstructorBanner} from 'components/Logo'
@@ -198,7 +197,7 @@ export default class Navigation extends Component {
                   size='extra-small'
                   color='green'
                 >
-                  <Text message='navigation.action' />
+                  New lesson
                 </Button>
               </Link>
             </div>
