@@ -16,7 +16,7 @@
     "react-scripts": "^0.8.4"
   },
   "dependencies": {
-    "egghead-ui": "^5.0.4",
+    "egghead-ui": "^5.0.6",
     "honeybadger-js": "^0.4.3",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.16.2",
