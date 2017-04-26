@@ -1728,9 +1728,9 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-egghead-ui@^5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-5.0.6.tgz#61ec51613268bd4d083db374289be18b911ef32c"
+egghead-ui@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-5.1.2.tgz#0f04f392b752b6c16ccbeb1f137f5823f9eeb7d9"
   dependencies:
     axios "^0.15.3"
     chart.js "^2.5.0"
