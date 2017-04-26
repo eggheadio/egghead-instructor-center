@@ -134,7 +134,7 @@ const App = () => {
                                 path={`/lessons/:slug`}
                                 render={({match}) => (
                                   <Request
-                                    url={`/api/v1/lessons/${match.params.slug}`}
+                                    url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/lessons/${match.params.slug}`}
                                     subscribe
                                   >
                                     {({request, data}) => (
@@ -158,7 +158,7 @@ const App = () => {
                               <Route 
                                 path={`/instructors/:slug`}
                                 render={({match}) => (
-                                  <Request url={`/api/v1/instructors/${match.params.slug}`}>
+                                  <Request url={`${process.env.REACT_APP_EGGHEAD_BASE_URL}/api/v1/instructors/${match.params.slug}`}>
                                     {({data}) => (
                                       <InstructorDetails instructor={data} />
                                     )}
