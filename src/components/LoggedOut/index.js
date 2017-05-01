@@ -16,12 +16,18 @@ export default () => (
       <InstructorBanner className='w-100 mw6' />
     </div>
 
-    <div className='mb5'>
-      <Anchor url={getLoginUrl()}>
-        <Button>
+    <div className='mb5 tc center'>
+      <a 
+        href={getLoginUrl()}
+        className='no-underline'
+      >
+        <Button 
+          size='xlarge'
+          overDark
+        >
           Sign in via egghead
         </Button>
-      </Anchor>
+      </a>
     </div>
 
     <div className='flex justify-center'>

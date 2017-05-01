@@ -191,16 +191,17 @@ export default class Navigation extends Component {
               })}
             </nav>
 
-            <div className='mv2 mv4-ns tc'>
-              <Link to={'/lessons/new'}>
-                <Button 
-                  size='extra-small'
-                  color='green'
-                >
-                  New lesson
-                </Button>
-              </Link>
-            </div>
+            <Link 
+              to={'/lessons/new'}
+              className='no-underline mv2 mv4-ns flex justify-center'
+            >
+              <Button 
+                size='small'
+                color='green'
+              >
+                New lesson
+              </Button>
+            </Link>
 
           </aside>
         )}
