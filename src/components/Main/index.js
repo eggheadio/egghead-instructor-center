@@ -1,16 +1,16 @@
 import React, {PropTypes} from 'react'
-import {ContainerWidth} from 'egghead-ui'
+import {ViewportWidth} from 'egghead-ui'
 import {navigationWidth} from 'utils/hardCodedSizes'
 
 const Main = ({children}) => (
-  <ContainerWidth>
-    {(screenSize) => (
+  <ViewportWidth>
+    {(isLikelyDesktop) => (
       <main 
         className='h-100 w-100 mt4 mt0-ns'
         style={{
-          marginLeft: screenSize === 'small'
-            ? 0
-            : navigationWidth
+          marginLeft: isLikelyDesktop
+            ? navigationWidth
+            : 0
         }}
       >
         <div 
@@ -23,7 +23,7 @@ const Main = ({children}) => (
         </div>
       </main>
     )}
-  </ContainerWidth>
+  </ViewportWidth>
 )
 
 Main.propTypes = {

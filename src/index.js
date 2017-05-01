@@ -6,6 +6,7 @@ import {
   login,
   logout,
   Request,
+  ViewportWidth,
   InstructorDashboard,
   NewLesson,
   LessonDetails,
@@ -66,41 +67,46 @@ const App = () => {
 
                         <div className='flex'>
 
-                          <Navigation
-                            instructor={instructor}
-                            items={[
-                              {
-                                text: 'Dashboard',
-                                action: '/',
-                                iconType: 'home',
-                              },
-                              {
-                                text: 'Lessons',
-                                action: '/lessons',
-                                iconType: 'list-ul',
-                              },
-                              {
-                                text: 'Instructors',
-                                action: '/instructors',
-                                iconType: 'user',
-                              },
-                              {
-                                text: 'Guide',
-                                action: guideUrl,
-                                iconType: 'question',
-                              },
-                              {
-                                text: 'Chat',
-                                action: chatUrl,
-                                iconType: 'slack',
-                              },
-                              {
-                                text: 'Log Out',
-                                action: logout,
-                                iconType: 'sign-out',
-                              },
-                            ]}
-                          />
+                          <ViewportWidth>
+                            {(isLikelyDesktop) => (
+                              <Navigation
+                                instructor={instructor}
+                                items={[
+                                  {
+                                    text: 'Dashboard',
+                                    action: '/',
+                                    iconType: 'home',
+                                  },
+                                  {
+                                    text: 'Lessons',
+                                    action: '/lessons',
+                                    iconType: 'list-ul',
+                                  },
+                                  {
+                                    text: 'Instructors',
+                                    action: '/instructors',
+                                    iconType: 'user',
+                                  },
+                                  {
+                                    text: 'Guide',
+                                    action: guideUrl,
+                                    iconType: 'question',
+                                  },
+                                  {
+                                    text: 'Chat',
+                                    action: chatUrl,
+                                    iconType: 'slack',
+                                  },
+                                  {
+                                    text: 'Log Out',
+                                    action: logout,
+                                    iconType: 'sign-out',
+                                  },
+                                ]}
+                                isLikelyDesktop={isLikelyDesktop}
+                              />
+                            )}
+                          </ViewportWidth>
 
                           <Main>
 
