@@ -181,6 +181,7 @@ export default class Navigation extends Component {
           <Button 
             size='small'
             color='green'
+            overDark
           >
             New lesson
           </Button>
