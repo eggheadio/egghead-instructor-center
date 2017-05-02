@@ -1728,9 +1728,9 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-egghead-ui@^6.1.4:
-  version "6.1.4"
-  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-6.1.4.tgz#27bf1d7efa1d6e1dd2917b420a13040248b8873d"
+egghead-ui@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/egghead-ui/-/egghead-ui-6.5.0.tgz#831f03813d27172548f101a2b108d7b7a9655389"
   dependencies:
     axios "^0.15.3"
     chart.js "^2.5.0"
@@ -1742,7 +1742,7 @@ egghead-ui@^6.1.4:
     jwt-simple "^0.5.1"
     lodash "^4.16.2"
     react-chartjs-2 "^2.0.5"
-    react-icons "github:eggheadio/react-icons#3.0.2"
+    react-icons "github:eggheadio/react-icons#3.3.0"
     react-markdown "^2.4.5"
     react-paginate "^4.3.1"
     react-router "^4.1.1"
@@ -4523,9 +4523,9 @@ react-icon-base@2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/react-icon-base/-/react-icon-base-2.0.4.tgz#b6b7662e8b009b270a4f0c213c222f5d6eca3b22"
 
-"react-icons@github:eggheadio/react-icons#3.0.2":
-  version "3.0.2"
-  resolved "https://codeload.github.com/eggheadio/react-icons/tar.gz/44fdcae9c967d5cbecdac890734aebea8350c096"
+"react-icons@github:eggheadio/react-icons#3.3.0":
+  version "3.3.0"
+  resolved "https://codeload.github.com/eggheadio/react-icons/tar.gz/7288a8af6ab15180d71e36795af27b5d0b0b0a56"
   dependencies:
     react "^15.0.0"
     react-dom "^15.0.0"
