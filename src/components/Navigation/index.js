@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {NavLink, Link} from 'react-router-dom'
 import {Icon, Button, Avatar, IconLabel} from 'egghead-ui'
 import {map, isFunction, startsWith} from 'lodash'
@@ -32,8 +33,8 @@ export default class Navigation extends Component {
     items: PropTypes.arrayOf(PropTypes.shape({
       text: PropTypes.node.isRequired,
       action: PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.func,
+        PropTypes.string,
+        PropTypes.func,
       ]).isRequired,
     })).isRequired,
   }
