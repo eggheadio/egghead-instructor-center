@@ -39,25 +39,26 @@ export default class Navigation extends Component {
   }
 
   state = {
-    isOpen: true,
+    isManuallyOpen: false,
   }
 
   close = () => {
     this.setState({
-      isOpen: false,
+      isManuallyOpen: false,
     })
   }
 
   toggle = () => {
     this.setState({
-      isOpen: !this.state.isOpen,
+      isManuallyOpen: !this.state.isManuallyOpen,
     })
   }
 
   render() {
 
     const {instructor, items, isLikelyDesktop} = this.props
-    const {isOpen} = this.state
+    const {isManuallyOpen} = this.state
+    const isOpen = isManuallyOpen || isLikelyDesktop
 
     return (
       <aside

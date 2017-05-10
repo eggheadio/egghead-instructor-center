@@ -1,13 +1,14 @@
 {
   "name": "egghead-instructor-center",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=7.0.0"
+  },
   "scripts": {
     "dev": "REACT_APP_EGGHEAD_BASE_URL=http://egghead.dev:5000 PORT=3001 NODE_PATH=./src react-scripts start",
     "dev:staging": "REACT_APP_EGGHEAD_BASE_URL=https://egghead-io-staging.com PORT=3001 NODE_PATH=./src react-scripts start",
-    "dev:prod": "REACT_APP_EGGHEAD_BASE_URL=https://egghead.io PORT=3001 NODE_PATH=./src react-scripts start",
-    "test": "NODE_PATH=./src react-scripts test --env=jsdom",
-    "build": "REACT_APP_EGGHEAD_BASE_URL=https://egghead.io NODE_PATH=./src react-scripts build",
-    "verify": "CI=true yarn test && yarn build"
+    "verify": "yarn build",
+    "build": "REACT_APP_EGGHEAD_BASE_URL=https://egghead.io NODE_PATH=./src react-scripts build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -16,7 +17,7 @@
     "react-scripts": "^0.8.4"
   },
   "dependencies": {
-    "egghead-ui": "^6.5.0",
+    "egghead-ui": "^6.5.1",
     "honeybadger-js": "^0.4.3",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.16.2",
@@ -25,9 +26,5 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "tachyons-egghead": "^2.3.1"
-  },
-  "engines": {
-    "node": ">=7.0.0"
-  },
-  "private": true
+  }
 }
