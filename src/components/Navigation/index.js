@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {NavLink, Link} from 'react-router-dom'
 import {Icon, Button, Avatar, IconLabel} from 'egghead-ui'
 import {map, isFunction, startsWith} from 'lodash'
@@ -32,32 +33,33 @@ export default class Navigation extends Component {
     items: PropTypes.arrayOf(PropTypes.shape({
       text: PropTypes.node.isRequired,
       action: PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.func,
+        PropTypes.string,
+        PropTypes.func,
       ]).isRequired,
     })).isRequired,
   }
 
   state = {
-    isOpen: true,
+    isManuallyOpen: false,
   }
 
   close = () => {
     this.setState({
-      isOpen: false,
+      isManuallyOpen: false,
     })
   }
 
   toggle = () => {
     this.setState({
-      isOpen: !this.state.isOpen,
+      isManuallyOpen: !this.state.isManuallyOpen,
     })
   }
 
   render() {
 
     const {instructor, items, isLikelyDesktop} = this.props
-    const {isOpen} = this.state
+    const {isManuallyOpen} = this.state
+    const isOpen = isManuallyOpen || isLikelyDesktop
 
     return (
       <aside
