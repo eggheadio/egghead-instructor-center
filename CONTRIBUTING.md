@@ -10,7 +10,7 @@
 - Create a feature branch off of `master`.
 - `yarn dev` to run app with local dev endpoints ([egghead-rails needs to be running locally](https://gist.github.com/trevordmiller/35dcf0a705b8cb610178f18a135ea6e3))
 - `yarn dev:staging` to run app with staging endpoints
-- Open [localhost:3000](http://localhost:3000) to view app
+- Open [localhost:3002](http://localhost:3002) to view app
 - Log in with your egghead instructor account and environment password
 - Component, screen, and util development is done in `egghead-ui` (it can be helpful to work locally with `yarn link`)
 - Submit a pull request to `master`.

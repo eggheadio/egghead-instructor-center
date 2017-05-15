@@ -4,8 +4,8 @@
     "node": ">=7.0.0"
   },
   "scripts": {
-    "dev": "REACT_APP_EGGHEAD_BASE_URL=http://egghead.dev:5000 PORT=3001 NODE_PATH=./src react-scripts start",
-    "dev:staging": "REACT_APP_EGGHEAD_BASE_URL=https://egghead-io-staging.com PORT=3001 NODE_PATH=./src react-scripts start",
+    "dev": "REACT_APP_EGGHEAD_BASE_URL=http://egghead.dev:5000 PORT=3002 NODE_PATH=./src BROWSER=none react-scripts start",
+    "dev:staging": "REACT_APP_EGGHEAD_BASE_URL=https://egghead-io-staging.com PORT=3002 NODE_PATH=./src BROWSER=none react-scripts start",
     "verify": "yarn build",
     "build": "REACT_APP_EGGHEAD_BASE_URL=https://egghead.io NODE_PATH=./src react-scripts build"
   },
@@ -16,7 +16,7 @@
     "react-scripts": "^0.9.5"
   },
   "dependencies": {
-    "egghead-ui": "^6.5.1",
+    "egghead-ui": "^6.7.0",
     "honeybadger-js": "^0.4.7",
     "jwt-simple": "^0.5.1",
     "lodash": "^4.17.4",
