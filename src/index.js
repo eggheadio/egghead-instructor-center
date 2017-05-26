@@ -21,6 +21,7 @@ import LoggedOut from './components/LoggedOut'
 import InstructorsOnly from './components/InstructorsOnly'
 import RouteNotFound from './components/RouteNotFound'
 import Navigation from './components/Navigation'
+import clearUserToken from './utils/clearUserToken'
 
 const App = () => {
 
@@ -43,8 +44,11 @@ const App = () => {
         const user = data
 
         if(user && !user.instructor_url) {
+          clearUserToken()
           return (
-            <InstructorsOnly />
+            <LoggedOut 
+              error
+            />
           )
         }
         if (process.env.NODE_ENV === 'production') {

@@ -1,13 +1,14 @@
 import React from 'react'
-import {Button, Anchor} from 'egghead-ui'
+import {Button, Anchor, Maybe} from 'egghead-ui'
 import {getLoginUrl, guideUrl} from 'utils/urls'
 import {EggoIcon, InstructorBanner} from 'components/Logo'
+import InstructorsOnly from 'components/InstructorsOnly'
 import Cover from './components/Cover'
 import background from './background.jpg'
 
-export default () => (
+export default ({error}) => (
   <Cover image={background}>
-
+    
     <div className='mb4'>
       <EggoIcon className='w4' />
     </div>
@@ -15,7 +16,11 @@ export default () => (
     <div className='mb5'>
       <InstructorBanner className='w-100 mw6' />
     </div>
-
+    <Maybe condition={error}>
+      <div className='tc center mb5'>
+        <InstructorsOnly /> 
+      </div>
+    </Maybe>
     <div className='mb5 tc center'>
       <a 
         href={getLoginUrl()}
