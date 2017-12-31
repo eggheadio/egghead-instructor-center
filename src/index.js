@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom'
 
 const App = () => {
 
-  window.location = 'https://egghead.io'
+  window.location = 'https://instructor.egghead.io/guide'
 
   return null
 }
