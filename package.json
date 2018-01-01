@@ -1,7 +1,7 @@
 {
   "name": "egghead-instructor-center",
   "engines": {
-    "node": "7.10.1"
+    "node": "9.3.0"
   },
   "scripts": {
     "dev": "REACT_APP_EGGHEAD_BASE_URL=http://egghead.dev:5000 PORT=3002 NODE_PATH=./src BROWSER=none react-scripts start",
